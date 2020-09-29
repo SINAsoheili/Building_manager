@@ -21,4 +21,7 @@ interface APIs
 
     @GET("/unit/add")
     fun unitAdd(@Query("owner_name") owner_name:String , @Query("phone") phone:String , @Query("unit_number") unit_number:String , @Query("tag") tag:String , @Query("building_id") building_id:String):Call<UnitAddResponse>
+
+    @GET("/unit/list")
+    fun unitList(@Query("building_id") building_id:Int):Call<List<Unit>>
 }
