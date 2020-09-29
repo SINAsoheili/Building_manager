@@ -10,7 +10,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class BuildingListHandlerAPI constructor(context: Context)
+class API_BuildingListHandler constructor(context: Context)
 {
     private val context : Context = context
 

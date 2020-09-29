@@ -11,7 +11,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RegisterManagerHandlerAPI constructor(context:Context) : Callback<ManagerRegisterResponse>
+class API_RegisterManagerHandler constructor(context:Context) : Callback<ManagerRegisterResponse>
 {
     val context : Context = context
 
