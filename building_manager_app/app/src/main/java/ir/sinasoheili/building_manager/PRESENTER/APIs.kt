@@ -22,7 +22,7 @@ interface APIs
     fun buildingList(@Query("manager_id") manager_id:Int):Call<List<Building>>
 
     @GET("/unit/add")
-    fun unitAdd(@Query("owner_name") owner_name:String , @Query("phone") phone:String , @Query("unit_number") unit_number:String , @Query("tag") tag:String , @Query("building_id") building_id:String):Call<UnitAddResponse>
+    fun unitAdd(@Query("owner_name") owner_name:String , @Query("phone") phone:String , @Query("unit_number") unit_number:Int , @Query("tag") tag:Int , @Query("building_id") building_id:Int):Call<UnitAddResponse>
 
     @GET("/unit/list")
     fun unitList(@Query("building_id") building_id:Int):Call<List<Unit>>
