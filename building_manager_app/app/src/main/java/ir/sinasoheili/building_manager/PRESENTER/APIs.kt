@@ -1,9 +1,6 @@
 package ir.sinasoheili.building_manager.PRESENTER
 
-import ir.sinasoheili.building_manager.MODEL.Building
-import ir.sinasoheili.building_manager.MODEL.BuildingRegisterResponse
-import ir.sinasoheili.building_manager.MODEL.ManagerRegisterResponse
-import ir.sinasoheili.building_manager.MODEL.UnitAddResponse
+import ir.sinasoheili.building_manager.MODEL.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -27,4 +24,7 @@ interface APIs
 
     @GET("/unit/info")
     fun unitInfo(@Query("building_id") building_id:Int , @Query("unit_number") unit_number:Int):Call<Unit>
+
+    @GET("/unit/delete")
+    fun unitDelete(@Query("building_id") building_id:Int , @Query("unit_number") unit_number:Int):Call<UnitDeleteResponse>
 }
