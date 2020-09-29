@@ -24,4 +24,7 @@ interface APIs
 
     @GET("/unit/list")
     fun unitList(@Query("building_id") building_id:Int):Call<List<Unit>>
+
+    @GET("/unit/info")
+    fun unitInfo(@Query("building_id") building_id:Int , @Query("unit_number") unit_number:Int):Call<Unit>
 }
