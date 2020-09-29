@@ -7,6 +7,11 @@ import retrofit2.http.Query
 
 interface APIs
 {
+    companion object
+    {
+        val BASE_URL : String = "http://10.0.2.2:5000"
+    }
+
     @GET("/manager/register")
     fun managerRegister(@Query("password") password:String , @Query("phone") phone:String):Call<ManagerRegisterResponse>
 
