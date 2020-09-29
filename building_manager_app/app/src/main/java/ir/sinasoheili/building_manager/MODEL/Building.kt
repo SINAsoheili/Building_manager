@@ -2,14 +2,14 @@ package ir.sinasoheili.building_manager.MODEL
 
 class Building constructor(name:String , cash:Double=0.0 , address:String , unit_count:Int)
 {
-    private var id : Int = -1
+    var id : Int = -1
     get() = field
     set(value)
     {
         field = value
     }
 
-    private var name : String = name
+    var name : String = name
     get() = field
     set(value)
     {
@@ -19,7 +19,7 @@ class Building constructor(name:String , cash:Double=0.0 , address:String , unit
         }
     }
 
-    private var cash : Double = cash
+    var cash : Double = cash
     get() = field
     set(value)
     {
@@ -29,7 +29,7 @@ class Building constructor(name:String , cash:Double=0.0 , address:String , unit
         }
     }
 
-    private var address : String = address
+    var address : String = address
     get() = field
     set(value)
     {
@@ -39,7 +39,7 @@ class Building constructor(name:String , cash:Double=0.0 , address:String , unit
         }
     }
 
-    private var unit_count : Int = unit_count
+    var unit_count : Int = unit_count
     get() = field
     set(value)
     {
