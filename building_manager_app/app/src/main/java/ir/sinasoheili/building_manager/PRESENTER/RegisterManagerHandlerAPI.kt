@@ -1,7 +1,6 @@
 package ir.sinasoheili.building_manager.PRESENTER
 
 import android.content.Context
-import android.util.Log
 import android.widget.Toast
 import ir.sinasoheili.building_manager.MODEL.Manager
 import ir.sinasoheili.building_manager.MODEL.ManagerRegisterResponse
@@ -31,7 +30,7 @@ class RegisterManagerHandlerAPI constructor(context:Context) : Callback<ManagerR
 
     override fun onFailure(call: Call<ManagerRegisterResponse>, t: Throwable)
     {
-        Toast.makeText(context , context.getString(R.string.toast_on_fail_api) , Toast.LENGTH_SHORT).show()
+        Toast.makeText(context , context.getString(R.string.toast_fail_connect_to_server) , Toast.LENGTH_SHORT).show()
     }
 
     override fun onResponse(call: Call<ManagerRegisterResponse> , response: Response<ManagerRegisterResponse>)
@@ -48,7 +47,7 @@ class RegisterManagerHandlerAPI constructor(context:Context) : Callback<ManagerR
             }
             else
             {
-                Toast.makeText(context , context.getString(R.string.toast_registerManager_status_false), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context , context.getString(R.string.toast_register_server_error), Toast.LENGTH_SHORT).show()
             }
         }
     }

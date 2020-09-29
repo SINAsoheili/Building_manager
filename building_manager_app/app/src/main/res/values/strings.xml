@@ -2,8 +2,8 @@
 
     <string name="app_name">Building_Manager</string>
 
-    <string name="toast_on_fail_api">ارتباط با سرور ممکن نیست! لطفا دوباره امتحان کنید.</string>
+    <string name="toast_fail_connect_to_server">ارتباط با سرور ممکن نیست! لطفا دوباره امتحان کنید.</string>
 
-    <string name="toast_registerManager_status_false">سرور اجازه ‌ذخیره اظلاعات را نمی‌دهد!! لطفا با پشتیبان تماس بگیرید.</string>
+    <string name="toast_register_server_error">سرور اجازه ‌ذخیره اظلاعات را نمی‌دهد!! لطفا با پشتیبان تماس بگیرید.</string>
 
 </resources>
