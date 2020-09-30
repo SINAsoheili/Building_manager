@@ -22,9 +22,9 @@ class API_BuildingListHandler constructor(context: Context)
     private val api : APIs = retrofit.create(APIs::class.java)
 
 
-    fun start(managerId:Int):List<Building>?
+    fun start(managerId:Int):List<Building>
     {
-        var buildingList : List<Building>? = null
+        var buildingList : List<Building> = listOf()
 
         val call : Call<List<Building>> = api.buildingList(managerId)
         call.enqueue(object: Callback<List<Building>>
@@ -38,7 +38,7 @@ class API_BuildingListHandler constructor(context: Context)
             {
                 if(response.code() == 200)
                 {
-                    buildingList = response.body()
+                    buildingList = response.body()!!
                 }
             }
         })
