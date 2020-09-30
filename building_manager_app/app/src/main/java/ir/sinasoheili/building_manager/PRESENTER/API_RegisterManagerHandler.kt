@@ -43,7 +43,7 @@ class API_RegisterManagerHandler constructor(context:Context)
                         val id : Int = response.body()!!.manager_id
                         if(id != -1)
                         {
-                            FilePreferenceHandler.writeToFile(context , Manager.KEY_MANAGER_ID , id.toString())
+                            AuthFilePreferenceHandler.writeToFile(context , AuthFilePreferenceHandler.KEY_MANAGER_ID , id.toString())
                             result = true
                         }
                     }

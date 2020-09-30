@@ -2,11 +2,6 @@ package ir.sinasoheili.building_manager.MODEL
 
 class Manager constructor(id : Int , phone : String)
 {
-    companion object
-    {
-        val KEY_MANAGER_ID : String = "MANAGER_ID"
-    }
-
     var id : Int = id
     get() = field
     set(value)
