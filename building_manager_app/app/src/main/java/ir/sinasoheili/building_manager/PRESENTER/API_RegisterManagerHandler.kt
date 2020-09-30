@@ -11,7 +11,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class API_RegisterManagerHandler constructor(context:Context) : Callback<ManagerRegisterResponse>
+class API_RegisterManagerHandler constructor(context:Context)
 {
     val context : Context = context
 
@@ -22,33 +22,39 @@ class API_RegisterManagerHandler constructor(context:Context) : Callback<Manager
 
     val apis : APIs = retrofit.create(APIs::class.java)
 
-    fun start(password:String , phone:String)
+    fun start(password:String , phone:String):Boolean
     {
+        var result:Boolean = false
+
         val call : Call<ManagerRegisterResponse> =  apis.managerRegister(password , phone)
-        call.enqueue(this)
-    }
-
-    override fun onFailure(call: Call<ManagerRegisterResponse>, t: Throwable)
-    {
-        Toast.makeText(context , context.getString(R.string.toast_fail_connect_to_server) , Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onResponse(call: Call<ManagerRegisterResponse> , response: Response<ManagerRegisterResponse>)
-    {
-        if(response.code() == 200)
+        call.enqueue(object:Callback<ManagerRegisterResponse>
         {
-            if(response.body()!!.status == true)
+            override fun onFailure(call: Call<ManagerRegisterResponse>, t: Throwable)
             {
-                val id : Int = response.body()!!.manager_id
-                if(id != -1)
+                Toast.makeText(context , context.getString(R.string.toast_fail_connect_to_server) , Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<ManagerRegisterResponse> , response: Response<ManagerRegisterResponse>)
+            {
+                if(response.code() == 200)
                 {
-                    FilePreferenceHandler.writeToFile(context , Manager.KEY_MANAGER_ID , id.toString())
+                    if(response.body()!!.status == true)
+                    {
+                        val id : Int = response.body()!!.manager_id
+                        if(id != -1)
+                        {
+                            FilePreferenceHandler.writeToFile(context , Manager.KEY_MANAGER_ID , id.toString())
+                            result = true
+                        }
+                    }
+                    else
+                    {
+                        Toast.makeText(context , context.getString(R.string.toast_register_server_error), Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
-            else
-            {
-                Toast.makeText(context , context.getString(R.string.toast_register_server_error), Toast.LENGTH_SHORT).show()
-            }
-        }
+        })
+
+        return result
     }
 }
