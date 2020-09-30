@@ -7,4 +7,8 @@
     <string name="toast_success_register">با موفقیت ذخیره شد</string>
     <string name="toast_unsuccess_register">‌ذخیره نشد!!!</string>
 
+    <string name="tv_setRole">لطفا نقش خود را در ساختمان اننخاب کنید</string>
+    <string name="btn_setRole_manager">مدیر ساختمان</string>
+    <string name="btn_setRole_user">ساکن ساختمان</string>
+
 </resources>
