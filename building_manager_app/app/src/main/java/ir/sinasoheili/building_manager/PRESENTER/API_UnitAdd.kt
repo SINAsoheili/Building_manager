@@ -22,8 +22,10 @@ class API_UnitAdd constructor(context:Context)
 
     private val api:APIs = retrofit.create(APIs::class.java)
 
-    fun start(unit:Unit)
+    fun start(unit:Unit):Boolean
     {
+        var result:Boolean = false
+
         var call : Call<UnitAddResponse> = api.unitAdd(unit.owner_name , unit.phone , unit.unit_number , unit.tag , unit.building_id)
         call.enqueue(object: Callback<UnitAddResponse>
         {
@@ -36,16 +38,11 @@ class API_UnitAdd constructor(context:Context)
             {
                 if(response.code() == 200)
                 {
-                    if(response.body()!!.status == true)
-                    {
-                        Toast.makeText(context , context.getString(R.string.toast_success_register), Toast.LENGTH_SHORT).show()
-                    }
-                    else
-                    {
-                        Toast.makeText(context , context.getString(R.string.toast_unsuccess_register), Toast.LENGTH_SHORT).show()
-                    }
+                    result = response.body()!!.status
                 }
             }
         })
+
+        return result
     }
 }
