@@ -1,14 +1,13 @@
 package ir.sinasoheili.building_manager.PRESENTER
 
 import android.content.Context
+import android.os.AsyncTask
+import android.util.Log
 import android.widget.Toast
 import ir.sinasoheili.building_manager.MODEL.Manager
 import ir.sinasoheili.building_manager.MODEL.ManagerRegisterResponse
 import ir.sinasoheili.building_manager.R
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
 class API_RegisterManagerHandler constructor(context:Context)
@@ -22,39 +21,28 @@ class API_RegisterManagerHandler constructor(context:Context)
 
     val apis : APIs = retrofit.create(APIs::class.java)
 
-    fun start(password:String , phone:String):Boolean
+    fun start(password:String , phone:String , callBack:callBack)
     {
-        var result:Boolean = false
-
         val call : Call<ManagerRegisterResponse> =  apis.managerRegister(password , phone)
+
         call.enqueue(object:Callback<ManagerRegisterResponse>
         {
             override fun onFailure(call: Call<ManagerRegisterResponse>, t: Throwable)
             {
-                Toast.makeText(context , context.getString(R.string.toast_fail_connect_to_server) , Toast.LENGTH_SHORT).show()
+                callBack.onFailure()
             }
 
             override fun onResponse(call: Call<ManagerRegisterResponse> , response: Response<ManagerRegisterResponse>)
             {
-                if(response.code() == 200)
-                {
-                    if(response.body()!!.status == true)
-                    {
-                        val id : Int = response.body()!!.manager_id
-                        if(id != -1)
-                        {
-                            AuthFilePreferenceHandler.writeToFile(context , AuthFilePreferenceHandler.KEY_MANAGER_ID , id.toString())
-                            result = true
-                        }
-                    }
-                    else
-                    {
-                        Toast.makeText(context , context.getString(R.string.toast_register_server_error), Toast.LENGTH_SHORT).show()
-                    }
-                }
+                callBack.onResponse(response)
             }
         })
+    }
 
-        return result
+
+    interface callBack
+    {
+        fun onFailure()
+        fun onResponse(response:Response<ManagerRegisterResponse>)
     }
 }
