@@ -2,8 +2,10 @@ package ir.sinasoheili.building_manager.VIEW
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
+import com.google.android.material.snackbar.Snackbar
 import ir.sinasoheili.building_manager.MODEL.Building
 import ir.sinasoheili.building_manager.PRESENTER.ContractBuildingList
 import ir.sinasoheili.building_manager.PRESENTER.PresenterBuildingList
@@ -49,8 +51,17 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
     {
         visibleList()
 
-        val adapte : ArrayAdapter<Building> = ArrayAdapter(this@BuildingListActivity , android.R.layout.simple_list_item_1 , buildingList)
-        lv_buildingList.adapter = adapte
+        val adapter : AdapterBuildingList = AdapterBuildingList(this@BuildingListActivity , buildingList)
+        lv_buildingList.adapter = adapter
+
+        listView!!.setOnItemClickListener(object : AdapterView.OnItemClickListener
+        {
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
+            {
+                Toast.makeText(this@BuildingListActivity , buildingList.get(p2).toString() , Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
     override fun onClick(view : View?)

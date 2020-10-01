@@ -19,4 +19,7 @@
 
     <string name="retry">تلاش مجدد!</string>
 
+    <string name="cash">موجودی</string>
+    <string name="unit_count">تعداد واحد</string>
+
 </resources>
