@@ -1,5 +1,6 @@
 package ir.sinasoheili.building_manager
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.Toast
+import ir.sinasoheili.building_manager.PRESENTER.AuthFilePreferenceHandler
+import ir.sinasoheili.building_manager.VIEW.BuildingListActivity
 import ir.sinasoheili.building_manager.VIEW.FragmentSetRoleManager
 import ir.sinasoheili.building_manager.VIEW.FragmentSetRoleUser
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,7 +24,14 @@ class MainActivity : AppCompatActivity() , View.OnClickListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        initObj()
+        if(isManagerRegistered())
+        {
+            goToBuildingListActivity()
+        }
+        else
+        {
+            initObj()
+        }
     }
 
     override fun onStop()
@@ -56,5 +66,17 @@ class MainActivity : AppCompatActivity() , View.OnClickListener
                 supportFragmentManager.beginTransaction().replace(R.id.fl_setRole , userFragment).addToBackStack(null).commit()
             }
         }
+    }
+
+    fun isManagerRegistered():Boolean
+    {
+        return AuthFilePreferenceHandler.containKey(this@MainActivity , AuthFilePreferenceHandler.KEY_MANAGER_ID)
+    }
+
+    fun goToBuildingListActivity()
+    {
+        val intent:Intent = Intent(this@MainActivity , BuildingListActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
