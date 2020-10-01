@@ -98,6 +98,7 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
 
     override fun moveToBuildingListActivity()
     {
+        fragmentManager!!.beginTransaction().remove(this).commit()
         val intent : Intent = Intent(context , BuildingListActivity::class.java)
         startActivity(intent)
     }

@@ -24,6 +24,12 @@ class MainActivity : AppCompatActivity() , View.OnClickListener
         initObj()
     }
 
+    override fun onStop()
+    {
+        super.onStop()
+        finish()
+    }
+
     private fun initObj()
     {
         btn_manager = findViewById(R.id.btn_setRole_manager)
