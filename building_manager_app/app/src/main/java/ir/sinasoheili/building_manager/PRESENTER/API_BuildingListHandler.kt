@@ -22,27 +22,26 @@ class API_BuildingListHandler constructor(context: Context)
     private val api : APIs = retrofit.create(APIs::class.java)
 
 
-    fun start(managerId:Int):List<Building>
+    fun start(managerId:Int , callBack:CallBack)
     {
-        var buildingList : List<Building> = listOf()
-
         val call : Call<List<Building>> = api.buildingList(managerId)
         call.enqueue(object: Callback<List<Building>>
         {
             override fun onFailure(call: Call<List<Building>>, t: Throwable)
             {
-                Toast.makeText(context , context.getString(R.string.toast_fail_connect_to_server) , Toast.LENGTH_SHORT).show()
+                callBack.onFailure()
             }
 
             override fun onResponse(call: Call<List<Building>> , response: Response<List<Building>>)
             {
-                if(response.code() == 200)
-                {
-                    buildingList = response.body()!!
-                }
+                callBack.onResponse(response)
             }
         })
+    }
 
-        return buildingList
+    interface CallBack
+    {
+        fun onFailure()
+        fun onResponse(response:Response<List<Building>>)
     }
 }
