@@ -3,7 +3,6 @@ package ir.sinasoheili.building_manager.VIEW
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
@@ -74,7 +73,7 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
     {
         visibleListView()
 
-        val adapter : ArrayAdapter<Unit> = ArrayAdapter(this@UnitListActivity , android.R.layout.simple_list_item_1 , list)
+        val adapter : UnitListAdapter = UnitListAdapter(this@UnitListActivity , list)
         listView!!.adapter = adapter
     }
 

@@ -24,4 +24,8 @@
 
     <string name="empty_unit_list">هنوز واحدی به این ساختمان اضافه نشده است!</string>
 
+    <string name="unit_list_item_unitNumber">واحد</string>
+    <string name="unit_list_item_ownerName">مالک</string>
+    <string name="unit_list_item_tag">پلاک</string>
+
 </resources>
