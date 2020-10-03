@@ -21,28 +21,30 @@ class API_UnitListHandler constructor(context: Context)
 
     private val api:APIs = retrofit.create(APIs::class.java)
 
-    fun start(buildingId:Int):List<Unit>
+    fun start(buildingId:Int , callback:CallBack)
     {
-        var unitList:List<Unit> = listOf()
-
         val call:Call<List<Unit>> = api.unitList(buildingId)
         call.enqueue(object: Callback<List<Unit>>
         {
             override fun onFailure(call: Call<List<Unit>>, t: Throwable)
             {
-                Toast.makeText(context , context.getString(R.string.toast_fail_connect_to_server) , Toast.LENGTH_SHORT).show()
+                callback.onFailure()
             }
 
             override fun onResponse(call: Call<List<Unit>>, response: Response<List<Unit>>)
             {
                 if(response.code() == 200)
                 {
-                    unitList = response.body()!!
+                    callback.onResponse(response.body()!!)
                 }
             }
 
         })
+    }
 
-        return unitList
+    interface CallBack
+    {
+        fun onFailure()
+        fun onResponse(unitList:List<Unit>)
     }
 }
