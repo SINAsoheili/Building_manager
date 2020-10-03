@@ -22,4 +22,6 @@
     <string name="cash">موجودی</string>
     <string name="unit_count">تعداد واحد</string>
 
+    <string name="empty_unit_list">هنوز واحدی به این ساختمان اضافه نشده است!</string>
+
 </resources>
