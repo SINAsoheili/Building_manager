@@ -1,6 +1,8 @@
 package ir.sinasoheili.building_manager.MODEL
 
-class Unit constructor(owner_name:String , phone:String , unit_number:Int , tag:Int , building_id:Int)
+import java.io.Serializable
+
+class Unit constructor(owner_name:String , phone:String , unit_number:Int , tag:Int , building_id:Int) : Serializable
 {
     var owner_name : String = owner_name
     get() = field
