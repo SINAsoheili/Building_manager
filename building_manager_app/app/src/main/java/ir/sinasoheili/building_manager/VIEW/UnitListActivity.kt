@@ -1,8 +1,10 @@
 package ir.sinasoheili.building_manager.VIEW
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
@@ -75,6 +77,16 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
 
         val adapter : UnitListAdapter = UnitListAdapter(this@UnitListActivity , list)
         listView!!.adapter = adapter
+
+        listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener
+        {
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
+            {
+                val intent : Intent = Intent(this@UnitListActivity , UnitInfoActivity::class.java)
+                intent.putExtra("unit" , list.get(p2))
+                startActivity(intent)
+            }
+        })
     }
 
     override fun onClick(view: View?)
