@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/menu_bab_unitList_addNotification"
         android:title="@string/menu_bab_unitList_addNotification"
+        android:icon="@drawable/ic_notifications"
+        app:showAsAction="ifRoom"
         />
 
     <item
         android:id="@+id/menu_bab_unitList_addReceipt"
         android:title="@string/menu_bab_unitList_addReceipt"
+        android:icon="@drawable/ic_receipt"
+        app:showAsAction="ifRoom"
         />
 
     <item
         android:id="@+id/menu_bab_unitList_addRepair"
         android:title="@string/menu_bab_unitList_addRepair"
+        android:icon="@drawable/ic_repair"
+        app:showAsAction="ifRoom"
         />
 
 </menu>
