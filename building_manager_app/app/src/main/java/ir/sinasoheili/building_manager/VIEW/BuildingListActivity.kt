@@ -4,8 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.appcompat.widget.Toolbar
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import ir.sinasoheili.building_manager.MODEL.Building
 import ir.sinasoheili.building_manager.PRESENTER.ContractBuildingList
@@ -13,11 +17,13 @@ import ir.sinasoheili.building_manager.PRESENTER.PresenterBuildingList
 import ir.sinasoheili.building_manager.R
 import kotlinx.android.synthetic.main.activity_building_list.*
 
-class BuildingListActivity : AppCompatActivity() , ContractBuildingList.ContractBuildingListView , View.OnClickListener
-{
+class BuildingListActivity : AppCompatActivity() , ContractBuildingList.ContractBuildingListView , View.OnClickListener,
+    Toolbar.OnMenuItemClickListener {
     private var listView : ListView? = null
     private var iv_reload : ImageView? = null
     private var tv_retry : TextView? = null
+    private var floatBtnAdd : FloatingActionButton? = null
+    private var bottomAppBar : BottomAppBar? = null
 
     private var presenter : PresenterBuildingList? = null
 
@@ -41,6 +47,12 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
         tv_retry = findViewById(R.id.tv_buildingList_retry)
 
         presenter = PresenterBuildingList(this@BuildingListActivity , this)
+
+        bottomAppBar = findViewById(R.id.bab_buildingList)
+        bottomAppBar!!.setOnMenuItemClickListener(this)
+
+        floatBtnAdd = findViewById(R.id.fab_buildingList)
+        floatBtnAdd!!.setOnClickListener(this)
     }
 
     override fun showReloadButton()
@@ -77,6 +89,11 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
 
                 presenter!!.getBuildingList()
             }
+
+            floatBtnAdd ->
+            {
+                Toast.makeText(this@BuildingListActivity , "add" , Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -92,5 +109,20 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
         listView!!.visibility  = View.VISIBLE
         iv_reload!!.visibility = View.GONE
         tv_retry!!.visibility  = View.GONE
+    }
+
+    override fun onMenuItemClick(item: MenuItem?): Boolean
+    {
+        when(item!!.itemId)
+        {
+            R.id.menu_bab_buildingList_setting ->
+            {
+                Toast.makeText(this@BuildingListActivity , "setting" , Toast.LENGTH_SHORT).show()
+
+                return true
+            }
+        }
+
+        return false
     }
 }

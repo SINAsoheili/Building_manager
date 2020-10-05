@@ -32,4 +32,6 @@
     <string name="menu_bab_unitList_addRepair">تعمیرات</string>
     <string name="menu_bab_unitList_addReceipt">قبض ها</string>
 
+    <string name="menu_bab_buildingList_setting">تنظیمات</string>
+
 </resources>
