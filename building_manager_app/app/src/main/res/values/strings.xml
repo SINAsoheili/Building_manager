@@ -28,4 +28,8 @@
     <string name="unit_list_item_ownerName">مالک</string>
     <string name="unit_list_item_tag">پلاک</string>
 
+    <string name="menu_bab_unitList_addNotification">اطلاعیه</string>
+    <string name="menu_bab_unitList_addRepair">تعمیرات</string>
+    <string name="menu_bab_unitList_addReceipt">قبض ها</string>
+
 </resources>

@@ -3,21 +3,27 @@ package ir.sinasoheili.building_manager.VIEW
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.widget.Toolbar
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.PRESENTER.ContractUnitList
 import ir.sinasoheili.building_manager.PRESENTER.PresenterUnitList
 import ir.sinasoheili.building_manager.R
 
-class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitListView , View.OnClickListener
-{
+class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitListView , View.OnClickListener, Toolbar.OnMenuItemClickListener {
     private var listView : ListView? = null
     private var ivReload : ImageView? = null
     private var tvReload : TextView? = null
+    private var bottomAppBar : BottomAppBar? = null
+    private var floatBtnAdd : FloatingActionButton? = null
+    private var menuItemNotification : MenuItem? = null
+    private var menuItemRepair : MenuItem? = null
+    private var menuItemReceipt : MenuItem? = null
 
     private var buildingId : Int = -1
     private var presenter : PresenterUnitList = PresenterUnitList(this@UnitListActivity , this)
@@ -49,6 +55,12 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
         ivReload!!.setOnClickListener(this)
 
         tvReload = findViewById(R.id.tv_unitList_refresh)
+
+        bottomAppBar = findViewById(R.id.bab_unitList)
+        bottomAppBar!!.setOnMenuItemClickListener(this)
+
+        floatBtnAdd = findViewById(R.id.fab_unitList)
+        floatBtnAdd!!.setOnClickListener(this)
     }
 
     override fun visibleRefreshButton()
@@ -91,9 +103,43 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
 
     override fun onClick(view: View?)
     {
-        if(view!!.equals(ivReload))
+        when(view)
         {
-            presenter.getUnitList(buildingId)
+            ivReload ->
+            {
+                presenter.getUnitList(buildingId)
+            }
+
+            floatBtnAdd ->
+            {
+                Toast.makeText(this@UnitListActivity , "add" , Toast.LENGTH_SHORT).show()
+            }
         }
+    }
+
+    override fun onMenuItemClick(item: MenuItem?): Boolean
+    {
+        when(item!!.itemId)
+        {
+            R.id.menu_bab_unitList_addNotification ->
+            {
+                Toast.makeText(this@UnitListActivity , item.title.toString() , Toast.LENGTH_SHORT).show()
+                return true
+            }
+
+            R.id.menu_bab_unitList_addReceipt ->
+            {
+                Toast.makeText(this@UnitListActivity , item.title.toString() , Toast.LENGTH_SHORT).show()
+                return true
+            }
+
+            R.id.menu_bab_unitList_addRepair ->
+            {
+                Toast.makeText(this@UnitListActivity , item.title.toString() , Toast.LENGTH_SHORT).show()
+                return true
+            }
+        }
+
+        return false
     }
 }
