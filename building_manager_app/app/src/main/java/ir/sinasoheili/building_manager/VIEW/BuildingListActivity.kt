@@ -19,8 +19,8 @@ import ir.sinasoheili.building_manager.R
 import kotlinx.android.synthetic.main.activity_building_list.*
 import kotlinx.android.synthetic.main.fragment_setrole_manager.*
 
-class BuildingListActivity : AppCompatActivity() , ContractBuildingList.ContractBuildingListView , View.OnClickListener,
-    Toolbar.OnMenuItemClickListener {
+class BuildingListActivity : AppCompatActivity() , ContractBuildingList.ContractBuildingListView , View.OnClickListener, Toolbar.OnMenuItemClickListener
+{
     private var listView : ListView? = null
     private var iv_reload : ImageView? = null
     private var tv_retry : TextView? = null
@@ -97,7 +97,14 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
 
             floatBtnAdd ->
             {
-                val fragment : FragmentRegisterNewBuilding = FragmentRegisterNewBuilding()
+                val fragment : FragmentRegisterNewBuilding = FragmentRegisterNewBuilding(object:FragmentRegisterNewBuilding.CallBack
+                {
+                    override fun onBuildingRegistred(building: Building)
+                    {
+                        presenter!!.getBuildingList()
+                    }
+
+                })
                 supportFragmentManager.beginTransaction().replace(R.id.fl_buildingList , fragment).addToBackStack(null).commit()
             }
         }
