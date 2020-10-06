@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:hint="@string/fragment_registerNewUnit_hint_phone"
+            android:maxLength="11"
             />
 
     </com.google.android.material.textfield.TextInputLayout>

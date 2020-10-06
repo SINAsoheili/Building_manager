@@ -116,7 +116,13 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
 
             floatBtnAdd ->
             {
-                val fragment : FragmentRegitsterNewUnit = FragmentRegitsterNewUnit()
+                val fragment : FragmentRegitsterNewUnit = FragmentRegitsterNewUnit(buildingId , object: FragmentRegitsterNewUnit.CallBack
+                {
+                    override fun updateUnitList()
+                    {
+                        presenter.getUnitList(buildingId)
+                    }
+                })
                 supportFragmentManager.beginTransaction().replace(R.id.fl_unitList , fragment).addToBackStack(null).commit()
             }
         }
