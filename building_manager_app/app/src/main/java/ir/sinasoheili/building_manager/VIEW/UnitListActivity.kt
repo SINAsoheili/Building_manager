@@ -14,6 +14,7 @@ import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.PRESENTER.ContractUnitList
 import ir.sinasoheili.building_manager.PRESENTER.PresenterUnitList
 import ir.sinasoheili.building_manager.R
+import kotlinx.android.synthetic.main.fragment_setrole_manager.*
 
 class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitListView , View.OnClickListener, Toolbar.OnMenuItemClickListener {
     private var listView : ListView? = null
@@ -24,6 +25,7 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
     private var menuItemNotification : MenuItem? = null
     private var menuItemRepair : MenuItem? = null
     private var menuItemReceipt : MenuItem? = null
+    private var frameLayout : FrameLayout? = null
 
     private var buildingId : Int = -1
     private var presenter : PresenterUnitList = PresenterUnitList(this@UnitListActivity , this)
@@ -61,6 +63,8 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
 
         floatBtnAdd = findViewById(R.id.fab_unitList)
         floatBtnAdd!!.setOnClickListener(this)
+
+        frameLayout = findViewById(R.id.fl_unitList)
     }
 
     override fun visibleRefreshButton()
@@ -112,7 +116,8 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
 
             floatBtnAdd ->
             {
-                Toast.makeText(this@UnitListActivity , "add" , Toast.LENGTH_SHORT).show()
+                val fragment : FragmentRegitsterNewUnit = FragmentRegitsterNewUnit()
+                supportFragmentManager.beginTransaction().replace(R.id.fl_unitList , fragment).addToBackStack(null).commit()
             }
         }
     }

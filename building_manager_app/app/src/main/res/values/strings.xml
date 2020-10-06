@@ -39,4 +39,9 @@
     <string name="fragment_registerNewBuilding_hint_address">آدرس</string>
     <string name="fragment_registerNewBuilding_hint_unitCount">تعداد واحد</string>
 
+    <string name="fragment_registerNewUnit_hint_ownerName">نام مالک</string>
+    <string name="fragment_registerNewUnit_hint_phone">شماره همراه</string>
+    <string name="fragment_registerNewUnit_hint_unitNumber">شماره واحد</string>
+    <string name="fragment_registerNewUnit_hint_tag">پلاک</string>
+
 </resources>
