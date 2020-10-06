@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -16,6 +17,7 @@ import ir.sinasoheili.building_manager.PRESENTER.ContractBuildingList
 import ir.sinasoheili.building_manager.PRESENTER.PresenterBuildingList
 import ir.sinasoheili.building_manager.R
 import kotlinx.android.synthetic.main.activity_building_list.*
+import kotlinx.android.synthetic.main.fragment_setrole_manager.*
 
 class BuildingListActivity : AppCompatActivity() , ContractBuildingList.ContractBuildingListView , View.OnClickListener,
     Toolbar.OnMenuItemClickListener {
@@ -24,6 +26,7 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
     private var tv_retry : TextView? = null
     private var floatBtnAdd : FloatingActionButton? = null
     private var bottomAppBar : BottomAppBar? = null
+    private var frameLayout : FrameLayout? = null
 
     private var presenter : PresenterBuildingList? = null
 
@@ -53,6 +56,8 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
 
         floatBtnAdd = findViewById(R.id.fab_buildingList)
         floatBtnAdd!!.setOnClickListener(this)
+
+        frameLayout = findViewById(R.id.fl_buildingList)
     }
 
     override fun showReloadButton()
@@ -92,7 +97,8 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
 
             floatBtnAdd ->
             {
-                Toast.makeText(this@BuildingListActivity , "add" , Toast.LENGTH_SHORT).show()
+                val fragment : FragmentRegisterNewBuilding = FragmentRegisterNewBuilding()
+                supportFragmentManager.beginTransaction().replace(R.id.fl_buildingList , fragment).addToBackStack(null).commit()
             }
         }
     }

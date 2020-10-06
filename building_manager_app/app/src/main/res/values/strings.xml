@@ -34,4 +34,9 @@
 
     <string name="menu_bab_buildingList_setting">تنظیمات</string>
 
+    <string name="fragment_registerNewBuilding_hint_name">نام ساختمان</string>
+    <string name="fragment_registerNewBuilding_hint_cash">موجودی حساب ساختمان</string>
+    <string name="fragment_registerNewBuilding_hint_address">آدرس</string>
+    <string name="fragment_registerNewBuilding_hint_unitCount">تعداد واحد</string>
+
 </resources>
