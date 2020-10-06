@@ -22,38 +22,29 @@ class API_BuildingRegisterHandler constructor(context:Context)
 
     private val api : APIs = retrofit.create(APIs::class.java)
 
-    fun start(building:Building, manager_id:Int):Int
+    fun start(building:Building, manager_id:Int , callback:callBack)
     {
-        var id : Int = -1
-
-        val cal : Call<BuildingRegisterResponse> = api.buildingRegister(building.name , building.cash , building.address , building.unit_count , manager_id)
-        cal.enqueue(object:Callback<BuildingRegisterResponse>
+        val call : Call<BuildingRegisterResponse> = api.buildingRegister(building.name , building.cash , building.address , building.unit_count , manager_id)
+        call.enqueue(object:Callback<BuildingRegisterResponse>
         {
             override fun onFailure(call: Call<BuildingRegisterResponse>, t: Throwable)
             {
-                Toast.makeText(context , context.getString(R.string.toast_fail_connect_to_server) , Toast.LENGTH_SHORT).show()
+                callback.onFailure()
             }
 
             override fun onResponse(call: Call<BuildingRegisterResponse> , response: Response<BuildingRegisterResponse>)
             {
                 if(response.code() == 200)
                 {
-                    if(response.body()!!.status == true)
-                    {
-
-                        if(response.body()!!.id != -1)
-                        {
-                            id = response.body()!!.id
-                        }
-                    }
-                    else
-                    {
-                        Toast.makeText(context , context.getString(R.string.toast_register_server_error), Toast.LENGTH_SHORT).show()
-                    }
+                    callback.onResponse(response.body()!!)
                 }
             }
         })
+    }
 
-        return id
+    interface callBack
+    {
+        fun onFailure()
+        fun onResponse(response:BuildingRegisterResponse)
     }
 }
