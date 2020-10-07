@@ -33,4 +33,7 @@ interface APIs
 
     @GET("/unit/delete")
     fun unitDelete(@Query("building_id") building_id:Int , @Query("unit_number") unit_number:Int):Call<UnitDeleteResponse>
+
+    @GET("/notification/add")
+    fun notificationAdd(text:String , date:String , title:String , buildingId:Int) : Call<NotificationAddResponse>
 }
