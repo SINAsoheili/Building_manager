@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".VIEW.UnitInfoActivity"></activity>
+        <activity android:name=".VIEW.ManagerRepairActivity"></activity>
+        <activity android:name=".VIEW.ManagerReceiptActivity" />
+        <activity android:name=".VIEW.ManagerNotifiactionActivity" />
+        <activity android:name=".VIEW.UnitInfoActivity" />
         <activity android:name=".VIEW.UnitListActivity" />
         <activity android:name=".VIEW.BuildingListActivity" />
         <activity android:name=".MainActivity">

@@ -134,19 +134,19 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
         {
             R.id.menu_bab_unitList_addNotification ->
             {
-                Toast.makeText(this@UnitListActivity , item.title.toString() , Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@UnitListActivity , ManagerNotifiactionActivity::class.java))
                 return true
             }
 
             R.id.menu_bab_unitList_addReceipt ->
             {
-                Toast.makeText(this@UnitListActivity , item.title.toString() , Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@UnitListActivity , ManagerReceiptActivity::class.java))
                 return true
             }
 
             R.id.menu_bab_unitList_addRepair ->
             {
-                Toast.makeText(this@UnitListActivity , item.title.toString() , Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@UnitListActivity , ManagerRepairActivity::class.java))
                 return true
             }
         }
