@@ -36,4 +36,7 @@ interface APIs
 
     @GET("/notification/add")
     fun notificationAdd(text:String , date:String , title:String , buildingId:Int) : Call<NotificationAddResponse>
+
+    @GET("/repair/add")
+    fun repairAdd(@Query("date")date:String , @Query("comment")comment:String , @Query("title")title:String , @Query("amount")amount:Double , @Query("buildingId")buildingId:Int):Call<RepairAddResponse>
 }
