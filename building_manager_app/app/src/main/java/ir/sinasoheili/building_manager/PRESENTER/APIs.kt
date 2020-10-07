@@ -39,4 +39,7 @@ interface APIs
 
     @GET("/repair/add")
     fun repairAdd(@Query("date")date:String , @Query("comment")comment:String , @Query("title")title:String , @Query("amount")amount:Double , @Query("buildingId")buildingId:Int):Call<RepairAddResponse>
+
+    @GET("/receipt/add")
+    fun receiptAdd(@Query("receipt_type") receipt_type:Int ,@Query("pay_date") pay_date:String ,@Query("issue_date") issue_date:String ,@Query("amount") amount:Double ,@Query("id_receipt") id_receipt:String ,@Query("id_payment") id_payment:String ,@Query("building_id") building_id:Int):Call<ReceiptAddResponse>
 }
