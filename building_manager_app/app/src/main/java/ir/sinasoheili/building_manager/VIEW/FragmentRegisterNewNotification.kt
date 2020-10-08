@@ -56,7 +56,7 @@ class FragmentRegisterNewNotification(buildingId : Int , callback:CallBack) : Fr
     {
         if(etTitle!!.text.isEmpty())
         {
-            Snackbar.make(etTitle!! , context!!.getString(R.string.fragment_registerNewNotification_fill_title) , Snackbar.LENGTH_SHORT).show()
+            Toast.makeText(context , context!!.getString(R.string.fragment_registerNewNotification_fill_title) , Toast.LENGTH_SHORT).show()
             etTitle?.requestFocus()
             return false
         }
@@ -68,7 +68,7 @@ class FragmentRegisterNewNotification(buildingId : Int , callback:CallBack) : Fr
     {
         if(etText!!.text.isEmpty())
         {
-            Snackbar.make(etText!! , context!!.getString(R.string.fragment_registerNewNotification_fill_text) , Snackbar.LENGTH_SHORT).show()
+            Toast.makeText(context , context!!.getString(R.string.fragment_registerNewNotification_fill_text) , Toast.LENGTH_SHORT).show()
             etText?.requestFocus()
             return false
         }
