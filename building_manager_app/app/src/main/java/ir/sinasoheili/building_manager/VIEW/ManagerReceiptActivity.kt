@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.R
+import ir.sinasoheili.building_manager.VIEW.FragmentRegisterNewReceipt.CallBack
 
 class ManagerReceiptActivity : AppCompatActivity(), View.OnClickListener
 {
@@ -37,7 +38,14 @@ class ManagerReceiptActivity : AppCompatActivity(), View.OnClickListener
         {
             fabRegisterReceipt ->
             {
-                val fragment : FragmentRegisterNewReceipt = FragmentRegisterNewReceipt(buildingId)
+                val fragment : FragmentRegisterNewReceipt = FragmentRegisterNewReceipt(buildingId , object:CallBack
+                {
+                    override fun onRegisteredReceipt()
+                    {
+                        //TODO:get again list of receipt
+                    }
+
+                })
                 supportFragmentManager.beginTransaction().add(R.id.fl_managerReceipt , fragment).addToBackStack(null).commit()
             }
         }
