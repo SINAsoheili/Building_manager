@@ -3,14 +3,15 @@ package ir.sinasoheili.building_manager.VIEW
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import ir.sinasoheili.building_manager.VIEW.FragmentRegisterNewNotification.CallBack
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerNotification
 import ir.sinasoheili.building_manager.R
 
-class ManagerNotifiactionActivity : AppCompatActivity() , ContractManagerNotification.ContractManagerNotificationView, View.OnClickListener
+class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotification.ContractManagerNotificationView, View.OnClickListener
 {
     private var fabAddNotification : FloatingActionButton? = null
+    private var buildingId : Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -18,6 +19,12 @@ class ManagerNotifiactionActivity : AppCompatActivity() , ContractManagerNotific
         setContentView(R.layout.activity_manager_notifiaction)
 
         initObj()
+
+        val bundle : Bundle? = intent.extras
+        if(bundle != null)
+        {
+            buildingId = bundle.getInt("buildingId")
+        }
     }
 
     private fun initObj()
@@ -26,8 +33,22 @@ class ManagerNotifiactionActivity : AppCompatActivity() , ContractManagerNotific
         fabAddNotification!!.setOnClickListener(this)
     }
 
-    override fun onClick(p0: View?)
+    override fun onClick(view: View?)
     {
-        Toast.makeText(this@ManagerNotifiactionActivity , "add" , Toast.LENGTH_SHORT).show()
+        when(view)
+        {
+            fabAddNotification ->
+            {
+                val fragment : FragmentRegisterNewNotification = FragmentRegisterNewNotification(buildingId , object:CallBack
+                {
+                    override fun onNotificationRegistered()
+                    {
+                        //todo:update list of notificaion
+                    }
+
+                })
+                supportFragmentManager.beginTransaction().add(R.id.fl_managerNotification , fragment)
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".VIEW.ManagerRepairActivity"></activity>
         <activity android:name=".VIEW.ManagerReceiptActivity" />
-        <activity android:name=".VIEW.ManagerNotifiactionActivity" />
+        <activity android:name=".VIEW.ManagerNotificationActivity" />
         <activity android:name=".VIEW.UnitInfoActivity" />
         <activity android:name=".VIEW.UnitListActivity" />
         <activity android:name=".VIEW.BuildingListActivity" />

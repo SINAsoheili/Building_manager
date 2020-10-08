@@ -3,7 +3,6 @@ package ir.sinasoheili.building_manager.VIEW
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
@@ -14,7 +13,6 @@ import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.PRESENTER.ContractUnitList
 import ir.sinasoheili.building_manager.PRESENTER.PresenterUnitList
 import ir.sinasoheili.building_manager.R
-import kotlinx.android.synthetic.main.fragment_setrole_manager.*
 
 class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitListView , View.OnClickListener, Toolbar.OnMenuItemClickListener {
     private var listView : ListView? = null
@@ -134,7 +132,9 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
         {
             R.id.menu_bab_unitList_addNotification ->
             {
-                startActivity(Intent(this@UnitListActivity , ManagerNotifiactionActivity::class.java))
+                val intent : Intent = Intent(this@UnitListActivity , ManagerNotificationActivity::class.java)
+                intent.putExtra("buildingId" , buildingId)
+                startActivity(intent)
                 return true
             }
 
