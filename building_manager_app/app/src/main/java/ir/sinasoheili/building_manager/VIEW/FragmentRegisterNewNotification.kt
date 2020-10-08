@@ -2,6 +2,7 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -47,8 +48,9 @@ class FragmentRegisterNewNotification(buildingId : Int , callback:CallBack) : Fr
             val title : String = etTitle!!.text.toString()
             val text : String = etText!!.text.toString()
 
-            val notificaiton : Notification = Notification(text , title , buildingId)
-            presenter!!.registerNewNotification(notificaiton)
+            val notification : Notification = Notification(text , title , buildingId)
+
+            presenter!!.registerNewNotification(notification)
         }
     }
 

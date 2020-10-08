@@ -44,6 +44,6 @@ class Notification constructor(text:String , title:String , building_id:Int)
 
     override fun toString():String
     {
-        return "id:$id | text:$text | date:$date | title:$title | building_id:$building_id"
+        return "id:$id | text:$text | title:$title | building_id:$building_id"
     }
 }
