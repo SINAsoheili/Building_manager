@@ -18,9 +18,9 @@ class API_NotificationAddHandler
 
     val api : APIs = retrofit.create(APIs::class.java)
 
-    fun start(notification:Notification , buildingId:Int , callback:CallBack)
+    fun start(notification:Notification , callback:CallBack)
     {
-        val call : Call<NotificationAddResponse> = api.notificationAdd(notification.text , notification.date , notification.title , buildingId)
+        val call : Call<NotificationAddResponse> = api.notificationAdd(notification.text , notification.title , notification.building_id)
         call.enqueue(object:Callback<NotificationAddResponse>
         {
             override fun onFailure(call: Call<NotificationAddResponse>, t: Throwable)

@@ -35,7 +35,7 @@ interface APIs
     fun unitDelete(@Query("building_id") building_id:Int , @Query("unit_number") unit_number:Int):Call<UnitDeleteResponse>
 
     @GET("/notification/add")
-    fun notificationAdd(@Query("text") text:String ,@Query("date") date:String ,@Query("title") title:String ,@Query("buildingId") buildingId:Int) : Call<NotificationAddResponse>
+    fun notificationAdd(@Query("text") text:String,@Query("title") title:String ,@Query("buildingId") buildingId:Int) : Call<NotificationAddResponse>
 
     @GET("/repair/add")
     fun repairAdd(@Query("date")date:String , @Query("comment")comment:String , @Query("title")title:String , @Query("amount")amount:Double , @Query("buildingId")buildingId:Int):Call<RepairAddResponse>
