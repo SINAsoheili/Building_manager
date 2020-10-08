@@ -47,7 +47,7 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
                     }
 
                 })
-                supportFragmentManager.beginTransaction().add(R.id.fl_managerNotification , fragment)
+                supportFragmentManager.beginTransaction().add(R.id.fl_managerNotification , fragment).addToBackStack(null).commit()
             }
         }
     }
