@@ -44,4 +44,7 @@
     <string name="fragment_registerNewUnit_hint_unitNumber">شماره واحد</string>
     <string name="fragment_registerNewUnit_hint_tag">پلاک</string>
 
+    <string name="fragment_registerNewNotification_fill_title">لطفا عنوان را وارد کنید</string>
+    <string name="fragment_registerNewNotification_fill_text">لطفا متن را وارد کنید</string>
+
 </resources>
