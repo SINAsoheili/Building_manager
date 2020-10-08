@@ -1,7 +1,12 @@
 package ir.sinasoheili.building_manager.MODEL
 
-class Notification constructor(text:String , date:String , title:String , building_id:Int)
+class Notification constructor(text:String , title:String , building_id:Int)
 {
+    constructor(text:String , date:String , title:String , building_id:Int) : this(text , title , building_id)
+    {
+        this.date = date
+    }
+
     var id : Int = -1
     get() = field
     set(value)
@@ -16,7 +21,7 @@ class Notification constructor(text:String , date:String , title:String , buildi
         field = value
     }
 
-    var date : String = date
+    var date : String? = null
     get() = field
     set(value)
     {
