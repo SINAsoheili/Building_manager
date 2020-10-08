@@ -1,0 +1,9 @@
+package ir.sinasoheili.building_manager.PRESENTER
+
+import ir.sinasoheili.building_manager.PRESENTER.ContractRegisterNewRepair.ContractRegisterNewRepairView
+import ir.sinasoheili.building_manager.PRESENTER.ContractRegisterNewRepair.ContractRegisterNewRepairPresenter
+
+class PresenterRegisterNewRepair constructor(View : ContractRegisterNewRepairView): ContractRegisterNewRepairPresenter
+{
+
+}

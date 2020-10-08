@@ -53,4 +53,9 @@
     <string name="fragment_registerNewReceipt_idReceipt">شناسه قبض</string>
     <string name="fragment_registerNewReceipt_idPayment">شناسه پرداخت</string>
 
+    <string name="fragment_registerNewRepair_date">تاریخ</string>
+    <string name="fragment_registerNewRepair_comment">توضیحات</string>
+    <string name="fragment_registerNewRepair_title">عنوان</string>
+    <string name="fragment_registerNewRepair_amount">مبلغ</string>
+
 </resources>
