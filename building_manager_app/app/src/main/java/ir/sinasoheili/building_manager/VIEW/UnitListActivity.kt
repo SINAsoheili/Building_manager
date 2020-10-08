@@ -140,7 +140,9 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
 
             R.id.menu_bab_unitList_addReceipt ->
             {
-                startActivity(Intent(this@UnitListActivity , ManagerReceiptActivity::class.java))
+                val intent : Intent = Intent(this@UnitListActivity , ManagerReceiptActivity::class.java)
+                intent.putExtra("buildingId" , buildingId)
+                startActivity(intent)
                 return true
             }
 

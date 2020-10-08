@@ -9,6 +9,7 @@ import ir.sinasoheili.building_manager.R
 class ManagerReceiptActivity : AppCompatActivity(), View.OnClickListener
 {
     private var fabRegisterReceipt : FloatingActionButton? = null
+    private var buildingId : Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -16,6 +17,12 @@ class ManagerReceiptActivity : AppCompatActivity(), View.OnClickListener
         setContentView(R.layout.activity_manager_receipt)
 
         initObj()
+
+        val bundle : Bundle? = intent.extras
+        if(bundle != null)
+        {
+            buildingId = bundle.getInt("buildingId")
+        }
     }
 
     private fun initObj()
@@ -30,7 +37,7 @@ class ManagerReceiptActivity : AppCompatActivity(), View.OnClickListener
         {
             fabRegisterReceipt ->
             {
-                val fragment : FragmentRegisterNewReceipt = FragmentRegisterNewReceipt()
+                val fragment : FragmentRegisterNewReceipt = FragmentRegisterNewReceipt(buildingId)
                 supportFragmentManager.beginTransaction().add(R.id.fl_managerReceipt , fragment).addToBackStack(null).commit()
             }
         }
