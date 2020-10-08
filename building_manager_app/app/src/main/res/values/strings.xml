@@ -47,4 +47,10 @@
     <string name="fragment_registerNewNotification_fill_title">لطفا عنوان را وارد کنید</string>
     <string name="fragment_registerNewNotification_fill_text">لطفا متن را وارد کنید</string>
 
+    <string name="fragment_registerNewReceipt_payDate">تاریخ پرداخت</string>
+    <string name="fragment_registerNewReceipt_issueDate">تاریخ صدور</string>
+    <string name="fragment_registerNewReceipt_amount">مبلغ</string>
+    <string name="fragment_registerNewReceipt_idReceipt">شناسه قبض</string>
+    <string name="fragment_registerNewReceipt_idPayment">شناسه پرداخت</string>
+
 </resources>
