@@ -1,8 +1,7 @@
 package ir.sinasoheili.building_manager.VIEW
 
-import android.icu.util.LocaleData
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -13,9 +12,6 @@ import ir.sinasoheili.building_manager.MODEL.Notification
 import ir.sinasoheili.building_manager.PRESENTER.ContractRegisterNewNotification
 import ir.sinasoheili.building_manager.PRESENTER.PresenterRegisterNewNotification
 import ir.sinasoheili.building_manager.R
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.util.*
 
 class FragmentRegisterNewNotification(buildingId : Int , callback:CallBack) : Fragment(R.layout.fragment_register_new_notification), View.OnClickListener , ContractRegisterNewNotification.ContractRegisterNewNotificationView
 {
@@ -25,7 +21,7 @@ class FragmentRegisterNewNotification(buildingId : Int , callback:CallBack) : Fr
     private var callback : CallBack = callback
 
     private val buildingId : Int = buildingId
-    private val presenter : ContractRegisterNewNotification.ContractRegisterNewNotificationPresenter = PresenterRegisterNewNotification(context!! , this)
+    private var presenter : PresenterRegisterNewNotification? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -40,6 +36,8 @@ class FragmentRegisterNewNotification(buildingId : Int , callback:CallBack) : Fr
 
         btnSubmit = view.findViewById(R.id.btn_fragment_registerNewNotification_submit)
         btnSubmit!!.setOnClickListener(this)
+
+        presenter = PresenterRegisterNewNotification(view.context , this)
     }
 
     override fun onClick(p0: View?)
@@ -50,7 +48,7 @@ class FragmentRegisterNewNotification(buildingId : Int , callback:CallBack) : Fr
             val text : String = etText!!.text.toString()
 
             val notificaiton : Notification = Notification(text , title , buildingId)
-            presenter.registerNewNotification(notificaiton)
+            presenter!!.registerNewNotification(notificaiton)
         }
     }
 
