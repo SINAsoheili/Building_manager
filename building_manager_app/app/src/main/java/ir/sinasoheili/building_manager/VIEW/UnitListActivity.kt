@@ -148,7 +148,9 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
 
             R.id.menu_bab_unitList_addRepair ->
             {
-                startActivity(Intent(this@UnitListActivity , ManagerRepairActivity::class.java))
+                val intent : Intent = Intent(this@UnitListActivity , ManagerRepairActivity::class.java)
+                intent.putExtra("buildingId" , buildingId)
+                startActivity(intent)
                 return true
             }
         }
