@@ -18,9 +18,9 @@ class API_ReceiptAddHandler
 
     val api : APIs = retrofit.create(APIs::class.java)
 
-    fun start(receipt:Receipt , buildingId:Int , callback:CallBack)
+    fun start(receipt:Receipt , callback:CallBack)
     {
-        val call:Call<ReceiptAddResponse> = api.receiptAdd(receipt.type , receipt.pay_date , receipt.issue_date , receipt.amount , receipt.id_receipt , receipt.id_payment , buildingId)
+        val call:Call<ReceiptAddResponse> = api.receiptAdd(receipt.type , receipt.pay_date , receipt.issue_date , receipt.amount , receipt.id_receipt , receipt.id_payment , receipt.building_id)
         call.enqueue(object:Callback<ReceiptAddResponse>
         {
             override fun onFailure(call: Call<ReceiptAddResponse>, t: Throwable)
