@@ -48,4 +48,7 @@ interface APIs
 
     @GET("/repair/list")
     fun repairList(@Query("buildingId") buildingId:Int):Call<List<Repair>>
+
+    @GET("/receipt/list")
+    fun receiptList(@Query("buildingId") buildingId:Int):Call<List<Receipt>>
 }
