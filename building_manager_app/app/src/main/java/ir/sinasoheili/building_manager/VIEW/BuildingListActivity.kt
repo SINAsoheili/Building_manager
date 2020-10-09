@@ -3,21 +3,17 @@ package ir.sinasoheili.building_manager.VIEW
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import ir.sinasoheili.building_manager.MODEL.Building
 import ir.sinasoheili.building_manager.PRESENTER.ContractBuildingList
 import ir.sinasoheili.building_manager.PRESENTER.PresenterBuildingList
 import ir.sinasoheili.building_manager.R
 import kotlinx.android.synthetic.main.activity_building_list.*
-import kotlinx.android.synthetic.main.fragment_setrole_manager.*
 
 class BuildingListActivity : AppCompatActivity() , ContractBuildingList.ContractBuildingListView , View.OnClickListener, Toolbar.OnMenuItemClickListener
 {
@@ -69,7 +65,7 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
     {
         visibleList()
 
-        val adapter : AdapterBuildingList = AdapterBuildingList(this@BuildingListActivity , buildingList)
+        val adapter : BuildingListAdapter = BuildingListAdapter(this@BuildingListActivity , buildingList)
         lv_buildingList.adapter = adapter
 
         listView!!.setOnItemClickListener(object : AdapterView.OnItemClickListener
