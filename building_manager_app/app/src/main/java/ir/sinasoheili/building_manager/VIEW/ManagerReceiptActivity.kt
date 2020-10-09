@@ -74,7 +74,7 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
 
     override fun showList(items: List<Receipt>)
     {
-        val adapter : ArrayAdapter<Receipt> = ArrayAdapter(this , android.R.layout.simple_list_item_1 , items)
+        val adapter : ManagerReceiptListAdapter = ManagerReceiptListAdapter(this , items)
         listView!!.adapter = adapter
     }
 }

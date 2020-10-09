@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/medium_margin"
+    android:padding="@dimen/small_padding">
+
+    <TextView
+        android:id="@+id/tv_managerReceiptList_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_big"
+        android:gravity="right"
+        android:layout_margin="@dimen/small_margin"
+        />
+
+    <TextView
+        android:id="@+id/tv_managerReceiptList_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textSize="@dimen/text_size_small"
+        android:gravity="right"
+        android:layout_margin="@dimen/small_margin"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_managerReceiptList_payDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="italic"
+            android:textSize="@dimen/text_size_small"
+            android:gravity="right"
+            android:layout_margin="@dimen/small_margin"
+            />
+
+        <TextView
+            android:id="@+id/tv_managerReceiptList_issueDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="italic"
+            android:textSize="@dimen/text_size_small"
+            android:gravity="right"
+            android:layout_margin="@dimen/small_margin"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
