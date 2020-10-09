@@ -73,7 +73,7 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
 
     override fun showList(items: List<Repair>)
     {
-        val adapter : ArrayAdapter<Repair> = ArrayAdapter(this , android.R.layout.simple_list_item_1 , items)
+        val adapter : RepairListAdapter = RepairListAdapter(this , items)
         listView!!.adapter = adapter
     }
 }
