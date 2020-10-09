@@ -73,7 +73,8 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
 
     override fun showList(items: List<Repair>)
     {
-        val adapter : RepairListAdapter = RepairListAdapter(this , items)
+        val reversedItem:List<Repair> = items.reversed()
+        val adapter : RepairListAdapter = RepairListAdapter(this , reversedItem)
         listView!!.adapter = adapter
     }
 }

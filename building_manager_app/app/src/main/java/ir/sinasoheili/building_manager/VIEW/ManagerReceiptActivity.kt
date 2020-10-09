@@ -74,7 +74,8 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
 
     override fun showList(items: List<Receipt>)
     {
-        val adapter : ManagerReceiptListAdapter = ManagerReceiptListAdapter(this , items)
+        val reversedItems : List<Receipt> = items.reversed()
+        val adapter : ManagerReceiptListAdapter = ManagerReceiptListAdapter(this , reversedItems)
         listView!!.adapter = adapter
     }
 }
