@@ -48,4 +48,7 @@ interface APIs
 
     @GET("/unit/del")
     fun unitDelete(@Query("phone") phone:String ,@Query("unit_number") unitNumber:Int , @Query("building_id") buildingId:Int):Call<UnitDeleteResponse>
+
+    @GET("/charge/add")
+    fun chargeAdd(@Query("amount") amount:Double , @Query("status")status:Int , @Query("issue_date")issueDate:String , @Query("pay_date")payDate:String , @Query("manager_id")managerId:Int , @Query("building_id")buildingId:Int , @Query("unit_number")unitNumber:Int):Call<ChargeAddResponse>
 }
