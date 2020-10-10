@@ -54,4 +54,7 @@ interface APIs
 
     @GET("/charge/list")
     fun chargeList(@Query("buildingId")buildingId:Int, @Query("unitNumber")unitNumber:Int):Call<List<Charge>>
+
+    @GET("/repair/del")
+    fun repairDelete(@Query("id")id:Int):Call<RepairDeleteResponse>
 }
