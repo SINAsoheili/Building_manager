@@ -57,4 +57,7 @@ interface APIs
 
     @GET("/repair/del")
     fun repairDelete(@Query("id")id:Int):Call<RepairDeleteResponse>
+
+    @GET("/receipt/del")
+    fun receiptDelete(@Query("id")id:Int):Call<ReceiptDeleteResponse>
 }
