@@ -1,7 +1,6 @@
 package ir.sinasoheili.building_manager.PRESENTER
 
 import android.content.Context
-import android.view.View
 import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.MODEL.UnitAddResponse
 import ir.sinasoheili.building_manager.R
@@ -12,8 +11,8 @@ class PresenterRegisterNewUnit constructor(view:ContractRegisterNewUnit.Contract
 
     override fun registerUnit(context: Context, unit: Unit)
     {
-        val api : API_UnitAdd =  API_UnitAdd(context)
-        api.start(unit , object:API_UnitAdd.CallBack
+        val apiHandler : API_UnitAddHandler =  API_UnitAddHandler(context)
+        apiHandler.start(unit , object:API_UnitAddHandler.CallBack
         {
             override fun onFailure()
             {
