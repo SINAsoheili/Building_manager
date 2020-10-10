@@ -60,4 +60,7 @@ interface APIs
 
     @GET("/receipt/del")
     fun receiptDelete(@Query("id")id:Int):Call<ReceiptDeleteResponse>
+
+    @GET("/notification/del")
+    fun notificationDelete(@Query("id")id:Int):Call<NotificationDeleteResponse>
 }
