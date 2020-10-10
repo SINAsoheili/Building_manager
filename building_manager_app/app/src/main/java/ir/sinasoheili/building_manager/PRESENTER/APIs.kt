@@ -31,9 +31,6 @@ interface APIs
     @GET("/unit/info")
     fun unitInfo(@Query("building_id") building_id:Int , @Query("unit_number") unit_number:Int):Call<Unit>
 
-    @GET("/unit/delete")
-    fun unitDelete(@Query("building_id") building_id:Int , @Query("unit_number") unit_number:Int):Call<UnitDeleteResponse>
-
     @GET("/notification/add")
     fun notificationAdd(@Query("text") text:String,@Query("title") title:String ,@Query("buildingId") buildingId:Int) : Call<NotificationAddResponse>
 
@@ -51,4 +48,7 @@ interface APIs
 
     @GET("/receipt/list")
     fun receiptList(@Query("buildingId") buildingId:Int):Call<List<Receipt>>
+
+    @GET("/unit/del")
+    fun unitDelete(@Query("phone") phone:String ,@Query("unit_number") unitNumber:Int , @Query("building_id") buildingId:Int):Call<UnitDeleteResponse>
 }
