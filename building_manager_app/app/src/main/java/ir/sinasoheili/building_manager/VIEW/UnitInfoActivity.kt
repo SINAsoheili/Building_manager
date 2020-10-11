@@ -9,8 +9,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.R
+import ir.sinasoheili.building_manager.PRESENTER.ContractUnitInfo.ContractUnitInfoView
+import ir.sinasoheili.building_manager.PRESENTER.ContractUnitInfo.ContractUnitInfoPresenter
+import ir.sinasoheili.building_manager.PRESENTER.PresenterUnitInfo
 
-class UnitInfoActivity : AppCompatActivity() , View.OnClickListener
+class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUnitInfoView
 {
     private var tvUnitNumber : TextView? = null
     private var tvUnitTag : TextView? = null
@@ -20,6 +23,7 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener
     private var iv_sms : ImageView? = null
 
     private var unit : Unit? = null
+    private var presenter:PresenterUnitInfo? = null
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -38,6 +42,8 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener
 
     private fun initObj()
     {
+        presenter = PresenterUnitInfo(this , this)
+
         tvUnitNumber= findViewById(R.id.tv_unitInfo_unitNumber)
         tvUnitTag   = findViewById(R.id.tv_unitInfo_tag)
         tvOwnerName = findViewById(R.id.tv_unitInfo_ownerName)
