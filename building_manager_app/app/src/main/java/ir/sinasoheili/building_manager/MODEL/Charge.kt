@@ -2,6 +2,11 @@ package ir.sinasoheili.building_manager.MODEL
 
 class Charge constructor (amount:Double, status: ChargeStatus = ChargeStatus.unpaid, issue_date:String, manager_id:Int, building_id:Int, unit_number:Int)
 {
+    constructor(amount:Double, status: ChargeStatus = ChargeStatus.unpaid, issue_date:String, pay_date:String, manager_id:Int, building_id:Int, unit_number:Int):this(amount , status , issue_date , manager_id , building_id , unit_number)
+    {
+        this.pay_date = pay_date
+    }
+
     var id:Int = -1
     get() = field
     set(value)
