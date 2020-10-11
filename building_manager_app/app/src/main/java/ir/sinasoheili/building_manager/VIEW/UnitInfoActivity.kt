@@ -7,6 +7,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -26,6 +27,7 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUn
     private var iv_call : ImageView? = null
     private var iv_sms : ImageView? = null
     private var tvDeleteUnit: TextView? = null
+    private var tvAddCharge : TextView? = null
 
     private var unit : Unit? = null
     private var presenter:PresenterUnitInfo? = null
@@ -62,6 +64,9 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUn
 
         tvDeleteUnit = findViewById(R.id.tv_unitInfo_deleteUnit)
         tvDeleteUnit!!.setOnClickListener(this)
+
+        tvAddCharge = findViewById(R.id.tv_unitInfo_addCharge)
+        tvAddCharge!!.setOnClickListener(this)
     }
 
     private fun fillItem(unit:Unit?)
@@ -98,6 +103,12 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUn
             tvDeleteUnit ->
             {
                 confirmDeleteDialog()
+            }
+
+            tvAddCharge ->
+            {
+                val fragment : FragmentChargeAdd = FragmentChargeAdd(unit!!)
+                supportFragmentManager.beginTransaction().replace(R.id.fl_unitInfo , fragment).commit()
             }
         }
     }
