@@ -1,8 +1,10 @@
 package ir.sinasoheili.building_manager.VIEW
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
@@ -27,6 +29,7 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
 
     private var buildingId : Int = -1
     private var presenter : PresenterUnitList = PresenterUnitList(this@UnitListActivity , this)
+    private val UNIT_REQUEST_CODE : Int = 100 //this code use for start activity to show unit info
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -98,7 +101,7 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
             {
                 val intent : Intent = Intent(this@UnitListActivity , UnitInfoActivity::class.java)
                 intent.putExtra("unit" , list.get(p2))
-                startActivity(intent)
+                startActivityForResult(intent , UNIT_REQUEST_CODE)
             }
         })
     }
@@ -156,5 +159,19 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
         }
 
         return false
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?)
+    {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == UNIT_REQUEST_CODE)
+        {
+            if(resultCode == Activity.RESULT_OK)
+            {
+                Log.i("tag" , "fetch list")
+                presenter.getUnitList(buildingId)
+            }
+        }
     }
 }

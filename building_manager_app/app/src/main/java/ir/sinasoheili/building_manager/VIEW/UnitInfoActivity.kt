@@ -1,5 +1,6 @@
 package ir.sinasoheili.building_manager.VIEW
 
+import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
@@ -108,7 +109,10 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUn
 
     override fun onUnitDeleted()
     {
+        var intent : Intent = Intent()
+        setResult(Activity.RESULT_OK , intent)
         finish()
+
         Toast.makeText(this , this.getString(R.string.unitSuccessfullyDeleted), Toast.LENGTH_SHORT).show()
     }
 
