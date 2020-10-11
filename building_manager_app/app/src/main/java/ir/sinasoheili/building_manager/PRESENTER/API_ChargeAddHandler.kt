@@ -30,7 +30,10 @@ class API_ChargeAddHandler
 
             override fun onResponse(call: Call<ChargeAddResponse>, response: Response<ChargeAddResponse>)
             {
-                callback.onResponse(response.body()!!)
+                if(response.code() == 200)
+                {
+                    callback.onResponse(response.body()!!)
+                }
             }
         })
     }
