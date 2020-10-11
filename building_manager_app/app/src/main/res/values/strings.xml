@@ -58,4 +58,11 @@
     <string name="fragment_registerNewRepair_title">عنوان</string>
     <string name="fragment_registerNewRepair_amount">مبلغ</string>
 
+    <string name="deleteUnit">حذف واحد</string>
+    <string name="unitSuccessfullyDeleted">واحد با موفقیت حذف شد</string>
+    <string name="doYouConfirmDeleteUnit">آیا از حذف این واحد از ساختمان مطمئن هستید؟؟</string>
+    <string name="Warning">هشدار</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+
 </resources>

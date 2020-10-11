@@ -1,5 +1,6 @@
 package ir.sinasoheili.building_manager.VIEW
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.R
 import ir.sinasoheili.building_manager.PRESENTER.ContractUnitInfo.ContractUnitInfoView
@@ -21,6 +24,7 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUn
     private var tvPhone : TextView? = null
     private var iv_call : ImageView? = null
     private var iv_sms : ImageView? = null
+    private var tvDeleteUnit: TextView? = null
 
     private var unit : Unit? = null
     private var presenter:PresenterUnitInfo? = null
@@ -54,6 +58,9 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUn
 
         iv_sms      = findViewById(R.id.iv_unitInfo_sms)
         iv_sms!!.setOnClickListener(this)
+
+        tvDeleteUnit = findViewById(R.id.tv_unitInfo_deleteUnit)
+        tvDeleteUnit!!.setOnClickListener(this)
     }
 
     private fun fillItem(unit:Unit?)
@@ -86,6 +93,46 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUn
                 intent.setData(Uri.parse("sms:"+unit!!.phone))
                 startActivity(intent)
             }
+
+            tvDeleteUnit ->
+            {
+                confirmDeleteDialog()
+            }
         }
+    }
+
+    override fun showToast(text: String)
+    {
+        Toast.makeText(this , text , Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onUnitDeleted()
+    {
+        finish()
+        Toast.makeText(this , this.getString(R.string.unitSuccessfullyDeleted), Toast.LENGTH_SHORT).show()
+    }
+
+    fun confirmDeleteDialog()
+    {
+        val dialog: AlertDialog.Builder = AlertDialog.Builder(this)
+        dialog.setTitle(this.getString(R.string.Warning))
+        dialog.setMessage(this.getString(R.string.doYouConfirmDeleteUnit))
+
+        dialog.setPositiveButton(this.getString(R.string.yes) , object:DialogInterface.OnClickListener
+        {
+            override fun onClick(p0: DialogInterface?, p1: Int)
+            {
+                presenter!!.deleteUnit(unit!!)
+            }
+        })
+        dialog.setNegativeButton(this.getString(R.string.no) , object:DialogInterface.OnClickListener
+        {
+            override fun onClick(p0: DialogInterface?, p1: Int)
+            {
+                p0?.dismiss()
+            }
+        })
+
+        dialog.show()
     }
 }
