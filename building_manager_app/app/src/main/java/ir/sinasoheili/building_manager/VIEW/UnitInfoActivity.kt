@@ -108,7 +108,7 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUn
             tvAddCharge ->
             {
                 val fragment : FragmentChargeAdd = FragmentChargeAdd(unit!!)
-                supportFragmentManager.beginTransaction().replace(R.id.fl_unitInfo , fragment).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.fl_unitInfo , fragment).addToBackStack(null).commit()
             }
         }
     }
