@@ -61,8 +61,14 @@
     <string name="deleteUnit">حذف واحد</string>
     <string name="unitSuccessfullyDeleted">واحد با موفقیت حذف شد</string>
     <string name="doYouConfirmDeleteUnit">آیا از حذف این واحد از ساختمان مطمئن هستید؟؟</string>
+
     <string name="Warning">هشدار</string>
     <string name="yes">بله</string>
     <string name="no">خیر</string>
+
+    <string name="fragment_registerNewCharge_amount">مبلغ</string>
+    <string name="fragment_registerNewCharge_issueDate">تاریخ شارژ</string>
+    <string name="fragment_registerNewCharge_payDate">تاریخ پرداخت</string>
+    <string name="charge_successfully_added">شارژ با موفقیت ذخیره شد</string>
 
 </resources>
