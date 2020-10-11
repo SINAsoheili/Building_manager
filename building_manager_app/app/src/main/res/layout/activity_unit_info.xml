@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/tv_unitInfo_unitNumber"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/medium_margin"
             android:textStyle="bold"
@@ -25,14 +25,14 @@
 
         <TextView
             android:id="@+id/tv_unitInfo_tag"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/medium_margin"
             />
 
         <TextView
             android:id="@+id/tv_unitInfo_ownerName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/medium_margin"
             android:gravity="center_vertical"
