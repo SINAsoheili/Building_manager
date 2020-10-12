@@ -10,11 +10,11 @@ enum class ReceiptType constructor(val persianName : String)
     {
         fun getReceipt(item:Int):ReceiptType
         {
-            when(item)
+            return when(item)
             {
-                0 -> return ReceiptType.gas
-                1 -> return ReceiptType.water
-                else -> return ReceiptType.power
+                0 -> ReceiptType.gas
+                1 -> ReceiptType.water
+                else -> ReceiptType.power
             }
         }
     }
