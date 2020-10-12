@@ -3,14 +3,8 @@ package ir.sinasoheili.building_manager.MODEL
 class Building constructor(name:String , cash:Double=0.0 , address:String , unit_count:Int)
 {
     var id : Int = -1
-    get() = field
-    set(value)
-    {
-        field = value
-    }
 
     var name : String = name
-    get() = field
     set(value)
     {
         if(! value.isEmpty())
@@ -20,7 +14,6 @@ class Building constructor(name:String , cash:Double=0.0 , address:String , unit
     }
 
     var cash : Double = cash
-    get() = field
     set(value)
     {
         if(cash >= 0)
@@ -30,7 +23,6 @@ class Building constructor(name:String , cash:Double=0.0 , address:String , unit
     }
 
     var address : String = address
-    get() = field
     set(value)
     {
         if(! value.isEmpty())
@@ -40,7 +32,6 @@ class Building constructor(name:String , cash:Double=0.0 , address:String , unit
     }
 
     var unit_count : Int = unit_count
-    get() = field
     set(value)
     {
         if(value > 0)
