@@ -3,7 +3,7 @@ package ir.sinasoheili.building_manager.PRESENTER
 import android.content.Context
 import android.content.SharedPreferences
 
-object AuthFilePreferenceHandler
+object ManagerAuthFilePreferenceHandler
 {
     val FILE_NAME : String = "user_auth_info"
     val KEY_MANAGER_ID : String = "MANAGER_ID"

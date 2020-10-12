@@ -8,11 +8,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import ir.sinasoheili.building_manager.MODEL.Unit
-import ir.sinasoheili.building_manager.PRESENTER.ContractRegisterNewUnit
-import ir.sinasoheili.building_manager.PRESENTER.PresenterRegisterNewUnit
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerRegisterNewUnit
+import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerRegisterNewUnit
 import ir.sinasoheili.building_manager.R
 
-class FragmentRegitsterNewUnit constructor(buildintId:Int , callback:CallBack): Fragment(R.layout.fragment_register_new_unit),View.OnClickListener , ContractRegisterNewUnit.ContractRegisterNewUnitView
+class FragmentRegitsterNewUnitManager constructor(buildintId:Int, callback:CallBack): Fragment(R.layout.fragment_register_new_unit),View.OnClickListener , ContractManagerRegisterNewUnit.ContractManagerRegisterNewUnitView
 {
     private var tilOwnerName : TextInputLayout? = null
     private var tilPhone : TextInputLayout? = null
@@ -24,7 +24,7 @@ class FragmentRegitsterNewUnit constructor(buildintId:Int , callback:CallBack): 
     private var etTag : EditText? = null
     private var btnSubmit : Button? = null
 
-    private val presenter:PresenterRegisterNewUnit = PresenterRegisterNewUnit(this)
+    private val presenter:PresenterManagerRegisterNewUnit = PresenterManagerRegisterNewUnit(this)
     private val buildingId : Int = buildintId
     private val callback : CallBack = callback
 

@@ -5,9 +5,9 @@ import ir.sinasoheili.building_manager.MODEL.Notification
 import ir.sinasoheili.building_manager.MODEL.NotificationAddResponse
 import ir.sinasoheili.building_manager.R
 
-class PresenterRegisterNewNotification(context: Context, view:ContractRegisterNewNotification.ContractRegisterNewNotificationView) : ContractRegisterNewNotification.ContractRegisterNewNotificationPresenter
+class PresenterManagerRegisterNewNotification(context: Context, viewManager:ContractManagerRegisterNewNotification.ContractManagerRegisterNewNotificationView) : ContractManagerRegisterNewNotification.ContractManagerRegisterNewNotificationPresenter
 {
-    val view : ContractRegisterNewNotification.ContractRegisterNewNotificationView = view
+    val viewManager : ContractManagerRegisterNewNotification.ContractManagerRegisterNewNotificationView = viewManager
     val context : Context = context
 
     override fun registerNewNotification(notification: Notification)
@@ -17,18 +17,18 @@ class PresenterRegisterNewNotification(context: Context, view:ContractRegisterNe
         {
             override fun onFailure()
             {
-                view.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                viewManager.showToast(context.getString(R.string.toast_fail_connect_to_server))
             }
 
             override fun onResponse(result: NotificationAddResponse)
             {
                 if(result.result)
                 {
-                    view.onNotificationRegistered()
+                    viewManager.onNotificationRegistered()
                 }
                 else
                 {
-                    view.showToast(context.getString(R.string.toast_register_server_error))
+                    viewManager.showToast(context.getString(R.string.toast_register_server_error))
                 }
             }
         })

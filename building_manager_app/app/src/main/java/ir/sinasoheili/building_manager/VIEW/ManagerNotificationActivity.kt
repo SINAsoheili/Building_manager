@@ -2,12 +2,11 @@ package ir.sinasoheili.building_manager.VIEW
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
-import ir.sinasoheili.building_manager.VIEW.FragmentRegisterNewNotification.CallBack
+import ir.sinasoheili.building_manager.VIEW.FragmentManagerRegisterNewNotification.CallBack
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Notification
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerNotification
@@ -54,7 +53,7 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
         {
             fabAddNotification ->
             {
-                val fragment : FragmentRegisterNewNotification = FragmentRegisterNewNotification(buildingId , object:CallBack
+                val fragment : FragmentManagerRegisterNewNotification = FragmentManagerRegisterNewNotification(buildingId , object:CallBack
                 {
                     override fun onNotificationRegistered()
                     {

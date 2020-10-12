@@ -4,7 +4,7 @@ import android.content.Context
 import ir.sinasoheili.building_manager.MODEL.Charge
 import ir.sinasoheili.building_manager.R
 
-class PresenterChargeList constructor(val context: Context , val view:ContractChargeList.ContractChargeListView): ContractChargeList.ContractChargeListPresenter
+class PresenterManagerChargeList constructor(val context: Context, val viewManager:ContractManagerChargeList.ContractManagerChargeListView): ContractManagerChargeList.ContractManagerChargeListPresenter
 {
     override fun getChargeList(buildingId: Int, unitNumber: Int)
     {
@@ -13,12 +13,12 @@ class PresenterChargeList constructor(val context: Context , val view:ContractCh
         {
             override fun onFailure()
             {
-                view.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                viewManager.showToast(context.getString(R.string.toast_fail_connect_to_server))
             }
 
             override fun onResponse(items: List<Charge>)
             {
-                view.showChargeList(items)
+                viewManager.showChargeList(items)
             }
         })
     }

@@ -2,16 +2,16 @@ package ir.sinasoheili.building_manager.PRESENTER
 
 import ir.sinasoheili.building_manager.MODEL.Unit
 
-interface ContractUnitList
+interface ContractManagerUnitList
 {
-    interface ContractUnitListView
+    interface ContractManagerUnitListView
     {
         fun visibleRefreshButton()
         fun showEmptyListText()
         fun showUnitList(list:List<Unit>)
     }
 
-    interface ContractUnitListPresenter
+    interface ContractManagerUnitListPresenter
     {
         fun getUnitList(buildingId:Int)
     }

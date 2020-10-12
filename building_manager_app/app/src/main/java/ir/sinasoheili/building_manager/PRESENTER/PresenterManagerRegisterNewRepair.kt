@@ -3,14 +3,14 @@ package ir.sinasoheili.building_manager.PRESENTER
 import android.content.Context
 import ir.sinasoheili.building_manager.MODEL.Repair
 import ir.sinasoheili.building_manager.MODEL.RepairAddResponse
-import ir.sinasoheili.building_manager.PRESENTER.ContractRegisterNewRepair.ContractRegisterNewRepairView
-import ir.sinasoheili.building_manager.PRESENTER.ContractRegisterNewRepair.ContractRegisterNewRepairPresenter
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerRegisterNewRepair.ContractManagerRegisterNewRepairView
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerRegisterNewRepair.ContractManagerRegisterNewRepairPresenter
 import ir.sinasoheili.building_manager.PRESENTER.API_RepairAddHandler.CallBack
 import ir.sinasoheili.building_manager.R
 
-class PresenterRegisterNewRepair constructor(context:Context , view : ContractRegisterNewRepairView): ContractRegisterNewRepairPresenter
+class PresenterManagerRegisterNewRepair constructor(context:Context, viewManager : ContractManagerRegisterNewRepairView): ContractManagerRegisterNewRepairPresenter
 {
-    val view : ContractRegisterNewRepairView = view
+    val viewManager : ContractManagerRegisterNewRepairView = viewManager
     val context : Context = context
 
     override fun registerRepair(repair:Repair)
@@ -20,18 +20,18 @@ class PresenterRegisterNewRepair constructor(context:Context , view : ContractRe
         {
             override fun onFailure()
             {
-                view.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                viewManager.showToast(context.getString(R.string.toast_fail_connect_to_server))
             }
 
             override fun onResponse(result: RepairAddResponse)
             {
                 if(result.result)
                 {
-                    view.registeredRepair()
+                    viewManager.registeredRepair()
                 }
                 else
                 {
-                    view.showToast(context.getString(R.string.toast_register_server_error))
+                    viewManager.showToast(context.getString(R.string.toast_register_server_error))
                 }
             }
 

@@ -1,7 +1,6 @@
 package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -9,12 +8,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import ir.sinasoheili.building_manager.MODEL.Building
-import ir.sinasoheili.building_manager.PRESENTER.API_BuildingRegisterHandler
-import ir.sinasoheili.building_manager.PRESENTER.ContractRegisterNewBuilding
-import ir.sinasoheili.building_manager.PRESENTER.PresenterRegisterNewBuilding
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerRegisterNewBuilding
+import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerRegisterNewBuilding
 import ir.sinasoheili.building_manager.R
 
-class FragmentRegisterNewBuilding constructor(callBack:CallBack) : Fragment(R.layout.fragment_register_new_building) , View.OnClickListener , ContractRegisterNewBuilding.ContractRegisterNewBuildingView
+class FragmentManagerRegisterNewBuilding constructor(callBack:CallBack) : Fragment(R.layout.fragment_register_new_building) , View.OnClickListener , ContractManagerRegisterNewBuilding.ContractManagerRegisterNewBuildingView
 {
     private var tilName : TextInputLayout? = null
     private var tilCash : TextInputLayout? = null
@@ -26,7 +24,7 @@ class FragmentRegisterNewBuilding constructor(callBack:CallBack) : Fragment(R.la
     private var etUnitCount : EditText? = null
     private var btnSubmit : Button? = null
 
-    private val presenter : PresenterRegisterNewBuilding = PresenterRegisterNewBuilding(this)
+    private val presenter : PresenterManagerRegisterNewBuilding = PresenterManagerRegisterNewBuilding(this)
     private val callBack : CallBack = callBack
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)

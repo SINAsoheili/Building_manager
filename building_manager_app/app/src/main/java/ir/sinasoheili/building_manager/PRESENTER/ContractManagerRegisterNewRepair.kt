@@ -2,15 +2,15 @@ package ir.sinasoheili.building_manager.PRESENTER
 
 import ir.sinasoheili.building_manager.MODEL.Repair
 
-interface ContractRegisterNewRepair
+interface ContractManagerRegisterNewRepair
 {
-    interface ContractRegisterNewRepairView
+    interface ContractManagerRegisterNewRepairView
     {
         fun showToast(text:String)
         fun registeredRepair()
     }
 
-    interface ContractRegisterNewRepairPresenter
+    interface ContractManagerRegisterNewRepairPresenter
     {
         fun registerRepair(repair: Repair)
     }

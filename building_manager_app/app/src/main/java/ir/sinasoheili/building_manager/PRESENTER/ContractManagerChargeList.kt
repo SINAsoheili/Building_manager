@@ -2,15 +2,15 @@ package ir.sinasoheili.building_manager.PRESENTER
 
 import ir.sinasoheili.building_manager.MODEL.Charge
 
-interface ContractChargeList
+interface ContractManagerChargeList
 {
-    interface ContractChargeListView
+    interface ContractManagerChargeListView
     {
         fun showToast(text:String)
         fun showChargeList(items:List<Charge>)
     }
 
-    interface ContractChargeListPresenter
+    interface ContractManagerChargeListPresenter
     {
         fun getChargeList(buildingId:Int , unitNumber:Int)
     }

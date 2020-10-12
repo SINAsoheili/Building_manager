@@ -3,15 +3,13 @@ package ir.sinasoheili.building_manager.VIEW
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Receipt
 import ir.sinasoheili.building_manager.R
-import ir.sinasoheili.building_manager.VIEW.FragmentRegisterNewReceipt.CallBack
+import ir.sinasoheili.building_manager.VIEW.FragmentManagerRegisterNewReceipt.CallBack
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerReceipt.ContractManagerReceiptView
-import ir.sinasoheili.building_manager.PRESENTER.ContractManagerReceipt.ContractManagerReceiptPresenter
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerReceipt
 
 class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView , View.OnClickListener
@@ -54,7 +52,7 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
         {
             fabRegisterReceipt ->
             {
-                val fragment : FragmentRegisterNewReceipt = FragmentRegisterNewReceipt(buildingId , object:CallBack
+                val fragment : FragmentManagerRegisterNewReceipt = FragmentManagerRegisterNewReceipt(buildingId , object:CallBack
                 {
                     override fun onRegisteredReceipt()
                     {

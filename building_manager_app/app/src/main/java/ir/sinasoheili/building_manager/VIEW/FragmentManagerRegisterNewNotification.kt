@@ -1,20 +1,17 @@
 package ir.sinasoheili.building_manager.VIEW
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
 import ir.sinasoheili.building_manager.MODEL.Notification
-import ir.sinasoheili.building_manager.PRESENTER.ContractRegisterNewNotification
-import ir.sinasoheili.building_manager.PRESENTER.PresenterRegisterNewNotification
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerRegisterNewNotification
+import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerRegisterNewNotification
 import ir.sinasoheili.building_manager.R
 
-class FragmentRegisterNewNotification(buildingId : Int , callback:CallBack) : Fragment(R.layout.fragment_register_new_notification), View.OnClickListener , ContractRegisterNewNotification.ContractRegisterNewNotificationView
+class FragmentManagerRegisterNewNotification(buildingId : Int, callback:CallBack) : Fragment(R.layout.fragment_register_new_notification), View.OnClickListener , ContractManagerRegisterNewNotification.ContractManagerRegisterNewNotificationView
 {
     private var etTitle : EditText? = null
     private var etText : EditText? = null
@@ -22,7 +19,7 @@ class FragmentRegisterNewNotification(buildingId : Int , callback:CallBack) : Fr
     private var callback : CallBack = callback
 
     private val buildingId : Int = buildingId
-    private var presenter : PresenterRegisterNewNotification? = null
+    private var presenter : PresenterManagerRegisterNewNotification? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -38,7 +35,7 @@ class FragmentRegisterNewNotification(buildingId : Int , callback:CallBack) : Fr
         btnSubmit = view.findViewById(R.id.btn_fragment_registerNewNotification_submit)
         btnSubmit!!.setOnClickListener(this)
 
-        presenter = PresenterRegisterNewNotification(view.context , this)
+        presenter = PresenterManagerRegisterNewNotification(view.context , this)
     }
 
     override fun onClick(p0: View?)

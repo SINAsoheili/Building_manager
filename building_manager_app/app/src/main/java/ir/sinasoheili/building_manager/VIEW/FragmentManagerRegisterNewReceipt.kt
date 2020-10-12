@@ -2,19 +2,17 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import android.view.ContextMenu
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import ir.sinasoheili.building_manager.MODEL.Receipt
 import ir.sinasoheili.building_manager.MODEL.ReceiptType
-import ir.sinasoheili.building_manager.PRESENTER.ContractRegisterNewReceipt
-import ir.sinasoheili.building_manager.PRESENTER.PresenterRegisterNewReceipt
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerRegisterNewReceipt
+import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerRegisterNewReceipt
 import ir.sinasoheili.building_manager.R
 
-class FragmentRegisterNewReceipt constructor(buildingId:Int , callback:CallBack): Fragment(R.layout.fragment_register_new_receipt), ContractRegisterNewReceipt.ContractRegisterNewReceiptView, View.OnClickListener
+class FragmentManagerRegisterNewReceipt constructor(buildingId:Int, callback:CallBack): Fragment(R.layout.fragment_register_new_receipt), ContractManagerRegisterNewReceipt.ContractManagerRegisterNewReceiptView, View.OnClickListener
 {
     private var spinnerReceiptType : Spinner? = null
     private var etPayDate : EditText? = null
@@ -30,7 +28,7 @@ class FragmentRegisterNewReceipt constructor(buildingId:Int , callback:CallBack)
     private var tilAmount : TextInputLayout? = null
 
     private val callback : CallBack = callback
-    private var presenter : PresenterRegisterNewReceipt? = null
+    private var presenter : PresenterManagerRegisterNewReceipt? = null
     private val buildingId : Int = buildingId
     private val listReceiptType : Array<ReceiptType> = arrayOf(ReceiptType.water , ReceiptType.power , ReceiptType.gas)
 
@@ -41,7 +39,7 @@ class FragmentRegisterNewReceipt constructor(buildingId:Int , callback:CallBack)
 
     private fun initObj(view:View)
     {
-        presenter =  PresenterRegisterNewReceipt(view.context , this)
+        presenter =  PresenterManagerRegisterNewReceipt(view.context , this)
 
         spinnerReceiptType = view.findViewById(R.id.spinner_fragment_registerNewReceipt_receiptType)
         showSpinner(view.context)

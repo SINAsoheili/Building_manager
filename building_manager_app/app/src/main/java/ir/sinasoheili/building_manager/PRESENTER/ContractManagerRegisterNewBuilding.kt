@@ -3,15 +3,15 @@ package ir.sinasoheili.building_manager.PRESENTER
 import android.content.Context
 import ir.sinasoheili.building_manager.MODEL.Building
 
-interface ContractRegisterNewBuilding
+interface ContractManagerRegisterNewBuilding
 {
-    interface ContractRegisterNewBuildingView
+    interface ContractManagerRegisterNewBuildingView
     {
         fun showToast(text:String)
         fun buildingRegistered(building:Building)
     }
 
-    interface ContractRegisterNewBuildingPresenter
+    interface ContractManagerRegisterNewBuildingPresenter
     {
         fun registerBuilding(context: Context, building:Building)
     }

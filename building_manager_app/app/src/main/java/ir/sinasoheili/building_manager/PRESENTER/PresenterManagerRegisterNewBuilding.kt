@@ -5,19 +5,19 @@ import ir.sinasoheili.building_manager.MODEL.Building
 import ir.sinasoheili.building_manager.MODEL.BuildingRegisterResponse
 import ir.sinasoheili.building_manager.R
 
-class PresenterRegisterNewBuilding constructor(view:ContractRegisterNewBuilding.ContractRegisterNewBuildingView) : ContractRegisterNewBuilding.ContractRegisterNewBuildingPresenter
+class PresenterManagerRegisterNewBuilding constructor(viewManager:ContractManagerRegisterNewBuilding.ContractManagerRegisterNewBuildingView) : ContractManagerRegisterNewBuilding.ContractManagerRegisterNewBuildingPresenter
 {
-    val view : ContractRegisterNewBuilding.ContractRegisterNewBuildingView = view
+    val viewManager : ContractManagerRegisterNewBuilding.ContractManagerRegisterNewBuildingView = viewManager
 
     override fun registerBuilding(context: Context, building: Building)
     {
         val apiHandler : API_BuildingRegisterHandler = API_BuildingRegisterHandler(context)
-        val managerId : Int = AuthFilePreferenceHandler.readFromFile(context , AuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
+        val managerId : Int = ManagerAuthFilePreferenceHandler.readFromFile(context , ManagerAuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
         apiHandler.start(building , managerId , object:API_BuildingRegisterHandler.callBack
         {
             override fun onFailure()
             {
-                view.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                viewManager.showToast(context.getString(R.string.toast_fail_connect_to_server))
             }
 
             override fun onResponse(response: BuildingRegisterResponse)
@@ -27,12 +27,12 @@ class PresenterRegisterNewBuilding constructor(view:ContractRegisterNewBuilding.
                     if(response.id != -1)
                     {
                         building.id = response.id
-                        view.buildingRegistered(building)
+                        viewManager.buildingRegistered(building)
                     }
                 }
                 else
                 {
-                    view.showToast(context.getString(R.string.toast_register_server_error))
+                    viewManager.showToast(context.getString(R.string.toast_register_server_error))
                 }
             }
 

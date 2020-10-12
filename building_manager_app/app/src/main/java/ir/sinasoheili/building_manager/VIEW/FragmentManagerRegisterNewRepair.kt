@@ -8,11 +8,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import ir.sinasoheili.building_manager.MODEL.Repair
-import ir.sinasoheili.building_manager.PRESENTER.ContractRegisterNewRepair.ContractRegisterNewRepairView
-import ir.sinasoheili.building_manager.PRESENTER.PresenterRegisterNewRepair
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerRegisterNewRepair.ContractManagerRegisterNewRepairView
+import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerRegisterNewRepair
 import ir.sinasoheili.building_manager.R
 
-class FragmentRegisterNewRepair constructor(val buildingId : Int , val callback:CallBack) : Fragment(R.layout.fragment_register_new_repair) , ContractRegisterNewRepairView, View.OnClickListener
+class FragmentManagerRegisterNewRepair constructor(val buildingId : Int, val callback:CallBack) : Fragment(R.layout.fragment_register_new_repair) , ContractManagerRegisterNewRepairView, View.OnClickListener
 {
     private var etTitle : EditText? = null
     private var etComment : EditText? = null
@@ -24,7 +24,7 @@ class FragmentRegisterNewRepair constructor(val buildingId : Int , val callback:
     private var tilDate : TextInputLayout? = null
     private var tilAmount : TextInputLayout? = null
 
-    private var presenter : PresenterRegisterNewRepair? = null
+    private var presenter : PresenterManagerRegisterNewRepair? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -33,7 +33,7 @@ class FragmentRegisterNewRepair constructor(val buildingId : Int , val callback:
 
     private fun initObj(view:View)
     {
-        presenter = PresenterRegisterNewRepair(view.context , this)
+        presenter = PresenterManagerRegisterNewRepair(view.context , this)
 
         tilTitle = view.findViewById(R.id.til_fragment_registerNewRepair_title)
         etTitle = view.findViewById(R.id.et_fragment_registerNewRepair_title)

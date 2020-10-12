@@ -3,9 +3,9 @@ package ir.sinasoheili.building_manager.PRESENTER
 import android.content.Context
 import ir.sinasoheili.building_manager.MODEL.Unit
 
-class PresenterUnitList constructor(context: Context, view:ContractUnitList.ContractUnitListView) : ContractUnitList.ContractUnitListPresenter
+class PresenterManagerUnitList constructor(context: Context, viewManager:ContractManagerUnitList.ContractManagerUnitListView) : ContractManagerUnitList.ContractManagerUnitListPresenter
 {
-    val view : ContractUnitList.ContractUnitListView = view
+    val viewManager : ContractManagerUnitList.ContractManagerUnitListView = viewManager
     val context : Context = context
 
     override fun getUnitList(buildingId: Int)
@@ -17,18 +17,18 @@ class PresenterUnitList constructor(context: Context, view:ContractUnitList.Cont
         api.start(buildingId , object:API_UnitListHandler.CallBack{
             override fun onFailure()
             {
-                view.visibleRefreshButton()
+                viewManager.visibleRefreshButton()
             }
 
             override fun onResponse(unitList: List<Unit>)
             {
                 if(unitList.isEmpty())
                 {
-                    view.showEmptyListText()
+                    viewManager.showEmptyListText()
                 }
                 else
                 {
-                    view.showUnitList(unitList)
+                    viewManager.showUnitList(unitList)
                 }
             }
         })

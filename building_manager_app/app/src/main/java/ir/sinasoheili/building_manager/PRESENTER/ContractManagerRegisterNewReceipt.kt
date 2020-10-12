@@ -2,15 +2,15 @@ package ir.sinasoheili.building_manager.PRESENTER
 
 import ir.sinasoheili.building_manager.MODEL.Receipt
 
-interface ContractRegisterNewReceipt
+interface ContractManagerRegisterNewReceipt
 {
-    interface ContractRegisterNewReceiptView
+    interface ContractManagerRegisterNewReceiptView
     {
         fun showToast(text:String)
         fun registeredReceipt()
     }
 
-    interface ContractRegisterNewReceiptPresenter
+    interface ContractManagerRegisterNewReceiptPresenter
     {
         fun registerReceipt(receipt:Receipt)
     }

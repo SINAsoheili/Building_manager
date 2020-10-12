@@ -2,15 +2,15 @@ package ir.sinasoheili.building_manager.PRESENTER
 
 import ir.sinasoheili.building_manager.MODEL.Unit
 
-interface ContractUnitInfo
+interface ContractManagerUnitInfo
 {
-    interface ContractUnitInfoView
+    interface ContractManagerUnitInfoView
     {
         fun showToast(text:String)
         fun onUnitDeleted()
     }
 
-    interface ContractUnitInfoPresenter
+    interface ContractManagerUnitInfoPresenter
     {
         fun deleteUnit(unit:Unit)
     }

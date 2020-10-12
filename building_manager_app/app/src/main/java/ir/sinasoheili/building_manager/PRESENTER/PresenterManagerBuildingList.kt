@@ -4,22 +4,22 @@ import android.content.Context
 import ir.sinasoheili.building_manager.MODEL.Building
 import retrofit2.Response
 
-class PresenterBuildingList constructor(context:Context, view:ContractBuildingList.ContractBuildingListView) : ContractBuildingList.ContractBuildingListPresenter
+class PresenterManagerBuildingList constructor(context:Context, viewManager:ContractManagerBuildingList.ContractManagerBuildingListView) : ContractManagerBuildingList.ContractManagerBuildingListPresenter
 {
     private val context:Context = context
-    private val view:ContractBuildingList.ContractBuildingListView = view
+    private val viewManager:ContractManagerBuildingList.ContractManagerBuildingListView = viewManager
 
     override fun getBuildingList()
     {
         val api : API_BuildingListHandler = API_BuildingListHandler(context)
 
-        val managerId:Int = AuthFilePreferenceHandler.readFromFile(context , AuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
+        val managerId:Int = ManagerAuthFilePreferenceHandler.readFromFile(context , ManagerAuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
 
         api.start(managerId , object:API_BuildingListHandler.CallBack
         {
             override fun onFailure()
             {
-                view.showReloadButton()
+                viewManager.showReloadButton()
             }
 
             override fun onResponse(response: Response<List<Building>>)
@@ -29,11 +29,11 @@ class PresenterBuildingList constructor(context:Context, view:ContractBuildingLi
                     val buildingList : List<Building> = response.body()!!
                     if(buildingList.isEmpty())
                     {
-                        view.showReloadButton()
+                        viewManager.showReloadButton()
                     }
                     else
                     {
-                        view.showBuildingList(buildingList)
+                        viewManager.showBuildingList(buildingList)
                     }
                 }
             }

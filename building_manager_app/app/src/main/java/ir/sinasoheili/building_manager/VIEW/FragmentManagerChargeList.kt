@@ -8,27 +8,27 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import ir.sinasoheili.building_manager.MODEL.Charge
 import ir.sinasoheili.building_manager.MODEL.Unit
-import ir.sinasoheili.building_manager.PRESENTER.ContractChargeList
-import ir.sinasoheili.building_manager.PRESENTER.PresenterChargeList
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerChargeList
+import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerChargeList
 import ir.sinasoheili.building_manager.R
 
-class FragmentChargeList constructor(val unit:Unit): Fragment(R.layout.fragment_charge_list) , ContractChargeList.ContractChargeListView, View.OnClickListener
+class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fragment_charge_list) , ContractManagerChargeList.ContractManagerChargeListView, View.OnClickListener
 {
     private var listView : ListView? = null
     private var ivRefresh : ImageView? = null
 
-    private var presenter : ContractChargeList.ContractChargeListPresenter? = null
+    private var presenterManager : ContractManagerChargeList.ContractManagerChargeListPresenter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
         initObj(view)
 
-        presenter!!.getChargeList(unit.building_id , unit.unit_number)
+        presenterManager!!.getChargeList(unit.building_id , unit.unit_number)
     }
 
     private fun initObj(view:View)
     {
-        presenter = PresenterChargeList(view.context , this)
+        presenterManager = PresenterManagerChargeList(view.context , this)
 
         listView = view.findViewById(R.id.lv_fragmentChargeList)
 
@@ -68,7 +68,7 @@ class FragmentChargeList constructor(val unit:Unit): Fragment(R.layout.fragment_
         {
             ivRefresh ->
             {
-                presenter!!.getChargeList(unit.building_id , unit.unit_number)
+                presenterManager!!.getChargeList(unit.building_id , unit.unit_number)
             }
         }
     }

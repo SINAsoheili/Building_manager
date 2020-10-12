@@ -3,12 +3,12 @@ package ir.sinasoheili.building_manager.PRESENTER
 import android.content.Context
 import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.MODEL.UnitDeleteResponse
-import ir.sinasoheili.building_manager.PRESENTER.ContractUnitInfo.ContractUnitInfoPresenter
-import ir.sinasoheili.building_manager.PRESENTER.ContractUnitInfo.ContractUnitInfoView
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerUnitInfo.ContractManagerUnitInfoPresenter
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerUnitInfo.ContractManagerUnitInfoView
 import ir.sinasoheili.building_manager.PRESENTER.API_UnitDeleteHandler.CallBack
 import ir.sinasoheili.building_manager.R
 
-class PresenterUnitInfo constructor(val context:Context , val view:ContractUnitInfoView) : ContractUnitInfoPresenter
+class PresenterManagerUnitInfo constructor(val context:Context, val viewManager:ContractManagerUnitInfoView) : ContractManagerUnitInfoPresenter
 {
     override fun deleteUnit(unit: Unit)
     {
@@ -17,14 +17,14 @@ class PresenterUnitInfo constructor(val context:Context , val view:ContractUnitI
         {
             override fun onFailure()
             {
-                view.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                viewManager.showToast(context.getString(R.string.toast_fail_connect_to_server))
             }
 
             override fun onResponse(response: UnitDeleteResponse)
             {
                 if(response.status)
                 {
-                    view.onUnitDeleted()
+                    viewManager.onUnitDeleted()
                 }
             }
 

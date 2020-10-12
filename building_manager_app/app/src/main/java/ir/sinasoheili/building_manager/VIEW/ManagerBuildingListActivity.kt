@@ -10,12 +10,12 @@ import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Building
-import ir.sinasoheili.building_manager.PRESENTER.ContractBuildingList
-import ir.sinasoheili.building_manager.PRESENTER.PresenterBuildingList
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerBuildingList
+import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerBuildingList
 import ir.sinasoheili.building_manager.R
 import kotlinx.android.synthetic.main.activity_building_list.*
 
-class BuildingListActivity : AppCompatActivity() , ContractBuildingList.ContractBuildingListView , View.OnClickListener, Toolbar.OnMenuItemClickListener
+class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildingList.ContractManagerBuildingListView , View.OnClickListener, Toolbar.OnMenuItemClickListener
 {
     private var listView : ListView? = null
     private var iv_reload : ImageView? = null
@@ -24,7 +24,7 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
     private var bottomAppBar : BottomAppBar? = null
     private var frameLayout : FrameLayout? = null
 
-    private var presenter : PresenterBuildingList? = null
+    private var presenter : PresenterManagerBuildingList? = null
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -45,7 +45,7 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
 
         tv_retry = findViewById(R.id.tv_buildingList_retry)
 
-        presenter = PresenterBuildingList(this@BuildingListActivity , this)
+        presenter = PresenterManagerBuildingList(this@ManagerBuildingListActivity , this)
 
         bottomAppBar = findViewById(R.id.bab_buildingList)
         bottomAppBar!!.setOnMenuItemClickListener(this)
@@ -65,14 +65,14 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
     {
         visibleList()
 
-        val adapter : BuildingListAdapter = BuildingListAdapter(this@BuildingListActivity , buildingList)
+        val adapter : BuildingListAdapter = BuildingListAdapter(this@ManagerBuildingListActivity , buildingList)
         lv_buildingList.adapter = adapter
 
         listView!!.setOnItemClickListener(object : AdapterView.OnItemClickListener
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
-                val intent : Intent = Intent(this@BuildingListActivity , ManagerUnitListActivity::class.java)
+                val intent : Intent = Intent(this@ManagerBuildingListActivity , ManagerManagerUnitListActivity::class.java)
                 intent.putExtra("building_id" , buildingList.get(p2).id)
                 startActivity(intent)
             }
@@ -93,7 +93,7 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
 
             floatBtnAdd ->
             {
-                val fragment : FragmentRegisterNewBuilding = FragmentRegisterNewBuilding(object:FragmentRegisterNewBuilding.CallBack
+                val fragment : FragmentManagerRegisterNewBuilding = FragmentManagerRegisterNewBuilding(object:FragmentManagerRegisterNewBuilding.CallBack
                 {
                     override fun onBuildingRegistred(building: Building)
                     {
@@ -126,7 +126,7 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
         {
             R.id.menu_bab_buildingList_setting ->
             {
-                Toast.makeText(this@BuildingListActivity , "setting" , Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ManagerBuildingListActivity , "setting" , Toast.LENGTH_SHORT).show()
 
                 return true
             }

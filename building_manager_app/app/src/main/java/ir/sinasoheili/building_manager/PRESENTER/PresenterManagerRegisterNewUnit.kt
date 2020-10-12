@@ -5,9 +5,9 @@ import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.MODEL.UnitAddResponse
 import ir.sinasoheili.building_manager.R
 
-class PresenterRegisterNewUnit constructor(view:ContractRegisterNewUnit.ContractRegisterNewUnitView) : ContractRegisterNewUnit.ContractRegisterNewUnitPresenter
+class PresenterManagerRegisterNewUnit constructor(viewManager:ContractManagerRegisterNewUnit.ContractManagerRegisterNewUnitView) : ContractManagerRegisterNewUnit.ContractManagerRegisterNewUnitPresenter
 {
-    val view : ContractRegisterNewUnit.ContractRegisterNewUnitView = view
+    val viewManager : ContractManagerRegisterNewUnit.ContractManagerRegisterNewUnitView = viewManager
 
     override fun registerUnit(context: Context, unit: Unit)
     {
@@ -16,14 +16,14 @@ class PresenterRegisterNewUnit constructor(view:ContractRegisterNewUnit.Contract
         {
             override fun onFailure()
             {
-                view.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                viewManager.showToast(context.getString(R.string.toast_fail_connect_to_server))
             }
 
             override fun onResponse(response: UnitAddResponse)
             {
                 if(response.status)
                 {
-                    view.unitRegistered()
+                    viewManager.unitRegistered()
                 }
             }
 

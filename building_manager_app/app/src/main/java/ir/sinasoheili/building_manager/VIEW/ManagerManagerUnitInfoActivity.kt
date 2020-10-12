@@ -13,10 +13,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.R
-import ir.sinasoheili.building_manager.PRESENTER.ContractUnitInfo.ContractUnitInfoView
-import ir.sinasoheili.building_manager.PRESENTER.PresenterUnitInfo
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerUnitInfo.ContractManagerUnitInfoView
+import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerUnitInfo
 
-class ManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUnitInfoView
+class ManagerManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractManagerUnitInfoView
 {
     private var tvUnitNumber : TextView? = null
     private var tvUnitTag : TextView? = null
@@ -29,7 +29,7 @@ class ManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListener , Con
     private var tvChargeList : TextView? = null
 
     private var unit : Unit? = null
-    private var presenter:PresenterUnitInfo? = null
+    private var presenter:PresenterManagerUnitInfo? = null
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -48,7 +48,7 @@ class ManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListener , Con
 
     private fun initObj()
     {
-        presenter = PresenterUnitInfo(this , this)
+        presenter = PresenterManagerUnitInfo(this , this)
 
         tvUnitNumber= findViewById(R.id.tv_unitInfo_unitNumber)
         tvUnitTag   = findViewById(R.id.tv_unitInfo_tag)
@@ -78,9 +78,9 @@ class ManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListener , Con
             return
         }
 
-        tvUnitNumber!!.text = this@ManagerUnitInfoActivity.getString(R.string.unit_list_item_unitNumber)+" "+unit.unit_number.toString()
-        tvUnitTag!!.text = this@ManagerUnitInfoActivity.getString(R.string.unit_list_item_tag)+" "+unit.tag.toString()
-        tvOwnerName!!.text = this@ManagerUnitInfoActivity.getString(R.string.unit_list_item_ownerName)+" "+unit.owner_name
+        tvUnitNumber!!.text = this@ManagerManagerUnitInfoActivity.getString(R.string.unit_list_item_unitNumber)+" "+unit.unit_number.toString()
+        tvUnitTag!!.text = this@ManagerManagerUnitInfoActivity.getString(R.string.unit_list_item_tag)+" "+unit.tag.toString()
+        tvOwnerName!!.text = this@ManagerManagerUnitInfoActivity.getString(R.string.unit_list_item_ownerName)+" "+unit.owner_name
         tvPhone!!.text = unit.phone
     }
 
@@ -109,13 +109,13 @@ class ManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListener , Con
 
             tvAddCharge ->
             {
-                val fragment : FragmentChargeAdd = FragmentChargeAdd(unit!!)
+                val fragment : FragmentManagerChargeAdd = FragmentManagerChargeAdd(unit!!)
                 supportFragmentManager.beginTransaction().replace(R.id.fl_unitInfo , fragment).addToBackStack(null).commit()
             }
 
             tvChargeList ->
             {
-                val fragment : FragmentChargeList = FragmentChargeList(unit!!)
+                val fragment : FragmentManagerChargeList = FragmentManagerChargeList(unit!!)
                 supportFragmentManager.beginTransaction().replace(R.id.fl_unitInfo , fragment).addToBackStack(null).commit()
             }
         }

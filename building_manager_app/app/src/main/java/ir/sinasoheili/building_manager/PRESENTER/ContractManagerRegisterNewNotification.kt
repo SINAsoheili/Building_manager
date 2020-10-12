@@ -2,15 +2,15 @@ package ir.sinasoheili.building_manager.PRESENTER
 
 import ir.sinasoheili.building_manager.MODEL.Notification
 
-interface ContractRegisterNewNotification
+interface ContractManagerRegisterNewNotification
 {
-    interface ContractRegisterNewNotificationView
+    interface ContractManagerRegisterNewNotificationView
     {
         fun showToast(text:String)
         fun onNotificationRegistered()
     }
 
-    interface ContractRegisterNewNotificationPresenter
+    interface ContractManagerRegisterNewNotificationPresenter
     {
         fun registerNewNotification(notification : Notification)
     }

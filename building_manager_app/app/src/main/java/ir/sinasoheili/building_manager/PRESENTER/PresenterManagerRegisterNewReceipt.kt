@@ -6,9 +6,9 @@ import ir.sinasoheili.building_manager.MODEL.ReceiptAddResponse
 import ir.sinasoheili.building_manager.PRESENTER.API_ReceiptAddHandler.CallBack
 import ir.sinasoheili.building_manager.R
 
-class PresenterRegisterNewReceipt constructor(context: Context, view:ContractRegisterNewReceipt.ContractRegisterNewReceiptView): ContractRegisterNewReceipt.ContractRegisterNewReceiptPresenter
+class PresenterManagerRegisterNewReceipt constructor(context: Context, viewManager:ContractManagerRegisterNewReceipt.ContractManagerRegisterNewReceiptView): ContractManagerRegisterNewReceipt.ContractManagerRegisterNewReceiptPresenter
 {
-    val view : ContractRegisterNewReceipt.ContractRegisterNewReceiptView = view
+    val viewManager : ContractManagerRegisterNewReceipt.ContractManagerRegisterNewReceiptView = viewManager
     val context : Context = context
 
     override fun registerReceipt(receipt: Receipt)
@@ -18,18 +18,18 @@ class PresenterRegisterNewReceipt constructor(context: Context, view:ContractReg
         {
             override fun onFailure()
             {
-                view.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                viewManager.showToast(context.getString(R.string.toast_fail_connect_to_server))
             }
 
             override fun onResponse(result: ReceiptAddResponse)
             {
                 if(result.result)
                 {
-                    view.registeredReceipt()
+                    viewManager.registeredReceipt()
                 }
                 else
                 {
-                    view.showToast(context.getString(R.string.toast_register_server_error))
+                    viewManager.showToast(context.getString(R.string.toast_register_server_error))
                 }
             }
 

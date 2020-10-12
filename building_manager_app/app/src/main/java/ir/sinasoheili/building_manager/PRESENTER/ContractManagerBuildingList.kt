@@ -2,15 +2,15 @@ package ir.sinasoheili.building_manager.PRESENTER
 
 import ir.sinasoheili.building_manager.MODEL.Building
 
-interface ContractBuildingList
+interface ContractManagerBuildingList
 {
-    interface ContractBuildingListView
+    interface ContractManagerBuildingListView
     {
         fun showReloadButton()
         fun showBuildingList(buildingList:List<Building>)
     }
 
-    interface ContractBuildingListPresenter
+    interface ContractManagerBuildingListPresenter
     {
         fun getBuildingList()
     }

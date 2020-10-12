@@ -8,7 +8,7 @@ import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Repair
 import ir.sinasoheili.building_manager.R
-import ir.sinasoheili.building_manager.VIEW.FragmentRegisterNewRepair.CallBack
+import ir.sinasoheili.building_manager.VIEW.FragmentManagerRegisterNewRepair.CallBack
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerRepair.ContractManagerRepairView
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerRepair
 
@@ -52,7 +52,7 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
         {
             fabAddRepair->
             {
-                val fragmentRepair : FragmentRegisterNewRepair = FragmentRegisterNewRepair(buildingId , object:CallBack
+                val fragmentRepair : FragmentManagerRegisterNewRepair = FragmentManagerRegisterNewRepair(buildingId , object:CallBack
                 {
                     override fun onRepairRegistered()
                     {

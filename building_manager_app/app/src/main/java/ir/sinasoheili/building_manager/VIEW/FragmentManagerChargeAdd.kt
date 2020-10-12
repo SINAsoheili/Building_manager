@@ -1,7 +1,6 @@
 package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
@@ -9,14 +8,12 @@ import com.google.android.material.textfield.TextInputLayout
 import ir.sinasoheili.building_manager.MODEL.Charge
 import ir.sinasoheili.building_manager.MODEL.ChargeStatus
 import ir.sinasoheili.building_manager.MODEL.Unit
-import ir.sinasoheili.building_manager.PRESENTER.AuthFilePreferenceHandler
-import ir.sinasoheili.building_manager.PRESENTER.ContractChargeAdd.ContractChargeAddPresenter
-import ir.sinasoheili.building_manager.PRESENTER.ContractChargeAdd.ContractChargeAddView
-import ir.sinasoheili.building_manager.PRESENTER.PresenterChargeAdd
+import ir.sinasoheili.building_manager.PRESENTER.ManagerAuthFilePreferenceHandler
+import ir.sinasoheili.building_manager.PRESENTER.ContractManagerChargeAdd.ContractManagerChargeAddView
+import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerChargeAdd
 import ir.sinasoheili.building_manager.R
-import kotlinx.android.synthetic.main.fragment_charge_add.*
 
-class FragmentChargeAdd constructor(val unit:Unit): Fragment(R.layout.fragment_charge_add) , ContractChargeAddView, View.OnClickListener
+class FragmentManagerChargeAdd constructor(val unit:Unit): Fragment(R.layout.fragment_charge_add) , ContractManagerChargeAddView, View.OnClickListener
 {
     private var tilAmount : TextInputLayout? = null
     private var tilIssueDate : TextInputLayout? = null
@@ -27,7 +24,7 @@ class FragmentChargeAdd constructor(val unit:Unit): Fragment(R.layout.fragment_c
     private var spStatus : Spinner? = null
     private var btnSubmit : Button? = null
 
-    private var presenter : PresenterChargeAdd? = null
+    private var presenter : PresenterManagerChargeAdd? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -36,7 +33,7 @@ class FragmentChargeAdd constructor(val unit:Unit): Fragment(R.layout.fragment_c
 
     private fun initObj(view:View)
     {
-        presenter = PresenterChargeAdd(view.context , this)
+        presenter = PresenterManagerChargeAdd(view.context , this)
 
         tilAmount = view.findViewById(R.id.til_fragment_addCharge_amount)
         etAmount = view.findViewById(R.id.et_fragment_addCharge_amount)
@@ -71,7 +68,7 @@ class FragmentChargeAdd constructor(val unit:Unit): Fragment(R.layout.fragment_c
                     val amount : Double = etAmount!!.text.toString().toDouble()
                     val issueDate : String = etIssueDate!!.text.toString()
                     val status : ChargeStatus = spStatus!!.selectedItem as ChargeStatus
-                    val managerId : Int = AuthFilePreferenceHandler.readFromFile(context!! , AuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
+                    val managerId : Int = ManagerAuthFilePreferenceHandler.readFromFile(context!! , ManagerAuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
 
                     var charge : Charge = Charge(amount , status , issueDate , managerId , unit.building_id , unit.unit_number)
 
