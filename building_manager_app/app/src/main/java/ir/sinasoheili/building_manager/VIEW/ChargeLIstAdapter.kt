@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import ir.sinasoheili.building_manager.MODEL.Charge
+import ir.sinasoheili.building_manager.MODEL.ChargeStatus
 import ir.sinasoheili.building_manager.R
 
 class ChargeLIstAdapter constructor(context: Context , val items:List<Charge>): ArrayAdapter<Charge>(context , R.layout.charge_list_item , items)
@@ -33,7 +34,7 @@ class ChargeLIstAdapter constructor(context: Context , val items:List<Charge>): 
         return view!!
     }
 
-    private class ViewHolder constructor(view:View)
+    private class ViewHolder constructor(val view:View)
     {
         private var tvAmount : TextView? = null
         private var tvStatus : TextView? = null
@@ -50,10 +51,10 @@ class ChargeLIstAdapter constructor(context: Context , val items:List<Charge>): 
 
         fun fill(charge:Charge)
         {
-            tvAmount!!.text = charge.amount.toString()
-            tvStatus!!.text = charge.status.toString()
-            tvIssueDate!!.text = charge.issue_date
-            tvPayDate!!.text = charge.pay_date
+            tvAmount!!.text = view.context.getString(R.string.manager_chargeListItem_amount , charge.amount.toString())
+            tvStatus!!.text = view.context.getString(R.string.manager_chargeListItem_status , ChargeStatus.getChargeStatus(charge.status).toString())
+            tvIssueDate!!.text = view.context.getString(R.string.manager_chargeListItem_issueDate , Charge.convertDate(charge.issue_date))
+            tvPayDate!!.text = view.context.getString(R.string.manager_chargeListItem_payDate , Charge.convertDate(charge.pay_date))
         }
 
     }

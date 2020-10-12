@@ -74,4 +74,9 @@
     <string name="fragment_registerNewCharge_payDate">تاریخ پرداخت</string>
     <string name="charge_successfully_added">شارژ با موفقیت ذخیره شد</string>
 
+    <string name="manager_chargeListItem_amount">مبلغ : %s</string>
+    <string name="manager_chargeListItem_status">وضعیت : %s</string>
+    <string name="manager_chargeListItem_issueDate">تاریخ صدور : %s</string>
+    <string name="manager_chargeListItem_payDate">تاریخ پرداخت : %s</string>
+
 </resources>

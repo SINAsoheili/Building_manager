@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="@dimen/medium_margin"
+            android:gravity="right"
             />
 
     </LinearLayout>
@@ -40,6 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="@dimen/medium_margin"
+            android:gravity="right"
+            android:textSize="@dimen/text_size_small"
             />
 
         <TextView
@@ -48,6 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="@dimen/medium_margin"
+            android:gravity="right"
+            android:textSize="@dimen/text_size_small"
             />
 
     </LinearLayout>
