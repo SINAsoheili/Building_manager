@@ -28,6 +28,7 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUn
     private var iv_sms : ImageView? = null
     private var tvDeleteUnit: TextView? = null
     private var tvAddCharge : TextView? = null
+    private var tvChargeList : TextView? = null
 
     private var unit : Unit? = null
     private var presenter:PresenterUnitInfo? = null
@@ -67,6 +68,9 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUn
 
         tvAddCharge = findViewById(R.id.tv_unitInfo_addCharge)
         tvAddCharge!!.setOnClickListener(this)
+
+        tvChargeList = findViewById(R.id.tv_unitInfo_listCharge)
+        tvChargeList!!.setOnClickListener(this)
     }
 
     private fun fillItem(unit:Unit?)
@@ -108,6 +112,12 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUn
             tvAddCharge ->
             {
                 val fragment : FragmentChargeAdd = FragmentChargeAdd(unit!!)
+                supportFragmentManager.beginTransaction().replace(R.id.fl_unitInfo , fragment).addToBackStack(null).commit()
+            }
+
+            tvChargeList ->
+            {
+                val fragment : FragmentChargeList = FragmentChargeList(unit!!)
                 supportFragmentManager.beginTransaction().replace(R.id.fl_unitInfo , fragment).addToBackStack(null).commit()
             }
         }
