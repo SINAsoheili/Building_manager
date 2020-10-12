@@ -5,6 +5,19 @@ enum class ChargeStatus constructor(val text:String)
     unpaid("پرداخت نشده"),
     paid("پرداخت شده") ;
 
+    companion object
+    {
+        fun getChargeStatus(id:Int):ChargeStatus?
+        {
+            return when (id)
+            {
+                0 -> return ChargeStatus.unpaid
+                1 -> return ChargeStatus.paid
+                else -> null
+            }
+        }
+    }
+
     override fun toString(): String
     {
         return text
