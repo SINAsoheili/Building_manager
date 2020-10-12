@@ -11,8 +11,8 @@ enum class ChargeStatus constructor(val text:String)
         {
             return when (id)
             {
-                0 -> return ChargeStatus.unpaid
-                1 -> return ChargeStatus.paid
+                0 -> ChargeStatus.unpaid
+                1 -> ChargeStatus.paid
                 else -> null
             }
         }
