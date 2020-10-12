@@ -4,8 +4,11 @@ import android.os.Build
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class Receipt constructor(type:ReceiptType , pay_date:String , issue_date:String , amount:Double , id_receipt:String , id_payment:String , building_id:Int)
+class Receipt constructor(type:ReceiptType , val pay_date:String , val issue_date:String , val amount:Double , val id_receipt:String , val id_payment:String , val building_id:Int)
 {
+    var id : Int = -1
+    var type : Int = type.ordinal
+
     companion object
     {
         fun convertDate(date:String):String
@@ -20,62 +23,6 @@ class Receipt constructor(type:ReceiptType , pay_date:String , issue_date:String
 
             return DateStr
         }
-    }
-
-    var id : Int = -1
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var type : Int = type.ordinal
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var pay_date : String = pay_date
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var issue_date : String = issue_date
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var amount : Double = amount
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var id_receipt : String = id_receipt
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var id_payment : String = id_payment
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var building_id : Int = building_id
-    get() = field
-    set(value)
-    {
-        field = value
     }
 
     override fun toString():String
