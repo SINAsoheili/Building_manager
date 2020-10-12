@@ -16,7 +16,7 @@ import ir.sinasoheili.building_manager.PRESENTER.ContractUnitList
 import ir.sinasoheili.building_manager.PRESENTER.PresenterUnitList
 import ir.sinasoheili.building_manager.R
 
-class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitListView , View.OnClickListener, Toolbar.OnMenuItemClickListener {
+class ManagerUnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitListView , View.OnClickListener, Toolbar.OnMenuItemClickListener {
     private var listView : ListView? = null
     private var ivReload : ImageView? = null
     private var tvReload : TextView? = null
@@ -28,7 +28,7 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
     private var frameLayout : FrameLayout? = null
 
     private var buildingId : Int = -1
-    private var presenter : PresenterUnitList = PresenterUnitList(this@UnitListActivity , this)
+    private var presenter : PresenterUnitList = PresenterUnitList(this@ManagerUnitListActivity , this)
     private val UNIT_REQUEST_CODE : Int = 100 //this code use for start activity to show unit info
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -85,21 +85,21 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
     override fun showEmptyListText()
     {
         tvReload!!.visibility = View.VISIBLE
-        tvReload!!.text = this@UnitListActivity.getString(R.string.empty_unit_list)
+        tvReload!!.text = this@ManagerUnitListActivity.getString(R.string.empty_unit_list)
     }
 
     override fun showUnitList(list: List<Unit>)
     {
         visibleListView()
 
-        val adapter : UnitListAdapter = UnitListAdapter(this@UnitListActivity , list)
-        listView!!.adapter = adapter
+        val adapterManager : ManagerUnitListAdapter = ManagerUnitListAdapter(this@ManagerUnitListActivity , list)
+        listView!!.adapter = adapterManager
 
         listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
-                val intent : Intent = Intent(this@UnitListActivity , UnitInfoActivity::class.java)
+                val intent : Intent = Intent(this@ManagerUnitListActivity , ManagerUnitInfoActivity::class.java)
                 intent.putExtra("unit" , list.get(p2))
                 startActivityForResult(intent , UNIT_REQUEST_CODE)
             }
@@ -135,7 +135,7 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
         {
             R.id.menu_bab_unitList_addNotification ->
             {
-                val intent : Intent = Intent(this@UnitListActivity , ManagerNotificationActivity::class.java)
+                val intent : Intent = Intent(this@ManagerUnitListActivity , ManagerNotificationActivity::class.java)
                 intent.putExtra("buildingId" , buildingId)
                 startActivity(intent)
                 return true
@@ -143,7 +143,7 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
 
             R.id.menu_bab_unitList_addReceipt ->
             {
-                val intent : Intent = Intent(this@UnitListActivity , ManagerReceiptActivity::class.java)
+                val intent : Intent = Intent(this@ManagerUnitListActivity , ManagerReceiptActivity::class.java)
                 intent.putExtra("buildingId" , buildingId)
                 startActivity(intent)
                 return true
@@ -151,7 +151,7 @@ class UnitListActivity : AppCompatActivity() , ContractUnitList.ContractUnitList
 
             R.id.menu_bab_unitList_addRepair ->
             {
-                val intent : Intent = Intent(this@UnitListActivity , ManagerRepairActivity::class.java)
+                val intent : Intent = Intent(this@ManagerUnitListActivity , ManagerRepairActivity::class.java)
                 intent.putExtra("buildingId" , buildingId)
                 startActivity(intent)
                 return true

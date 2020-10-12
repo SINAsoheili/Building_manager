@@ -2,7 +2,6 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.Toast
@@ -47,8 +46,8 @@ class FragmentChargeList constructor(val unit:Unit): Fragment(R.layout.fragment_
     {
         visibleListView()
 
-        val adapter : ChargeLIstAdapter = ChargeLIstAdapter(context!! , items)
-        listView!!.adapter = adapter
+        val adapterManager : ManagerChargeLIstAdapter = ManagerChargeLIstAdapter(context!! , items)
+        listView!!.adapter = adapterManager
     }
 
     private fun visibleRefreshButton()

@@ -7,7 +7,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -15,10 +14,9 @@ import androidx.appcompat.app.AlertDialog
 import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.R
 import ir.sinasoheili.building_manager.PRESENTER.ContractUnitInfo.ContractUnitInfoView
-import ir.sinasoheili.building_manager.PRESENTER.ContractUnitInfo.ContractUnitInfoPresenter
 import ir.sinasoheili.building_manager.PRESENTER.PresenterUnitInfo
 
-class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUnitInfoView
+class ManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUnitInfoView
 {
     private var tvUnitNumber : TextView? = null
     private var tvUnitTag : TextView? = null
@@ -80,9 +78,9 @@ class UnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractUn
             return
         }
 
-        tvUnitNumber!!.text = this@UnitInfoActivity.getString(R.string.unit_list_item_unitNumber)+" "+unit.unit_number.toString()
-        tvUnitTag!!.text = this@UnitInfoActivity.getString(R.string.unit_list_item_tag)+" "+unit.tag.toString()
-        tvOwnerName!!.text = this@UnitInfoActivity.getString(R.string.unit_list_item_ownerName)+" "+unit.owner_name
+        tvUnitNumber!!.text = this@ManagerUnitInfoActivity.getString(R.string.unit_list_item_unitNumber)+" "+unit.unit_number.toString()
+        tvUnitTag!!.text = this@ManagerUnitInfoActivity.getString(R.string.unit_list_item_tag)+" "+unit.tag.toString()
+        tvOwnerName!!.text = this@ManagerUnitInfoActivity.getString(R.string.unit_list_item_ownerName)+" "+unit.owner_name
         tvPhone!!.text = unit.phone
     }
 

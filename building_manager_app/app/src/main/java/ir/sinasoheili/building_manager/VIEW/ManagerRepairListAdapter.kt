@@ -11,7 +11,7 @@ import ir.sinasoheili.building_manager.MODEL.Repair
 import ir.sinasoheili.building_manager.R
 import org.w3c.dom.Text
 
-class RepairListAdapter constructor(context:Context , val items:List<Repair>): ArrayAdapter<Repair>(context , R.layout.repair_list_item , items)
+class ManagerRepairListAdapter constructor(context:Context, val items:List<Repair>): ArrayAdapter<Repair>(context , R.layout.repair_list_item , items)
 {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View
     {

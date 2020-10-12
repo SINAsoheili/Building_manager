@@ -3,7 +3,6 @@ package ir.sinasoheili.building_manager.VIEW
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -74,7 +73,7 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
     override fun showList(items: List<Repair>)
     {
         val reversedItem:List<Repair> = items.reversed()
-        val adapter : RepairListAdapter = RepairListAdapter(this , reversedItem)
-        listView!!.adapter = adapter
+        val adapterManager : ManagerRepairListAdapter = ManagerRepairListAdapter(this , reversedItem)
+        listView!!.adapter = adapterManager
     }
 }

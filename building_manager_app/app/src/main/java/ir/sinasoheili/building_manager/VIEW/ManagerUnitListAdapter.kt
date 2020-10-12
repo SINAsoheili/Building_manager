@@ -9,7 +9,7 @@ import android.widget.TextView
 import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.R
 
-class UnitListAdapter(context:Context, unitList:List<Unit>) : ArrayAdapter<Unit>(context , R.layout.unit_list_item , unitList)
+class ManagerUnitListAdapter(context:Context, unitList:List<Unit>) : ArrayAdapter<Unit>(context , R.layout.unit_list_item , unitList)
 {
     val unitList:List<Unit> = unitList
 

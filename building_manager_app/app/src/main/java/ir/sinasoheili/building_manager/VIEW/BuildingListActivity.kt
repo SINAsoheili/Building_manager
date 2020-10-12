@@ -72,7 +72,7 @@ class BuildingListActivity : AppCompatActivity() , ContractBuildingList.Contract
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
-                val intent : Intent = Intent(this@BuildingListActivity , UnitListActivity::class.java)
+                val intent : Intent = Intent(this@BuildingListActivity , ManagerUnitListActivity::class.java)
                 intent.putExtra("building_id" , buildingList.get(p2).id)
                 startActivity(intent)
             }

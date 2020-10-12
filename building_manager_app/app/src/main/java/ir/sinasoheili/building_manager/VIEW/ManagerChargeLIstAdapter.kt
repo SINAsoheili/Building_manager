@@ -10,7 +10,7 @@ import ir.sinasoheili.building_manager.MODEL.Charge
 import ir.sinasoheili.building_manager.MODEL.ChargeStatus
 import ir.sinasoheili.building_manager.R
 
-class ChargeLIstAdapter constructor(context: Context , val items:List<Charge>): ArrayAdapter<Charge>(context , R.layout.charge_list_item , items)
+class ManagerChargeLIstAdapter constructor(context: Context, val items:List<Charge>): ArrayAdapter<Charge>(context , R.layout.charge_list_item , items)
 {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View
     {
