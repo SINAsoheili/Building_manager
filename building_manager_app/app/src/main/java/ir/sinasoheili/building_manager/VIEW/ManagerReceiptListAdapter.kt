@@ -60,19 +60,8 @@ class ManagerReceiptListAdapter constructor(context:Context ,val items:List<Rece
             tvType?.text = ReceiptType.getReceipt(receipt.type).toString()
             tvAmount?.text = receipt.amount.toString()
 
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            {
-                val issueDateStr : String = "${receipt.issue_date.split(" ").get(1)} ${receipt.issue_date.split(" ").get(2)} ${receipt.issue_date.split(" ").get(3)}"
-                val payDateStr : String = "${receipt.pay_date.split(" ").get(1)} ${receipt.pay_date.split(" ").get(2)} ${receipt.pay_date.split(" ").get(3)}"
-
-                val format : DateTimeFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy")
-
-                var localDat : LocalDate = LocalDate.parse(issueDateStr , format)
-                tvIssueDate?.text = " تاریخ صدور ${localDat.toString().replace("-" , "/")}"
-
-                localDat = LocalDate.parse(payDateStr , format)
-                tvPayDate?.text =  " تاریخ پرداخت ${localDat.toString().replace("-" , "/")}"
-            }
+            tvIssueDate?.text = view.context.getString(R.string.receiptListItem_IssueDate , Receipt.convertDate(receipt.issue_date))
+            tvPayDate?.text = view.context.getString(R.string.receiptListItem_PayDate , Receipt.convertDate(receipt.pay_date))
         }
     }
 }

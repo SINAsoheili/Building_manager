@@ -79,4 +79,7 @@
     <string name="manager_chargeListItem_issueDate">تاریخ صدور : %s</string>
     <string name="manager_chargeListItem_payDate">تاریخ پرداخت : %s</string>
 
+    <string name="receiptListItem_IssueDate">تاریخ صدور %s</string>
+    <string name="receiptListItem_PayDate">تاریخ پرداخت %s</string>
+
 </resources>
