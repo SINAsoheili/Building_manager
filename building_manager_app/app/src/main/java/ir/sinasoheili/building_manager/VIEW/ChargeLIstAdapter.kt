@@ -9,7 +9,7 @@ import android.widget.TextView
 import ir.sinasoheili.building_manager.MODEL.Charge
 import ir.sinasoheili.building_manager.R
 
-class ChargeLIstAdapter constructor(context: Context , val items:Array<Charge>): ArrayAdapter<Charge>(context , R.layout.charge_list_item , items)
+class ChargeLIstAdapter constructor(context: Context , val items:List<Charge>): ArrayAdapter<Charge>(context , R.layout.charge_list_item , items)
 {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View
     {

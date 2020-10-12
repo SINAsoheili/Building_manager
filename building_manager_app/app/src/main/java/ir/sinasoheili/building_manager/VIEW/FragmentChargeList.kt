@@ -47,7 +47,7 @@ class FragmentChargeList constructor(val unit:Unit): Fragment(R.layout.fragment_
     {
         visibleListView()
 
-        val adapter : ArrayAdapter<Charge> = ArrayAdapter(context!! , android.R.layout.simple_list_item_1 , items)
+        val adapter : ChargeLIstAdapter = ChargeLIstAdapter(context!! , items)
         listView!!.adapter = adapter
     }
 
