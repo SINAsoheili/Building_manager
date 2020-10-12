@@ -1,10 +1,31 @@
 package ir.sinasoheili.building_manager.MODEL
 
+import android.os.Build
+import android.util.Log
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
 class Charge constructor (amount:Double, status: ChargeStatus = ChargeStatus.unpaid, issue_date:String, manager_id:Int, building_id:Int, unit_number:Int)
 {
     constructor(amount:Double, status: ChargeStatus = ChargeStatus.unpaid, issue_date:String, pay_date:String, manager_id:Int, building_id:Int, unit_number:Int):this(amount , status , issue_date , manager_id , building_id , unit_number)
     {
         this.pay_date = pay_date
+    }
+
+    companion object
+    {
+        fun convertDate(date:String):String
+        {
+            val DateStr : String = "${date.split(" ").get(1)} ${date.split(" ").get(2)} ${date.split(" ").get(3)}"
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            {
+                val format : DateTimeFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy")
+                var localDat : LocalDate = LocalDate.parse(DateStr , format)
+                return localDat.toString().replace("-" , "/")
+            }
+
+            return DateStr
+        }
     }
 
     var id:Int = -1
