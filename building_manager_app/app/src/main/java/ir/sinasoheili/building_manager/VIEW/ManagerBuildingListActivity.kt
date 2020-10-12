@@ -65,8 +65,8 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
     {
         visibleList()
 
-        val adapter : BuildingListAdapter = BuildingListAdapter(this@ManagerBuildingListActivity , buildingList)
-        lv_buildingList.adapter = adapter
+        val adapterManager : ManagerBuildingListAdapter = ManagerBuildingListAdapter(this@ManagerBuildingListActivity , buildingList)
+        lv_buildingList.adapter = adapterManager
 
         listView!!.setOnItemClickListener(object : AdapterView.OnItemClickListener
         {

@@ -11,7 +11,7 @@ import android.widget.TextView
 import ir.sinasoheili.building_manager.MODEL.Building
 import ir.sinasoheili.building_manager.R
 
-class BuildingListAdapter constructor(context:Context, buildingList:List<Building>) : ArrayAdapter<Building>(context , R.layout.building_list_item , buildingList)
+class ManagerBuildingListAdapter constructor(context:Context, buildingList:List<Building>) : ArrayAdapter<Building>(context , R.layout.building_list_item , buildingList)
 {
     val buildingList : List<Building> = buildingList
 
