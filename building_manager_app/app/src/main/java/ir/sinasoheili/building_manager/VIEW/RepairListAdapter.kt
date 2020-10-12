@@ -48,7 +48,7 @@ class RepairListAdapter constructor(context:Context , val items:List<Repair>): A
         fun fill(repair:Repair)
         {
             tvTitle?.text = repair.title
-            tvDate?.text = repair.title
+            tvDate?.text = Repair.convertDate(repair.date)
         }
     }
 }
