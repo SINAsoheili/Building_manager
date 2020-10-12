@@ -5,8 +5,23 @@ import android.util.Log
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class Charge constructor (amount:Double, status: ChargeStatus = ChargeStatus.unpaid, issue_date:String, manager_id:Int, building_id:Int, unit_number:Int)
+class Charge constructor (amount:Double , status: ChargeStatus = ChargeStatus.unpaid , val issue_date:String , val manager_id:Int , val building_id:Int , val unit_number:Int)
 {
+    var id:Int = -1
+
+    var status : Int = status.ordinal
+
+    var pay_date : String = ""
+
+    var amount : Double = amount
+        set(value)
+        {
+            if(value >= 0 )
+            {
+                field = amount
+            }
+        }
+
     constructor(amount:Double, status: ChargeStatus = ChargeStatus.unpaid, issue_date:String, pay_date:String, manager_id:Int, building_id:Int, unit_number:Int):this(amount , status , issue_date , manager_id , building_id , unit_number)
     {
         this.pay_date = pay_date
@@ -26,65 +41,6 @@ class Charge constructor (amount:Double, status: ChargeStatus = ChargeStatus.unp
 
             return DateStr
         }
-    }
-
-    var id:Int = -1
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var amount : Double = amount
-    get() = field
-    set(value)
-    {
-        if(value >= 0 )
-        {
-            field = amount
-        }
-    }
-
-    var status : Int = status.ordinal
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var issue_date : String = issue_date
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var manager_id : Int = manager_id
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var building_id : Int = building_id
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var unit_number : Int = unit_number
-    get() = field
-    set(value)
-    {
-        field = value
-    }
-
-    var pay_date : String = ""
-    get() = field
-    set(value)
-    {
-        field = value
     }
 
     override fun toString(): String
