@@ -54,15 +54,7 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
         {
             fabRegisterReceipt ->
             {
-                val fragment : FragmentManagerRegisterNewReceipt = FragmentManagerRegisterNewReceipt(buildingId , object:CallBack
-                {
-                    override fun onRegisteredReceipt()
-                    {
-                        presenter!!.fetchReceiptList(buildingId)
-                    }
-
-                })
-                supportFragmentManager.beginTransaction().add(R.id.fl_managerReceipt , fragment).addToBackStack(null).commit()
+                showFragmentReceiptAdd()
             }
         }
     }
@@ -98,5 +90,18 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
 
         })
         supportFragmentManager.beginTransaction().replace(R.id.fl_managerReceipt , fragment).addToBackStack(null).commit()
+    }
+
+    private fun showFragmentReceiptAdd()
+    {
+        val fragment : FragmentManagerRegisterNewReceipt = FragmentManagerRegisterNewReceipt(buildingId , object:CallBack
+        {
+            override fun onRegisteredReceipt()
+            {
+                presenter!!.fetchReceiptList(buildingId)
+            }
+
+        })
+        supportFragmentManager.beginTransaction().add(R.id.fl_managerReceipt , fragment).addToBackStack(null).commit()
     }
 }
