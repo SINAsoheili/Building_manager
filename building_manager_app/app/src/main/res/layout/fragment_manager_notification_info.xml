@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/medium_margin"
+            android:gravity="right"
             />
 
     </LinearLayout>
@@ -36,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/medium_margin"
         android:lines="8"
+        android:gravity="right"
         />
 
     <TextView
@@ -43,6 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/medium_margin"
+        android:gravity="left"
         />
 
 </LinearLayout>
