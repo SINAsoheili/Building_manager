@@ -3,6 +3,7 @@ package ir.sinasoheili.building_manager.VIEW
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -75,5 +76,19 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
         val reversedItem:List<Repair> = items.reversed()
         val adapterManager : ManagerRepairListAdapter = ManagerRepairListAdapter(this , reversedItem)
         listView!!.adapter = adapterManager
+
+        listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener
+        {
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
+            {
+                showRepairInfoFragment(items.get(p2))
+            }
+        })
+    }
+
+    private fun showRepairInfoFragment(repair:Repair)
+    {
+        val fragment:FragmentManagerRepairInfo = FragmentManagerRepairInfo(repair)
+        supportFragmentManager.beginTransaction().replace(R.id.fl_managerRepair , fragment).addToBackStack(null).commit()
     }
 }
