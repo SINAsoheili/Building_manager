@@ -53,15 +53,7 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
         {
             fabAddRepair->
             {
-                val fragmentRepair : FragmentManagerRegisterNewRepair = FragmentManagerRegisterNewRepair(buildingId , object:CallBack
-                {
-                    override fun onRepairRegistered()
-                    {
-                        presenter!!.getRepairList(buildingId)
-                    }
-
-                })
-                supportFragmentManager.beginTransaction().replace(R.id.fl_managerRepair , fragmentRepair).addToBackStack(null).commit()
+                showRegisterNewRepairFragment()
             }
         }
     }
@@ -90,5 +82,18 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
     {
         val fragment:FragmentManagerRepairInfo = FragmentManagerRepairInfo(repair)
         supportFragmentManager.beginTransaction().replace(R.id.fl_managerRepair , fragment).addToBackStack(null).commit()
+    }
+
+    private fun showRegisterNewRepairFragment()
+    {
+        val fragmentRepair : FragmentManagerRegisterNewRepair = FragmentManagerRegisterNewRepair(buildingId , object:CallBack
+        {
+            override fun onRepairRegistered()
+            {
+                presenter!!.getRepairList(buildingId)
+            }
+
+        })
+        supportFragmentManager.beginTransaction().replace(R.id.fl_managerRepair , fragmentRepair).addToBackStack(null).commit()
     }
 }
