@@ -82,4 +82,8 @@
     <string name="receiptListItem_IssueDate">تاریخ صدور %s</string>
     <string name="receiptListItem_PayDate">تاریخ پرداخت %s</string>
 
+    <string name="fail_to_delete">امکان حذف وجود ندارد!</string>
+
+    <string name="doYouConfirmDeleteRepair">آیا از حذف گزارش تعمیر مطمئن هستید؟؟</string>
+
 </resources>

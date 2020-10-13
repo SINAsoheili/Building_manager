@@ -73,14 +73,21 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
-                showRepairInfoFragment(items.get(p2))
+                showRepairInfoFragment(items.reversed().get(p2))
             }
         })
     }
 
     private fun showRepairInfoFragment(repair:Repair)
     {
-        val fragment:FragmentManagerRepairInfo = FragmentManagerRepairInfo(repair)
+        val fragment:FragmentManagerRepairInfo = FragmentManagerRepairInfo(repair , object:FragmentManagerRepairInfo.CallBack
+        {
+            override fun onRepirDeleted()
+            {
+                presenter?.getRepairList(buildingId)
+            }
+
+        })
         supportFragmentManager.beginTransaction().replace(R.id.fl_managerRepair , fragment).addToBackStack(null).commit()
     }
 
