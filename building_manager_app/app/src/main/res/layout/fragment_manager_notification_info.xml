@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_fragmentNotificationInfo_delete"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="@dimen/medium_margin"
+            android:src="@android:drawable/ic_menu_delete"
+            />
+
+        <TextView
+            android:id="@+id/tv_fragmentNotificationInfo_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_fragmentNotificationInfo_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_margin"
+        android:lines="8"
+        />
+
+    <TextView
+        android:id="@+id/tv_fragmentNotificationInfo_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_margin"
+        />
+
+</LinearLayout>
