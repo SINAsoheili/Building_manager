@@ -3,6 +3,7 @@ package ir.sinasoheili.building_manager.VIEW
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -11,6 +12,7 @@ import ir.sinasoheili.building_manager.R
 import ir.sinasoheili.building_manager.VIEW.FragmentManagerRegisterNewReceipt.CallBack
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerReceipt.ContractManagerReceiptView
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerReceipt
+import kotlinx.android.synthetic.main.fragment_setrole_manager.*
 
 class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView , View.OnClickListener
 {
@@ -75,5 +77,26 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
         val reversedItems : List<Receipt> = items.reversed()
         val adapter : ManagerReceiptListAdapter = ManagerReceiptListAdapter(this , reversedItems)
         listView!!.adapter = adapter
+        listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener
+        {
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
+            {
+                showFragmentReceiptInfo(items.reversed().get(p2))
+            }
+
+        })
+    }
+
+    private fun showFragmentReceiptInfo(receipt:Receipt)
+    {
+        val fragment:FragmentManagerReceiptInfo = FragmentManagerReceiptInfo(receipt , object:FragmentManagerReceiptInfo.CallBack
+        {
+            override fun onReceiptDeleted()
+            {
+                presenter!!.fetchReceiptList(buildingId)
+            }
+
+        })
+        supportFragmentManager.beginTransaction().replace(R.id.fl_managerReceipt , fragment).addToBackStack(null).commit()
     }
 }
