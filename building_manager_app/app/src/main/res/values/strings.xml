@@ -85,5 +85,6 @@
     <string name="fail_to_delete">امکان حذف وجود ندارد!</string>
 
     <string name="doYouConfirmDeleteRepair">آیا از حذف گزارش تعمیر مطمئن هستید؟؟</string>
+    <string name="doYouConfirmDeleteReceipt">آیا از حذف گزارش قبض مطمئن هستید؟؟</string>
 
 </resources>
