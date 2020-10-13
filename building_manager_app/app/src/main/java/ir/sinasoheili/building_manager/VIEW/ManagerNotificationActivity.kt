@@ -3,6 +3,7 @@ package ir.sinasoheili.building_manager.VIEW
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
@@ -75,5 +76,26 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
     {
         val adapter : ArrayAdapter<Notification> = ArrayAdapter(this , android.R.layout.simple_list_item_1 , items)
         listView!!.adapter = adapter
+
+        listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener
+        {
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
+            {
+                showNotificationFragment(items.get(p2))
+            }
+        })
+    }
+
+    fun showNotificationFragment(notification: Notification)
+    {
+        val fragment:FragmentManagerNotificationInfo = FragmentManagerNotificationInfo(notification , object:FragmentManagerNotificationInfo.CallBack
+        {
+            override fun onNotificationDeleted()
+            {
+                presenter?.fetchNotificationList(buildingId)
+            }
+
+        })
+        supportFragmentManager.beginTransaction().replace(R.id.fl_managerNotification , fragment).addToBackStack(null).commit()
     }
 }
