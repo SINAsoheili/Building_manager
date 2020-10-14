@@ -2,6 +2,7 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.Toast
@@ -48,6 +49,15 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
 
         val adapterManager : ManagerChargeLIstAdapter = ManagerChargeLIstAdapter(context!! , items)
         listView!!.adapter = adapterManager
+
+        listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener
+        {
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
+            {
+                val dialogFragment : DialogFragmentManagerEditCharge = DialogFragmentManagerEditCharge(items.get(p2))
+                dialogFragment.show(fragmentManager!! , null)
+            }
+        })
     }
 
     private fun visibleRefreshButton()
