@@ -12,9 +12,10 @@ import com.google.android.material.textfield.TextInputLayout
 import ir.sinasoheili.building_manager.MODEL.Charge
 import ir.sinasoheili.building_manager.MODEL.ChargeStatus
 import ir.sinasoheili.building_manager.PRESENTER.ContractDialogFragmentManagerEditCharge
+import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerDialogEditCharge
 import ir.sinasoheili.building_manager.R
 
-class DialogFragmentManagerEditCharge constructor(val charge:Charge): DialogFragment(), ContractDialogFragmentManagerEditCharge.ContractDialogFragmentManagerEditChargeView , View.OnClickListener
+class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callback:CallBack): DialogFragment(), ContractDialogFragmentManagerEditCharge.ContractDialogFragmentManagerEditChargeView , View.OnClickListener
 {
     private var etAmount : EditText? = null
     private var etIssueDate : EditText? = null
@@ -25,6 +26,8 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge): DialogFrag
     private var tilAmount : TextInputLayout? = null
     private var tilPaydate: TextInputLayout? = null
     private var tilIssueDate : TextInputLayout? = null
+
+    private var presenter : PresenterManagerDialogEditCharge? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
@@ -47,6 +50,8 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge): DialogFrag
 
     private fun initObj(view:View)
     {
+        presenter = PresenterManagerDialogEditCharge(view.context , this)
+
         tilAmount = view.findViewById(R.id.til_dialogFragmentEditCharge_amount)
         etAmount = view.findViewById(R.id.et_dialogFragmentEditCharge_amount)
 
@@ -89,13 +94,30 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge): DialogFrag
             {
                 if(checkAmount() && checkIssueDate())
                 {
-                    Toast.makeText(context, "click", Toast.LENGTH_SHORT).show()
+                    val amount : Double = etAmount!!.text.toString().toDouble()
+                    val status : ChargeStatus = spinner!!.selectedItem as ChargeStatus
+                    val issueDate : String = etIssueDate!!.text.toString()
+
+                    var newCharge : Charge? = null
+
+                    if(etPayDate!!.text!!.isEmpty())
+                    {
+                        newCharge = Charge(charge.id , amount , status , issueDate , charge.manager_id , charge.building_id , charge.unit_number)
+                    }
+                    else
+                    {
+                        val payDate : String = etPayDate!!.text.toString()
+
+                        newCharge = Charge(charge.id , amount , status , issueDate , payDate , charge.manager_id , charge.building_id , charge.unit_number)
+                    }
+
+                    presenter!!.updateCharge(newCharge)
                 }
             }
 
             btnDelete ->
             {
-                Toast.makeText(context , "click" , Toast.LENGTH_SHORT).show()
+                presenter!!.deleteCharge(charge)
             }
         }
     }
@@ -124,5 +146,28 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge): DialogFrag
 
         tilIssueDate?.isErrorEnabled = false
         return true
+    }
+
+    override fun showToast(text: String)
+    {
+        Toast.makeText(context , text , Toast.LENGTH_SHORT).show()
+    }
+
+    override fun chargeDeleted()
+    {
+        callback.onChargeDeleted()
+        this.dismiss()
+    }
+
+    override fun chargeUpdated()
+    {
+        callback.onChargeUpdated()
+        this.dismiss()
+    }
+
+    interface CallBack
+    {
+        fun onChargeDeleted()
+        fun onChargeUpdated()
     }
 }

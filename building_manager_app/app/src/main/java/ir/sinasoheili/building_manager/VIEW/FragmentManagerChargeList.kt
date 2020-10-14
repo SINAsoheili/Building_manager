@@ -18,18 +18,18 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
     private var listView : ListView? = null
     private var ivRefresh : ImageView? = null
 
-    private var presenterManager : ContractManagerChargeList.ContractManagerChargeListPresenter? = null
+    private var presenter : ContractManagerChargeList.ContractManagerChargeListPresenter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
         initObj(view)
 
-        presenterManager!!.getChargeList(unit.building_id , unit.unit_number)
+        presenter!!.getChargeList(unit.building_id , unit.unit_number)
     }
 
     private fun initObj(view:View)
     {
-        presenterManager = PresenterManagerChargeList(view.context , this)
+        presenter = PresenterManagerChargeList(view.context , this)
 
         listView = view.findViewById(R.id.lv_fragmentChargeList)
 
@@ -54,7 +54,19 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
-                val dialogFragment : DialogFragmentManagerEditCharge = DialogFragmentManagerEditCharge(items.get(p2))
+                val dialogFragment : DialogFragmentManagerEditCharge = DialogFragmentManagerEditCharge(items.get(p2) , object:DialogFragmentManagerEditCharge.CallBack
+                {
+                    override fun onChargeDeleted()
+                    {
+                        presenter!!.getChargeList(unit.building_id , unit.unit_number)
+                    }
+
+                    override fun onChargeUpdated()
+                    {
+                        presenter!!.getChargeList(unit.building_id , unit.unit_number)
+                    }
+
+                })
                 dialogFragment.show(fragmentManager!! , null)
             }
         })
@@ -78,7 +90,7 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
         {
             ivRefresh ->
             {
-                presenterManager!!.getChargeList(unit.building_id , unit.unit_number)
+                presenter!!.getChargeList(unit.building_id , unit.unit_number)
             }
         }
     }

@@ -27,6 +27,17 @@ class Charge constructor (amount:Double , status: ChargeStatus = ChargeStatus.un
         this.pay_date = pay_date
     }
 
+    constructor(id:Int , amount:Double, status: ChargeStatus = ChargeStatus.unpaid, issue_date:String, manager_id:Int, building_id:Int, unit_number:Int):this(amount , status , issue_date , manager_id , building_id , unit_number)
+    {
+        this.id = id
+    }
+
+    constructor(id:Int , amount:Double, status: ChargeStatus = ChargeStatus.unpaid, issue_date:String, pay_date:String, manager_id:Int, building_id:Int, unit_number:Int):this(amount , status , issue_date , manager_id , building_id , unit_number)
+    {
+        this.pay_date = pay_date
+        this.id = id
+    }
+
     companion object
     {
         fun convertDate(date:String):String
