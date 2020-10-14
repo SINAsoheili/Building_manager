@@ -63,4 +63,7 @@ interface APIs
 
     @GET("/notification/del")
     fun notificationDelete(@Query("id")id:Int):Call<NotificationDeleteResponse>
+
+    @GET("/charge/delete")
+    fun chargeDelete(@Query("id")id:Int):Call<ChargeDeleteResponse>
 }
