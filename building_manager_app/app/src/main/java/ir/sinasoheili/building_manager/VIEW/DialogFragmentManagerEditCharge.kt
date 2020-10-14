@@ -1,5 +1,6 @@
 package ir.sinasoheili.building_manager.VIEW
 
+import android.app.ActionBar
 import android.os.Bundle
 import android.text.Editable
 import android.view.LayoutInflater
@@ -28,6 +29,13 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge): DialogFrag
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
         return inflater.inflate(R.layout.fragment_dialog_manager_edit_charge , container , false)
+    }
+
+    override fun onResume()
+    {
+        super.onResume()
+
+        this.dialog?.window?.setLayout(LinearLayout.LayoutParams.MATCH_PARENT , LinearLayout.LayoutParams.WRAP_CONTENT)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
