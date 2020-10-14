@@ -88,4 +88,9 @@
     <string name="doYouConfirmDeleteReceipt">آیا از حذف گزارش قبض مطمئن هستید؟؟</string>
     <string name="doYouConfirmDeleteNotification">آیا از حذف اعلان مطمئن هستید؟؟</string>
 
+    <string name="delete">حذف</string>
+    <string name="dialogFragmentEditCharg_amount">مقدار</string>
+    <string name="dialogFragmentEditCharg_issueDate">تاریخ صدور</string>
+    <string name="dialogFragmentEditCharg_payDate">تاریخ پرداخت</string>
+
 </resources>
