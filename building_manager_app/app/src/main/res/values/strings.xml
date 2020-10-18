@@ -96,4 +96,6 @@
     <string name="fragment_userSetRole_phone">شماره موبایل</string>
     <string name="fragment_userSetRole_buildingId">شماره ساختمان</string>
 
+    <string name="user_fail_authentication">کاربر شناسایی نشد!!</string>
+
 </resources>
