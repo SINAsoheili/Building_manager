@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:orientation="vertical">
 
-    <TextView
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_fragment_setRole_user_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_fragment_setRole_user_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:inputType="phone"
+            android:hint="@string/fragment_userSetRole_phone"
+            android:maxLength="11"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_fragment_setRole_user_buildingId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_fragment_setRole_user_buildingId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:inputType="number"
+            android:hint="@string/fragment_userSetRole_buildingId"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_fragment_setRole_user_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="manager"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="@dimen/medium_margin"
+        android:text="@string/submit"
         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

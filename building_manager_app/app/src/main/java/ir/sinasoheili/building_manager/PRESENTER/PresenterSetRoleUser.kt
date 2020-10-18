@@ -1,0 +1,9 @@
+package ir.sinasoheili.building_manager.PRESENTER
+
+import ir.sinasoheili.building_manager.PRESENTER.ContractSetRoleUser.ContractSetRoleUserPresenter
+import ir.sinasoheili.building_manager.PRESENTER.ContractSetRoleUser.ContractSetRoleUserView
+
+class PresenterSetRoleUser : ContractSetRoleUserPresenter
+{
+
+}
