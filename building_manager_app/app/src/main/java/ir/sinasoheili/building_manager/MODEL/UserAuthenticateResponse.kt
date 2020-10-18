@@ -1,3 +1,3 @@
 package ir.sinasoheili.building_manager.MODEL
 
-data class UserAuthenticateResponse(val result:Boolean)
+data class UserAuthenticateResponse(val result:Boolean , val unitNumber:Int)
