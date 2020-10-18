@@ -1,5 +1,6 @@
 package ir.sinasoheili.building_manager.VIEW
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -98,10 +99,8 @@ class FragmentSetRoleUser : Fragment(R.layout.fragment_setrole_user) , ContractS
 
     fun moveToUserDashboardActivity()
     {
-//        fragmentManager!!.beginTransaction().remove(this).commit()
-//        val intent : Intent = Intent(context , ManagerBuildingListActivity::class.java)
-//        startActivity(intent)
-        //todo:translate to another activity
-        Toast.makeText(context , "got to dashboard" , Toast.LENGTH_SHORT).show()
+        fragmentManager!!.beginTransaction().remove(this).commit()
+        val intent : Intent = Intent(context , UserDashboardActivity::class.java)
+        startActivity(intent)
     }
 }

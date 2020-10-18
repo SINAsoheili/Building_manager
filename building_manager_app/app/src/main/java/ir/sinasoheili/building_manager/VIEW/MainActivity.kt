@@ -11,6 +11,7 @@ import ir.sinasoheili.building_manager.PRESENTER.UserAuthFilePreferenceHandler
 import ir.sinasoheili.building_manager.VIEW.ManagerBuildingListActivity
 import ir.sinasoheili.building_manager.VIEW.FragmentSetRoleManager
 import ir.sinasoheili.building_manager.VIEW.FragmentSetRoleUser
+import ir.sinasoheili.building_manager.VIEW.UserDashboardActivity
 
 class MainActivity : AppCompatActivity() , View.OnClickListener
 {
@@ -98,10 +99,8 @@ class MainActivity : AppCompatActivity() , View.OnClickListener
 
     fun goToUserDashboard()
     {
-//        val intent:Intent = Intent(this@MainActivity , ManagerBuildingListActivity::class.java)
-//        startActivity(intent)
-//        finish()
-        //todo:translate to another activity
-        Toast.makeText(this@MainActivity , "goto user dashboard" , Toast.LENGTH_SHORT).show()
+        val intent:Intent = Intent(this@MainActivity , UserDashboardActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
