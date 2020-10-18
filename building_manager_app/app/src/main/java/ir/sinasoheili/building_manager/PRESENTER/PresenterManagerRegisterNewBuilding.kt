@@ -12,7 +12,7 @@ class PresenterManagerRegisterNewBuilding constructor(viewManager:ContractManage
     override fun registerBuilding(context: Context, building: Building)
     {
         val apiHandler : API_BuildingRegisterHandler = API_BuildingRegisterHandler(context)
-        val managerId : Int = ManagerAuthFilePreferenceHandler.readFromFile(context , ManagerAuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
+        val managerId : Int = UserAuthFilePreferenceHandler.readFromFile(context , UserAuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
         apiHandler.start(building , managerId , object:API_BuildingRegisterHandler.callBack
         {
             override fun onFailure()

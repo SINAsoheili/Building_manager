@@ -28,7 +28,7 @@ class PresenterSetRoleManager constructor(view:ContractSetRoleManager.ContractSe
 
                     if(id != -1) // if id was not -1 means can retrieve id of inserted manager
                     {
-                        ManagerAuthFilePreferenceHandler.writeToFile(context , ManagerAuthFilePreferenceHandler.KEY_MANAGER_ID , id.toString())
+                        UserAuthFilePreferenceHandler.writeToFile(context , UserAuthFilePreferenceHandler.KEY_MANAGER_ID , id.toString())
                         view.moveToBuildingListActivity()
                     }
                 }

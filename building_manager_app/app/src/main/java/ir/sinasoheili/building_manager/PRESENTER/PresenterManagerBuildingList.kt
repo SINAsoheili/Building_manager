@@ -13,7 +13,7 @@ class PresenterManagerBuildingList constructor(context:Context, viewManager:Cont
     {
         val api : API_BuildingListHandler = API_BuildingListHandler(context)
 
-        val managerId:Int = ManagerAuthFilePreferenceHandler.readFromFile(context , ManagerAuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
+        val managerId:Int = UserAuthFilePreferenceHandler.readFromFile(context , UserAuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
 
         api.start(managerId , object:API_BuildingListHandler.CallBack
         {

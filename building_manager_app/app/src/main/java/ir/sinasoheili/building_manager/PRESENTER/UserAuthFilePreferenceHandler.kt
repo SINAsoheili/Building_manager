@@ -3,10 +3,12 @@ package ir.sinasoheili.building_manager.PRESENTER
 import android.content.Context
 import android.content.SharedPreferences
 
-object ManagerAuthFilePreferenceHandler
+object UserAuthFilePreferenceHandler
 {
     val FILE_NAME : String = "user_auth_info"
     val KEY_MANAGER_ID : String = "MANAGER_ID"
+    val KEY_USER_ID_UnitNumber : String = "USER_unitNumber"
+    val KEY_USER_ID_BuildignId : String = "USER_buildingId"
 
     fun writeToFile(context:Context , key:String , value:String)
     {

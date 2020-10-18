@@ -8,7 +8,7 @@ import com.google.android.material.textfield.TextInputLayout
 import ir.sinasoheili.building_manager.MODEL.Charge
 import ir.sinasoheili.building_manager.MODEL.ChargeStatus
 import ir.sinasoheili.building_manager.MODEL.Unit
-import ir.sinasoheili.building_manager.PRESENTER.ManagerAuthFilePreferenceHandler
+import ir.sinasoheili.building_manager.PRESENTER.UserAuthFilePreferenceHandler
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerChargeAdd.ContractManagerChargeAddView
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerChargeAdd
 import ir.sinasoheili.building_manager.R
@@ -68,7 +68,7 @@ class FragmentManagerChargeAdd constructor(val unit:Unit): Fragment(R.layout.fra
                     val amount : Double = etAmount!!.text.toString().toDouble()
                     val issueDate : String = etIssueDate!!.text.toString()
                     val status : ChargeStatus = spStatus!!.selectedItem as ChargeStatus
-                    val managerId : Int = ManagerAuthFilePreferenceHandler.readFromFile(context!! , ManagerAuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
+                    val managerId : Int = UserAuthFilePreferenceHandler.readFromFile(context!! , UserAuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
 
                     var charge : Charge = Charge(amount , status , issueDate , managerId , unit.building_id , unit.unit_number)
 
