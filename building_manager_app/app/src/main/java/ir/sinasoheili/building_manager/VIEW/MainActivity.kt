@@ -3,9 +3,11 @@ package ir.sinasoheili.building_manager
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
-import ir.sinasoheili.building_manager.PRESENTER.ManagerAuthFilePreferenceHandler
+import android.widget.Toast
+import ir.sinasoheili.building_manager.PRESENTER.UserAuthFilePreferenceHandler
 import ir.sinasoheili.building_manager.VIEW.ManagerBuildingListActivity
 import ir.sinasoheili.building_manager.VIEW.FragmentSetRoleManager
 import ir.sinasoheili.building_manager.VIEW.FragmentSetRoleUser
@@ -20,13 +22,20 @@ class MainActivity : AppCompatActivity() , View.OnClickListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if(isManagerRegistered())
+        when
         {
-            goToBuildingListActivity()
-        }
-        else
-        {
-            initObj()
+            isManagerRegistered()->
+            {
+                goToBuildingListActivity()
+            }
+            isUserRegistered()->
+            {
+                goToUserDashboard()
+            }
+            else ->
+            {
+                initObj()
+            }
         }
     }
 
@@ -43,7 +52,6 @@ class MainActivity : AppCompatActivity() , View.OnClickListener
 
         btn_user = findViewById(R.id.btn_setRole_user)
         btn_user?.setOnClickListener(this)
-
     }
 
     override fun onClick(view: View?)
@@ -66,7 +74,19 @@ class MainActivity : AppCompatActivity() , View.OnClickListener
 
     fun isManagerRegistered():Boolean
     {
-        return ManagerAuthFilePreferenceHandler.containKey(this@MainActivity , ManagerAuthFilePreferenceHandler.KEY_MANAGER_ID)
+        return UserAuthFilePreferenceHandler.containKey(this@MainActivity , UserAuthFilePreferenceHandler.KEY_MANAGER_ID)
+    }
+
+    fun isUserRegistered():Boolean
+    {
+        if(UserAuthFilePreferenceHandler.containKey(this@MainActivity , UserAuthFilePreferenceHandler.KEY_USER_ID_UnitNumber) &&
+            UserAuthFilePreferenceHandler.containKey(this@MainActivity , UserAuthFilePreferenceHandler.KEY_USER_ID_BuildignId)
+        )
+        {
+            return true
+        }
+
+        return false
     }
 
     fun goToBuildingListActivity()
@@ -74,5 +94,14 @@ class MainActivity : AppCompatActivity() , View.OnClickListener
         val intent:Intent = Intent(this@MainActivity , ManagerBuildingListActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    fun goToUserDashboard()
+    {
+//        val intent:Intent = Intent(this@MainActivity , ManagerBuildingListActivity::class.java)
+//        startActivity(intent)
+//        finish()
+        //todo:translate to another activity
+        Toast.makeText(this@MainActivity , "goto user dashboard" , Toast.LENGTH_SHORT).show()
     }
 }
