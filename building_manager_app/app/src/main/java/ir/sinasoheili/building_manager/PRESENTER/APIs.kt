@@ -69,4 +69,7 @@ interface APIs
 
     @GET("/charge/update")
     fun chargeUpdate(@Query("id")id:Int , @Query("amount") amount:Double , @Query("status") status:Int , @Query("issue_date")issueDate:String , @Query("pay_date") payDate:String):Call<ChargeUpdateResponse>
+
+    @GET("/user/authentication")
+    fun userAuthenticate(@Query("buildingId") buildingId:Int , @Query("phone") phone:String):Call<UserAuthenticateResponse>
 }
