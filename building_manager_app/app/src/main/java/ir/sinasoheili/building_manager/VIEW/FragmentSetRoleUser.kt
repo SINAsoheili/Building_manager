@@ -1,17 +1,16 @@
 package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import ir.sinasoheili.building_manager.R
-import ir.sinasoheili.building_manager.PRESENTER.ContractSetRoleUser.ContractSetRoleUserPresenter
 import ir.sinasoheili.building_manager.PRESENTER.ContractSetRoleUser.ContractSetRoleUserView
+import ir.sinasoheili.building_manager.PRESENTER.PresenterSetRoleUser
+import ir.sinasoheili.building_manager.PRESENTER.UserAuthFilePreferenceHandler
 
 class FragmentSetRoleUser : Fragment(R.layout.fragment_setrole_user) , ContractSetRoleUserView, View.OnClickListener
 {
@@ -21,6 +20,8 @@ class FragmentSetRoleUser : Fragment(R.layout.fragment_setrole_user) , ContractS
     private var etBuildingId : EditText? = null
     private var btnSubmit : Button? = null
 
+    private var presenter : PresenterSetRoleUser? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
         super.onViewCreated(view, savedInstanceState)
@@ -29,6 +30,8 @@ class FragmentSetRoleUser : Fragment(R.layout.fragment_setrole_user) , ContractS
 
     private fun initObj(view:View)
     {
+        presenter = PresenterSetRoleUser(view.context , this)
+
         tilPhone = view.findViewById(R.id.til_fragment_setRole_user_phone)
         etPhone = view.findViewById(R.id.et_fragment_setRole_user_phone)
 
@@ -47,7 +50,10 @@ class FragmentSetRoleUser : Fragment(R.layout.fragment_setrole_user) , ContractS
             {
                 if(checkPhone() && checkBuildingId())
                 {
-                    Toast.makeText(view!!.context , "click " , Toast.LENGTH_SHORT).show()
+                    val phone = etPhone!!.text.toString()
+                    val buildingId : Int = etBuildingId!!.text.toString().toInt()
+
+                    presenter!!.authenticateUser(phone , buildingId)
                 }
             }
         }
@@ -76,5 +82,26 @@ class FragmentSetRoleUser : Fragment(R.layout.fragment_setrole_user) , ContractS
         }
         tilBuildingId!!.isErrorEnabled = false
         return true
+    }
+
+    override fun showToast(text: String)
+    {
+        Toast.makeText(context , text , Toast.LENGTH_SHORT).show()
+    }
+
+    override fun userAuthenticateSuccess(unitNumber:Int , buildingId:Int)
+    {
+        UserAuthFilePreferenceHandler.writeToFile(context!! , UserAuthFilePreferenceHandler.KEY_USER_ID_UnitNumber , unitNumber.toString())
+        UserAuthFilePreferenceHandler.writeToFile(context!! , UserAuthFilePreferenceHandler.KEY_USER_ID_BuildignId , buildingId.toString())
+        moveToUserDashboardActivity()
+    }
+
+    fun moveToUserDashboardActivity()
+    {
+//        fragmentManager!!.beginTransaction().remove(this).commit()
+//        val intent : Intent = Intent(context , ManagerBuildingListActivity::class.java)
+//        startActivity(intent)
+        //todo:translate to another activity
+        Toast.makeText(context , "got to dashboard" , Toast.LENGTH_SHORT).show()
     }
 }
