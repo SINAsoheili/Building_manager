@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".VIEW.ManagerRepairActivity"></activity>
+        <activity android:name=".VIEW.UserDashboardActivity"></activity>
+        <activity android:name=".VIEW.ManagerRepairActivity" />
         <activity android:name=".VIEW.ManagerReceiptActivity" />
         <activity android:name=".VIEW.ManagerNotificationActivity" />
         <activity android:name=".VIEW.ManagerManagerUnitInfoActivity" />
