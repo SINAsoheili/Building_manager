@@ -33,7 +33,8 @@ class UserDashboardActivity : AppCompatActivity() , BottomNavigationView.OnNavig
         {
             R.id.bnv_item_receipt ->
             {
-                Toast.makeText(this@UserDashboardActivity , "receipt" , Toast.LENGTH_SHORT).show()
+                var fragment : FragmentUserDashboardReceipt = FragmentUserDashboardReceipt()
+                supportFragmentManager.beginTransaction().replace(R.id.framelayout_userDashboard , fragment).commit()
                 return true
             }
 
