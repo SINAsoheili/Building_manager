@@ -6,34 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".VIEW.UserDashboardActivity">
 
-    <TextView
-        android:id="@+id/tv_userDashboard_ownerName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin"
-        />
-
-    <TextView
-        android:id="@+id/tv_userDashboard_phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin"
-        />
-
-    <TextView
-        android:id="@+id/tv_userDashboard_unitNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin"
-        />
-
-    <TextView
-        android:id="@+id/tv_userDashboard_tag"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin"
-        />
-
     <FrameLayout
         android:id="@+id/framelayout_userDashboard"
         android:layout_width="match_parent"
