@@ -2,18 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/bnv_item_receipt"
         android:title="@string/userDashboard_bnv_menu_receipt"/>
 
     <item
+        android:id="@+id/bnv_item_repair"
         android:title="@string/userDashboard_bnv_menu_repair"/>
 
     <item
+        android:id="@+id/bnv_item_profile"
         android:title="@string/userDashboard_bnv_menu_profile"/>
 
     <item
+        android:id="@+id/bnv_item_notification"
         android:title="@string/userDashboard_bnv_menu_notification"/>
 
     <item
+        android:id="@+id/bnv_item_charge"
         android:title="@string/userDashboard_bnv_menu_charge"/>
 
 </menu>
