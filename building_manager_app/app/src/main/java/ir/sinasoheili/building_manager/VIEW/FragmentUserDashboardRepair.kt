@@ -12,7 +12,7 @@ import ir.sinasoheili.building_manager.R
 import ir.sinasoheili.building_manager.PRESENTER.ContractUserDashboardRepair.ContractUserDashboardRepairView
 import ir.sinasoheili.building_manager.PRESENTER.PresenterUserDashboardRepair
 
-class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_receipt_fragment) , ContractUserDashboardRepairView, View.OnClickListener
+class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_repair_fragment) , ContractUserDashboardRepairView, View.OnClickListener
 {
     private var listView : ListView? = null
     private var ivRefresh : ImageView? = null

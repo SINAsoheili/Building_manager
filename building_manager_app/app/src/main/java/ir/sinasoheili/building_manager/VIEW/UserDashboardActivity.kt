@@ -40,7 +40,8 @@ class UserDashboardActivity : AppCompatActivity() , BottomNavigationView.OnNavig
 
             R.id.bnv_item_repair ->
             {
-                Toast.makeText(this@UserDashboardActivity , "repair" , Toast.LENGTH_SHORT).show()
+                var fragment : FragmentUserDashboardRepair = FragmentUserDashboardRepair()
+                supportFragmentManager.beginTransaction().replace(R.id.framelayout_userDashboard , fragment).commit()
                 return true
             }
 
