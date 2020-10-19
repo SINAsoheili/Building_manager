@@ -98,4 +98,10 @@
 
     <string name="user_fail_authentication">کاربر شناسایی نشد!!</string>
 
+    <string name="userDashboard_bnv_menu_receipt">قبض ها</string>
+    <string name="userDashboard_bnv_menu_repair">تعمیرات</string>
+    <string name="userDashboard_bnv_menu_profile">پروفایل</string>
+    <string name="userDashboard_bnv_menu_charge">شارژ</string>
+    <string name="userDashboard_bnv_menu_notification">اطلاعیه ها</string>
+
 </resources>

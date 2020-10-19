@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VIEW.UserDashboardActivity"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".VIEW.UserDashboardActivity">
 
     <TextView
         android:id="@+id/tv_userDashboard_ownerName"
@@ -35,4 +34,19 @@
         android:layout_margin="@dimen/medium_margin"
         />
 
-</LinearLayout>
+    <FrameLayout
+        android:id="@+id/framelayout_userDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bnv_userDashboard"
+        />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnv_userDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/user_dashboard_bnv_item"
+        />
+
+</RelativeLayout>
