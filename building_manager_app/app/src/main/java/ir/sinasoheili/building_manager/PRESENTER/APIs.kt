@@ -72,4 +72,7 @@ interface APIs
 
     @GET("/user/authentication")
     fun userAuthenticate(@Query("buildingId") buildingId:Int , @Query("phone") phone:String):Call<UserAuthenticateResponse>
+
+    @GET("/unit/info")
+    fun unitInfo(@Query("building_id") buildingId:Int , @Query("unit_number") unitNumber:Int):Call<Unit>
 }
