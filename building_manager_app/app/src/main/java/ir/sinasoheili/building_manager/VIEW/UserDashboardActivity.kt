@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ir.sinasoheili.building_manager.R
 
@@ -23,6 +24,7 @@ class UserDashboardActivity : AppCompatActivity() , BottomNavigationView.OnNavig
     {
         bnv = findViewById(R.id.bnv_userDashboard)
         bnv!!.setOnNavigationItemSelectedListener(this)
+        bnv!!.selectedItemId = R.id.bnv_item_profile
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean
@@ -43,7 +45,8 @@ class UserDashboardActivity : AppCompatActivity() , BottomNavigationView.OnNavig
 
             R.id.bnv_item_profile ->
             {
-                Toast.makeText(this@UserDashboardActivity , "profile" , Toast.LENGTH_SHORT).show()
+                var fragment : FragmentUserDashboardProfile = FragmentUserDashboardProfile()
+                supportFragmentManager.beginTransaction().replace(R.id.framelayout_userDashboard , fragment).commit()
                 return true
             }
 
