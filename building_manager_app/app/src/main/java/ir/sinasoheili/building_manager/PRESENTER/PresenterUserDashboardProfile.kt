@@ -2,11 +2,11 @@ package ir.sinasoheili.building_manager.PRESENTER
 
 import android.content.Context
 import ir.sinasoheili.building_manager.MODEL.Unit
-import ir.sinasoheili.building_manager.PRESENTER.ContractUserDashboard.ContractUserDashboardPresenter
-import ir.sinasoheili.building_manager.PRESENTER.ContractUserDashboard.ContractUserDashboardView
+import ir.sinasoheili.building_manager.PRESENTER.ContractUserDashboardProfile.ContractUserDashboardProfilePresenter
+import ir.sinasoheili.building_manager.PRESENTER.ContractUserDashboardProfile.ContractUserDashboardProfileView
 import ir.sinasoheili.building_manager.R
 
-class PresenterUserDashboard constructor (val context: Context, val view:ContractUserDashboardView ) : ContractUserDashboardPresenter
+class PresenterUserDashboardProfile constructor (val context: Context, val view:ContractUserDashboardProfileView ) : ContractUserDashboardProfilePresenter
 {
     override fun getUnitInfo()
     {

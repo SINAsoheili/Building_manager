@@ -2,15 +2,15 @@ package ir.sinasoheili.building_manager.PRESENTER
 
 import ir.sinasoheili.building_manager.MODEL.Unit
 
-interface ContractUserDashboard
+interface ContractUserDashboardProfile
 {
-    interface ContractUserDashboardView
+    interface ContractUserDashboardProfileView
     {
         fun showToast(text:String)
         fun showUnitInfo(unit:Unit)
     }
 
-    interface ContractUserDashboardPresenter
+    interface ContractUserDashboardProfilePresenter
     {
         fun getUnitInfo()
     }
