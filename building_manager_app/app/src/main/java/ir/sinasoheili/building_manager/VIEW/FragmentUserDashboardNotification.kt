@@ -29,9 +29,9 @@ class FragmentUserDashboardNotification : Fragment(R.layout.user_dashboard_notif
     {
         presenter = PresenterUserDashboardNotification(view.context , this)
 
-        listView = view.findViewById(R.id.lv_userDashboard_repair_List)
+        listView = view.findViewById(R.id.lv_userDashboard_notification_List)
 
-        ivRefresh = view.findViewById(R.id.iv_userDashboard_repair_refresh)
+        ivRefresh = view.findViewById(R.id.iv_userDashboard_notification_refresh)
         ivRefresh!!.setOnClickListener(this)
     }
 
