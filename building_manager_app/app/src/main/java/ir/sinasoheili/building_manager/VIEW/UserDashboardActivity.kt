@@ -54,7 +54,8 @@ class UserDashboardActivity : AppCompatActivity() , BottomNavigationView.OnNavig
 
             R.id.bnv_item_notification ->
             {
-                Toast.makeText(this@UserDashboardActivity , "notification" , Toast.LENGTH_SHORT).show()
+                var fragment : FragmentUserDashboardNotification = FragmentUserDashboardNotification()
+                supportFragmentManager.beginTransaction().replace(R.id.framelayout_userDashboard , fragment).commit()
                 return true
             }
 
