@@ -61,7 +61,8 @@ class UserDashboardActivity : AppCompatActivity() , BottomNavigationView.OnNavig
 
             R.id.bnv_item_charge ->
             {
-                Toast.makeText(this@UserDashboardActivity , "charge" , Toast.LENGTH_SHORT).show()
+                var fragment : FragmentUserDashboardCharge = FragmentUserDashboardCharge()
+                supportFragmentManager.beginTransaction().replace(R.id.framelayout_userDashboard , fragment).commit()
                 return true
             }
 
