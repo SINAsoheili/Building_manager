@@ -4,5 +4,15 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
+    <color name="background">#FFFFFF</color>
+
+    <color name="primaryTextColor">#1C1B1B</color>
+    <color name="secondaryTextColor">#474545</color>
+
+    <color name="button_border">#00BCD4</color>
+    <color name="button_background">@android:color/transparent</color>
+
+
+
     <color name="bottom_app_bar">#3A9F96</color>
 </resources>

@@ -8,14 +8,19 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"
         app:layout_constraintVertical_bias="0.3"
         android:text="@string/tv_setRole"
+        android:textSize="@dimen/text_size_big"
+        android:textColor="@color/primaryTextColor"
         />
 
     <Button
@@ -24,22 +29,26 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btn_setRole_user"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintVertical_bias="0.55"
+        android:layout_marginRight="50dp"
         android:text="@string/btn_setRole_manager"
+        style="@style/outlinedButton"
         />
 
     <Button
         android:id="@+id/btn_setRole_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/btn_setRole_manager"
-        app:layout_constraintLeft_toLeftOf="@id/btn_setRole_manager"
-        app:layout_constraintRight_toRightOf="@id/btn_setRole_manager"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.03"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintVertical_bias="0.55"
+        android:layout_marginLeft="50dp"
+        app:layout_constraintRight_toLeftOf="@id/btn_setRole_manager"
         android:text="@string/btn_setRole_user"
+        style="@style/outlinedButton"
         />
 
     <FrameLayout

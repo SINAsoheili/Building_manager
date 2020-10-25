@@ -1,15 +1,19 @@
 <resources>
 
-    <string name="app_name">Building_Manager</string>
+    <string name="app_name">مدیر ساختمان</string>
+
+    <string name="tv_setRole">برای شروع لطفا نقش خود را در ساختمان انتخاب کنید.</string>
+    <string name="btn_setRole_manager">مدیر ساختمان</string>
+    <string name="btn_setRole_user">ساکن ساختمان</string>
+
+
+
+
 
     <string name="toast_fail_connect_to_server">ارتباط با سرور ممکن نیست! لطفا دوباره امتحان کنید.</string>
     <string name="toast_register_server_error">سرور اجازه ‌ذخیره اظلاعات را نمی‌دهد!! لطفا با پشتیبان تماس بگیرید.</string>
     <string name="toast_success_register">با موفقیت ذخیره شد</string>
     <string name="toast_unsuccess_register">‌ذخیره نشد!!!</string>
-
-    <string name="tv_setRole">لطفا نقش خود را در ساختمان اننخاب کنید</string>
-    <string name="btn_setRole_manager">مدیر ساختمان</string>
-    <string name="btn_setRole_user">ساکن ساختمان</string>
 
     <string name="hint_phone">شماره موبایل</string>
     <string name="hint_passwd">رمز عبور</string>

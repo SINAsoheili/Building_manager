@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="outlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="backgroundTint">@color/button_background</item>
+        <item name="android:radius">@dimen/btn_border_radius</item>
+        <item name="strokeWidth">@dimen/btn_border_width</item>
+        <item name="strokeColor">@color/button_border</item>
+    </style>
+
+</resources>
