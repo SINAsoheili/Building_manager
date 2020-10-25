@@ -13,6 +13,7 @@
     <dimen name="medium_margin">8dp</dimen>
     <dimen name="big_margin">11dp</dimen>
 
+    <dimen name="refresh_btn_dimen">50dp</dimen>
 
 
 

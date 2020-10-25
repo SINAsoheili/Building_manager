@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -19,20 +20,11 @@
 
     <ImageView
         android:id="@+id/iv_buildingList_reload"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
         android:layout_gravity="center"
-        android:scaleType="center"
-        android:src="@android:drawable/btn_star"
-        android:visibility="gone"
-        />
-
-    <TextView
-        android:id="@+id/tv_buildingList_retry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/retry"
+        android:scaleType="fitXY"
+        android:src="@drawable/refresh"
         android:visibility="gone"
         />
 
@@ -51,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_anchor="@id/bab_buildingList"
-        android:src="@drawable/ic_add"
+        style="@style/floatButtonAdd"
         />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

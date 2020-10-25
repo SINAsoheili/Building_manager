@@ -16,7 +16,7 @@
     <color name="til_background_color">@android:color/transparent</color>
     <color name="til_hint_color">#6200EE</color>
 
+    <color name="bottom_app_bar">#3CA59B</color>
 
-
-    <color name="bottom_app_bar">#3A9F96</color>
+    <color name="floating_action_button_color">#FF9C0C</color>
 </resources>

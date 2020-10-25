@@ -19,7 +19,6 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
 {
     private var listView : ListView? = null
     private var iv_reload : ImageView? = null
-    private var tv_retry : TextView? = null
     private var floatBtnAdd : FloatingActionButton? = null
     private var bottomAppBar : BottomAppBar? = null
     private var frameLayout : FrameLayout? = null
@@ -42,8 +41,6 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
 
         iv_reload = findViewById(R.id.iv_buildingList_reload)
         iv_reload!!.setOnClickListener(this)
-
-        tv_retry = findViewById(R.id.tv_buildingList_retry)
 
         presenter = PresenterManagerBuildingList(this@ManagerBuildingListActivity , this)
 
@@ -110,14 +107,12 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
     {
         listView!!.visibility  = View.GONE
         iv_reload!!.visibility = View.VISIBLE
-        tv_retry!!.visibility  = View.VISIBLE
     }
 
     private fun visibleList()
     {
         listView!!.visibility  = View.VISIBLE
         iv_reload!!.visibility = View.GONE
-        tv_retry!!.visibility  = View.GONE
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean
