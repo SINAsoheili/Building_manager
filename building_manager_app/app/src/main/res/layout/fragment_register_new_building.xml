@@ -12,14 +12,15 @@
         android:id="@+id/til_registerNewBuilding_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin">
+        android:layout_margin="@dimen/medium_margin"
+        android:hint="@string/fragment_registerNewBuilding_hint_name"
+        style="@style/textInputLayout_outLine">
 
         <EditText
             android:id="@+id/et_registerNewBuilding_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="@string/fragment_registerNewBuilding_hint_name"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -28,14 +29,15 @@
         android:id="@+id/til_registerNewBuilding_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin">
+        android:layout_margin="@dimen/medium_margin"
+        android:hint="@string/fragment_registerNewBuilding_hint_address"
+        style="@style/textInputLayout_outLine">
 
         <EditText
             android:id="@+id/et_registerNewBuilding_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="@string/fragment_registerNewBuilding_hint_address"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -44,14 +46,15 @@
         android:id="@+id/til_registerNewBuilding_cash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin">
+        android:layout_margin="@dimen/medium_margin"
+        android:hint="@string/fragment_registerNewBuilding_hint_cash"
+        style="@style/textInputLayout_outLine">
 
         <EditText
             android:id="@+id/et_registerNewBuilding_cash"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="@string/fragment_registerNewBuilding_hint_cash"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -60,14 +63,15 @@
         android:id="@+id/til_registerNewBuilding_unitCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin">
+        android:layout_margin="@dimen/medium_margin"
+        android:hint="@string/fragment_registerNewBuilding_hint_unitCount"
+        style="@style/textInputLayout_outLine">
 
         <EditText
             android:id="@+id/et_registerNewBuilding_unitCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="@string/fragment_registerNewBuilding_hint_unitCount"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -78,6 +82,7 @@
         android:layout_height="wrap_content"
         android:text="@string/submit"
         android:layout_margin="@dimen/medium_margin"
+        style="@style/outlinedButton"
         />
 
 </LinearLayout>
