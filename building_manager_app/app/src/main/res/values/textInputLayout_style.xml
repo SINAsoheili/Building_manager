@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="textInputLayout_outLine" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/til_stroke_color</item>
+        <item name="boxBackgroundColor">@color/til_background_color</item>
+        <item name="hintTextColor">@color/til_hint_color</item>
+    </style>
+
+</resources>

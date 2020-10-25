@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
     android:clickable="true"
     android:focusable="true"
@@ -12,15 +13,17 @@
         android:id="@+id/til_fragment_setRole_manager_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin">
+        android:layout_margin="@dimen/medium_margin"
+        app:endIconMode="clear_text"
+        android:hint="@string/hint_phone"
+        style="@style/textInputLayout_outLine">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_fragment_setRole_manager_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:maxLength="11"
-            android:hint="@string/hint_phone"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -29,15 +32,19 @@
         android:id="@+id/til_fragment_setRole_manager_passwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin">
+        android:layout_margin="@dimen/medium_margin"
+        app:endIconMode="password_toggle"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        android:hint="@string/hint_passwd"
+        style="@style/textInputLayout_outLine">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_fragment_setRole_manager_passwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:maxLength="10"
-            android:hint="@string/hint_passwd"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -46,8 +53,10 @@
         android:id="@+id/btn_fragment_setRole_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
+        android:layout_margin="@dimen/medium_margin"
         android:layout_gravity="center_horizontal"
+        android:text="@string/submit"
+        style="@style/outlinedButton"
         />
 
 </LinearLayout>
