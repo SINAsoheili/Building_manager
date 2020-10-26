@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#355C7D</color>
+    <color name="colorPrimaryDark">#284863</color>
+    <color name="colorAccent">#725A7A</color>
 
-    <color name="background">#FFFFFF</color>
+    <color name="background">#FFF3DE</color>
 
     <color name="primaryTextColor">#1C1B1B</color>
     <color name="secondaryTextColor">#474545</color>
 
-    <color name="button_border">#00BCD4</color>
+    <color name="button_border">#355C7D</color>
     <color name="button_background">@android:color/transparent</color>
 
-    <color name="til_stroke_color">#00BCD4</color>
+    <color name="til_stroke_color">#355C7D</color>
     <color name="til_background_color">@android:color/transparent</color>
-    <color name="til_hint_color">#6200EE</color>
+    <color name="til_hint_color">#725A7A</color>
 
-    <color name="bottom_app_bar">#3CA59B</color>
+    <color name="bottom_app_bar">#355C7D</color>
 
-    <color name="floating_action_button_color">#FF9C0C</color>
+    <color name="floating_action_button_color">#725A7A</color>
 
-    <color name="textView_Button_text">#6F88FC</color>
+    <color name="textView_Button_text">#355C7D</color>
 </resources>
