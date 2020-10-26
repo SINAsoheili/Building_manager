@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="listItem_tv_head" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_big</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:layout_marginTop">@dimen/medium_margin</item>
+        <item name="android:layout_marginLeft">@dimen/medium_margin</item>
+        <item name="android:layout_marginRight">@dimen/medium_margin</item>
+    </style>
+
+    <style name="listItem_tv_body" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:layout_marginTop">@dimen/medium_margin</item>
+        <item name="android:layout_marginLeft">@dimen/medium_margin</item>
+        <item name="android:layout_marginRight">@dimen/medium_margin</item>
+    </style>
+
+</resources>

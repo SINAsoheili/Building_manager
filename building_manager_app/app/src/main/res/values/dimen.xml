@@ -15,7 +15,7 @@
 
     <dimen name="refresh_btn_dimen">50dp</dimen>
 
-
+    <dimen name="card_elevation">5dp</dimen>
 
 
 

@@ -1,56 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="@dimen/small_margin">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/iv_buildingListItem"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:scaleType="center"
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/medium_margin"
-        />
+        app:cardElevation="@dimen/card_elevation">
 
-    <TextView
-        android:id="@+id/tv_buildingListItem_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/iv_buildingListItem"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/iv_buildingListItem"
-        android:layout_marginRight="@dimen/big_margin"
-        android:layout_marginLeft="@dimen/big_margin"
-        android:layout_marginTop="@dimen/big_margin"
-        android:textStyle="bold"
-        android:gravity="right"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_buildingListItem_unitCount"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_buildingListItem_name"
-        app:layout_constraintLeft_toLeftOf="@id/tv_buildingListItem_name"
-        app:layout_constraintRight_toRightOf="@id/tv_buildingListItem_name"
-        android:layout_marginTop="@dimen/big_margin"
-        android:gravity="right"
-        />
+            <TextView
+                android:id="@+id/tv_buildingListItem_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                style="@style/listItem_tv_head"
+                />
 
-    <TextView
-        android:id="@+id/tv_buildingListItem_cash"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_buildingListItem_unitCount"
-        app:layout_constraintLeft_toLeftOf="@id/tv_buildingListItem_unitCount"
-        app:layout_constraintRight_toRightOf="@id/tv_buildingListItem_unitCount"
-        android:layout_marginTop="@dimen/big_margin"
-        android:gravity="right"
-        />
+            <TextView
+                android:id="@+id/tv_buildingListItem_unitCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                style="@style/listItem_tv_body"
+                />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_buildingListItem_cash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/medium_margin"
+                android:gravity="start"
+                style="@style/listItem_tv_body"
+                />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
