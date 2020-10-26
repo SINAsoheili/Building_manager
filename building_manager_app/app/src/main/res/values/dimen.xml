@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="btn_border_width">1dp</dimen>
-    <dimen name="btn_border_radius">2dp</dimen>
-
     <dimen name="text_size_small">12sp</dimen>
     <dimen name="text_size_medium">15sp</dimen>
     <dimen name="text_size_big">18sp</dimen>

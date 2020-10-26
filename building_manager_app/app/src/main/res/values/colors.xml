@@ -9,9 +9,6 @@
     <color name="primaryTextColor">#1C1B1B</color>
     <color name="secondaryTextColor">#474545</color>
 
-    <color name="button_border">#355C7D</color>
-    <color name="button_background">@android:color/transparent</color>
-
     <color name="til_stroke_color">#355C7D</color>
     <color name="til_background_color">@android:color/transparent</color>
     <color name="til_hint_color">#725A7A</color>
