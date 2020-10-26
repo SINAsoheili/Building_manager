@@ -11,15 +11,15 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_fragment_registerNewReceipt_idReceipt"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="@string/fragment_registerNewReceipt_idReceipt"
+        style="@style/textInputLayout_outLine">
 
         <EditText
             android:id="@+id/et_fragment_registerNewReceipt_idReceipt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:layout_margin="@dimen/medium_margin"
-            android:hint="@string/fragment_registerNewReceipt_idReceipt"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -27,15 +27,15 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_fragment_registerNewReceipt_idPayment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="@string/fragment_registerNewReceipt_idPayment"
+        style="@style/textInputLayout_outLine">
 
         <EditText
             android:id="@+id/et_fragment_registerNewReceipt_idPayment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:layout_margin="@dimen/medium_margin"
-            android:hint="@string/fragment_registerNewReceipt_idPayment"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -49,15 +49,15 @@
             android:id="@+id/til_fragment_registerNewReceipt_payDate"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:hint="@string/fragment_registerNewReceipt_payDate"
+            style="@style/textInputLayout_outLine">
 
             <EditText
                 android:id="@+id/et_fragment_registerNewReceipt_payDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
-                android:layout_margin="@dimen/medium_margin"
-                android:hint="@string/fragment_registerNewReceipt_payDate"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -66,15 +66,15 @@
             android:id="@+id/til_fragment_registerNewReceipt_issueDate"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:hint="@string/fragment_registerNewReceipt_issueDate"
+            style="@style/textInputLayout_outLine">
 
             <EditText
                 android:id="@+id/et_fragment_registerNewReceipt_issueDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
-                android:layout_margin="@dimen/medium_margin"
-                android:hint="@string/fragment_registerNewReceipt_issueDate"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -90,15 +90,15 @@
             android:id="@+id/til_fragment_registerNewReceipt_amount"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:hint="@string/fragment_registerNewReceipt_amount"
+            style="@style/textInputLayout_outLine">
 
             <EditText
                 android:id="@+id/et_fragment_registerNewReceipt_amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:layout_margin="@dimen/medium_margin"
-                android:hint="@string/fragment_registerNewReceipt_amount"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -108,7 +108,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginRight="@dimen/medium_margin"
             />
 
     </LinearLayout>
@@ -118,7 +120,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit"
-        android:layout_margin="@dimen/medium_margin"
+        style="@style/outlinedButton"
         />
 
 </LinearLayout>
