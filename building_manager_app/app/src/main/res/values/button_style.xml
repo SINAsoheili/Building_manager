@@ -17,6 +17,7 @@
         <item name="backgroundTint">@color/floating_action_button_color</item>
         <item name="srcCompat">@drawable/ic_add</item>
         <item name="tint">@android:color/white</item>
+        <item name="android:layout_margin">@dimen/FABmargin</item>
     </style>
 
 </resources>

@@ -20,7 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_margin= "@dimen/FABmargin"
         style="@style/floatButtonAdd"
         />
 
