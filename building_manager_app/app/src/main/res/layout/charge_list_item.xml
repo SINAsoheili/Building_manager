@@ -1,60 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="@dimen/medium_padding">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        style="@style/cardView_list_style">
 
-        <TextView
-            android:id="@+id/tv_ManagerchargeListItem_amount"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="@dimen/medium_margin"
-            />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_ManagerchargeListItem_status"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="@dimen/medium_margin"
-            android:gravity="right"
-            />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_ManagerchargeListItem_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/medium_margin"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textColor="@color/secondaryTextColor"
+                    />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_ManagerchargeListItem_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/medium_margin"
+                    android:gravity="right"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textColor="@color/secondaryTextColor"
+                    />
 
-        <TextView
-            android:id="@+id/tv_ManagerchargeListItem_issueDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="@dimen/medium_margin"
-            android:gravity="right"
-            android:textSize="@dimen/text_size_small"
-            />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_ManagerchargeListItem_payDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="@dimen/medium_margin"
-            android:gravity="right"
-            android:textSize="@dimen/text_size_small"
-            />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_ManagerchargeListItem_issueDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/medium_margin"
+                    android:gravity="right"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="@color/secondaryTextColor"
+                    />
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/tv_ManagerchargeListItem_payDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/medium_margin"
+                    android:gravity="right"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="@color/secondaryTextColor"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
