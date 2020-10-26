@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VIEW.ManagerReceiptActivity">
+    tools:context=".VIEW.ManagerReceiptActivity"
+    android:background="@color/background">
 
     <ListView
         android:id="@+id/lv_managerReceipt_receiptList"
