@@ -3,22 +3,28 @@
 
     <item
         android:id="@+id/bnv_item_receipt"
-        android:title="@string/userDashboard_bnv_menu_receipt"/>
+        android:title="@string/userDashboard_bnv_menu_receipt"
+        android:icon="@drawable/ic_receipt"/>
 
     <item
         android:id="@+id/bnv_item_repair"
-        android:title="@string/userDashboard_bnv_menu_repair"/>
+        android:title="@string/userDashboard_bnv_menu_repair"
+        android:icon="@drawable/ic_repair"
+        />
 
     <item
         android:id="@+id/bnv_item_profile"
-        android:title="@string/userDashboard_bnv_menu_profile"/>
+        android:title="@string/userDashboard_bnv_menu_profile"
+        android:icon="@drawable/ic_person"/>
 
     <item
         android:id="@+id/bnv_item_notification"
-        android:title="@string/userDashboard_bnv_menu_notification"/>
+        android:title="@string/userDashboard_bnv_menu_notification"
+        android:icon="@drawable/ic_notifications"/>
 
     <item
         android:id="@+id/bnv_item_charge"
-        android:title="@string/userDashboard_bnv_menu_charge"/>
+        android:title="@string/userDashboard_bnv_menu_charge"
+        android:icon="@drawable/ic_charge"/>
 
 </menu>
