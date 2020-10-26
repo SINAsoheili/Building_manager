@@ -55,6 +55,7 @@
         android:layout_height="wrap_content"
         app:layout_anchor="@id/bab_unitList"
         android:src="@drawable/ic_add"
+        style="@style/floatButtonAdd"
         />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
