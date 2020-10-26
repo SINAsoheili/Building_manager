@@ -11,6 +11,7 @@
         android:id="@+id/lv_managerReceipt_receiptList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:divider="@null"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -19,8 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_margin="@dimen/FABmargin"
-        android:foreground="@drawable/ic_add"
+        style="@style/floatButtonAdd"
         />
 
     <FrameLayout

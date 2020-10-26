@@ -26,14 +26,15 @@
                 android:id="@+id/tv_managerReceiptList_amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="start"
+                android:gravity="end"
                 style="@style/listItem_tv_body"
                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/medium_margin">
 
                 <TextView
                     android:id="@+id/tv_managerReceiptList_payDate"
