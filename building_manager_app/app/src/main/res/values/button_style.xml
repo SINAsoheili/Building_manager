@@ -20,4 +20,10 @@
         <item name="android:layout_margin">@dimen/FABmargin</item>
     </style>
 
+    <style name="textViewButton_style" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/textView_Button_text</item>
+        <item name="android:layout_margin">@dimen/medium_margin</item>
+    </style>
+
 </resources>

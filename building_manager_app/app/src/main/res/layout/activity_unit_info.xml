@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,8 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/medium_margin"
-            android:textStyle="bold"
             android:textSize="@dimen/text_size_very_big"
+            android:textColor="@color/primaryTextColor"
             />
 
         <TextView
@@ -28,6 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/medium_margin"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/secondaryTextColor"
             />
 
         <TextView
@@ -35,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/medium_margin"
-            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/secondaryTextColor"
             />
 
         <LinearLayout
@@ -47,21 +49,21 @@
 
             <ImageView
                 android:id="@+id/iv_unitInfo_call"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:scaleType="center"
+                android:layout_width="@dimen/small_image_size"
+                android:layout_height="@dimen/small_image_size"
+                android:scaleType="fitXY"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/call"
                 />
 
             <ImageView
                 android:id="@+id/iv_unitInfo_sms"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:scaleType="center"
-                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/small_image_size"
+                android:layout_height="@dimen/small_image_size"
                 android:layout_marginLeft="@dimen/medium_margin"
-                android:src="@drawable/ic_launcher_background"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/message"
                 />
 
             <TextView
@@ -69,7 +71,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/medium_margin"
+                android:textSize="@dimen/text_size_medium"
                 android:gravity="right"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/secondaryTextColor"
                 />
 
         </LinearLayout>
@@ -78,24 +83,24 @@
             android:id="@+id/tv_unitInfo_addCharge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/medium_margin"
             android:text="@string/addCharge"
+            style="@style/textViewButton_style"
             />
 
         <TextView
             android:id="@+id/tv_unitInfo_listCharge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/medium_margin"
             android:text="@string/chargeList"
+            style="@style/textViewButton_style"
             />
 
         <TextView
             android:id="@+id/tv_unitInfo_deleteUnit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/medium_margin"
             android:text="@string/deleteUnit"
+            style="@style/textViewButton_style"
             />
 
     </LinearLayout>

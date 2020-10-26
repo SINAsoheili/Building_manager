@@ -19,4 +19,6 @@
     <color name="bottom_app_bar">#3CA59B</color>
 
     <color name="floating_action_button_color">#FF9C0C</color>
+
+    <color name="textView_Button_text">#6F88FC</color>
 </resources>
