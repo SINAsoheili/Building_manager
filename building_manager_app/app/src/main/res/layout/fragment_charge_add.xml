@@ -12,13 +12,13 @@
         android:id="@+id/til_fragment_addCharge_amount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin">
+        android:hint="@string/fragment_registerNewCharge_amount"
+        style="@style/textInputLayout_outLine">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_fragment_addCharge_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fragment_registerNewCharge_amount"
             android:inputType="number"
             />
 
@@ -34,13 +34,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="8dp">
+            style="@style/textInputLayout_outLine"
+            android:hint="@string/fragment_registerNewCharge_payDate">
 
             <EditText
                 android:id="@+id/et_fragment_addCharge_payDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/fragment_registerNewCharge_payDate"
                 android:inputType="date"
                 />
 
@@ -51,13 +51,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="8dp">
+            android:hint="@string/fragment_registerNewCharge_issueDate"
+            style="@style/textInputLayout_outLine">
 
             <EditText
                 android:id="@+id/et_fragment_addCharge_issueDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/fragment_registerNewCharge_issueDate"
                 android:inputType="date"
                 />
 
@@ -73,14 +73,14 @@
         <FrameLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="8dp">
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/btn_fragment_addCharge_submit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/submit"
+                style="@style/outlinedButton"
                 />
 
         </FrameLayout>
