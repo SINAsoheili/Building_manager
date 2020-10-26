@@ -8,14 +8,14 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_dialogFragmentEditCharge_amount"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="@string/dialogFragmentEditCharg_amount"
+        style="@style/textInputLayout_outLine">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_dialogFragmentEditCharge_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/medium_margin"
-            android:hint="@string/dialogFragmentEditCharg_amount"
             android:inputType="number"
             />
 
@@ -24,14 +24,14 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_dialogFragmentEditCharge_payDate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        style="@style/textInputLayout_outLine"
+        android:hint="@string/dialogFragmentEditCharg_payDate">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_dialogFragmentEditCharge_payDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/medium_margin"
-            android:hint="@string/dialogFragmentEditCharg_payDate"
             android:inputType="date"
             />
 
@@ -40,14 +40,14 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_dialogFragmentEditCharge_issueDate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="@string/dialogFragmentEditCharg_issueDate"
+        style="@style/textInputLayout_outLine">
 
         <EditText
             android:id="@+id/et_dialogFragmentEditCharge_issueDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/medium_margin"
-            android:hint="@string/dialogFragmentEditCharg_issueDate"
             android:inputType="date"
             />
 
@@ -63,15 +63,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/medium_margin">
 
         <Button
             android:id="@+id/btn_dialogFragmentEditCharge_delete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="@dimen/medium_margin"
             android:text="@string/delete"
+            style="@style/outlinedButton"
             />
 
         <Button
@@ -79,8 +80,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="@dimen/medium_margin"
             android:text="@string/submit"
+            style="@style/outlinedButton"
             />
 
     </LinearLayout>
