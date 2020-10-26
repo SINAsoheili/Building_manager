@@ -12,7 +12,6 @@
         android:id="@+id/til_registerNewBuilding_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin"
         android:hint="@string/fragment_registerNewBuilding_hint_name"
         style="@style/textInputLayout_outLine">
 
@@ -29,7 +28,6 @@
         android:id="@+id/til_registerNewBuilding_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin"
         android:hint="@string/fragment_registerNewBuilding_hint_address"
         style="@style/textInputLayout_outLine">
 
@@ -46,7 +44,6 @@
         android:id="@+id/til_registerNewBuilding_cash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin"
         android:hint="@string/fragment_registerNewBuilding_hint_cash"
         style="@style/textInputLayout_outLine">
 
@@ -63,7 +60,6 @@
         android:id="@+id/til_registerNewBuilding_unitCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin"
         android:hint="@string/fragment_registerNewBuilding_hint_unitCount"
         style="@style/textInputLayout_outLine">
 
@@ -81,7 +77,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit"
-        android:layout_margin="@dimen/medium_margin"
         style="@style/outlinedButton"
         />
 
