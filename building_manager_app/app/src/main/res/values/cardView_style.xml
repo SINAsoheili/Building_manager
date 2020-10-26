@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="cardView_list_style" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_margin">@dimen/medium_margin</item>
+        <item name="elevation">@dimen/card_elevation</item>
+    </style>
+
+</resources>
