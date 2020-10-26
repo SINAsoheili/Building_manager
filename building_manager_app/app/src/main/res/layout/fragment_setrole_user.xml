@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/background"
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical">
@@ -11,15 +11,15 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_fragment_setRole_user_phone"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="@string/fragment_userSetRole_phone"
+        style="@style/textInputLayout_outLine">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_fragment_setRole_user_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/medium_margin"
             android:inputType="phone"
-            android:hint="@string/fragment_userSetRole_phone"
             android:maxLength="11"
             />
 
@@ -28,15 +28,15 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_fragment_setRole_user_buildingId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="@string/fragment_userSetRole_buildingId"
+        style="@style/textInputLayout_outLine">
 
         <EditText
             android:id="@+id/et_fragment_setRole_user_buildingId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/medium_margin"
             android:inputType="number"
-            android:hint="@string/fragment_userSetRole_buildingId"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -45,8 +45,8 @@
         android:id="@+id/btn_fragment_setRole_user_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_margin"
         android:text="@string/submit"
+        style="@style/fillButton"
         />
 
 </LinearLayout>

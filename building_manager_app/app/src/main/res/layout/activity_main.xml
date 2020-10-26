@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.55"
         android:layout_marginRight="50dp"
         android:text="@string/btn_setRole_manager"
-        style="@style/outlinedButton"
+        style="@style/fillButton"
         />
 
     <Button
@@ -49,7 +49,7 @@
         android:layout_marginLeft="50dp"
         app:layout_constraintRight_toLeftOf="@id/btn_setRole_manager"
         android:text="@string/btn_setRole_user"
-        style="@style/outlinedButton"
+        style="@style/fillButton"
         />
 
     <FrameLayout

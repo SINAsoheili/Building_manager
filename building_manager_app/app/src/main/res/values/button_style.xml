@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="outlinedButton" parent="Widget.MaterialComponents.Button">
+    <style name="fillButton" parent="Widget.MaterialComponents.Button">
         <item name="android:textSize">@dimen/text_size_medium</item>
         <item name="android:layout_marginTop">@dimen/medium_margin</item>
         <item name="android:layout_marginLeft">@dimen/medium_margin</item>
