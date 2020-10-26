@@ -5,6 +5,9 @@
         <item name="boxStrokeColor">@color/til_stroke_color</item>
         <item name="boxBackgroundColor">@color/til_background_color</item>
         <item name="hintTextColor">@color/til_hint_color</item>
+        <item name="android:layout_marginLeft">@dimen/medium_margin</item>
+        <item name="android:layout_marginRight">@dimen/medium_margin</item>
+        <item name="android:layout_marginTop">@dimen/medium_margin</item>
     </style>
 
 </resources>
