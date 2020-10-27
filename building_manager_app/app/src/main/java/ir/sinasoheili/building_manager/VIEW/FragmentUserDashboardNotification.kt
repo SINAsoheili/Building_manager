@@ -44,7 +44,7 @@ class FragmentUserDashboardNotification : Fragment(R.layout.user_dashboard_notif
     {
         visibleListView()
 
-        val adapter:ArrayAdapter<Notification> = ArrayAdapter(context!! , android.R.layout.simple_list_item_1 , items)
+        val adapter : UserNotificationListAdapter = UserNotificationListAdapter(context!! , items)
         listView!!.adapter = adapter
     }
 
