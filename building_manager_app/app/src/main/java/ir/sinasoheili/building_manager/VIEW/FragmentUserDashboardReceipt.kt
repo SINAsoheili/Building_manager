@@ -44,7 +44,7 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
     {
         visibleListView()
 
-        val adapter:ArrayAdapter<Receipt> = ArrayAdapter(context!! , android.R.layout.simple_list_item_1 , items)
+         val adapter : UserReceiptListAdapter = UserReceiptListAdapter(context!! , items)
         listView!!.adapter = adapter
     }
 
