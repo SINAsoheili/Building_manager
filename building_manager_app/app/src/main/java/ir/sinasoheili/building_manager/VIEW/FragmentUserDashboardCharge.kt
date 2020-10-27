@@ -44,7 +44,7 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
     {
         visibleListView()
 
-        val adapter:ArrayAdapter<Charge> = ArrayAdapter(context!! , android.R.layout.simple_list_item_1 , items)
+        val adapter : UserChargeLIstAdapter = UserChargeLIstAdapter(context!! , items)
         listView!!.adapter = adapter
     }
 
