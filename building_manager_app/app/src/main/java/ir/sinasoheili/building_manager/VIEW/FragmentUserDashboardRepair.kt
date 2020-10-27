@@ -45,7 +45,7 @@ class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_repair_frag
     {
         visibleListView()
 
-        val adapter:ArrayAdapter<Repair> = ArrayAdapter(context!! , android.R.layout.simple_list_item_1 , items)
+        val adapter : UserRepairListAdapter = UserRepairListAdapter(context!! , items)
         listView!!.adapter = adapter
     }
 
