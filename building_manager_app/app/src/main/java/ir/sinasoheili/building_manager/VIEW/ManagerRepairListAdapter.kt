@@ -5,13 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.EditText
 import android.widget.TextView
 import ir.sinasoheili.building_manager.MODEL.Repair
 import ir.sinasoheili.building_manager.R
-import org.w3c.dom.Text
 
-class ManagerRepairListAdapter constructor(context:Context, val items:List<Repair>): ArrayAdapter<Repair>(context , R.layout.repair_list_item , items)
+class ManagerRepairListAdapter constructor(context:Context, val items:List<Repair>): ArrayAdapter<Repair>(context , R.layout.manager_repair_list_item , items)
 {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View
     {
@@ -21,7 +19,7 @@ class ManagerRepairListAdapter constructor(context:Context, val items:List<Repai
         if(view == null)
         {
             val inflater : LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            view = inflater.inflate(R.layout.repair_list_item , parent , false)
+            view = inflater.inflate(R.layout.manager_repair_list_item , parent , false)
             viewHolder = ViewHolder(view)
             view.tag =  viewHolder
         }
