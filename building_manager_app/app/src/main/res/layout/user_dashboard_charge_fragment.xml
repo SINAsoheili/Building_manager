@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white"
+    android:background="@color/background"
     android:clickable="true"
     android:focusable="true">
 
@@ -19,10 +19,10 @@
 
     <ImageView
         android:id="@+id/iv_userDashboard_charge_refresh"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
         android:layout_centerInParent="true"
-        android:src="@android:drawable/btn_star"
+        android:src="@drawable/refresh"
         android:visibility="gone"
         />
 
