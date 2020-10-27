@@ -10,7 +10,7 @@ import ir.sinasoheili.building_manager.MODEL.Charge
 import ir.sinasoheili.building_manager.MODEL.ChargeStatus
 import ir.sinasoheili.building_manager.R
 
-class ManagerChargeLIstAdapter constructor(context: Context, val items:List<Charge>): ArrayAdapter<Charge>(context , R.layout.charge_list_item , items)
+class ManagerChargeLIstAdapter constructor(context: Context, val items:List<Charge>): ArrayAdapter<Charge>(context , R.layout.manager_charge_list_item , items)
 {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View
     {
@@ -20,7 +20,7 @@ class ManagerChargeLIstAdapter constructor(context: Context, val items:List<Char
         if(view == null)
         {
             val inflater : LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            view = inflater.inflate(R.layout.charge_list_item , parent , false)
+            view = inflater.inflate(R.layout.manager_charge_list_item , parent , false)
             viewHolder = ViewHolder(view)
             view.tag = viewHolder
         }
