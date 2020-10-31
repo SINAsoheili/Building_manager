@@ -6,4 +6,12 @@
         <item name="elevation">@dimen/card_elevation</item>
     </style>
 
+    <style name="userProfile_card_style" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_marginTop">@dimen/big_margin</item>
+        <item name="android:layout_marginLeft">@dimen/big_margin</item>
+        <item name="android:layout_marginRight">@dimen/big_margin</item>
+        <item name="elevation">@dimen/card_elevation</item>
+        <item name="cardCornerRadius">@dimen/user_profile_card_radius</item>
+    </style>
+
 </resources>

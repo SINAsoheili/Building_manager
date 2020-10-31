@@ -10,4 +10,12 @@
         <item name="android:layout_marginTop">@dimen/medium_margin</item>
     </style>
 
+    <style name="textView_UserInfo_style" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:layout_marginTop">@dimen/medium_margin</item>
+        <item name="android:layout_marginLeft">@dimen/medium_margin</item>
+        <item name="android:layout_marginRight">@dimen/medium_margin</item>
+    </style>
+
 </resources>

@@ -20,4 +20,8 @@
     <color name="floating_action_button_color">#725A7A</color>
 
     <color name="textView_Button_text">#355C7D</color>
+
+    <color name="gradiant_start_color">#CCABDB</color>
+    <color name="gradiant_end_color">#86E3CE</color>
+
 </resources>
