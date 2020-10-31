@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:clickable="true"
+    android:focusable="true">
+
+    <TextView
+        android:id="@+id/tv_manager_bugReport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/textViewButton_style"
+        android:text="@string/bug_report"
+        />
+
+    <TextView
+        android:id="@+id/tv_manager_scoreToApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/textViewButton_style"
+        android:text="@string/score_to_app"
+        />
+
+</LinearLayout>

@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Building
@@ -121,7 +122,8 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
         {
             R.id.menu_bab_buildingList_setting ->
             {
-                Toast.makeText(this@ManagerBuildingListActivity , "setting" , Toast.LENGTH_SHORT).show()
+                val fragment : FragmentManagerSetting = FragmentManagerSetting()
+                supportFragmentManager.beginTransaction().replace(R.id.fl_buildingList , fragment).addToBackStack(null).commit()
 
                 return true
             }
