@@ -18,4 +18,11 @@
         <item name="android:layout_marginRight">@dimen/medium_margin</item>
     </style>
 
+    <style name="user_gide" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">@dimen/big_margin</item>
+    </style>
+
 </resources>

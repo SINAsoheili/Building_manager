@@ -8,6 +8,13 @@
     android:focusable="true"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setRole_user_login"
+        style="@style/user_gide"
+        />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_fragment_setRole_user_phone"
         android:layout_width="match_parent"
@@ -43,7 +50,7 @@
 
     <Button
         android:id="@+id/btn_fragment_setRole_user_submit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/submit"
         style="@style/fillButton"
