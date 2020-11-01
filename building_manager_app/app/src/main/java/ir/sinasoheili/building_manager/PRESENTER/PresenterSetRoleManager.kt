@@ -22,46 +22,29 @@ class PresenterSetRoleManager constructor(view:ContractSetRoleManager.ContractSe
 
             override fun onResponse(response: Response<ManagerRegisterResponse>)
             {
-                if(response.body()!!.status) //if status was true : server can insert data to db
+                if(response.isSuccessful)
                 {
-                    val id : Int = response.body()!!.manager_id
-
-                    if(id != -1) // if id was not -1 means can retrieve id of inserted manager
+                    if(response.body()!!.query_execute_status)
                     {
-                        UserAuthFilePreferenceHandler.writeToFile(context , UserAuthFilePreferenceHandler.KEY_MANAGER_ID , id.toString())
-                        view.moveToBuildingListActivity()
+                        val id : Int = response.body()!!.manager_id
+
+                        if(id != -1) //if id was not -1 means insert or login was successful
+                        {
+                            UserAuthFilePreferenceHandler.writeToFile(context , UserAuthFilePreferenceHandler.KEY_MANAGER_ID , id.toString())
+                            view.moveToBuildingListActivity()
+                        }
+                    }
+                    else
+                    {
+                        view.showToast(context.getString(R.string.sever_internal_fail))
                     }
                 }
                 else
                 {
-                    view.showToast(context.getString(R.string.toast_register_server_error))
+                    view.showToast(context.getString(R.string.sever_internal_fail))
                 }
             }
 
         })
     }
-
-
-
-//    Toast.makeText(context , context.getString(R.string.toast_fail_connect_to_server) , Toast.LENGTH_SHORT).show()
-
-
-
-//    if(response.code() == 200)
-//    {
-//        if(response.body()!!.status == true)
-//        {
-//            val id : Int = response.body()!!.manager_id
-//            if(id != -1)
-//            {
-//                AuthFilePreferenceHandler.writeToFile(context , AuthFilePreferenceHandler.KEY_MANAGER_ID , id.toString())
-//                view.handlerRegisterResult(result)
-//            }
-//        }
-//        else
-//        {
-//            Toast.makeText(context , context.getString(R.string.toast_register_server_error), Toast.LENGTH_SHORT).show()
-//        }
-//    }
-
 }

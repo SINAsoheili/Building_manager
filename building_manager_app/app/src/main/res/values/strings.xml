@@ -11,20 +11,26 @@
     <string name="score_to_app">امتیاز به برنامه</string>
     <string name="bug_report">گزارش مشکل</string>
 
+    <string name="hint_phone">شماره موبایل</string>
+    <string name="hint_passwd">رمز عبور</string>
+    <string name="hint_passwd_confirm">تکرار رمز عبور</string>
+
+    <string name="submit">تایید</string>
+    <string name="fill_field">لطفا این قسمت را کامل کنید!</string>
+    <string name="invalid">سازگار نمی‌باشد!</string>
+
+    <string name="sever_internal_fail">مشکلی در سرور رخ داده است لطفا بعدا امتحان کنید!</string>
+
+    <string name="toast_fail_connect_to_server">ارتباط با سرور ممکن نیست! لطفا دسترسی خود را به اینترنت چک کنید.</string>
 
 
 
 
-    <string name="toast_fail_connect_to_server">ارتباط با سرور ممکن نیست! لطفا دوباره امتحان کنید.</string>
+
     <string name="toast_register_server_error">سرور اجازه ‌ذخیره اظلاعات را نمی‌دهد!! لطفا با پشتیبان تماس بگیرید.</string>
     <string name="toast_success_register">با موفقیت ذخیره شد</string>
     <string name="toast_unsuccess_register">‌ذخیره نشد!!!</string>
 
-    <string name="hint_phone">شماره موبایل</string>
-    <string name="hint_passwd">رمز عبور</string>
-
-    <string name="submit">تایید</string>
-    <string name="fill_field">لطفا این قسمت را کامل کنید!</string>
 
     <string name="retry">تلاش مجدد!</string>
 

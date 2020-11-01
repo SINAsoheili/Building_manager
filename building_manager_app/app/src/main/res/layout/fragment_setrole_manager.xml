@@ -49,6 +49,27 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_fragment_setRole_manager_passwd_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_margin"
+        app:endIconMode="password_toggle"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        android:hint="@string/hint_passwd_confirm"
+        style="@style/textInputLayout_outLine">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_fragment_setRole_manager_passwd_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:maxLength="10"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/btn_fragment_setRole_submit"
         android:layout_width="match_parent"

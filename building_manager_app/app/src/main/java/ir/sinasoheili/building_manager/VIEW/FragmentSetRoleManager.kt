@@ -2,11 +2,13 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
@@ -20,6 +22,8 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
     private var tilPhone : TextInputLayout? = null
     private var etPasswd : EditText? = null
     private var tilPasswd : TextInputLayout? = null
+    private var etPasswdConfirm : EditText? = null
+    private var tilPasswdConfirm : TextInputLayout? = null
     private var btnSubmit : Button? = null
 
     private var presenter : PresenterSetRoleManager? = null
@@ -44,6 +48,9 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
         etPasswd = view.findViewById(R.id.et_fragment_setRole_manager_passwd)
         tilPasswd = view.findViewById(R.id.til_fragment_setRole_manager_passwd)
 
+        etPasswdConfirm = view.findViewById(R.id.et_fragment_setRole_manager_passwd_confirm)
+        tilPasswdConfirm = view.findViewById(R.id.til_fragment_setRole_manager_passwd_confirm)
+
         btnSubmit = view.findViewById(R.id.btn_fragment_setRole_submit)
         btnSubmit!!.setOnClickListener(this)
 
@@ -52,14 +59,17 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
 
     override fun onClick(view: View?)
     {
-        if(view!!.equals(btnSubmit))
+        when(view)
         {
-            if(checkPhone() && checkPasswd())
+            btnSubmit ->
             {
-                val phone : String = etPhone!!.text.toString()
-                val passwd : String = etPasswd!!.text.toString()
+                if(checkPhone() && checkPasswordEqual())
+                {
+                    val phone : String = etPhone!!.text.toString()
+                    val passwd : String = etPasswd!!.text.toString()
 
-                presenter!!.registerManager(context!! , phone , passwd)
+                    presenter!!.registerManager(context!! , phone , passwd)
+                }
             }
         }
     }
@@ -88,6 +98,41 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
         }
         tilPasswd?.isErrorEnabled = false
         return true
+    }
+
+    private fun checkPasswdConfirm() : Boolean
+    {
+        val passwd : String = etPasswdConfirm!!.text.toString()
+        if(passwd.isEmpty())
+        {
+            tilPasswdConfirm?.error = getString(R.string.fill_field)
+            etPasswdConfirm?.requestFocus()
+            return false
+        }
+        tilPasswdConfirm?.isErrorEnabled = false
+        return true
+    }
+
+    private fun checkPasswordEqual() : Boolean
+    {
+        if(checkPasswd() && checkPasswdConfirm())
+        {
+            val passwd : String = etPasswd!!.text.toString()
+            val passwdConfirm : String = etPasswdConfirm!!.text.toString()
+
+            if(passwd.equals(passwdConfirm))
+            {
+                tilPasswdConfirm?.isErrorEnabled = false
+                return true
+            }
+            else
+            {
+                tilPasswdConfirm?.error = getString(R.string.invalid)
+                etPasswdConfirm?.requestFocus()
+            }
+        }
+
+        return false
     }
 
     override fun showToast(text: String)
