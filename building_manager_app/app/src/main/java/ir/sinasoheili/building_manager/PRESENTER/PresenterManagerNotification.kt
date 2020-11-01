@@ -18,12 +18,19 @@ class PresenterManagerNotification constructor(val context: Context, val view:Co
             override fun onFailure()
             {
                 view.showToast(context.getString(R.string.fail_connect_to_server))
+                view.showRefreshButton()
             }
 
             override fun onResponse(notifList: List<Notification>)
             {
-                Log.i("tag" , notifList.get(0).toString())
-                view.showList(notifList)
+                if(notifList.isEmpty())
+                {
+                    view.showEmptyListAlert()
+                }
+                else
+                {
+                    view.showList(notifList)
+                }
             }
 
         })

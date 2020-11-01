@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VIEW.ManagerNotificationActivity">
+    tools:context=".VIEW.ManagerNotificationActivity"
+    android:background="@color/background">
 
     <ListView
         android:id="@+id/lv_managerNotification_notifList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -21,6 +22,25 @@
         android:layout_alignParentLeft="true"
         android:layout_margin="@dimen/FABmargin"
         android:foreground="@drawable/ic_add"
+        />
+
+    <ImageView
+        android:id="@+id/iv_managerNotification_refresh"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
+        android:layout_centerInParent="true"
+        android:src="@drawable/refresh"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/tv_managerNotification_emptyList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/empty_notification_list"
+        android:visibility="gone"
         />
 
     <FrameLayout

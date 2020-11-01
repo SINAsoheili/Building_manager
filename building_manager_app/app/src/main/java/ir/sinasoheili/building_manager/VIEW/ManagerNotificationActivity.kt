@@ -3,10 +3,7 @@ package ir.sinasoheili.building_manager.VIEW
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
 import ir.sinasoheili.building_manager.VIEW.FragmentManagerRegisterNewNotification.CallBack
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Notification
@@ -18,6 +15,8 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
 {
     private var fabAddNotification : FloatingActionButton? = null
     private var listView : ListView? = null
+    private var ivRefresh : ImageView? = null
+    private var tvEmptyListAlert : TextView? = null
 
     private var buildingId : Int = -1
     private var presenter : PresenterManagerNotification? = null
@@ -46,6 +45,11 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
         fabAddNotification!!.setOnClickListener(this)
 
         listView = findViewById(R.id.lv_managerNotification_notifList)
+
+        ivRefresh = findViewById(R.id.iv_managerNotification_refresh)
+        ivRefresh!!.setOnClickListener(this)
+
+        tvEmptyListAlert = findViewById(R.id.tv_managerNotification_emptyList)
     }
 
     override fun onClick(view: View?)
@@ -64,7 +68,26 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
                 })
                 supportFragmentManager.beginTransaction().add(R.id.fl_managerNotification , fragment).addToBackStack(null).commit()
             }
+
+            ivRefresh ->
+            {
+                presenter!!.fetchNotificationList(buildingId)
+            }
         }
+    }
+
+    override fun showRefreshButton()
+    {
+        invisibleListView()
+        invisibleTextViewEmptyListAlert()
+        visibleRefreshButton()
+    }
+
+    override fun showEmptyListAlert()
+    {
+        invisibleListView()
+        invisibleRefreshButton()
+        visibleTextViewEmptyListAlert()
     }
 
     override fun showToast(text: String)
@@ -74,6 +97,10 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
 
     override fun showList(items: List<Notification>)
     {
+        invisibleRefreshButton()
+        invisibleTextViewEmptyListAlert()
+        visibleListView()
+
         val adapter : ArrayAdapter<Notification> = ArrayAdapter(this , android.R.layout.simple_list_item_1 , items)
         listView!!.adapter = adapter
 
@@ -97,5 +124,35 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
 
         })
         supportFragmentManager.beginTransaction().replace(R.id.fl_managerNotification , fragment).addToBackStack(null).commit()
+    }
+
+    private fun visibleListView()
+    {
+        listView!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleListView()
+    {
+        listView!!.visibility = View.GONE
+    }
+
+    private fun visibleRefreshButton()
+    {
+        ivRefresh!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleRefreshButton()
+    {
+        ivRefresh!!.visibility = View.GONE
+    }
+
+    private fun visibleTextViewEmptyListAlert()
+    {
+        tvEmptyListAlert!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleTextViewEmptyListAlert()
+    {
+        tvEmptyListAlert!!.visibility = View.GONE
     }
 }

@@ -6,6 +6,8 @@ interface ContractManagerNotification
 {
     interface ContractManagerNotificationView
     {
+        fun showRefreshButton()
+        fun showEmptyListAlert()
         fun showToast(text:String)
         fun showList(items:List<Notification>)
     }
