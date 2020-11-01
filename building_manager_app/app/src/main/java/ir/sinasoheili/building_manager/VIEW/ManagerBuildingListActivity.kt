@@ -20,6 +20,7 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
 {
     private var listView : ListView? = null
     private var iv_reload : ImageView? = null
+    private var tv_emptyList : TextView? = null
     private var floatBtnAdd : FloatingActionButton? = null
     private var bottomAppBar : BottomAppBar? = null
     private var frameLayout : FrameLayout? = null
@@ -43,6 +44,9 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
         iv_reload = findViewById(R.id.iv_buildingList_reload)
         iv_reload!!.setOnClickListener(this)
 
+        tv_emptyList = findViewById(R.id.tv_buildingList_emptyList)
+        tv_emptyList!!.setOnClickListener(this)
+
         presenter = PresenterManagerBuildingList(this@ManagerBuildingListActivity , this)
 
         bottomAppBar = findViewById(R.id.bab_buildingList)
@@ -57,10 +61,21 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
     override fun showReloadButton()
     {
         invisibleList()
+        invisibleTVEmptyAlert()
+        visibleReloadImage()
+    }
+
+    override fun showEmptyListAlert()
+    {
+        invisibleList()
+        invisibleReloadImage()
+        visibleTVEmptyAlert()
     }
 
     override fun showBuildingList(buildingList: List<Building>)
     {
+        invisibleReloadImage()
+        invisibleTVEmptyAlert()
         visibleList()
 
         val adapterManager : ManagerBuildingListAdapter = ManagerBuildingListAdapter(this@ManagerBuildingListActivity , buildingList)
@@ -107,13 +122,31 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
     private fun invisibleList()
     {
         listView!!.visibility  = View.GONE
-        iv_reload!!.visibility = View.VISIBLE
     }
 
     private fun visibleList()
     {
         listView!!.visibility  = View.VISIBLE
+    }
+
+    private fun visibleReloadImage()
+    {
+        iv_reload!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleReloadImage()
+    {
         iv_reload!!.visibility = View.GONE
+    }
+
+    private fun visibleTVEmptyAlert()
+    {
+        tv_emptyList!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleTVEmptyAlert()
+    {
+        tv_emptyList!!.visibility = View.GONE
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean

@@ -27,6 +27,8 @@
     <string name="bugReport_dialog_title">گزارش مشکل</string>
     <string name="bugReport_dialog_message">درصورت مشاهده مشکل در نرم افزار از ایمیل زیر استفاده کنید.\n از اینکه در عملکرد بهتر نرم افزار مشارکت میکنید ممنونم</string>
 
+    <string name="buildig_list_is_empty">هنوز ساختمانی اضافه نکرده اید!</string>
+
 
 
 

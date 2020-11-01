@@ -29,12 +29,16 @@ class PresenterManagerBuildingList constructor(context:Context, viewManager:Cont
                     val buildingList : List<Building> = response.body()!!
                     if(buildingList.isEmpty())
                     {
-                        viewManager.showReloadButton()
+                        viewManager.showEmptyListAlert()
                     }
                     else
                     {
                         viewManager.showBuildingList(buildingList)
                     }
+                }
+                else
+                {
+                    viewManager.showReloadButton()
                 }
             }
 

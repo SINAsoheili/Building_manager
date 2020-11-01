@@ -30,6 +30,16 @@
         android:visibility="gone"
         />
 
+    <TextView
+        android:id="@+id/tv_buildingList_emptyList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        android:text="@string/buildig_list_is_empty"
+        />
+
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bab_buildingList"
         android:layout_width="match_parent"

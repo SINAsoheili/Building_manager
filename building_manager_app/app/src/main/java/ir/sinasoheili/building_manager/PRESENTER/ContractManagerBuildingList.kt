@@ -7,6 +7,7 @@ interface ContractManagerBuildingList
     interface ContractManagerBuildingListView
     {
         fun showReloadButton()
+        fun showEmptyListAlert()
         fun showBuildingList(buildingList:List<Building>)
     }
 
