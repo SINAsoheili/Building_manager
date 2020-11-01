@@ -23,6 +23,11 @@
 
     <string name="fail_connect_to_server">ارتباط با سرور ممکن نیست! لطفا دسترسی خود را به اینترنت چک کنید.</string>
 
+    <string name="send_email">ارسال ایمیل</string>
+    <string name="bugReport_dialog_title">گزارش مشکل</string>
+    <string name="bugReport_dialog_message">درصورت مشاهده مشکل در نرم افزار از ایمیل زیر استفاده کنید.\n از اینکه در عملکرد بهتر نرم افزار مشارکت میکنید ممنونم</string>
+
+
 
 
 
