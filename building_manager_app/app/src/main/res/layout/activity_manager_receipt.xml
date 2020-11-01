@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@null"
+        android:visibility="gone"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -22,6 +23,25 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         style="@style/floatButtonAdd"
+        />
+
+    <ImageView
+        android:id="@+id/iv_managerReceipt_refresh"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
+        android:src="@drawable/refresh"
+        android:scaleType="fitXY"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/tv_managerReceipt_emptyList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty_receipt_list"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
         />
 
     <FrameLayout

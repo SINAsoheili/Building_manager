@@ -6,6 +6,8 @@ interface ContractManagerReceipt
 {
     interface ContractManagerReceiptView
     {
+        fun showRefreshButton()
+        fun showEmptyReceiptListAlert()
         fun showToast(text:String)
         fun showList(items:List<Receipt>)
     }

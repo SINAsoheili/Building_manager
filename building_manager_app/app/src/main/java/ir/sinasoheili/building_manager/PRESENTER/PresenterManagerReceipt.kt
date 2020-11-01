@@ -17,11 +17,19 @@ class PresenterManagerReceipt constructor(val context:Context , val view:Contrac
             override fun onFailure()
             {
                 view.showToast(context.getString(R.string.fail_connect_to_server))
+                view.showRefreshButton()
             }
 
             override fun onResponse(receiptList: List<Receipt>)
             {
-                view.showList(receiptList)
+                if(receiptList.isEmpty())
+                {
+                    view.showEmptyReceiptListAlert()
+                }
+                else
+                {
+                    view.showList(receiptList)
+                }
             }
         })
     }

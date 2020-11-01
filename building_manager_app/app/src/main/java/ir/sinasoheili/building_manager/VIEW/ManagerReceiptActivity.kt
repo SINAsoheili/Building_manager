@@ -3,9 +3,7 @@ package ir.sinasoheili.building_manager.VIEW
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Receipt
 import ir.sinasoheili.building_manager.R
@@ -18,6 +16,8 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
 {
     private var fabRegisterReceipt : FloatingActionButton? = null
     private var listView : ListView? = null
+    private var ivRefresh : ImageView? = null
+    private var tvEmptyList : TextView? = null
 
     private var buildingId : Int = -1
     private var presenter : PresenterManagerReceipt? = null
@@ -46,6 +46,11 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
         fabRegisterReceipt!!.setOnClickListener(this)
 
         listView = findViewById(R.id.lv_managerReceipt_receiptList)
+
+        ivRefresh = findViewById(R.id.iv_managerReceipt_refresh)
+        ivRefresh!!.setOnClickListener(this)
+
+        tvEmptyList = findViewById(R.id.tv_managerReceipt_emptyList)
     }
 
     override fun onClick(view: View?)
@@ -56,7 +61,26 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
             {
                 showFragmentReceiptAdd()
             }
+
+            ivRefresh ->
+            {
+                presenter!!.fetchReceiptList(buildingId)
+            }
         }
+    }
+
+    override fun showRefreshButton()
+    {
+        invisibleListView()
+        invisibleTextViewEmptyListAlert()
+        visibleRefreshButton()
+    }
+
+    override fun showEmptyReceiptListAlert()
+    {
+        invisibleListView()
+        invisibleRefreshButton()
+        visibleTextViewEmptyListAlert()
     }
 
     override fun showToast(text: String)
@@ -66,6 +90,10 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
 
     override fun showList(items: List<Receipt>)
     {
+        visibleListView()
+        invisibleRefreshButton()
+        invisibleTextViewEmptyListAlert()
+
         val reversedItems : List<Receipt> = items.reversed()
         val adapter : ManagerReceiptListAdapter = ManagerReceiptListAdapter(this , reversedItems)
         listView!!.adapter = adapter
@@ -103,5 +131,35 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
 
         })
         supportFragmentManager.beginTransaction().add(R.id.fl_managerReceipt , fragment).addToBackStack(null).commit()
+    }
+
+    private fun visibleListView()
+    {
+        listView!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleListView()
+    {
+        listView!!.visibility = View.GONE
+    }
+
+    private fun visibleRefreshButton()
+    {
+        ivRefresh!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleRefreshButton()
+    {
+        ivRefresh!!.visibility = View.GONE
+    }
+
+    private fun visibleTextViewEmptyListAlert()
+    {
+        tvEmptyList!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleTextViewEmptyListAlert()
+    {
+        tvEmptyList!!.visibility = View.GONE
     }
 }
