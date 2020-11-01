@@ -29,6 +29,7 @@
 
     <string name="buildig_list_is_empty">هنوز ساختمانی اضافه نکرده اید!</string>
     <string name="unit_list_is_empty">هنوز واحدی به این ساختمان اضافه نکرده اید!</string>
+    <string name="empty_repair_list">هنوز گزینه‌ای به لیست تعمیرات اضافه نشده است!</string>
 
 
 

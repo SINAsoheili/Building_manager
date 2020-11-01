@@ -6,6 +6,8 @@ interface ContractManagerRepair
 {
     interface ContractManagerRepairView
     {
+        fun showRefreshButton()
+        fun showEmptyListAlert()
         fun showToast(text:String)
         fun showList(items:List<Repair>)
     }

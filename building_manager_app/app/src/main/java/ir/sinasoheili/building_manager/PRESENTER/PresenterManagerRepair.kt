@@ -17,11 +17,19 @@ class PresenterManagerRepair(val context:Context , val view:ContractManagerRepai
             override fun onFailure()
             {
                 view.showToast(context.getString(R.string.fail_connect_to_server))
+                view.showRefreshButton()
             }
 
             override fun onResponse(repairList: List<Repair>)
             {
-                view.showList(repairList)
+                if(repairList.isEmpty())
+                {
+                    view.showEmptyListAlert()
+                }
+                else
+                {
+                    view.showList(repairList)
+                }
             }
 
         })

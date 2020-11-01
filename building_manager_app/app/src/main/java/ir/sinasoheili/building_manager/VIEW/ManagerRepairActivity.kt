@@ -3,9 +3,7 @@ package ir.sinasoheili.building_manager.VIEW
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Repair
 import ir.sinasoheili.building_manager.R
@@ -17,6 +15,8 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
 {
     private var fabAddRepair : FloatingActionButton? = null
     private var listView : ListView? = null
+    private var ivRefresh : ImageView? =  null
+    private var tvEmptyRepairList : TextView? = null
 
     private var buildingId : Int = -1
     private var presenter : PresenterManagerRepair? = null
@@ -45,6 +45,13 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
         fabAddRepair!!.setOnClickListener(this)
 
         listView = findViewById(R.id.lv_managerRepair_repairList)
+
+        ivRefresh = findViewById(R.id.iv_managerRepair_refresh)
+        ivRefresh!!.setOnClickListener(this)
+
+        tvEmptyRepairList = findViewById(R.id.tv_managerRepair_repairListEmpty)
+        tvEmptyRepairList!!.setOnClickListener(this)
+
     }
 
     override fun onClick(view: View?)
@@ -55,7 +62,26 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
             {
                 showRegisterNewRepairFragment()
             }
+
+            ivRefresh ->
+            {
+                presenter!!.getRepairList(buildingId)
+            }
         }
+    }
+
+    override fun showRefreshButton()
+    {
+        visibleRefreshButton()
+        invisibleRepairList()
+        invisibleTextViewEmptyRepair()
+    }
+
+    override fun showEmptyListAlert()
+    {
+        invisibleRepairList()
+        invisibleRefreshButton()
+        visibleTextViewEmptyRepair()
     }
 
     override fun showToast(text: String)
@@ -65,6 +91,10 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
 
     override fun showList(items: List<Repair>)
     {
+        visibleRepairList()
+        invisibleRefreshButton()
+        invisibleTextViewEmptyRepair()
+
         val reversedItem:List<Repair> = items.reversed()
         val adapterManager : ManagerRepairListAdapter = ManagerRepairListAdapter(this , reversedItem)
         listView!!.adapter = adapterManager
@@ -102,5 +132,35 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
 
         })
         supportFragmentManager.beginTransaction().replace(R.id.fl_managerRepair , fragmentRepair).addToBackStack(null).commit()
+    }
+
+    private fun visibleRepairList()
+    {
+        listView!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleRepairList()
+    {
+        listView!!.visibility = View.GONE
+    }
+
+    private fun visibleRefreshButton()
+    {
+        ivRefresh!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleRefreshButton()
+    {
+        ivRefresh!!.visibility = View.GONE
+    }
+
+    private fun visibleTextViewEmptyRepair()
+    {
+        tvEmptyRepairList!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleTextViewEmptyRepair()
+    {
+        tvEmptyRepairList!!.visibility = View.GONE
     }
 }
