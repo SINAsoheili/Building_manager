@@ -33,6 +33,15 @@
     <string name="empty_receipt_list">هنوز گزینه‌ای به لیست قبض ها اضافه نشده است!</string>
     <string name="empty_notification_list">هنوز اطلاعیه‌ای درج نشده است!</string>
 
+    <string name="notification_title">موضوع اطلاعیه</string>
+    <string name="notification_message">پیام اطلاعیه</string>
+
+    <string name="date">تاریخ</string>
+
+
+
+
+
 
 
 
@@ -66,9 +75,6 @@
     <string name="fragment_registerNewUnit_hint_phone">شماره همراه</string>
     <string name="fragment_registerNewUnit_hint_unitNumber">شماره واحد</string>
     <string name="fragment_registerNewUnit_hint_tag">پلاک</string>
-
-    <string name="fragment_registerNewNotification_fill_title">لطفا عنوان را وارد کنید</string>
-    <string name="fragment_registerNewNotification_fill_text">لطفا متن را وارد کنید</string>
 
     <string name="fragment_registerNewReceipt_payDate">تاریخ پرداخت</string>
     <string name="fragment_registerNewReceipt_issueDate">تاریخ صدور</string>

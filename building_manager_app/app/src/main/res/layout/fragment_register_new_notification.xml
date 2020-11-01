@@ -6,38 +6,73 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clickable="true"
     android:focusable="true"
-    android:background="@android:color/white">
+    android:background="@color/background">
 
-    <EditText
-        android:id="@+id/et_fragment_registerNewNotification_title"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_fragment_registerNewNotification_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_margin="@dimen/medium_margin"
-        />
+        style="@style/textInputLayout_outLine"
+        android:hint="@string/notification_title">
 
-    <EditText
-        android:id="@+id/et_fragment_registerNewNotification_text"
+        <EditText
+            android:id="@+id/et_fragment_registerNewNotification_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_fragment_registerNewNotification_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/et_fragment_registerNewNotification_title"
+        app:layout_constraintTop_toBottomOf="@id/til_fragment_registerNewNotification_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:lines="10"
-        android:gravity="top"
-        android:layout_margin="@dimen/medium_margin"
-        />
+        style="@style/textInputLayout_outLine"
+        android:hint="@string/notification_message">
+
+        <EditText
+            android:id="@+id/et_fragment_registerNewNotification_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="10"
+            android:gravity="top"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_fragment_registerNewNotification_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/til_fragment_registerNewNotification_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/textInputLayout_outLine"
+        android:hint="@string/date">
+
+        <EditText
+            android:id="@+id/et_fragment_registerNewNotification_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_fragment_registerNewNotification_submit"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/et_fragment_registerNewNotification_text"
+        app:layout_constraintTop_toBottomOf="@id/til_fragment_registerNewNotification_date"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_margin="@dimen/medium_margin"
         android:text="@string/submit"
+        style="@style/fillButton"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

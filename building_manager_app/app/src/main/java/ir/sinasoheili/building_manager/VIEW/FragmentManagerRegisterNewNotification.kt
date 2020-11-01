@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.android.material.textfield.TextInputLayout
 import ir.sinasoheili.building_manager.MODEL.Notification
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerRegisterNewNotification
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerRegisterNewNotification
@@ -13,6 +14,8 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentManagerRegisterNewNotification(buildingId : Int, callback:CallBack) : Fragment(R.layout.fragment_register_new_notification), View.OnClickListener , ContractManagerRegisterNewNotification.ContractManagerRegisterNewNotificationView
 {
+    private var tilTitle : TextInputLayout? = null
+    private var tilMessage : TextInputLayout? = null
     private var etTitle : EditText? = null
     private var etText : EditText? = null
     private var btnSubmit : Button? = null
@@ -28,8 +31,10 @@ class FragmentManagerRegisterNewNotification(buildingId : Int, callback:CallBack
 
     private fun initObj(view:View)
     {
+        tilTitle = view.findViewById(R.id.til_fragment_registerNewNotification_title)
         etTitle = view.findViewById(R.id.et_fragment_registerNewNotification_title)
 
+        tilMessage = view.findViewById(R.id.til_fragment_registerNewNotification_text)
         etText = view.findViewById(R.id.et_fragment_registerNewNotification_text)
 
         btnSubmit = view.findViewById(R.id.btn_fragment_registerNewNotification_submit)
@@ -55,11 +60,11 @@ class FragmentManagerRegisterNewNotification(buildingId : Int, callback:CallBack
     {
         if(etTitle!!.text.isEmpty())
         {
-            Toast.makeText(context , context!!.getString(R.string.fragment_registerNewNotification_fill_title) , Toast.LENGTH_SHORT).show()
+            tilTitle!!.error = context!!.getString(R.string.fill_field)
             etTitle?.requestFocus()
             return false
         }
-
+        tilTitle!!.isErrorEnabled = false
         return true
     }
 
@@ -67,11 +72,11 @@ class FragmentManagerRegisterNewNotification(buildingId : Int, callback:CallBack
     {
         if(etText!!.text.isEmpty())
         {
-            Toast.makeText(context , context!!.getString(R.string.fragment_registerNewNotification_fill_text) , Toast.LENGTH_SHORT).show()
+            tilMessage!!.error = context!!.getString(R.string.fill_field)
             etText?.requestFocus()
             return false
         }
-
+        tilMessage!!.isErrorEnabled = false
         return true
     }
 
