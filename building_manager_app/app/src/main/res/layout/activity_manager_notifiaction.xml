@@ -20,8 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_margin="@dimen/FABmargin"
-        android:foreground="@drawable/ic_add"
+        style="@style/floatButtonAdd"
         />
 
     <ImageView
