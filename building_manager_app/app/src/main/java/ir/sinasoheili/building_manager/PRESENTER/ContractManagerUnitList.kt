@@ -6,7 +6,7 @@ interface ContractManagerUnitList
 {
     interface ContractManagerUnitListView
     {
-        fun visibleRefreshButton()
+        fun showRefreshButton()
         fun showEmptyListText()
         fun showUnitList(list:List<Unit>)
     }

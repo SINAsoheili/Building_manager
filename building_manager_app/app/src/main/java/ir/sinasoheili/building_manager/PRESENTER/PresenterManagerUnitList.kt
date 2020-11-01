@@ -14,10 +14,11 @@ class PresenterManagerUnitList constructor(context: Context, viewManager:Contrac
             return
 
         val api : API_UnitListHandler = API_UnitListHandler(context)
-        api.start(buildingId , object:API_UnitListHandler.CallBack{
+        api.start(buildingId , object:API_UnitListHandler.CallBack
+        {
             override fun onFailure()
             {
-                viewManager.visibleRefreshButton()
+                viewManager.showRefreshButton()
             }
 
             override fun onResponse(unitList: List<Unit>)

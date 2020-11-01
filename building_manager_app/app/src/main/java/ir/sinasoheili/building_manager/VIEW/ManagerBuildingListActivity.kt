@@ -7,7 +7,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Building
@@ -85,7 +84,7 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
-                val intent : Intent = Intent(this@ManagerBuildingListActivity , ManagerManagerUnitListActivity::class.java)
+                val intent : Intent = Intent(this@ManagerBuildingListActivity , ManagerUnitListActivity::class.java)
                 intent.putExtra("building_id" , buildingList.get(p2).id)
                 startActivity(intent)
             }

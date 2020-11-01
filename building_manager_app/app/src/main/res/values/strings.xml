@@ -28,7 +28,7 @@
     <string name="bugReport_dialog_message">درصورت مشاهده مشکل در نرم افزار از ایمیل زیر استفاده کنید.\n از اینکه در عملکرد بهتر نرم افزار مشارکت میکنید ممنونم</string>
 
     <string name="buildig_list_is_empty">هنوز ساختمانی اضافه نکرده اید!</string>
-
+    <string name="unit_list_is_empty">هنوز واحدی به این ساختمان اضافه نکرده اید!</string>
 
 
 
@@ -38,8 +38,6 @@
     <string name="toast_success_register">با موفقیت ذخیره شد</string>
     <string name="toast_unsuccess_register">‌ذخیره نشد!!!</string>
 
-
-    <string name="retry">تلاش مجدد!</string>
 
     <string name="cash">موجودی</string>
     <string name="unit_count">تعداد واحد</string>

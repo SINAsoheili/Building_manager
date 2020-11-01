@@ -16,18 +16,19 @@
     <ListView
         android:id="@+id/lv_unitList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:visibility="gone"
         android:divider="@null"
+        android:layout_marginBottom="56dp"
         />
 
     <ImageView
         android:id="@+id/iv_unitList_reload"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
         android:layout_gravity="center"
-        android:scaleType="center"
-        android:src="@android:drawable/btn_star"
+        android:scaleType="fitXY"
+        android:src="@drawable/refresh"
         android:visibility="gone"
         />
 
@@ -36,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/retry"
+        android:text="@string/unit_list_is_empty"
         android:visibility="gone"
         />
 
