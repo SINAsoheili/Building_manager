@@ -16,7 +16,7 @@ class PresenterManagerDialogEditCharge constructor(val context:Context , val vie
         {
             override fun onFailure()
             {
-                view.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                view.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(response: ChargeDeleteResponse)
@@ -37,7 +37,7 @@ class PresenterManagerDialogEditCharge constructor(val context:Context , val vie
         {
             override fun onFailure()
             {
-                view.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                view.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(response: ChargeUpdateResponse)

@@ -16,7 +16,7 @@ class PresenterManagerRegisterNewUnit constructor(viewManager:ContractManagerReg
         {
             override fun onFailure()
             {
-                viewManager.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                viewManager.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(response: UnitAddResponse)

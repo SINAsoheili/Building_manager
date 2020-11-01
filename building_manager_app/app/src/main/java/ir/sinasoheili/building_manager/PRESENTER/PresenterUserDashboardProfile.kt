@@ -19,7 +19,7 @@ class PresenterUserDashboardProfile constructor (val context: Context, val view:
         {
             override fun onFailure()
             {
-                view.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                view.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(unit: Unit)

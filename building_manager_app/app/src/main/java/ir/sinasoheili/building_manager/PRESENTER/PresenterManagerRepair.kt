@@ -16,7 +16,7 @@ class PresenterManagerRepair(val context:Context , val view:ContractManagerRepai
         {
             override fun onFailure()
             {
-                view.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                view.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(repairList: List<Repair>)

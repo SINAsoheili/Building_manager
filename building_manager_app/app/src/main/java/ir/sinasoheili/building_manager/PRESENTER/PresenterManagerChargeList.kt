@@ -13,7 +13,7 @@ class PresenterManagerChargeList constructor(val context: Context, val viewManag
         {
             override fun onFailure()
             {
-                viewManager.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                viewManager.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(items: List<Charge>)

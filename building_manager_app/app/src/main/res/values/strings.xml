@@ -21,7 +21,7 @@
 
     <string name="sever_internal_fail">مشکلی در سرور رخ داده است لطفا بعدا امتحان کنید!</string>
 
-    <string name="toast_fail_connect_to_server">ارتباط با سرور ممکن نیست! لطفا دسترسی خود را به اینترنت چک کنید.</string>
+    <string name="fail_connect_to_server">ارتباط با سرور ممکن نیست! لطفا دسترسی خود را به اینترنت چک کنید.</string>
 
 
 

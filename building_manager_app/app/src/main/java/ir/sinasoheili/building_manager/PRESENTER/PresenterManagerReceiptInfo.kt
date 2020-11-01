@@ -14,7 +14,7 @@ class PresenterManagerReceiptInfo constructor(val context:Context , val view:Con
         {
             override fun onFailure()
             {
-                view.showToast(context.getString(R.string.toast_fail_connect_to_server))
+                view.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(result: ReceiptDeleteResponse)
