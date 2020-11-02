@@ -29,7 +29,7 @@ interface APIs
     fun unitList(@Query("building_id") building_id:Int):Call<List<Unit>>
 
     @GET("/notification/add")
-    fun notificationAdd(@Query("text") text:String,@Query("title") title:String ,@Query("buildingId") buildingId:Int) : Call<NotificationAddResponse>
+    fun notificationAdd(@Query("text") text:String,@Query("title") title:String ,@Query("date") date:String ,@Query("buildingId") buildingId:Int) : Call<NotificationAddResponse>
 
     @GET("/repair/add")
     fun repairAdd(@Query("date")date:String , @Query("comment")comment:String , @Query("title")title:String , @Query("amount")amount:Double , @Query("buildingId")buildingId:Int):Call<RepairAddResponse>

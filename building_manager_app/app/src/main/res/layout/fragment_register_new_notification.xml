@@ -33,6 +33,8 @@
         app:layout_constraintTop_toBottomOf="@id/til_fragment_registerNewNotification_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:counterEnabled="true"
+        app:counterMaxLength="100"
         style="@style/textInputLayout_outLine"
         android:hint="@string/notification_message">
 
@@ -42,6 +44,7 @@
             android:layout_height="wrap_content"
             android:lines="10"
             android:gravity="top"
+            android:maxLength="100"
             />
 
     </com.google.android.material.textfield.TextInputLayout>

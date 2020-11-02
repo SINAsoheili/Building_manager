@@ -4,10 +4,9 @@ import android.os.Build
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class Notification constructor(val text:String , val title:String , val building_id:Int)
+class Notification constructor(val title:String , val text:String , val date:String , val building_id:Int)
 {
     var id : Int = -1
-    var date : String? = null
 
     companion object
     {
@@ -23,11 +22,6 @@ class Notification constructor(val text:String , val title:String , val building
 
             return DateStr
         }
-    }
-
-    constructor(text:String , date:String , title:String , building_id:Int) : this(text , title , building_id)
-    {
-        this.date = date
     }
 
     override fun toString():String

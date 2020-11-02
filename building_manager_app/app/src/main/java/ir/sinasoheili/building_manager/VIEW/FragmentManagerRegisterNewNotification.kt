@@ -1,6 +1,7 @@
 package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -12,16 +13,16 @@ import ir.sinasoheili.building_manager.PRESENTER.ContractManagerRegisterNewNotif
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerRegisterNewNotification
 import ir.sinasoheili.building_manager.R
 
-class FragmentManagerRegisterNewNotification(buildingId : Int, callback:CallBack) : Fragment(R.layout.fragment_register_new_notification), View.OnClickListener , ContractManagerRegisterNewNotification.ContractManagerRegisterNewNotificationView
+class FragmentManagerRegisterNewNotification(val buildingId : Int,val  callback:CallBack) : Fragment(R.layout.fragment_register_new_notification), View.OnClickListener , ContractManagerRegisterNewNotification.ContractManagerRegisterNewNotificationView
 {
     private var tilTitle : TextInputLayout? = null
     private var tilMessage : TextInputLayout? = null
     private var etTitle : EditText? = null
     private var etText : EditText? = null
     private var btnSubmit : Button? = null
-    private var callback : CallBack = callback
+    private var etDate : EditText? = null
+    private var tilDate : TextInputLayout? = null
 
-    private val buildingId : Int = buildingId
     private var presenter : PresenterManagerRegisterNewNotification? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
@@ -37,6 +38,9 @@ class FragmentManagerRegisterNewNotification(buildingId : Int, callback:CallBack
         tilMessage = view.findViewById(R.id.til_fragment_registerNewNotification_text)
         etText = view.findViewById(R.id.et_fragment_registerNewNotification_text)
 
+        tilDate = view.findViewById(R.id.til_fragment_registerNewNotification_date)
+        etDate = view.findViewById(R.id.et_fragment_registerNewNotification_date)
+
         btnSubmit = view.findViewById(R.id.btn_fragment_registerNewNotification_submit)
         btnSubmit!!.setOnClickListener(this)
 
@@ -45,15 +49,31 @@ class FragmentManagerRegisterNewNotification(buildingId : Int, callback:CallBack
 
     override fun onClick(p0: View?)
     {
-        if(checkTitle() && checkText())
+        if(checkTitle() && checkText() && checkDate())
         {
             val title : String = etTitle!!.text.toString()
             val text : String = etText!!.text.toString()
+            val date : String = etDate!!.text.toString()
 
-            val notification : Notification = Notification(text , title , buildingId)
+            Log.i("tag" , date)
+
+            val notification : Notification = Notification(title , text , date , buildingId)
 
             presenter!!.registerNewNotification(notification)
         }
+    }
+
+    private fun checkDate():Boolean
+    {
+        if(etDate!!.text.isEmpty())
+        {
+            tilDate!!.error = context!!.getString(R.string.fill_field)
+            etDate!!.requestFocus()
+            return false
+        }
+
+        tilDate!!.isErrorEnabled = false
+        return true
     }
 
     private fun checkTitle():Boolean
@@ -88,7 +108,7 @@ class FragmentManagerRegisterNewNotification(buildingId : Int, callback:CallBack
     override fun onNotificationRegistered()
     {
         callback.onNotificationRegistered()
-        fragmentManager?.beginTransaction()?.remove(this)
+        fragmentManager?.beginTransaction()?.remove(this)?.commit()
     }
 
     interface CallBack

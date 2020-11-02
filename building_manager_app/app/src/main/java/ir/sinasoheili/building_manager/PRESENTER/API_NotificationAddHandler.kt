@@ -20,7 +20,7 @@ class API_NotificationAddHandler
 
     fun start(notification:Notification , callback:CallBack)
     {
-        val call : Call<NotificationAddResponse> = api.notificationAdd(notification.text , notification.title , notification.building_id)
+        val call : Call<NotificationAddResponse> = api.notificationAdd(notification.text , notification.title , notification.date , notification.building_id)
         call.enqueue(object:Callback<NotificationAddResponse>
         {
             override fun onFailure(call: Call<NotificationAddResponse>, t: Throwable)
