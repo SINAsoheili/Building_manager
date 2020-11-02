@@ -47,7 +47,7 @@ class FragmentManagerNotificationInfo constructor(val notification:Notification 
     {
         tvTitle!!.text = notification.title
         tvText!!.text = notification.text
-        tvDate!!.text = notification.date
+        tvDate!!.text = Notification.convertDate(notification.date)
     }
 
     override fun onClick(view: View?)
