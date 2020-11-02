@@ -101,7 +101,7 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
         invisibleTextViewEmptyListAlert()
         visibleListView()
 
-        val adapter : ArrayAdapter<Notification> = ArrayAdapter(this , android.R.layout.simple_list_item_1 , items)
+        val adapter : ManagerNotificationListAdapter = ManagerNotificationListAdapter(this@ManagerNotificationActivity , items)
         listView!!.adapter = adapter
 
         listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener
