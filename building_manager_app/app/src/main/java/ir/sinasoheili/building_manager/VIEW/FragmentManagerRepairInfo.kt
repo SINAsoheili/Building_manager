@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -15,7 +16,7 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentManagerRepairInfo constructor(val repair:Repair , val callback:CallBack): Fragment(R.layout.fragment_repair_info) , ContractManagerRepairInfo.ContractManagerRepairInfoView , View.OnClickListener
 {
-    private var ivDelete : ImageView? = null
+    private var btnDelete : Button? = null
     private var tvTitle : TextView? = null
     private var tvComment : TextView? = null
     private var tvAmount : TextView? = null
@@ -34,8 +35,8 @@ class FragmentManagerRepairInfo constructor(val repair:Repair , val callback:Cal
     {
         presenter = PresenterManagerRepairInfo(view.context , this)
 
-        ivDelete = view.findViewById(R.id.iv_fragmentRepairInfo_delete)
-        ivDelete!!.setOnClickListener(this)
+        btnDelete = view.findViewById(R.id.btn_fragmentRepairInfo_delete)
+        btnDelete!!.setOnClickListener(this)
 
         tvTitle = view.findViewById(R.id.tv_fragmentRepairInfo_title)
         tvComment = view.findViewById(R.id.tv_fragmentRepairInfo_comment)
@@ -55,7 +56,7 @@ class FragmentManagerRepairInfo constructor(val repair:Repair , val callback:Cal
     {
         when(view)
         {
-            ivDelete ->
+            btnDelete ->
             {
                 showDeleteConfirmDialog()
             }
