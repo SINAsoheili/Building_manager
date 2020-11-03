@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clickable="true"
     android:focusable="true"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_fragment_registerNewNotification_title"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         style="@style/textInputLayout_outLine"
         android:hint="@string/notification_title">
 
@@ -28,11 +26,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_fragment_registerNewNotification_text"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/til_fragment_registerNewNotification_title"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:counterEnabled="true"
         app:counterMaxLength="100"
         style="@style/textInputLayout_outLine"
@@ -42,7 +37,7 @@
             android:id="@+id/et_fragment_registerNewNotification_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lines="10"
+            android:lines="8"
             android:gravity="top"
             android:maxLength="100"
             />
@@ -51,11 +46,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_fragment_registerNewNotification_date"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/til_fragment_registerNewNotification_text"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         style="@style/textInputLayout_outLine"
         android:hint="@string/date">
 
@@ -70,12 +62,10 @@
 
     <Button
         android:id="@+id/btn_fragment_registerNewNotification_submit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/til_fragment_registerNewNotification_date"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:text="@string/submit"
         style="@style/fillButton"
-        />
+    />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
