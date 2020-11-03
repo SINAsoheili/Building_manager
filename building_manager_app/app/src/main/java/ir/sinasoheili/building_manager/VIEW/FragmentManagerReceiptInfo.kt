@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -16,7 +17,7 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentManagerReceiptInfo constructor(val receipt:Receipt , val callback:CallBack) : Fragment(R.layout.fragment_receipt_info) ,  ContractManagerReceiptInfo.ContractManagerReceiptInfoView, View.OnClickListener
 {
-    private var ivDelete : ImageView? = null
+    private var btnDelete : Button? = null
     private var tvType : TextView? = null
     private var tvPayDate : TextView? = null
     private var tvIssueDate : TextView? = null
@@ -36,8 +37,8 @@ class FragmentManagerReceiptInfo constructor(val receipt:Receipt , val callback:
     {
         presenter = PresenterManagerReceiptInfo(view.context , this)
 
-        ivDelete = view.findViewById(R.id.iv_fragmentReceiptInfo_delete)
-        ivDelete!!.setOnClickListener(this)
+        btnDelete = view.findViewById(R.id.btn_fragmentReceiptInfo_delete)
+        btnDelete!!.setOnClickListener(this)
 
         tvType = view.findViewById(R.id.tv_fragmentReceiptInfo_type)
         tvPayDate = view.findViewById(R.id.tv_fragmentReceiptInfo_payDate)
@@ -61,7 +62,7 @@ class FragmentManagerReceiptInfo constructor(val receipt:Receipt , val callback:
     {
         when(view)
         {
-            ivDelete ->
+            btnDelete ->
             {
                 showConfirmDeleteDialog()
             }
