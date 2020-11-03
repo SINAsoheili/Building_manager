@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -17,7 +18,7 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentManagerNotificationInfo constructor(val notification:Notification , val callback:CallBack): Fragment(R.layout.fragment_manager_notification_info) , ContractManagerNotificationInfo.ContractManagerNotificationInfoView, View.OnClickListener
 {
-    private var ivDelete : ImageView? = null
+    private var btnDelete : Button? = null
     private var tvTitle : TextView? = null
     private var tvText : TextView? = null
     private var tvDate : TextView? = null
@@ -35,8 +36,8 @@ class FragmentManagerNotificationInfo constructor(val notification:Notification 
     {
         presenter = PresenterManagerNotificationInfo(view.context , this)
 
-        ivDelete = view.findViewById(R.id.iv_fragmentNotificationInfo_delete)
-        ivDelete!!.setOnClickListener(this)
+        btnDelete = view.findViewById(R.id.btn_fragmentNotificationInfo_delete)
+        btnDelete!!.setOnClickListener(this)
 
         tvTitle = view.findViewById(R.id.tv_fragmentNotificationInfo_title)
         tvText  = view.findViewById(R.id.tv_fragmentNotificationInfo_text)
@@ -54,7 +55,7 @@ class FragmentManagerNotificationInfo constructor(val notification:Notification 
     {
         when(view)
         {
-            ivDelete ->
+            btnDelete ->
             {
                 showConfirmDeleteDialog()
             }
