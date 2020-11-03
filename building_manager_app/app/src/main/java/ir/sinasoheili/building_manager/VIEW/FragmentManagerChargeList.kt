@@ -2,10 +2,7 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import ir.sinasoheili.building_manager.MODEL.Charge
 import ir.sinasoheili.building_manager.MODEL.Unit
@@ -17,6 +14,7 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
 {
     private var listView : ListView? = null
     private var ivRefresh : ImageView? = null
+    private var tvEmptyList : TextView? = null
 
     private var presenter : ContractManagerChargeList.ContractManagerChargeListPresenter? = null
 
@@ -35,17 +33,28 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
 
         ivRefresh = view.findViewById(R.id.iv_fragmentChargeList_refresh)
         ivRefresh!!.setOnClickListener(this)
+
+        tvEmptyList = view.findViewById(R.id.tv_fragmentChargeList_emptyList)
+    }
+
+    override fun showRefreshButton()
+    {
+        showRefreshImage()
+    }
+
+    override fun showEmptyListAlert()
+    {
+        showTvEmptyList()
     }
 
     override fun showToast(text: String)
     {
         Toast.makeText(context , text , Toast.LENGTH_SHORT).show()
-        visibleRefreshButton()
     }
 
     override fun showChargeList(items: List<Charge>)
     {
-        visibleListView()
+        showListView()
 
         val adapterManager : ManagerChargeLIstAdapter = ManagerChargeLIstAdapter(context!! , items)
         listView!!.adapter = adapterManager
@@ -72,16 +81,25 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
         })
     }
 
-    private fun visibleRefreshButton()
+    private fun showRefreshImage()
     {
-        listView!!.visibility = View.GONE
-        ivRefresh!!.visibility = View.VISIBLE
+        invisibleList()
+        invisibleTvEmptyList()
+        visibleRefreshImage()
     }
 
-    private fun visibleListView()
+    private fun showListView()
     {
-        listView!!.visibility = View.VISIBLE
-        ivRefresh!!.visibility = View.GONE
+        invisibleTvEmptyList()
+        invisibleRefreshImage()
+        visibleList()
+    }
+
+    private fun showTvEmptyList()
+    {
+        invisibleRefreshImage()
+        invisibleList()
+        visibleTvEmptyList()
     }
 
     override fun onClick(view: View?)
@@ -93,5 +111,35 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
                 presenter!!.getChargeList(unit.building_id , unit.unit_number)
             }
         }
+    }
+
+    private fun visibleRefreshImage()
+    {
+        ivRefresh!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleRefreshImage()
+    {
+        ivRefresh!!.visibility = View.GONE
+    }
+
+    private fun visibleList()
+    {
+        listView!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleList()
+    {
+        listView!!.visibility = View.GONE
+    }
+
+    private fun visibleTvEmptyList()
+    {
+        tvEmptyList!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleTvEmptyList()
+    {
+        tvEmptyList!!.visibility = View.GONE
     }
 }

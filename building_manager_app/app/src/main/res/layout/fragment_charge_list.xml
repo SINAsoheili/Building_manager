@@ -16,17 +16,31 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:divider="@null"
+        android:visibility="gone"
         />
 
     <ImageView
         android:id="@+id/iv_fragmentChargeList_refresh"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:src="@android:drawable/btn_star"
+        android:src="@drawable/refresh"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/tv_fragmentChargeList_emptyList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/empty_charge_list"
         android:visibility="gone"
         />
 

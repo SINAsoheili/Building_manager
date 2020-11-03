@@ -32,6 +32,7 @@
     <string name="empty_repair_list">هنوز گزینه‌ای به لیست تعمیرات اضافه نشده است!</string>
     <string name="empty_receipt_list">هنوز گزینه‌ای به لیست قبض ها اضافه نشده است!</string>
     <string name="empty_notification_list">هنوز اطلاعیه‌ای درج نشده است!</string>
+    <string name="empty_charge_list">هنوز شارژی درج نشده است!</string>
 
     <string name="notification_title">موضوع اطلاعیه</string>
     <string name="notification_message">پیام اطلاعیه</string>

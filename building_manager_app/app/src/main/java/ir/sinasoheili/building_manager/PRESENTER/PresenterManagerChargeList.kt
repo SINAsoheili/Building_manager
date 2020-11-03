@@ -14,11 +14,19 @@ class PresenterManagerChargeList constructor(val context: Context, val viewManag
             override fun onFailure()
             {
                 viewManager.showToast(context.getString(R.string.fail_connect_to_server))
+                viewManager.showRefreshButton()
             }
 
             override fun onResponse(items: List<Charge>)
             {
-                viewManager.showChargeList(items)
+                if(items.isEmpty())
+                {
+                    viewManager.showEmptyListAlert()
+                }
+                else
+                {
+                    viewManager.showChargeList(items)
+                }
             }
         })
     }

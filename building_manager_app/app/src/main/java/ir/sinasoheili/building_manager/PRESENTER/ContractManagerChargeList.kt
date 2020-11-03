@@ -6,6 +6,8 @@ interface ContractManagerChargeList
 {
     interface ContractManagerChargeListView
     {
+        fun showRefreshButton()
+        fun showEmptyListAlert()
         fun showToast(text:String)
         fun showChargeList(items:List<Charge>)
     }
