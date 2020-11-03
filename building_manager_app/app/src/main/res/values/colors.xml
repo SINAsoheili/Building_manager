@@ -21,4 +21,7 @@
 
     <color name="textView_Button_text">#355C7D</color>
 
+    <color name="success">#60D666</color>
+    <color name="unSuccess">#FF7582</color>
+
 </resources>
