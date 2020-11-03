@@ -62,7 +62,15 @@ class ManagerChargeLIstAdapter constructor(context: Context, val items:List<Char
                 tvStatus!!.setTextColor(view.context.getColor(R.color.unSuccess))
             }
             tvIssueDate!!.text = view.context.getString(R.string.manager_chargeListItem_issueDate , Charge.convertDate(charge.issue_date))
-            tvPayDate!!.text = view.context.getString(R.string.manager_chargeListItem_payDate , Charge.convertDate(charge.pay_date))
+
+            if(charge.pay_date == null)
+            {
+                tvPayDate!!.text = view.context.getString(R.string.manager_chargeListItem_payDate , view.context.getString(R.string.undefined))
+            }
+            else
+            {
+                tvPayDate!!.text = view.context.getString(R.string.manager_chargeListItem_payDate , Charge.convertDate(charge.pay_date!!))
+            }
         }
 
     }

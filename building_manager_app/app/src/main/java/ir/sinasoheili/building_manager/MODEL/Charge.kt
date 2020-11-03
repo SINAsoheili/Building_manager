@@ -11,7 +11,7 @@ class Charge constructor (amount:Double , status: ChargeStatus = ChargeStatus.un
 
     var status : Int = status.ordinal
 
-    var pay_date : String = ""
+    var pay_date : String? = null
 
     var amount : Double = amount
         set(value)

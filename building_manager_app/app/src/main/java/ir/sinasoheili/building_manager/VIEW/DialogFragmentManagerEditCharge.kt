@@ -75,8 +75,15 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
     {
         etAmount!!.setText(charge.amount.toString())
         etIssueDate!!.setText(Charge.convertDate(charge.issue_date))
-        etPayDate!!.setText(Charge.convertDate(charge.pay_date))
         spinner!!.setSelection(charge.status)
+        if(charge.pay_date == null)
+        {
+            etPayDate!!.setText("")
+        }
+        else
+        {
+            etPayDate!!.setText(Charge.convertDate(charge.pay_date!!))
+        }
     }
 
     private fun initSpinner()

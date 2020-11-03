@@ -54,9 +54,15 @@ class UserChargeLIstAdapter constructor(context: Context, val items:List<Charge>
             tvAmount!!.text = view.context.getString(R.string.manager_chargeListItem_amount , charge.amount.toString())
             tvStatus!!.text = view.context.getString(R.string.manager_chargeListItem_status , ChargeStatus.getChargeStatus(charge.status).toString())
             tvIssueDate!!.text = view.context.getString(R.string.manager_chargeListItem_issueDate , Charge.convertDate(charge.issue_date))
-            tvPayDate!!.text = view.context.getString(R.string.manager_chargeListItem_payDate , Charge.convertDate(charge.pay_date))
 
-            //todo:if pay date was null what do? also in manager adapter must be set
+            if(charge.pay_date == null)
+            {
+                tvPayDate!!.text = view.context.getString(R.string.manager_chargeListItem_payDate , view.context.getString(R.string.undefined))
+            }
+            else
+            {
+                tvPayDate!!.text = view.context.getString(R.string.manager_chargeListItem_payDate , Charge.convertDate(charge.pay_date!!))
+            }
         }
 
     }
