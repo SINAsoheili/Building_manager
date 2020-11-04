@@ -16,7 +16,7 @@
         <activity android:name=".VIEW.ManagerRepairActivity" />
         <activity android:name=".VIEW.ManagerReceiptActivity" />
         <activity android:name=".VIEW.ManagerNotificationActivity" />
-        <activity android:name=".VIEW.ManagerManagerUnitInfoActivity" />
+        <activity android:name=".VIEW.ManagerUnitInfoActivity" />
         <activity android:name=".VIEW.ManagerUnitListActivity" />
         <activity android:name=".VIEW.ManagerBuildingListActivity" />
         <activity android:name=".MainActivity">

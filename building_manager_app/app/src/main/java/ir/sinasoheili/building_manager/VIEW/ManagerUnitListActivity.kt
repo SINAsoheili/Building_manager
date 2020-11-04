@@ -96,7 +96,7 @@ class ManagerUnitListActivity : AppCompatActivity() , ContractManagerUnitList.Co
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
-                val intent : Intent = Intent(this@ManagerUnitListActivity , ManagerManagerUnitInfoActivity::class.java)
+                val intent : Intent = Intent(this@ManagerUnitListActivity , ManagerUnitInfoActivity::class.java)
                 intent.putExtra("unit" , list.get(p2))
                 startActivityForResult(intent , UNIT_REQUEST_CODE)
             }

@@ -16,7 +16,7 @@ import ir.sinasoheili.building_manager.R
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerUnitInfo.ContractManagerUnitInfoView
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerUnitInfo
 
-class ManagerManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractManagerUnitInfoView
+class ManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractManagerUnitInfoView
 {
     private var tvUnitNumber : TextView? = null
     private var tvUnitTag : TextView? = null
@@ -78,8 +78,8 @@ class ManagerManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListene
             return
         }
 
-        tvUnitNumber!!.text = this@ManagerManagerUnitInfoActivity.getString(R.string.unit , unit.unit_number.toString())
-        tvUnitTag!!.text = this@ManagerManagerUnitInfoActivity.getString(R.string.tag , unit.tag.toString())
+        tvUnitNumber!!.text = this@ManagerUnitInfoActivity.getString(R.string.unit , unit.unit_number.toString())
+        tvUnitTag!!.text = this@ManagerUnitInfoActivity.getString(R.string.tag , unit.tag.toString())
         tvOwnerName!!.text = unit.owner_name
         tvPhone!!.text = unit.phone
     }
