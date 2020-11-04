@@ -24,4 +24,6 @@
     <color name="success">#60D666</color>
     <color name="unSuccess">#FF7582</color>
 
+    <color name="section_divider">#C56C86</color>
+
 </resources>

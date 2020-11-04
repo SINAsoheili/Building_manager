@@ -24,5 +24,11 @@
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">@dimen/big_margin</item>
     </style>
+    
+    <style name="section_divider" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_big</item>
+        <item name="android:textColor">@color/section_divider</item>
+        <item name="android:layout_marginRight">@dimen/medium_margin</item>
+    </style>
 
 </resources>

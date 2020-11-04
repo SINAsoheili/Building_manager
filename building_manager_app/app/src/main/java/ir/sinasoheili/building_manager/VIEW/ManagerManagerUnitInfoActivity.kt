@@ -78,9 +78,9 @@ class ManagerManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListene
             return
         }
 
-        tvUnitNumber!!.text = this@ManagerManagerUnitInfoActivity.getString(R.string.unit_list_item_unitNumber)+" "+unit.unit_number.toString()
-        tvUnitTag!!.text = this@ManagerManagerUnitInfoActivity.getString(R.string.unit_list_item_tag)+" "+unit.tag.toString()
-        tvOwnerName!!.text = this@ManagerManagerUnitInfoActivity.getString(R.string.unit_list_item_ownerName)+" "+unit.owner_name
+        tvUnitNumber!!.text = this@ManagerManagerUnitInfoActivity.getString(R.string.unit , unit.unit_number.toString())
+        tvUnitTag!!.text = this@ManagerManagerUnitInfoActivity.getString(R.string.tag , unit.tag.toString())
+        tvOwnerName!!.text = unit.owner_name
         tvPhone!!.text = unit.phone
     }
 

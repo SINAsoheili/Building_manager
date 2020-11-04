@@ -51,6 +51,14 @@
     <string name="payDate">تاریخ پرداخت</string>
     <string name="issueDate">تاریخ صدور</string>
 
+    <string name="unitInfo">مشخصات واحد</string>
+    <string name="ownerInfo">مشخصات مالک</string>
+    <string name="changes">تغییرات</string>
+
+    <string name="unit">واحد %s</string>
+    <string name="tag">پلاک %s</string>
+
+
 
 
 
@@ -63,14 +71,14 @@
     <string name="toast_unsuccess_register">‌ذخیره نشد!!!</string>
 
 
+    <string name="unit_list_item_unitNumber">واحد</string>
+    <string name="unit_list_item_ownerName">مالک</string>
+    <string name="unit_list_item_tag">پلاک</string>
+
     <string name="cash">موجودی</string>
     <string name="unit_count">تعداد واحد</string>
 
     <string name="empty_unit_list">هنوز واحدی به این ساختمان اضافه نشده است!</string>
-
-    <string name="unit_list_item_unitNumber">واحد</string>
-    <string name="unit_list_item_ownerName">مالک</string>
-    <string name="unit_list_item_tag">پلاک</string>
 
     <string name="menu_bab_unitList_addNotification">اطلاعیه</string>
     <string name="menu_bab_unitList_addRepair">تعمیرات</string>
