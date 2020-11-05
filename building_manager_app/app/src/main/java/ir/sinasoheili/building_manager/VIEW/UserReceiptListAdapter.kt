@@ -51,7 +51,7 @@ class UserReceiptListAdapter constructor(context:Context, val items:List<Receipt
         fun fill(receipt:Receipt)
         {
             tvType?.text = ReceiptType.getReceipt(receipt.type).toString()
-            tvAmount?.text = receipt.amount.toString()
+            tvAmount?.text = view.context.getString(R.string.receiptListItem_amount , receipt.amount.toString())
 
             tvIssueDate?.text = view.context.getString(R.string.receiptListItem_IssueDate , Receipt.convertDate(receipt.issue_date))
             tvPayDate?.text = view.context.getString(R.string.receiptListItem_PayDate , Receipt.convertDate(receipt.pay_date))

@@ -26,7 +26,6 @@
                 android:id="@+id/tv_userReceiptList_amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="end"
                 style="@style/listItem_tv_body"
                 />
 
@@ -34,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="@dimen/medium_margin">
+                android:layout_margin="@dimen/medium_margin">
 
                 <TextView
                     android:id="@+id/tv_userReceiptList_payDate"
@@ -43,6 +42,7 @@
                     android:layout_weight="1"
                     android:gravity="start"
                     style="@style/listItem_tv_body"
+                    android:layout_margin="0dp"
                     />
 
                 <TextView
@@ -52,6 +52,7 @@
                     android:layout_weight="1"
                     android:gravity="start"
                     style="@style/listItem_tv_body"
+                    android:layout_margin="0dp"
                     />
 
             </LinearLayout>

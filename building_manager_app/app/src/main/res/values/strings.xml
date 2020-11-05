@@ -61,7 +61,9 @@
     <string name="unit">واحد %s</string>
     <string name="tag">پلاک %s</string>
 
-
+    <string name="receiptListItem_IssueDate">تاریخ صدور %s</string>
+    <string name="receiptListItem_PayDate">تاریخ پرداخت %s</string>
+    <string name="receiptListItem_amount">مبلغ %s</string>
 
 
 
@@ -125,9 +127,6 @@
     <string name="fragment_registerNewCharge_issueDate">تاریخ شارژ</string>
     <string name="fragment_registerNewCharge_payDate">تاریخ پرداخت</string>
     <string name="charge_successfully_added">شارژ با موفقیت ذخیره شد</string>
-
-    <string name="receiptListItem_IssueDate">تاریخ صدور %s</string>
-    <string name="receiptListItem_PayDate">تاریخ پرداخت %s</string>
 
     <string name="fail_to_delete">امکان حذف وجود ندارد!</string>
 
