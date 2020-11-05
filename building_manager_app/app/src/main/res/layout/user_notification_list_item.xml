@@ -26,7 +26,7 @@
                 android:id="@+id/tv_userNotificationList_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="end"
+                android:gravity="start"
                 style="@style/listItem_tv_body"
                 />
 
