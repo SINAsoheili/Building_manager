@@ -59,4 +59,11 @@
         style="@style/floatButtonAdd"
         />
 
+    <FrameLayout
+        android:id="@+id/fl_buildingList_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

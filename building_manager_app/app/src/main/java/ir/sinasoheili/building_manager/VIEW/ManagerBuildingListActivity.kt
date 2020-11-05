@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Building
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerBuildingList
@@ -155,7 +156,7 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
             R.id.menu_bab_buildingList_setting ->
             {
                 val fragment : FragmentManagerSetting = FragmentManagerSetting()
-                supportFragmentManager.beginTransaction().replace(R.id.fl_buildingList , fragment).addToBackStack(null).commit()
+                supportFragmentManager.beginTransaction().replace( R.id.fl_buildingList_bottom_sheet , fragment).addToBackStack(null).commit()
 
                 return true
             }
