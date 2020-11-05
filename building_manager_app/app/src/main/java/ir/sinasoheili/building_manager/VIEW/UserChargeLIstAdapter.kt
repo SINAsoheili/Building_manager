@@ -51,8 +51,8 @@ class UserChargeLIstAdapter constructor(context: Context, val items:List<Charge>
 
         fun fill(charge:Charge)
         {
-            tvAmount!!.text = view.context.getString(R.string.manager_chargeListItem_amount , charge.amount.toString())
-            tvIssueDate!!.text = view.context.getString(R.string.manager_chargeListItem_issueDate , Charge.convertDate(charge.issue_date))
+            tvAmount!!.text = view.context.getString(R.string.chargeListItem_amount , charge.amount.toString())
+            tvIssueDate!!.text = view.context.getString(R.string.chargeListItem_issueDate , Charge.convertDate(charge.issue_date))
             tvStatus!!.text = " "+ChargeStatus.getChargeStatus(charge.status).toString()
             if(ChargeStatus.getChargeStatus(charge.status) == ChargeStatus.paid)
             {
@@ -65,11 +65,11 @@ class UserChargeLIstAdapter constructor(context: Context, val items:List<Charge>
 
             if(charge.pay_date == null)
             {
-                tvPayDate!!.text = view.context.getString(R.string.manager_chargeListItem_payDate , view.context.getString(R.string.undefined))
+                tvPayDate!!.text = view.context.getString(R.string.chargeListItem_payDate , view.context.getString(R.string.undefined))
             }
             else
             {
-                tvPayDate!!.text = view.context.getString(R.string.manager_chargeListItem_payDate , Charge.convertDate(charge.pay_date!!))
+                tvPayDate!!.text = view.context.getString(R.string.chargeListItem_payDate , Charge.convertDate(charge.pay_date!!))
             }
         }
 

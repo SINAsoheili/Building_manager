@@ -42,10 +42,10 @@
 
     <string name="date">تاریخ</string>
 
-    <string name="manager_chargeListItem_amount">مبلغ : %s</string>
-    <string name="manager_chargeListItem_status">وضعیت : %s</string>
-    <string name="manager_chargeListItem_issueDate">تاریخ صدور : %s</string>
-    <string name="manager_chargeListItem_payDate">تاریخ پرداخت : %s</string>
+    <string name="chargeListItem_amount">مبلغ : %s</string>
+    <string name="chargeListItem_status">وضعیت :</string>
+    <string name="chargeListItem_issueDate">تاریخ صدور : %s</string>
+    <string name="chargeListItem_payDate">تاریخ پرداخت : %s</string>
 
     <string name="undefined">نا‌مشخص</string>
 
@@ -60,8 +60,6 @@
 
     <string name="unit">واحد %s</string>
     <string name="tag">پلاک %s</string>
-
-    <string name="status">وضعیت :</string>
 
 
 
