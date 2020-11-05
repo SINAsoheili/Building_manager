@@ -52,8 +52,16 @@ class UserChargeLIstAdapter constructor(context: Context, val items:List<Charge>
         fun fill(charge:Charge)
         {
             tvAmount!!.text = view.context.getString(R.string.manager_chargeListItem_amount , charge.amount.toString())
-            tvStatus!!.text = view.context.getString(R.string.manager_chargeListItem_status , ChargeStatus.getChargeStatus(charge.status).toString())
             tvIssueDate!!.text = view.context.getString(R.string.manager_chargeListItem_issueDate , Charge.convertDate(charge.issue_date))
+            tvStatus!!.text = " "+ChargeStatus.getChargeStatus(charge.status).toString()
+            if(ChargeStatus.getChargeStatus(charge.status) == ChargeStatus.paid)
+            {
+                tvStatus!!.setTextColor(view.context.getColor(R.color.success))
+            }
+            else
+            {
+                tvStatus!!.setTextColor(view.context.getColor(R.color.unSuccess))
+            }
 
             if(charge.pay_date == null)
             {
