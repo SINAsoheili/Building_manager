@@ -35,7 +35,8 @@ class FragmentManagerSetting : Fragment(R.layout.manager_setting_fragment) , Vie
         {
             tvBugReport ->
             {
-                Toast.makeText(context , "click" , Toast.LENGTH_SHORT).show()
+                val dialog : BugReportDialog = BugReportDialog()
+                dialog.show(fragmentManager!! , null)
             }
 
             tvScoreToApp ->

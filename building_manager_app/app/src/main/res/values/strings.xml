@@ -2,6 +2,9 @@
 
     <string name="app_name">مدیر ساختمان</string>
 
+    <string name="my_email">sinasoheili79@gmail.com</string>
+    <string name="email_subject">گزارش مشکل در برنامه‌ی @string/app_name</string>
+
     <string name="tv_setRole">برای شروع لطفا نقش خود را در ساختمان انتخاب کنید.</string>
     <string name="btn_setRole_manager">مدیر ساختمان</string>
     <string name="btn_setRole_user">ساکن ساختمان</string>
