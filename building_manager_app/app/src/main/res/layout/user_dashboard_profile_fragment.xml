@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     android:orientation="vertical"
     android:clickable="true"
@@ -20,10 +19,20 @@
             android:orientation="vertical">
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/section_divider"
+                android:text="@string/ownerInfo"
+                android:layout_marginTop="@dimen/medium_margin"
+                />
+
+            <TextView
                 android:id="@+id/tv_userDashboard_ownerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/textView_UserInfo_style"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginStart="@dimen/big_margin"
                 />
 
             <TextView
@@ -31,6 +40,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/textView_UserInfo_style"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginStart="@dimen/big_margin"
+                android:gravity="end"
                 />
 
             <TextView
@@ -38,6 +50,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/textView_UserInfo_style"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginStart="@dimen/big_margin"
                 />
 
             <TextView
@@ -46,6 +60,8 @@
                 android:layout_height="wrap_content"
                 style="@style/textView_UserInfo_style"
                 android:layout_marginBottom="@dimen/medium_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginStart="@dimen/big_margin"
                 />
 
         </LinearLayout>
@@ -60,7 +76,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/section_divider"
+                android:text="@string/changes"
+                android:layout_marginTop="@dimen/medium_margin"
+                />
 
             <TextView
                 android:id="@+id/tv_userDashboard_scoreToApp"
@@ -68,6 +93,8 @@
                 android:layout_height="wrap_content"
                 style="@style/textViewButton_style"
                 android:text="@string/score_to_app"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginStart="@dimen/big_margin"
                 />
 
             <TextView
@@ -76,6 +103,9 @@
                 android:layout_height="wrap_content"
                 style="@style/textViewButton_style"
                 android:text="@string/bug_report"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/medium_margin"
+                android:layout_marginStart="@dimen/big_margin"
                 />
 
         </LinearLayout>

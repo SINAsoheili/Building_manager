@@ -10,12 +10,14 @@ import ir.sinasoheili.building_manager.PRESENTER.ContractUserDashboardProfile.Co
 import ir.sinasoheili.building_manager.PRESENTER.PresenterUserDashboardProfile
 import ir.sinasoheili.building_manager.R
 
-class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fragment) , ContractUserDashboardProfileView
+class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fragment) , ContractUserDashboardProfileView , View.OnClickListener
 {
     private var tvOwnerName : TextView? = null
     private var tvPhone : TextView? = null
     private var tvUnitNumber : TextView? = null
     private var tvTag : TextView? = null
+    private var tvBugReport : TextView? = null
+    private var tvScoreToApp : TextView? = null
 
     private var presenterProfile : PresenterUserDashboardProfile? = null
 
@@ -28,12 +30,18 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
 
     private fun initObj(view:View)
     {
+        presenterProfile = PresenterUserDashboardProfile(view.context , this)
+
         tvOwnerName = view.findViewById(R.id.tv_userDashboard_ownerName)
         tvPhone = view.findViewById(R.id.tv_userDashboard_phone)
         tvUnitNumber = view.findViewById(R.id.tv_userDashboard_unitNumber)
         tvTag = view.findViewById(R.id.tv_userDashboard_tag)
 
-        presenterProfile = PresenterUserDashboardProfile(view.context , this)
+        tvBugReport = view.findViewById(R.id.tv_userDashboard_bugReport)
+        tvBugReport!!.setOnClickListener(this)
+
+        tvScoreToApp = view.findViewById(R.id.tv_userDashboard_scoreToApp)
+        tvScoreToApp!!.setOnClickListener(this)
     }
 
     override fun showToast(text: String)
@@ -45,7 +53,24 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
     {
         tvOwnerName!!.text = unit.owner_name
         tvPhone!!.text = unit.phone
-        tvUnitNumber!!.text = unit.unit_number.toString()
-        tvTag!!.text = unit.tag.toString()
+        tvUnitNumber!!.text = context!!.getString(R.string.unit , unit.unit_number.toString())
+        tvTag!!.text = context!!.getString(R.string.tag , unit.tag.toString())
+    }
+
+    override fun onClick(view: View?)
+    {
+        when(view)
+        {
+            tvBugReport ->
+            {
+                val dialog : BugReportDialog = BugReportDialog()
+                dialog.show(fragmentManager!! , null)
+            }
+
+            tvScoreToApp ->
+            {
+                Toast.makeText(context , "clicked" , Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
