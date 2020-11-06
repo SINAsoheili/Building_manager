@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomappbar.BottomAppBar
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Building
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerBuildingList
@@ -16,7 +18,11 @@ import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerBuildingList
 import ir.sinasoheili.building_manager.R
 import kotlinx.android.synthetic.main.activity_building_list.*
 
-class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildingList.ContractManagerBuildingListView , View.OnClickListener, Toolbar.OnMenuItemClickListener
+class ManagerBuildingListActivity : AppCompatActivity()
+    ,ContractManagerBuildingList.ContractManagerBuildingListView
+    ,View.OnClickListener
+    ,Toolbar.OnMenuItemClickListener
+    ,FragmentManager.OnBackStackChangedListener
 {
     private var listView : ListView? = null
     private var iv_reload : ImageView? = null
@@ -26,6 +32,8 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
     private var frameLayout : FrameLayout? = null
 
     private var presenter : PresenterManagerBuildingList? = null
+    private var isSettingDialogShowing : Boolean = false;
+    private var isSettingDialogInbackstack : Boolean = false; //this boolean determine is setting add or remove from back stack or another fragment add or remove from back stack
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -56,6 +64,8 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
         floatBtnAdd!!.setOnClickListener(this)
 
         frameLayout = findViewById(R.id.fl_buildingList)
+
+        supportFragmentManager.addOnBackStackChangedListener(this)
     }
 
     override fun showReloadButton()
@@ -156,12 +166,52 @@ class ManagerBuildingListActivity : AppCompatActivity() , ContractManagerBuildin
             R.id.menu_bab_buildingList_setting ->
             {
                 val fragment : FragmentManagerSetting = FragmentManagerSetting()
-                supportFragmentManager.beginTransaction().replace( R.id.fl_buildingList_bottom_sheet , fragment).addToBackStack(null).commit()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace( R.id.fl_buildingList_bottom_sheet , fragment)
+                    .addToBackStack(null)
+                    .commit()
+
+                isSettingDialogInbackstack = true
+                isSettingDialogShowing = true
 
                 return true
             }
         }
 
         return false
+    }
+
+    private fun hideFloatButton()
+    {
+        val animation:Animation = AnimationUtils.loadAnimation(this , R.anim.float_button_right_scale_in)
+        floatBtnAdd?.startAnimation(animation)
+
+        floatBtnAdd?.isClickable = false
+    }
+
+    private fun showFloatButton()
+    {
+        val animation:Animation = AnimationUtils.loadAnimation(this , R.anim.float_button_right_scale_out)
+        floatBtnAdd?.startAnimation(animation)
+
+        floatBtnAdd?.isClickable = true
+    }
+
+    override fun onBackStackChanged()
+    {
+        when
+        {
+            isSettingDialogInbackstack && isSettingDialogShowing ->
+            {
+                hideFloatButton()
+                isSettingDialogShowing = false
+            }
+            (isSettingDialogInbackstack==true) && (isSettingDialogShowing==false) ->
+            {
+                showFloatButton()
+                isSettingDialogInbackstack = false
+            }
+        }
     }
 }
