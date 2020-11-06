@@ -199,6 +199,11 @@ class ManagerBuildingListActivity : AppCompatActivity()
         floatBtnAdd?.isClickable = true
     }
 
+    private fun hideBottomAppBar()
+    {
+        bottomAppBar!!.startAnimation(AnimationUtils.loadAnimation(this ,R.anim.fade_out))
+    }
+
     override fun onBackStackChanged()
     {
         when
@@ -213,7 +218,7 @@ class ManagerBuildingListActivity : AppCompatActivity()
                 showFloatButton()
                 isSettingDialogInbackstack = false
 
-                bottomAppBar!!.startAnimation(AnimationUtils.loadAnimation(this ,R.anim.fade_out))
+                hideBottomAppBar()
             }
         }
     }
