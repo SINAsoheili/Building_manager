@@ -23,6 +23,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         style="@style/floatButtonAdd"
+        android:transitionName="unit_list_FAB"
         />
 
     <ImageView

@@ -57,6 +57,7 @@
         android:layout_height="wrap_content"
         app:layout_anchor="@id/bab_unitList"
         style="@style/floatButtonAdd"
+        android:transitionName="unit_list_FAB"
         />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

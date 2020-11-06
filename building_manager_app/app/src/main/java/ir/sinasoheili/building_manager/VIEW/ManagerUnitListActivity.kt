@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityOptionsCompat
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ir.sinasoheili.building_manager.MODEL.Unit
@@ -143,7 +144,8 @@ class ManagerUnitListActivity : AppCompatActivity()
             {
                 val intent : Intent = Intent(this@ManagerUnitListActivity , ManagerNotificationActivity::class.java)
                 intent.putExtra("buildingId" , buildingId)
-                startActivity(intent)
+                val option : ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this , findViewById(R.id.fab_unitList) , "unit_list_FAB")
+                startActivity(intent , option.toBundle())
                 return true
             }
 
@@ -151,7 +153,8 @@ class ManagerUnitListActivity : AppCompatActivity()
             {
                 val intent : Intent = Intent(this@ManagerUnitListActivity , ManagerReceiptActivity::class.java)
                 intent.putExtra("buildingId" , buildingId)
-                startActivity(intent)
+                val option : ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this , findViewById(R.id.fab_unitList) , "unit_list_FAB")
+                startActivity(intent , option.toBundle())
                 return true
             }
 
@@ -159,7 +162,8 @@ class ManagerUnitListActivity : AppCompatActivity()
             {
                 val intent : Intent = Intent(this@ManagerUnitListActivity , ManagerRepairActivity::class.java)
                 intent.putExtra("buildingId" , buildingId)
-                startActivity(intent)
+                val option : ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this , findViewById(R.id.fab_unitList) , "unit_list_FAB")
+                startActivity(intent , option.toBundle())
                 return true
             }
         }
