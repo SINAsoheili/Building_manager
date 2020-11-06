@@ -131,7 +131,12 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
             }
 
         })
-        supportFragmentManager.beginTransaction().replace(R.id.fl_managerRepair , fragmentRepair).addToBackStack(null).commit()
+        supportFragmentManager
+            .beginTransaction()
+            .setCustomAnimations(android.R.anim.fade_in , android.R.anim.fade_out , android.R.anim.fade_in , android.R.anim.fade_out)
+            .replace(R.id.fl_managerRepair , fragmentRepair)
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun visibleRepairList()

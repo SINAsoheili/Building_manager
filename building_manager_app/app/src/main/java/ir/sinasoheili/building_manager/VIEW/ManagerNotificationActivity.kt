@@ -66,7 +66,12 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
                     }
 
                 })
-                supportFragmentManager.beginTransaction().add(R.id.fl_managerNotification , fragment).addToBackStack(null).commit()
+                supportFragmentManager
+                    .beginTransaction()
+                    .setCustomAnimations(android.R.anim.fade_in , android.R.anim.fade_out , android.R.anim.fade_in , android.R.anim.fade_out)
+                    .add(R.id.fl_managerNotification , fragment)
+                    .addToBackStack(null)
+                    .commit()
             }
 
             ivRefresh ->

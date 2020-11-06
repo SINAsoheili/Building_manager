@@ -130,7 +130,12 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
             }
 
         })
-        supportFragmentManager.beginTransaction().add(R.id.fl_managerReceipt , fragment).addToBackStack(null).commit()
+        supportFragmentManager
+            .beginTransaction()
+            .setCustomAnimations(android.R.anim.fade_in , android.R.anim.fade_out , android.R.anim.fade_in , android.R.anim.fade_out)
+            .add(R.id.fl_managerReceipt , fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun visibleListView()
