@@ -169,6 +169,7 @@ class ManagerBuildingListActivity : AppCompatActivity()
                 supportFragmentManager
                     .beginTransaction()
                     .replace( R.id.fl_buildingList_bottom_sheet , fragment)
+                    .setCustomAnimations(android.R.anim.fade_out , android.R.anim.fade_in)
                     .addToBackStack(null)
                     .commit()
 
@@ -211,6 +212,8 @@ class ManagerBuildingListActivity : AppCompatActivity()
             {
                 showFloatButton()
                 isSettingDialogInbackstack = false
+
+                bottomAppBar!!.startAnimation(AnimationUtils.loadAnimation(this ,R.anim.fade_out))
             }
         }
     }
