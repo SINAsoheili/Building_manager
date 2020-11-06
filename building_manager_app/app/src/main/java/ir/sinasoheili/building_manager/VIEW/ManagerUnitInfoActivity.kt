@@ -16,7 +16,9 @@ import ir.sinasoheili.building_manager.R
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerUnitInfo.ContractManagerUnitInfoView
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerUnitInfo
 
-class ManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListener , ContractManagerUnitInfoView
+class ManagerUnitInfoActivity : AppCompatActivity()
+    ,View.OnClickListener
+    ,ContractManagerUnitInfoView
 {
     private var tvUnitNumber : TextView? = null
     private var tvUnitTag : TextView? = null
@@ -110,13 +112,22 @@ class ManagerUnitInfoActivity : AppCompatActivity() , View.OnClickListener , Con
             tvAddCharge ->
             {
                 val fragment : FragmentManagerChargeAdd = FragmentManagerChargeAdd(unit!!)
-                supportFragmentManager.beginTransaction().replace(R.id.fl_unitInfo , fragment).addToBackStack(null).commit()
+                supportFragmentManager
+                    .beginTransaction()
+                    .setCustomAnimations(android.R.anim.fade_in , android.R.anim.fade_out , android.R.anim.fade_in , android.R.anim.fade_out)
+                    .replace(R.id.fl_unitInfo , fragment)
+                    .addToBackStack(null).commit()
             }
 
             tvChargeList ->
             {
                 val fragment : FragmentManagerChargeList = FragmentManagerChargeList(unit!!)
-                supportFragmentManager.beginTransaction().replace(R.id.fl_unitInfo , fragment).addToBackStack(null).commit()
+                supportFragmentManager
+                    .beginTransaction()
+                    .setCustomAnimations(android.R.anim.fade_in , android.R.anim.fade_out , android.R.anim.fade_in , android.R.anim.fade_out)
+                    .replace(R.id.fl_unitInfo , fragment)
+                    .addToBackStack(null)
+                    .commit()
             }
         }
     }
