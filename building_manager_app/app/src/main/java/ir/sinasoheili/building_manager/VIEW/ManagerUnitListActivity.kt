@@ -15,7 +15,11 @@ import ir.sinasoheili.building_manager.PRESENTER.ContractManagerUnitList
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerUnitList
 import ir.sinasoheili.building_manager.R
 
-class ManagerUnitListActivity : AppCompatActivity() , ContractManagerUnitList.ContractManagerUnitListView , View.OnClickListener, Toolbar.OnMenuItemClickListener {
+class ManagerUnitListActivity : AppCompatActivity()
+    ,ContractManagerUnitList.ContractManagerUnitListView
+    ,View.OnClickListener
+    ,Toolbar.OnMenuItemClickListener
+{
     private var listView : ListView? = null
     private var ivReload : ImageView? = null
     private var tvReload : TextView? = null
@@ -121,7 +125,12 @@ class ManagerUnitListActivity : AppCompatActivity() , ContractManagerUnitList.Co
                         presenter.getUnitList(buildingId)
                     }
                 })
-                supportFragmentManager.beginTransaction().replace(R.id.fl_unitList , fragment).addToBackStack(null).commit()
+                supportFragmentManager
+                    .beginTransaction()
+                    .setCustomAnimations(android.R.anim.fade_in , android.R.anim.fade_out , android.R.anim.fade_in , android.R.anim.fade_out)
+                    .replace(R.id.fl_unitList , fragment)
+                    .addToBackStack(null)
+                    .commit()
             }
         }
     }
