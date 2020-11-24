@@ -170,7 +170,7 @@ class ManagerUnitListActivity : AppCompatActivity()
 
             R.id.menu_bab_unitList_building_info ->
             {
-                val fragment : FragmentBuildingInfo = FragmentBuildingInfo()
+                val fragment : FragmentBuildingInfo = FragmentBuildingInfo(buildingId)
                 supportFragmentManager
                     .beginTransaction()
                     .setCustomAnimations(android.R.anim.fade_in , android.R.anim.fade_out , android.R.anim.fade_in , android.R.anim.fade_out)

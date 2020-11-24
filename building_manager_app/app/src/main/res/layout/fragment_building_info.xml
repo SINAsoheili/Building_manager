@@ -1,69 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:padding="@dimen/medium_padding">
+
+    <LinearLayout
+        android:id="@+id/ll_building_info_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_registerNewBuilding_hint_name"
+            style="@style/section_divider"
+            android:layout_marginTop="@dimen/small_margin"
+            />
+        <TextView
+            android:id="@+id/tv_building_info_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/secondaryTextColor"
+            android:layout_marginRight="@dimen/big_margin"
+            android:layout_marginLeft="@dimen/big_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_registerNewBuilding_hint_address"
+            style="@style/section_divider"
+            android:layout_marginTop="@dimen/big_margin"
+            />
+        <TextView
+            android:id="@+id/tv_building_info_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/secondaryTextColor"
+            android:layout_marginRight="@dimen/big_margin"
+            android:layout_marginLeft="@dimen/big_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_registerNewBuilding_hint_unitCount"
+            style="@style/section_divider"
+            android:layout_marginTop="@dimen/big_margin"
+            />
+        <TextView
+            android:id="@+id/tv_building_info_unitCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/secondaryTextColor"
+            android:layout_marginRight="@dimen/big_margin"
+            android:layout_marginLeft="@dimen/big_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:gravity="end"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/building_id"
+            style="@style/section_divider"
+            android:layout_marginTop="@dimen/big_margin"
+            />
+        <TextView
+            android:id="@+id/tv_building_info_buildingId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/secondaryTextColor"
+            android:layout_marginRight="@dimen/big_margin"
+            android:layout_marginLeft="@dimen/big_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:gravity="end"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_registerNewBuilding_hint_cash"
+            style="@style/section_divider"
+            android:layout_marginTop="@dimen/big_margin"
+            />
+        <TextView
+            android:id="@+id/tv_building_info_cash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/secondaryTextColor"
+            android:layout_marginRight="@dimen/big_margin"
+            android:layout_marginLeft="@dimen/big_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_building_info_refresh"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
+        android:src="@drawable/refresh"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/tv_building_info_refreshAlert"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fragment_registerNewBuilding_hint_name"
-        style="@style/section_divider"
-        />
-    <TextView
-        android:id="@+id/tv_building_info_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:text="@string/fail_connect_to_server"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/iv_building_info_refresh"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/big_margin"
+        android:layout_marginLeft="@dimen/big_margin"
         android:layout_marginRight="@dimen/big_margin"
-        android:textSize="@dimen/text_size_medium"
-        android:textColor="@color/secondaryTextColor"
         />
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/fragment_registerNewBuilding_hint_address"
-        style="@style/section_divider"
-        />
-    <TextView
-        android:id="@+id/tv_building_info_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_medium"
-        android:textColor="@color/secondaryTextColor"
-        />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/fragment_registerNewBuilding_hint_unitCount"
-        style="@style/section_divider"
-        />
-    <TextView
-        android:id="@+id/tv_building_info_unitCount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_medium"
-        android:textColor="@color/secondaryTextColor"
-        />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/fragment_registerNewBuilding_hint_cash"
-        style="@style/section_divider"
-        />
-    <TextView
-        android:id="@+id/tv_building_info_cash"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_medium"
-        android:textColor="@color/secondaryTextColor"
-        />
-
-</LinearLayout>
+</RelativeLayout>

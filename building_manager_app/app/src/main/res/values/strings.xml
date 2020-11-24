@@ -69,6 +69,7 @@
     <string name="fragment_registerNewBuilding_hint_cash">موجودی حساب ساختمان</string>
     <string name="fragment_registerNewBuilding_hint_address">آدرس</string>
     <string name="fragment_registerNewBuilding_hint_unitCount">تعداد واحد</string>
+    <string name="building_id">شماره ساختمان</string>
 
 
 
@@ -97,8 +98,6 @@
     <string name="menu_bab_unitList_buildingInfo">اطلاعات ساختمان</string>
 
     <string name="menu_bab_buildingList_setting">تنظیمات</string>
-
-
 
     <string name="fragment_registerNewUnit_hint_ownerName">نام مالک</string>
     <string name="fragment_registerNewUnit_hint_phone">شماره همراه</string>
