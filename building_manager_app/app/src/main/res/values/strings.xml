@@ -65,6 +65,12 @@
     <string name="receiptListItem_PayDate">تاریخ پرداخت %s</string>
     <string name="receiptListItem_amount">مبلغ %s</string>
 
+    <string name="fragment_registerNewBuilding_hint_name">نام ساختمان</string>
+    <string name="fragment_registerNewBuilding_hint_cash">موجودی حساب ساختمان</string>
+    <string name="fragment_registerNewBuilding_hint_address">آدرس</string>
+    <string name="fragment_registerNewBuilding_hint_unitCount">تعداد واحد</string>
+
+
 
 
 
@@ -88,13 +94,11 @@
     <string name="menu_bab_unitList_addNotification">اطلاعیه</string>
     <string name="menu_bab_unitList_addRepair">تعمیرات</string>
     <string name="menu_bab_unitList_addReceipt">قبض ها</string>
+    <string name="menu_bab_unitList_buildingInfo">اطلاعات ساختمان</string>
 
     <string name="menu_bab_buildingList_setting">تنظیمات</string>
 
-    <string name="fragment_registerNewBuilding_hint_name">نام ساختمان</string>
-    <string name="fragment_registerNewBuilding_hint_cash">موجودی حساب ساختمان</string>
-    <string name="fragment_registerNewBuilding_hint_address">آدرس</string>
-    <string name="fragment_registerNewBuilding_hint_unitCount">تعداد واحد</string>
+
 
     <string name="fragment_registerNewUnit_hint_ownerName">نام مالک</string>
     <string name="fragment_registerNewUnit_hint_phone">شماره همراه</string>

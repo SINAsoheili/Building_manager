@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_registerNewBuilding_hint_name"
+        style="@style/section_divider"
+        />
+    <TextView
+        android:id="@+id/tv_building_info_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/big_margin"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="@color/secondaryTextColor"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_registerNewBuilding_hint_address"
+        style="@style/section_divider"
+        />
+    <TextView
+        android:id="@+id/tv_building_info_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="@color/secondaryTextColor"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_registerNewBuilding_hint_unitCount"
+        style="@style/section_divider"
+        />
+    <TextView
+        android:id="@+id/tv_building_info_unitCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="@color/secondaryTextColor"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_registerNewBuilding_hint_cash"
+        style="@style/section_divider"
+        />
+    <TextView
+        android:id="@+id/tv_building_info_cash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="@color/secondaryTextColor"
+        />
+
+</LinearLayout>

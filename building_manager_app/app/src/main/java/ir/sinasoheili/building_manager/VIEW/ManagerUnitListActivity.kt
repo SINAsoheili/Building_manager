@@ -15,6 +15,7 @@ import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerUnitList
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerUnitList
 import ir.sinasoheili.building_manager.R
+import kotlinx.android.synthetic.main.fragment_setrole_manager.*
 
 class ManagerUnitListActivity : AppCompatActivity()
     ,ContractManagerUnitList.ContractManagerUnitListView
@@ -165,6 +166,17 @@ class ManagerUnitListActivity : AppCompatActivity()
                 val option : ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this , findViewById(R.id.fab_unitList) , "unit_list_FAB")
                 startActivity(intent , option.toBundle())
                 return true
+            }
+
+            R.id.menu_bab_unitList_building_info ->
+            {
+                val fragment : FragmentBuildingInfo = FragmentBuildingInfo()
+                supportFragmentManager
+                    .beginTransaction()
+                    .setCustomAnimations(android.R.anim.fade_in , android.R.anim.fade_out , android.R.anim.fade_in , android.R.anim.fade_out)
+                    .replace(R.id.fl_unitList , fragment)
+                    .addToBackStack(null)
+                    .commit()
             }
         }
 
