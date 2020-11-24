@@ -65,10 +65,10 @@
     <string name="receiptListItem_PayDate">تاریخ پرداخت %s</string>
     <string name="receiptListItem_amount">مبلغ %s</string>
 
-    <string name="fragment_registerNewBuilding_hint_name">نام ساختمان</string>
-    <string name="fragment_registerNewBuilding_hint_cash">موجودی حساب ساختمان</string>
-    <string name="fragment_registerNewBuilding_hint_address">آدرس</string>
-    <string name="fragment_registerNewBuilding_hint_unitCount">تعداد واحد</string>
+    <string name="building_name">نام ساختمان</string>
+    <string name="building_cash">موجودی حساب ساختمان</string>
+    <string name="address">آدرس</string>
+    <string name="unit_count">تعداد واحد</string>
     <string name="building_id">شماره ساختمان</string>
 
 
@@ -88,7 +88,7 @@
     <string name="unit_list_item_tag">پلاک</string>
 
     <string name="cash">موجودی</string>
-    <string name="unit_count">تعداد واحد</string>
+
 
     <string name="empty_unit_list">هنوز واحدی به این ساختمان اضافه نشده است!</string>
 

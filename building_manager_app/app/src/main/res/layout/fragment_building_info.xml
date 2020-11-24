@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/fragment_registerNewBuilding_hint_name"
+            android:text="@string/building_name"
             style="@style/section_divider"
             android:layout_marginTop="@dimen/small_margin"
             />
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/fragment_registerNewBuilding_hint_address"
+            android:text="@string/address"
             style="@style/section_divider"
             android:layout_marginTop="@dimen/big_margin"
             />
@@ -53,7 +53,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/fragment_registerNewBuilding_hint_unitCount"
+            android:text="@string/unit_count"
             style="@style/section_divider"
             android:layout_marginTop="@dimen/big_margin"
             />
@@ -91,7 +91,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/fragment_registerNewBuilding_hint_cash"
+            android:text="@string/building_cash"
             style="@style/section_divider"
             android:layout_marginTop="@dimen/big_margin"
             />
