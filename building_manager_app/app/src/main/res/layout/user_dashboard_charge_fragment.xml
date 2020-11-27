@@ -22,7 +22,7 @@
         android:layout_width="@dimen/refresh_btn_dimen"
         android:layout_height="@dimen/refresh_btn_dimen"
         android:layout_centerInParent="true"
-        android:src="@drawable/refresh"
+        android:src="@drawable/ic_refresh"
         android:visibility="gone"
         />
 

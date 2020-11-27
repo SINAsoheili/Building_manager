@@ -30,7 +30,7 @@
         android:id="@+id/iv_managerReceipt_refresh"
         android:layout_width="@dimen/refresh_btn_dimen"
         android:layout_height="@dimen/refresh_btn_dimen"
-        android:src="@drawable/refresh"
+        android:src="@drawable/ic_refresh"
         android:scaleType="fitXY"
         android:layout_centerInParent="true"
         android:visibility="gone"
