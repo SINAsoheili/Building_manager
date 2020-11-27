@@ -18,6 +18,7 @@
     <string name="hint_passwd">رمز عبور</string>
     <string name="hint_passwd_confirm">تکرار رمز عبور</string>
 
+    <string name="cancel">لغو</string>
     <string name="submit">تایید</string>
     <string name="fill_field">لطفا این قسمت را کامل کنید!</string>
     <string name="invalid">سازگار نمی‌باشد!</string>
@@ -70,6 +71,9 @@
     <string name="address">آدرس</string>
     <string name="unit_count">تعداد واحد</string>
     <string name="building_id">شماره ساختمان</string>
+
+    <string name="today">امروز</string>
+    <string name="date_format">%s/%s/%s</string>
 
 
 

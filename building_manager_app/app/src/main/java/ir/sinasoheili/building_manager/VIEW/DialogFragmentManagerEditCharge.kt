@@ -3,20 +3,24 @@ package ir.sinasoheili.building_manager.VIEW
 import android.app.ActionBar
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.textfield.TextInputLayout
+import ir.hamsaa.persiandatepicker.Listener
+import ir.hamsaa.persiandatepicker.PersianDatePickerDialog
+import ir.hamsaa.persiandatepicker.util.PersianCalendar
 import ir.sinasoheili.building_manager.MODEL.Charge
 import ir.sinasoheili.building_manager.MODEL.ChargeStatus
 import ir.sinasoheili.building_manager.PRESENTER.ContractDialogFragmentManagerEditCharge
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerDialogEditCharge
 import ir.sinasoheili.building_manager.R
 
-class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callback:CallBack): DialogFragment(), ContractDialogFragmentManagerEditCharge.ContractDialogFragmentManagerEditChargeView , View.OnClickListener
-{
+class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callback:CallBack): DialogFragment(), ContractDialogFragmentManagerEditCharge.ContractDialogFragmentManagerEditChargeView , View.OnClickListener,
+    View.OnFocusChangeListener {
     private var etAmount : EditText? = null
     private var etIssueDate : EditText? = null
     private var etPayDate : EditText? = null
@@ -28,6 +32,7 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
     private var tilIssueDate : TextInputLayout? = null
 
     private var presenter : PresenterManagerDialogEditCharge? = null
+    private var datePickerDialog : PersianDatePickerDialog? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
@@ -52,14 +57,20 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
     {
         presenter = PresenterManagerDialogEditCharge(view.context , this)
 
+        datePickerDialog = PersianDatePickerDialog(context)
+
         tilAmount = view.findViewById(R.id.til_dialogFragmentEditCharge_amount)
         etAmount = view.findViewById(R.id.et_dialogFragmentEditCharge_amount)
 
         tilIssueDate = view.findViewById(R.id.til_dialogFragmentEditCharge_issueDate)
         etIssueDate = view.findViewById(R.id.et_dialogFragmentEditCharge_issueDate)
+        etIssueDate!!.setOnClickListener(this)
+        etIssueDate!!.setOnFocusChangeListener(this)
 
         tilPaydate = view.findViewById(R.id.til_dialogFragmentEditCharge_payDate)
         etPayDate = view.findViewById(R.id.et_dialogFragmentEditCharge_payDate)
+        etPayDate!!.setOnClickListener(this)
+        etPayDate!!.setOnFocusChangeListener(this)
 
         spinner = view.findViewById(R.id.sp_dialogFragmentEditCharge_status)
         initSpinner()
@@ -126,6 +137,32 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
             {
                 presenter!!.deleteCharge(charge)
             }
+
+            etIssueDate ->
+            {
+                datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
+            }
+
+            etPayDate ->
+            {
+                datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+            }
+        }
+    }
+
+    override fun onFocusChange(view: View?, p1: Boolean)
+    {
+        when(view)
+        {
+            etIssueDate ->
+            {
+                datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
+            }
+
+            etPayDate ->
+            {
+                datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+            }
         }
     }
 
@@ -176,5 +213,43 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
     {
         fun onChargeDeleted()
         fun onChargeUpdated()
+    }
+
+    fun PersianDatePickerDialog.showDateDialog(dateDialog : PersianDatePickerDialog, etDate:EditText)
+    {
+        //set input type to null because when open dialog and keyboard screen flashed
+        etDate.inputType = InputType.TYPE_NULL
+
+        //show date picker dialog
+        dateDialog
+            .setPositiveButtonString(context?.getString(R.string.submit))
+            .setNegativeButton(context?.getString(R.string.cancel))
+            .setTodayButton(context?.getString(R.string.today))
+            .setTodayButtonVisible(true)
+            .setMinYear(1300)
+            .setMaxYear(PersianDatePickerDialog.THIS_YEAR)
+            .setTitleType(PersianDatePickerDialog.WEEKDAY_DAY_MONTH_YEAR)
+            .setListener(object : Listener
+            {
+                override fun onDismissed()
+                {
+
+                }
+
+                override fun onDateSelected(persianCalendar: PersianCalendar?)
+                {
+                    if(persianCalendar != null)
+                    {
+                        etDate.setText(context?.getString(
+                            R.string.date_format ,
+                            persianCalendar.persianYear.toString() ,
+                            persianCalendar.persianMonth.toString() ,
+                            persianCalendar.persianDay.toString()
+                        ))
+                    }
+                }
+
+            })
+            .show()
     }
 }

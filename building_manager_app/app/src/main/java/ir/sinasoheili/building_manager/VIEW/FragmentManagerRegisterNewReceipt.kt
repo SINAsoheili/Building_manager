@@ -2,18 +2,22 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.content.Context
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
+import ir.hamsaa.persiandatepicker.Listener
+import ir.hamsaa.persiandatepicker.PersianDatePickerDialog
+import ir.hamsaa.persiandatepicker.util.PersianCalendar
 import ir.sinasoheili.building_manager.MODEL.Receipt
 import ir.sinasoheili.building_manager.MODEL.ReceiptType
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerRegisterNewReceipt
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerRegisterNewReceipt
 import ir.sinasoheili.building_manager.R
 
-class FragmentManagerRegisterNewReceipt constructor(buildingId:Int, callback:CallBack): Fragment(R.layout.fragment_register_new_receipt), ContractManagerRegisterNewReceipt.ContractManagerRegisterNewReceiptView, View.OnClickListener
-{
+class FragmentManagerRegisterNewReceipt constructor(buildingId:Int, callback:CallBack): Fragment(R.layout.fragment_register_new_receipt), ContractManagerRegisterNewReceipt.ContractManagerRegisterNewReceiptView, View.OnClickListener,
+    View.OnFocusChangeListener {
     private var spinnerReceiptType : Spinner? = null
     private var etPayDate : EditText? = null
     private var etIssueDate : EditText? = null
@@ -31,6 +35,7 @@ class FragmentManagerRegisterNewReceipt constructor(buildingId:Int, callback:Cal
     private var presenter : PresenterManagerRegisterNewReceipt? = null
     private val buildingId : Int = buildingId
     private val listReceiptType : Array<ReceiptType> = arrayOf(ReceiptType.water , ReceiptType.power , ReceiptType.gas)
+    private var datePickerDialog : PersianDatePickerDialog? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -41,14 +46,20 @@ class FragmentManagerRegisterNewReceipt constructor(buildingId:Int, callback:Cal
     {
         presenter =  PresenterManagerRegisterNewReceipt(view.context , this)
 
+        datePickerDialog = PersianDatePickerDialog(context)
+
         spinnerReceiptType = view.findViewById(R.id.spinner_fragment_registerNewReceipt_receiptType)
         showSpinner(view.context)
 
         tilPayDate= view.findViewById(R.id.til_fragment_registerNewReceipt_payDate)
         etPayDate = view.findViewById(R.id.et_fragment_registerNewReceipt_payDate)
+        etPayDate?.setOnClickListener(this)
+        etPayDate?.setOnFocusChangeListener(this)
 
         tilIssueDate = view.findViewById(R.id.til_fragment_registerNewReceipt_issueDate)
         etIssueDate = view.findViewById(R.id.et_fragment_registerNewReceipt_issueDate)
+        etIssueDate?.setOnClickListener(this)
+        etIssueDate?.setOnFocusChangeListener(this)
 
         tilAmount = view.findViewById(R.id.til_fragment_registerNewReceipt_amount)
         etAmount = view.findViewById(R.id.et_fragment_registerNewReceipt_amount)
@@ -87,6 +98,16 @@ class FragmentManagerRegisterNewReceipt constructor(buildingId:Int, callback:Cal
                     val receipt : Receipt = Receipt(receiptType , payDate , issueDate , amount , idReceipt , idPayment , buildingId)
                     presenter!!.registerReceipt(receipt)
                 }
+            }
+
+            etPayDate ->
+            {
+                datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+            }
+
+            etIssueDate ->
+            {
+                datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
             }
         }
     }
@@ -165,5 +186,58 @@ class FragmentManagerRegisterNewReceipt constructor(buildingId:Int, callback:Cal
     interface CallBack
     {
         fun onRegisteredReceipt()
+    }
+
+    override fun onFocusChange(view: View?, p1: Boolean)
+    {
+        when(view)
+        {
+            etPayDate ->
+            {
+                datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+            }
+
+            etIssueDate ->
+            {
+                datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
+            }
+        }
+    }
+
+    fun PersianDatePickerDialog.showDateDialog(dateDialog : PersianDatePickerDialog , etDate:EditText)
+    {
+        //set input type to null because when open dialog and keyboard screen flashed
+        etDate.inputType = InputType.TYPE_NULL
+
+        //show date picker dialog
+        dateDialog
+            .setPositiveButtonString(context?.getString(R.string.submit))
+            .setNegativeButton(context?.getString(R.string.cancel))
+            .setTodayButton(context?.getString(R.string.today))
+            .setTodayButtonVisible(true)
+            .setMinYear(1300)
+            .setMaxYear(PersianDatePickerDialog.THIS_YEAR)
+            .setTitleType(PersianDatePickerDialog.WEEKDAY_DAY_MONTH_YEAR)
+            .setListener(object : Listener
+            {
+                override fun onDismissed()
+                {
+
+                }
+
+                override fun onDateSelected(persianCalendar: PersianCalendar?)
+                {
+                    if(persianCalendar != null)
+                    {
+                        etDate.setText(context?.getString(R.string.date_format ,
+                            persianCalendar.persianYear.toString() ,
+                            persianCalendar.persianMonth.toString() ,
+                            persianCalendar.persianDay.toString()
+                        ))
+                    }
+                }
+
+            })
+            .show()
     }
 }
