@@ -1,59 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     android:clickable="true"
-    android:focusable="true"
-    android:orientation="vertical">
+    android:focusable="true">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/setRole_user_login"
-        style="@style/user_gide"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_fragment_setRole_user_phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_phone"
-        style="@style/textInputLayout_outLine">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_fragment_setRole_user_phone"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:maxLength="11"
-            />
+            android:text="@string/setRole_user_login"
+            style="@style/user_gide" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_fragment_setRole_user_buildingId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/building_id"
-        style="@style/textInputLayout_outLine">
-
-        <EditText
-            android:id="@+id/et_fragment_setRole_user_buildingId"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_fragment_setRole_user_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            />
+            android:hint="@string/hint_phone"
+            style="@style/textInputLayout_outLine">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_fragment_setRole_user_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:maxLength="11"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_fragment_setRole_user_buildingId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/building_id"
+            style="@style/textInputLayout_outLine">
+
+            <EditText
+                android:id="@+id/et_fragment_setRole_user_buildingId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_fragment_setRole_user_submit"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:text="@string/submit"
         style="@style/fillButton"
         />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
