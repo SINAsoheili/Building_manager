@@ -1,83 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     android:clickable="true"
     android:focusable="true">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_registerNewBuilding_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/building_name"
-        style="@style/textInputLayout_outLine">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/et_registerNewBuilding_name"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_registerNewBuilding_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            />
+            android:hint="@string/building_name"
+            style="@style/textInputLayout_outLine">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/et_registerNewBuilding_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_registerNewBuilding_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/address"
-        style="@style/textInputLayout_outLine">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/et_registerNewBuilding_address"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_registerNewBuilding_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            />
+            android:hint="@string/address"
+            style="@style/textInputLayout_outLine">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/et_registerNewBuilding_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_registerNewBuilding_cash"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/building_cash"
-        style="@style/textInputLayout_outLine">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/et_registerNewBuilding_cash"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_registerNewBuilding_cash"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            />
+            android:hint="@string/building_cash"
+            style="@style/textInputLayout_outLine">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/et_registerNewBuilding_cash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_registerNewBuilding_unitCount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/unit_count"
-        style="@style/textInputLayout_outLine">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/et_registerNewBuilding_unitCount"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_registerNewBuilding_unitCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            />
+            android:hint="@string/unit_count"
+            style="@style/textInputLayout_outLine">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/et_registerNewBuilding_unitCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_registerNewBuilding_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:text="@string/submit"
         style="@style/fillButton"
         />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
