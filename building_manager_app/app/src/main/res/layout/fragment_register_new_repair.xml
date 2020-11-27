@@ -19,7 +19,7 @@
             android:id="@+id/til_fragment_registerNewRepair_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fragment_registerNewRepair_title"
+            android:hint="@string/title"
             style="@style/textInputLayout_outLine">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -34,7 +34,7 @@
             android:id="@+id/til_fragment_registerNewRepair_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fragment_registerNewRepair_comment"
+            android:hint="@string/comment"
             style="@style/textInputLayout_outLine">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -57,7 +57,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="@string/fragment_registerNewRepair_amount"
+                android:hint="@string/amount"
                 style="@style/textInputLayout_outLine">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -74,7 +74,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="@string/fragment_registerNewRepair_date"
+                android:hint="@string/date"
                 style="@style/textInputLayout_outLine">
 
                 <com.google.android.material.textfield.TextInputEditText

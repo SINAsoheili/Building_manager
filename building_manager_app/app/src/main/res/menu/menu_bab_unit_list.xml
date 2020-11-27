@@ -4,28 +4,28 @@
 
     <item
         android:id="@+id/menu_bab_unitList_building_info"
-        android:title="@string/menu_bab_unitList_buildingInfo"
+        android:title="@string/manager_menu_bab_unitList_buildingInfo"
         android:icon="@android:drawable/ic_menu_add"
         app:showAsAction="always"
         />
 
     <item
         android:id="@+id/menu_bab_unitList_addNotification"
-        android:title="@string/menu_bab_unitList_addNotification"
+        android:title="@string/manager_menu_bab_unitList_addNotification"
         android:icon="@drawable/ic_notifications"
         app:showAsAction="always"
         />
 
     <item
         android:id="@+id/menu_bab_unitList_addReceipt"
-        android:title="@string/menu_bab_unitList_addReceipt"
+        android:title="@string/manager_menu_bab_unitList_addReceipt"
         android:icon="@drawable/ic_receipt"
         app:showAsAction="always"
         />
 
     <item
         android:id="@+id/menu_bab_unitList_addRepair"
-        android:title="@string/menu_bab_unitList_addRepair"
+        android:title="@string/manager_menu_bab_unitList_addRepair"
         android:icon="@drawable/ic_repair"
         app:showAsAction="always"
         />

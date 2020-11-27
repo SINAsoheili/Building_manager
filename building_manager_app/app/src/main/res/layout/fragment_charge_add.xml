@@ -19,7 +19,7 @@
             android:id="@+id/til_fragment_addCharge_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fragment_registerNewCharge_amount"
+            android:hint="@string/amount"
             style="@style/textInputLayout_outLine">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/textInputLayout_outLine"
-            android:hint="@string/fragment_registerNewCharge_payDate">
+            android:hint="@string/payDate">
 
             <EditText
                 android:id="@+id/et_fragment_addCharge_payDate"
@@ -51,7 +51,7 @@
             android:id="@+id/til_fragment_addCharge_issueDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fragment_registerNewCharge_issueDate"
+            android:hint="@string/issueDate"
             style="@style/textInputLayout_outLine">
 
             <EditText

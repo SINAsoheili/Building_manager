@@ -19,7 +19,7 @@
             android:id="@+id/til_fragment_registerNewReceipt_idReceipt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fragment_registerNewReceipt_idReceipt"
+            android:hint="@string/id_receipt"
             style="@style/textInputLayout_outLine">
 
             <EditText
@@ -35,7 +35,7 @@
             android:id="@+id/til_fragment_registerNewReceipt_idPayment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fragment_registerNewReceipt_idPayment"
+            android:hint="@string/id_payment"
             style="@style/textInputLayout_outLine">
 
             <EditText
@@ -51,7 +51,7 @@
             android:id="@+id/til_fragment_registerNewReceipt_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fragment_registerNewReceipt_amount"
+            android:hint="@string/amount"
             style="@style/textInputLayout_outLine">
 
             <EditText
@@ -73,7 +73,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint="@string/fragment_registerNewReceipt_payDate"
+                android:hint="@string/payDate"
                 style="@style/textInputLayout_outLine">
 
                 <EditText
@@ -90,7 +90,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint="@string/fragment_registerNewReceipt_issueDate"
+                android:hint="@string/issueDate"
                 style="@style/textInputLayout_outLine">
 
                 <EditText

@@ -28,7 +28,7 @@ class PresenterManagerRegisterNewNotification(context: Context, viewManager:Cont
                 }
                 else
                 {
-                    viewManager.showToast(context.getString(R.string.toast_register_server_error))
+                    viewManager.showToast(context.getString(R.string.register_server_error))
                 }
             }
         })

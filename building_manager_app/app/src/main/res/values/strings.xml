@@ -75,49 +75,28 @@
     <string name="today">امروز</string>
     <string name="date_format">%s/%s/%s</string>
 
+    <string name="register_server_error">سرور اجازه ‌ذخیره اظلاعات را نمی‌دهد!! لطفا با پشتیبان تماس بگیرید.</string>
 
+    <string name="unit_number">واحد %s</string>
+    <string name="owner_name">مالک %s</string>
+    <string name="unit_tag">پلاک %s</string>
 
-
-
-
-
-
-    <string name="toast_register_server_error">سرور اجازه ‌ذخیره اظلاعات را نمی‌دهد!! لطفا با پشتیبان تماس بگیرید.</string>
-    <string name="toast_success_register">با موفقیت ذخیره شد</string>
-    <string name="toast_unsuccess_register">‌ذخیره نشد!!!</string>
-
-
-    <string name="unit_list_item_unitNumber">واحد</string>
-    <string name="unit_list_item_ownerName">مالک</string>
-    <string name="unit_list_item_tag">پلاک</string>
-
-    <string name="cash">موجودی</string>
-
-
-    <string name="empty_unit_list">هنوز واحدی به این ساختمان اضافه نشده است!</string>
-
-    <string name="menu_bab_unitList_addNotification">اطلاعیه</string>
-    <string name="menu_bab_unitList_addRepair">تعمیرات</string>
-    <string name="menu_bab_unitList_addReceipt">قبض ها</string>
-    <string name="menu_bab_unitList_buildingInfo">اطلاعات ساختمان</string>
+    <string name="manager_menu_bab_unitList_addNotification">اطلاعیه</string>
+    <string name="manager_menu_bab_unitList_addRepair">تعمیرات</string>
+    <string name="manager_menu_bab_unitList_addReceipt">قبض ها</string>
+    <string name="manager_menu_bab_unitList_buildingInfo">اطلاعات ساختمان</string>
 
     <string name="menu_bab_buildingList_setting">تنظیمات</string>
 
-    <string name="fragment_registerNewUnit_hint_ownerName">نام مالک</string>
-    <string name="fragment_registerNewUnit_hint_phone">شماره همراه</string>
-    <string name="fragment_registerNewUnit_hint_unitNumber">شماره واحد</string>
-    <string name="fragment_registerNewUnit_hint_tag">پلاک</string>
+    <string name="owner_name_label">نام مالک</string>
+    <string name="unit_number_label">شماره واحد</string>
+    <string name="unit_tag_label">پلاک</string>
 
-    <string name="fragment_registerNewReceipt_payDate">تاریخ پرداخت</string>
-    <string name="fragment_registerNewReceipt_issueDate">تاریخ صدور</string>
-    <string name="fragment_registerNewReceipt_amount">مبلغ</string>
-    <string name="fragment_registerNewReceipt_idReceipt">شناسه قبض</string>
-    <string name="fragment_registerNewReceipt_idPayment">شناسه پرداخت</string>
+    <string name="id_receipt">شناسه قبض</string>
+    <string name="id_payment">شناسه پرداخت</string>
 
-    <string name="fragment_registerNewRepair_date">تاریخ</string>
-    <string name="fragment_registerNewRepair_comment">توضیحات</string>
-    <string name="fragment_registerNewRepair_title">عنوان</string>
-    <string name="fragment_registerNewRepair_amount">مبلغ</string>
+    <string name="comment">توضیحات</string>
+    <string name="title">عنوان</string>
 
     <string name="deleteUnit">حذف واحد</string>
     <string name="addCharge">درج شارژ</string>
@@ -130,9 +109,6 @@
     <string name="yes">بله</string>
     <string name="no">خیر</string>
 
-    <string name="fragment_registerNewCharge_amount">مبلغ</string>
-    <string name="fragment_registerNewCharge_issueDate">تاریخ شارژ</string>
-    <string name="fragment_registerNewCharge_payDate">تاریخ پرداخت</string>
     <string name="charge_successfully_added">شارژ با موفقیت ذخیره شد</string>
 
     <string name="fail_to_delete">امکان حذف وجود ندارد!</string>
@@ -142,12 +118,6 @@
     <string name="doYouConfirmDeleteNotification">آیا از حذف اعلان مطمئن هستید؟؟</string>
 
     <string name="delete">حذف</string>
-    <string name="dialogFragmentEditCharg_amount">مقدار</string>
-    <string name="dialogFragmentEditCharg_issueDate">تاریخ صدور</string>
-    <string name="dialogFragmentEditCharg_payDate">تاریخ پرداخت</string>
-
-    <string name="fragment_userSetRole_phone">شماره موبایل</string>
-    <string name="fragment_userSetRole_buildingId">شماره ساختمان</string>
 
     <string name="user_fail_authentication">کاربر شناسایی نشد!!</string>
 

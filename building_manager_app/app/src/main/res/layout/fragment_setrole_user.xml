@@ -19,7 +19,7 @@
         android:id="@+id/til_fragment_setRole_user_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/fragment_userSetRole_phone"
+        android:hint="@string/hint_phone"
         style="@style/textInputLayout_outLine">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -36,7 +36,7 @@
         android:id="@+id/til_fragment_setRole_user_buildingId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/fragment_userSetRole_buildingId"
+        android:hint="@string/building_id"
         style="@style/textInputLayout_outLine">
 
         <EditText

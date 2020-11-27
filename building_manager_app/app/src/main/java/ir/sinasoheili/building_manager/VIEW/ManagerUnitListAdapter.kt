@@ -44,9 +44,9 @@ class ManagerUnitListAdapter(context:Context, unitList:List<Unit>) : ArrayAdapte
 
         fun fill(unit:Unit)
         {
-            tv_unitNumber.text  = context.getString(R.string.unit_list_item_unitNumber )+" "+unit.unit_number.toString()
-            tv_ownerName.text   = context.getString(R.string.unit_list_item_ownerName )+" "+unit.owner_name
-            tv_tag.text         = context.getString(R.string.unit_list_item_tag)+" "+unit.tag.toString()
+            tv_unitNumber.text  = context.getString(R.string.unit_number , unit.unit_number.toString())
+            tv_ownerName.text   = context.getString(R.string.owner_name , unit.owner_name )
+            tv_tag.text         = context.getString(R.string.unit_tag , unit.tag.toString())
         }
     }
 }

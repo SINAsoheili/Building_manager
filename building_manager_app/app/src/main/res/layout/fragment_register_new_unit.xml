@@ -19,7 +19,7 @@
             android:id="@+id/til_fragment_registerNewUnit_ownerName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fragment_registerNewUnit_hint_ownerName"
+            android:hint="@string/owner_name_label"
             style="@style/textInputLayout_outLine">
 
             <EditText
@@ -35,7 +35,7 @@
             android:id="@+id/til_fragment_registerNewUnit_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fragment_registerNewUnit_hint_phone"
+            android:hint="@string/hint_phone"
             style="@style/textInputLayout_outLine">
 
             <EditText
@@ -52,7 +52,7 @@
             android:id="@+id/til_fragment_registerNewUnit_unitNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fragment_registerNewUnit_hint_unitNumber"
+            android:hint="@string/unit_number_label"
             style="@style/textInputLayout_outLine">
 
             <EditText
@@ -68,7 +68,7 @@
             android:id="@+id/til_fragment_registerNewUnit_tag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fragment_registerNewUnit_hint_tag"
+            android:hint="@string/unit_tag_label"
             style="@style/textInputLayout_outLine">
 
             <EditText
