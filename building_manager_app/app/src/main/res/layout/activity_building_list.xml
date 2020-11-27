@@ -47,6 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:fabAlignmentMode="end"
+        app:fabCradleMargin="0dp"
+        app:fabCradleRoundedCornerRadius="0dp"
         app:menu="@menu/menu_bab_building_list"
         android:backgroundTint="@color/bottom_app_bar"
         />

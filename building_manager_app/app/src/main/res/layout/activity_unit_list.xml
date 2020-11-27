@@ -48,6 +48,8 @@
         android:layout_gravity="bottom"
         app:menu="@menu/menu_bab_unit_list"
         app:fabAlignmentMode="end"
+        app:fabCradleMargin="0dp"
+        app:fabCradleRoundedCornerRadius="0dp"
         app:backgroundTint="@color/bottom_app_bar"
         />
 
