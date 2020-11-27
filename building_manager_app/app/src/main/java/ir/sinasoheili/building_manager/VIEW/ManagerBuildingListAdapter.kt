@@ -47,7 +47,6 @@ class ManagerBuildingListAdapter constructor(context:Context, buildingList:List<
         {
             tvName!!.text       = building.name
             tvUnitCount!!.text  = context.getString(R.string.unit_count)+" : "+building.unit_count.toString()
-            tvCash!!.text       = context.getString(R.string.cash)+" : "+building.cash.toString()
         }
     }
 }

@@ -19,7 +19,6 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
     private var tvName : TextView? = null
     private var tvAddress : TextView? = null
     private var tvUnitCount : TextView? = null
-    private var tvCash : TextView? = null
     private var tvBuildingId : TextView? = null
     private var tvRefreshAlert : TextView? = null
     private var ivRefresh : ImageView? = null
@@ -43,7 +42,6 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
         tvName = view.findViewById(R.id.tv_building_info_name)
         tvAddress = view.findViewById(R.id.tv_building_info_address)
         tvUnitCount = view.findViewById(R.id.tv_building_info_unitCount)
-        tvCash = view.findViewById(R.id.tv_building_info_cash)
         tvBuildingId = view.findViewById(R.id.tv_building_info_buildingId)
         tvRefreshAlert = view.findViewById(R.id.tv_building_info_refreshAlert)
 
@@ -59,7 +57,6 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
         tvName!!.text = building.name
         tvAddress!!.text = building.address
         tvUnitCount!!.text = building.unit_count.toString()
-        tvCash!!.text = building.cash.toString()
         tvBuildingId!!.text = building.id.toString()
     }
 

@@ -17,7 +17,7 @@ interface APIs
     fun managerRegister(@Query("password") password:String , @Query("phone") phone:String):Call<ManagerRegisterResponse>
 
     @GET("/building/register")
-    fun buildingRegister(@Query("name") name:String , @Query("cash") cash:Double , @Query("address") address:String , @Query("unit_count") unit_count:Int , @Query("manager_id") manager_id:Int):Call<BuildingRegisterResponse>
+    fun buildingRegister(@Query("name") name:String , @Query("address") address:String , @Query("unit_count") unit_count:Int , @Query("manager_id") manager_id:Int):Call<BuildingRegisterResponse>
 
     @GET("/building/list")
     fun buildingList(@Query("manager_id") manager_id:Int):Call<List<Building>>

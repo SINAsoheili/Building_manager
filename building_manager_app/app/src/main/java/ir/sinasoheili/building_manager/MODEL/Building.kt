@@ -1,6 +1,6 @@
 package ir.sinasoheili.building_manager.MODEL
 
-class Building constructor(name:String , cash:Double=0.0 , address:String , unit_count:Int)
+class Building constructor(name:String , address:String , unit_count:Int)
 {
     var id : Int = -1
 
@@ -10,15 +10,6 @@ class Building constructor(name:String , cash:Double=0.0 , address:String , unit
         if(! value.isEmpty())
         {
             field = value
-        }
-    }
-
-    var cash : Double = cash
-    set(value)
-    {
-        if(cash >= 0)
-        {
-            field = cash
         }
     }
 
@@ -42,6 +33,6 @@ class Building constructor(name:String , cash:Double=0.0 , address:String , unit
 
     override fun toString(): String
     {
-        return "name:$name | cash:$cash | address:$address | unit_count:$unit_count"
+        return "name:$name | address:$address | unit_count:$unit_count"
     }
 }

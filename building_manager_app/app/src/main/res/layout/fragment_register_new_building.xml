@@ -48,22 +48,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_registerNewBuilding_cash"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/building_cash"
-            style="@style/textInputLayout_outLine">
-
-            <EditText
-                android:id="@+id/et_registerNewBuilding_cash"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_registerNewBuilding_unitCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

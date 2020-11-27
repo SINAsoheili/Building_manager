@@ -88,24 +88,6 @@
             android:gravity="end"
             />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/building_cash"
-            style="@style/section_divider"
-            android:layout_marginTop="@dimen/big_margin"
-            />
-        <TextView
-            android:id="@+id/tv_building_info_cash"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_size_medium"
-            android:textColor="@color/secondaryTextColor"
-            android:layout_marginRight="@dimen/big_margin"
-            android:layout_marginLeft="@dimen/big_margin"
-            android:layout_marginTop="@dimen/small_margin"
-            />
-
     </LinearLayout>
 
     <ImageView

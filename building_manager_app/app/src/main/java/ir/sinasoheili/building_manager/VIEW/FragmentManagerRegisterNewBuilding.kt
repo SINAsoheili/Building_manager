@@ -15,12 +15,10 @@ import ir.sinasoheili.building_manager.R
 class FragmentManagerRegisterNewBuilding constructor(callBack:CallBack) : Fragment(R.layout.fragment_register_new_building) , View.OnClickListener , ContractManagerRegisterNewBuilding.ContractManagerRegisterNewBuildingView
 {
     private var tilName : TextInputLayout? = null
-    private var tilCash : TextInputLayout? = null
     private var tilAddress : TextInputLayout? = null
     private var tilUnitCount : TextInputLayout? = null
     private var etName : EditText? = null
     private var etAddress : EditText? = null
-    private var etCash : EditText? = null
     private var etUnitCount : EditText? = null
     private var btnSubmit : Button? = null
 
@@ -35,13 +33,11 @@ class FragmentManagerRegisterNewBuilding constructor(callBack:CallBack) : Fragme
     private fun initObj(view : View)
     {
         tilName = view.findViewById(R.id.til_registerNewBuilding_name)
-        tilCash = view.findViewById(R.id.til_registerNewBuilding_cash)
         tilAddress = view.findViewById(R.id.til_registerNewBuilding_address)
         tilUnitCount = view.findViewById(R.id.til_registerNewBuilding_unitCount)
 
         etName = view.findViewById(R.id.et_registerNewBuilding_name)
         etAddress = view.findViewById(R.id.et_registerNewBuilding_address)
-        etCash = view.findViewById(R.id.et_registerNewBuilding_cash)
         etUnitCount = view.findViewById(R.id.et_registerNewBuilding_unitCount)
 
         btnSubmit = view.findViewById(R.id.btn_registerNewBuilding_submit)
@@ -54,14 +50,13 @@ class FragmentManagerRegisterNewBuilding constructor(callBack:CallBack) : Fragme
         {
             btnSubmit ->
             {
-                if(checkName() && checkAddress() && checkCash() && checkUnitCount())
+                if(checkName() && checkAddress() && checkUnitCount())
                 {
                     val name : String = etName?.text.toString()
-                    val cash : Double = etCash?.text.toString().toDouble()
                     val address : String = etAddress?.text.toString()
                     val unit_count : Int = etUnitCount?.text.toString().toInt()
 
-                    val building : Building = Building(name , cash , address , unit_count)
+                    val building : Building = Building(name , address , unit_count)
                     presenter.registerBuilding(context!! , building)
                 }
             }
@@ -90,19 +85,6 @@ class FragmentManagerRegisterNewBuilding constructor(callBack:CallBack) : Fragme
         }
 
         tilAddress?.isErrorEnabled = false
-        return true
-    }
-
-    private fun checkCash():Boolean
-    {
-        if(etCash!!.text.isEmpty())
-        {
-            tilCash!!.error = context?.getString(R.string.fill_field)
-            etCash?.requestFocus()
-            return false
-        }
-
-        tilCash?.isErrorEnabled = false
         return true
     }
 

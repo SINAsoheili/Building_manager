@@ -24,7 +24,7 @@ class API_BuildingRegisterHandler constructor(context:Context)
 
     fun start(building:Building, manager_id:Int , callback:callBack)
     {
-        val call : Call<BuildingRegisterResponse> = api.buildingRegister(building.name , building.cash , building.address , building.unit_count , manager_id)
+        val call : Call<BuildingRegisterResponse> = api.buildingRegister(building.name , building.address , building.unit_count , manager_id)
         call.enqueue(object:Callback<BuildingRegisterResponse>
         {
             override fun onFailure(call: Call<BuildingRegisterResponse>, t: Throwable)
