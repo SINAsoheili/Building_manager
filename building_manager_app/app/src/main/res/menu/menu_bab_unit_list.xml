@@ -5,7 +5,7 @@
     <item
         android:id="@+id/menu_bab_unitList_building_info"
         android:title="@string/manager_menu_bab_unitList_buildingInfo"
-        android:icon="@android:drawable/ic_menu_add"
+        android:icon="@drawable/ic_building"
         app:showAsAction="always"
         />
 
