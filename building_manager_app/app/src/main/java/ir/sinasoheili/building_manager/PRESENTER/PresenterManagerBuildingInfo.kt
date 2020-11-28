@@ -16,6 +16,7 @@ class PresenterManagerBuildingInfo constructor(val context:Context , val view:Co
             override fun onFailure()
             {
                 view.showRefreshButton()
+                view.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(buildingList: List<Building>)

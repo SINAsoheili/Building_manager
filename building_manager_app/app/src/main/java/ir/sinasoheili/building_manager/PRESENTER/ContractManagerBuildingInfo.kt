@@ -8,6 +8,7 @@ interface ContractManagerBuildingInfo
     {
         fun fillItem(building : Building)
         fun showRefreshButton()
+        fun showToast(text:String)
     }
 
     interface ContractManagerBuildingInfoPresenter

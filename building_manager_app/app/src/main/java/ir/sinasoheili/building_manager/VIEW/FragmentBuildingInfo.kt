@@ -2,10 +2,7 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import ir.sinasoheili.building_manager.MODEL.Building
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerBuildingInfo.ContractManagerBuildingInfoView
@@ -20,9 +17,9 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
     private var tvAddress : TextView? = null
     private var tvUnitCount : TextView? = null
     private var tvBuildingId : TextView? = null
-    private var tvRefreshAlert : TextView? = null
     private var ivRefresh : ImageView? = null
     private var container : LinearLayout? = null
+    private var progressBar : ProgressBar? = null
 
     private var presenter : PresenterManagerBuildingInfo? = null
 
@@ -43,16 +40,18 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
         tvAddress = view.findViewById(R.id.tv_building_info_address)
         tvUnitCount = view.findViewById(R.id.tv_building_info_unitCount)
         tvBuildingId = view.findViewById(R.id.tv_building_info_buildingId)
-        tvRefreshAlert = view.findViewById(R.id.tv_building_info_refreshAlert)
 
         ivRefresh = view.findViewById(R.id.iv_building_info_refresh)
         ivRefresh!!.setOnClickListener(this)
+
+        progressBar = view.findViewById(R.id.pb_building_info_progressBar)
     }
 
     override fun fillItem(building : Building)
     {
         invisibleRefreshButton()
         visibleItem()
+        invisibleProgressBar()
 
         tvName!!.text = building.name
         tvAddress!!.text = building.address
@@ -64,6 +63,14 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
     {
         invisibleItem()
         visibleRefreshButton()
+    }
+
+    override fun showToast(text: String)
+    {
+        invisibleProgressBar()
+        visibleRefreshButton()
+        invisibleItem()
+        Toast.makeText(context , text , Toast.LENGTH_SHORT).show()
     }
 
     private fun visibleItem()
@@ -79,13 +86,11 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
     private fun invisibleRefreshButton()
     {
         ivRefresh!!.visibility = View.GONE
-        tvRefreshAlert!!.visibility = View.GONE
     }
 
     private fun visibleRefreshButton()
     {
         ivRefresh!!.visibility = View.VISIBLE
-        tvRefreshAlert!!.visibility = View.VISIBLE
     }
 
     override fun onClick(p0: View?)
@@ -94,8 +99,21 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
         {
             ivRefresh ->
             {
+                invisibleRefreshButton()
+                visibleProgressBar()
+                invisibleItem()
                 presenter!!.getBuildingInfo(buildingId)
             }
         }
+    }
+
+    private fun visibleProgressBar()
+    {
+        progressBar?.visibility = View.VISIBLE
+    }
+
+    private fun invisibleProgressBar()
+    {
+        progressBar?.visibility = View.GONE
     }
 }

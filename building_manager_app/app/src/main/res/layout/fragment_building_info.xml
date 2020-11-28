@@ -99,18 +99,12 @@
         android:visibility="gone"
         />
 
-    <TextView
-        android:id="@+id/tv_building_info_refreshAlert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/fail_connect_to_server"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/iv_building_info_refresh"
+    <ProgressBar
+        android:id="@+id/pb_building_info_progressBar"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
+        android:layout_centerInParent="true"
         android:visibility="gone"
-        android:layout_marginTop="@dimen/big_margin"
-        android:layout_marginLeft="@dimen/big_margin"
-        android:layout_marginRight="@dimen/big_margin"
         />
 
 </RelativeLayout>
