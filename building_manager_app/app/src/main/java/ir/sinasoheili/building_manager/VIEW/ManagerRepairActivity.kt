@@ -17,6 +17,7 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
     private var listView : ListView? = null
     private var ivRefresh : ImageView? =  null
     private var tvEmptyRepairList : TextView? = null
+    private var progressBar : ProgressBar? = null
 
     private var buildingId : Int = -1
     private var presenter : PresenterManagerRepair? = null
@@ -49,6 +50,8 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
         ivRefresh = findViewById(R.id.iv_managerRepair_refresh)
         ivRefresh!!.setOnClickListener(this)
 
+        progressBar = findViewById(R.id.pb_managerRepair_progressBar)
+
         tvEmptyRepairList = findViewById(R.id.tv_managerRepair_repairListEmpty)
         tvEmptyRepairList!!.setOnClickListener(this)
 
@@ -65,6 +68,9 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
 
             ivRefresh ->
             {
+                invisibleRefreshButton()
+                visibleProgressBar()
+
                 presenter!!.getRepairList(buildingId)
             }
         }
@@ -86,6 +92,10 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
 
     override fun showToast(text: String)
     {
+        invisibleProgressBar()
+        visibleRefreshButton()
+        invisibleRepairList()
+
         Toast.makeText(this , text , Toast.LENGTH_SHORT).show()
     }
 
@@ -94,6 +104,7 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
         visibleRepairList()
         invisibleRefreshButton()
         invisibleTextViewEmptyRepair()
+        invisibleProgressBar()
 
         val reversedItem:List<Repair> = items.reversed()
         val adapterManager : ManagerRepairListAdapter = ManagerRepairListAdapter(this , reversedItem)
@@ -167,5 +178,15 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
     private fun invisibleTextViewEmptyRepair()
     {
         tvEmptyRepairList!!.visibility = View.GONE
+    }
+
+    private fun visibleProgressBar()
+    {
+        progressBar?.visibility = View.VISIBLE
+    }
+
+    private fun invisibleProgressBar()
+    {
+        progressBar?.visibility = View.GONE
     }
 }

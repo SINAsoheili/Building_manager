@@ -36,6 +36,15 @@
         android:layout_centerInParent="true"
         />
 
+    <ProgressBar
+        android:id="@+id/pb_managerRepair_progressBar"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
+        android:visibility="gone"
+        android:scaleType="fitXY"
+        android:layout_centerInParent="true"
+        />
+
     <TextView
         android:id="@+id/tv_managerRepair_repairListEmpty"
         android:layout_width="wrap_content"
