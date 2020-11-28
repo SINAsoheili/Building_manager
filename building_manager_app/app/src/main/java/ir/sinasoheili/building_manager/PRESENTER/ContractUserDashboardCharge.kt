@@ -6,7 +6,7 @@ interface ContractUserDashboardCharge
 {
     interface ContractUserDashboardChargeView
     {
-        fun showRefreshButton()
+        fun showToast(text:String)
         fun showChargeList(items:List<Charge>)
     }
 

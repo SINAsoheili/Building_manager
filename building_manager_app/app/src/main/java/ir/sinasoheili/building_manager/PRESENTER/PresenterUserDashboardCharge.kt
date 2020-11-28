@@ -4,6 +4,7 @@ import android.content.Context
 import ir.sinasoheili.building_manager.MODEL.Charge
 import ir.sinasoheili.building_manager.PRESENTER.ContractUserDashboardCharge.ContractUserDashboardChargeView
 import ir.sinasoheili.building_manager.PRESENTER.ContractUserDashboardCharge.ContractUserDashboardChargePresenter
+import ir.sinasoheili.building_manager.R
 
 class PresenterUserDashboardCharge constructor(val context: Context, val view:ContractUserDashboardChargeView) : ContractUserDashboardChargePresenter
 {
@@ -18,7 +19,7 @@ class PresenterUserDashboardCharge constructor(val context: Context, val view:Co
         {
             override fun onFailure()
             {
-                view.showRefreshButton()
+                view.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(items: List<Charge>)
