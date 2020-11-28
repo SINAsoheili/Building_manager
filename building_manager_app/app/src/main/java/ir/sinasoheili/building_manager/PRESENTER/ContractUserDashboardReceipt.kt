@@ -6,7 +6,7 @@ interface ContractUserDashboardReceipt
 {
     interface ContractUserDashboardReceiptView
     {
-        fun showRefreshButton()
+        fun showToast(text:String)
         fun showReceiptList(items:List<Receipt>)
     }
 

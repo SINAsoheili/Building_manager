@@ -2,9 +2,7 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.ListView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import ir.sinasoheili.building_manager.MODEL.Receipt
 import ir.sinasoheili.building_manager.R
@@ -15,6 +13,7 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
 {
     private var listView : ListView? = null
     private var ivRefresh : ImageView? = null
+    private var progressBar : ProgressBar? = null
 
     private var presenter : PresenterUserDashboardReceipt? = null
 
@@ -33,31 +32,26 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
 
         ivRefresh = view.findViewById(R.id.iv_userDashboard_receipt_refresh)
         ivRefresh!!.setOnClickListener(this)
+
+        progressBar = view.findViewById(R.id.pb_userDashboard_receipt_progressBar)
     }
 
-    override fun showRefreshButton()
+    override fun showToast(text: String)
     {
         visibleRefreshButton()
+        invisibleProgressBar()
+        invisibleListView()
+        Toast.makeText(context , text , Toast.LENGTH_SHORT).show()
     }
 
     override fun showReceiptList(items: List<Receipt>)
     {
         visibleListView()
+        invisibleProgressBar()
+        invisibleRefreshButton()
 
-         val adapter : UserReceiptListAdapter = UserReceiptListAdapter(context!! , items)
+        val adapter : UserReceiptListAdapter = UserReceiptListAdapter(context!! , items)
         listView!!.adapter = adapter
-    }
-
-    private fun visibleListView()
-    {
-        listView!!.visibility = View.VISIBLE
-        ivRefresh!!.visibility = View.GONE
-    }
-
-    private fun visibleRefreshButton()
-    {
-        listView!!.visibility = View.GONE
-        ivRefresh!!.visibility = View.VISIBLE
     }
 
     override fun onClick(view: View?)
@@ -66,8 +60,41 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
         {
             ivRefresh ->
             {
+                invisibleRefreshButton()
+                visibleProgressBar()
+                invisibleListView()
                 presenter!!.getReceiptList()
             }
         }
+    }
+
+    private fun visibleProgressBar()
+    {
+        progressBar?.visibility = View.VISIBLE
+    }
+
+    private fun invisibleProgressBar()
+    {
+        progressBar?.visibility = View.GONE
+    }
+
+    private fun visibleRefreshButton()
+    {
+        ivRefresh?.visibility = View.VISIBLE
+    }
+
+    private fun invisibleRefreshButton()
+    {
+        ivRefresh?.visibility = View.GONE
+    }
+
+    private fun visibleListView()
+    {
+        listView?.visibility = View.VISIBLE
+    }
+
+    private fun invisibleListView()
+    {
+        listView?.visibility = View.GONE
     }
 }

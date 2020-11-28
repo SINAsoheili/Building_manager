@@ -26,4 +26,12 @@
         android:visibility="gone"
         />
 
+    <ProgressBar
+        android:id="@+id/pb_userDashboard_receipt_progressBar"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
 </RelativeLayout>
