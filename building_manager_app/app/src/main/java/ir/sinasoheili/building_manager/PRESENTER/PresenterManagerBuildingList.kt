@@ -2,6 +2,7 @@ package ir.sinasoheili.building_manager.PRESENTER
 
 import android.content.Context
 import ir.sinasoheili.building_manager.MODEL.Building
+import ir.sinasoheili.building_manager.R
 import retrofit2.Response
 
 class PresenterManagerBuildingList constructor(context:Context, viewManager:ContractManagerBuildingList.ContractManagerBuildingListView) : ContractManagerBuildingList.ContractManagerBuildingListPresenter
@@ -20,6 +21,7 @@ class PresenterManagerBuildingList constructor(context:Context, viewManager:Cont
             override fun onFailure()
             {
                 viewManager.showReloadButton()
+                viewManager.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(response: Response<List<Building>>)

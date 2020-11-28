@@ -31,6 +31,15 @@
         android:visibility="gone"
         />
 
+    <ProgressBar
+        android:id="@+id/pb_buildingList_progressBar"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        />
+
     <TextView
         android:id="@+id/tv_buildingList_emptyList"
         android:layout_width="wrap_content"

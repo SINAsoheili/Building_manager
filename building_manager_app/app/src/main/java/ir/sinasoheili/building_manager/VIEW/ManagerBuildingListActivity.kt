@@ -30,6 +30,7 @@ class ManagerBuildingListActivity : AppCompatActivity()
     private var floatBtnAdd : FloatingActionButton? = null
     private var bottomAppBar : BottomAppBar? = null
     private var frameLayout : FrameLayout? = null
+    private var progressBar : ProgressBar? = null
 
     private var presenter : PresenterManagerBuildingList? = null
     private var isSettingDialogShowing : Boolean = false;
@@ -51,6 +52,9 @@ class ManagerBuildingListActivity : AppCompatActivity()
 
         iv_reload = findViewById(R.id.iv_buildingList_reload)
         iv_reload!!.setOnClickListener(this)
+
+        progressBar = findViewById(R.id.pb_buildingList_progressBar)
+        progressBar!!.setOnClickListener(this)
 
         tv_emptyList = findViewById(R.id.tv_buildingList_emptyList)
         tv_emptyList!!.setOnClickListener(this)
@@ -86,6 +90,7 @@ class ManagerBuildingListActivity : AppCompatActivity()
     {
         invisibleReloadImage()
         invisibleTVEmptyAlert()
+        inVisibleProgressBar()
         visibleList()
 
         val adapterManager : ManagerBuildingListAdapter = ManagerBuildingListAdapter(this@ManagerBuildingListActivity , buildingList)
@@ -103,6 +108,13 @@ class ManagerBuildingListActivity : AppCompatActivity()
         })
     }
 
+    override fun showToast(text: String)
+    {
+        inVisibleProgressBar()
+        visibleReloadImage()
+        Toast.makeText(this , text , Toast.LENGTH_SHORT).show()
+    }
+
     override fun onClick(view : View?)
     {
         when(view)
@@ -110,7 +122,8 @@ class ManagerBuildingListActivity : AppCompatActivity()
             iv_reload ->
             {
                 invisibleList()
-
+                invisibleReloadImage()
+                visibleProgressBar()
                 presenter!!.getBuildingList()
             }
 
@@ -161,6 +174,16 @@ class ManagerBuildingListActivity : AppCompatActivity()
     private fun invisibleTVEmptyAlert()
     {
         tv_emptyList!!.visibility = View.GONE
+    }
+
+    private fun visibleProgressBar()
+    {
+        progressBar?.visibility = View.VISIBLE
+    }
+
+    private fun inVisibleProgressBar()
+    {
+        progressBar?.visibility = View.GONE
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean

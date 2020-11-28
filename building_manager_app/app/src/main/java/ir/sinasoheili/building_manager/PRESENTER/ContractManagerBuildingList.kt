@@ -9,6 +9,7 @@ interface ContractManagerBuildingList
         fun showReloadButton()
         fun showEmptyListAlert()
         fun showBuildingList(buildingList:List<Building>)
+        fun showToast(text:String)
     }
 
     interface ContractManagerBuildingListPresenter
