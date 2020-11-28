@@ -36,6 +36,15 @@
         android:visibility="gone"
         />
 
+    <ProgressBar
+        android:id="@+id/pb_managerReceipt_progressBar"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
+        android:scaleType="fitXY"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
     <TextView
         android:id="@+id/tv_managerReceipt_emptyList"
         android:layout_width="wrap_content"
