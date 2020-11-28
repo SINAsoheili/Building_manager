@@ -4,6 +4,7 @@ import android.content.Context
 import ir.sinasoheili.building_manager.MODEL.Notification
 import ir.sinasoheili.building_manager.PRESENTER.ContractUserDashboardNotification.ContractUserDashboardNotificationView
 import ir.sinasoheili.building_manager.PRESENTER.ContractUserDashboardNotification.ContractUserDashboardNotificationPresenter
+import ir.sinasoheili.building_manager.R
 
 class PresenterUserDashboardNotification constructor(val context: Context, val view:ContractUserDashboardNotificationView) : ContractUserDashboardNotificationPresenter
 {
@@ -17,7 +18,7 @@ class PresenterUserDashboardNotification constructor(val context: Context, val v
         {
             override fun onFailure()
             {
-                view.showRefreshButton()
+                view.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(notifList: List<Notification>)

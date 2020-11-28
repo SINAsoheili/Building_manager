@@ -6,8 +6,8 @@ interface ContractUserDashboardNotification
 {
     interface ContractUserDashboardNotificationView
     {
-        fun showRefreshButton()
         fun showNotificationList(items:List<Notification>)
+        fun showToast(text:String)
     }
 
     interface ContractUserDashboardNotificationPresenter
