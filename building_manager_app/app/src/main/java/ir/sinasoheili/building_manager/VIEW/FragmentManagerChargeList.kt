@@ -15,6 +15,7 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
     private var listView : ListView? = null
     private var ivRefresh : ImageView? = null
     private var tvEmptyList : TextView? = null
+    private var progressBar : ProgressBar? = null
 
     private var presenter : ContractManagerChargeList.ContractManagerChargeListPresenter? = null
 
@@ -34,6 +35,8 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
         ivRefresh = view.findViewById(R.id.iv_fragmentChargeList_refresh)
         ivRefresh!!.setOnClickListener(this)
 
+        progressBar = view.findViewById(R.id.pb_fragmentChargeList_progress)
+
         tvEmptyList = view.findViewById(R.id.tv_fragmentChargeList_emptyList)
     }
 
@@ -49,12 +52,16 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
 
     override fun showToast(text: String)
     {
+        visibleRefreshImage()
+        invisibleProgressBar()
         Toast.makeText(context , text , Toast.LENGTH_SHORT).show()
     }
 
     override fun showChargeList(items: List<Charge>)
     {
         showListView()
+        invisibleProgressBar()
+        invisibleRefreshImage()
 
         val adapterManager : ManagerChargeLIstAdapter = ManagerChargeLIstAdapter(context!! , items)
         listView!!.adapter = adapterManager
@@ -100,6 +107,7 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
         invisibleRefreshImage()
         invisibleList()
         visibleTvEmptyList()
+        invisibleProgressBar()
     }
 
     override fun onClick(view: View?)
@@ -108,6 +116,9 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
         {
             ivRefresh ->
             {
+                invisibleRefreshImage()
+                visibleProgressBar()
+
                 presenter!!.getChargeList(unit.building_id , unit.unit_number)
             }
         }
@@ -141,5 +152,15 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
     private fun invisibleTvEmptyList()
     {
         tvEmptyList!!.visibility = View.GONE
+    }
+
+    private fun visibleProgressBar()
+    {
+        progressBar!!.visibility = View.VISIBLE
+    }
+
+    private fun invisibleProgressBar()
+    {
+        progressBar!!.visibility = View.GONE
     }
 }
