@@ -2,9 +2,7 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.ListView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import ir.sinasoheili.building_manager.MODEL.Receipt
 import ir.sinasoheili.building_manager.MODEL.Repair
@@ -16,6 +14,7 @@ class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_repair_frag
 {
     private var listView : ListView? = null
     private var ivRefresh : ImageView? = null
+    private var progressBar:ProgressBar? = null
 
     private var presenter : PresenterUserDashboardRepair? = null
 
@@ -34,32 +33,26 @@ class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_repair_frag
 
         ivRefresh = view.findViewById(R.id.iv_userDashboard_repair_refresh)
         ivRefresh!!.setOnClickListener(this)
+
+        progressBar = view.findViewById(R.id.pb_userDashboard_repair_progressBar)
     }
 
-    override fun showRefreshButton()
+    override fun showToast(text: String)
     {
+        invisibleListView()
+        invisibleProgressBar()
         visibleRefreshButton()
+        Toast.makeText(context , text , Toast.LENGTH_SHORT).show()
     }
 
     override fun showRepairList(items: List<Repair>)
     {
         visibleListView()
+        invisibleRefreshButton()
+        invisibleProgressBar()
 
         val adapter : UserRepairListAdapter = UserRepairListAdapter(context!! , items)
         listView!!.adapter = adapter
-    }
-
-
-    private fun visibleListView()
-    {
-        listView!!.visibility = View.VISIBLE
-        ivRefresh!!.visibility = View.GONE
-    }
-
-    private fun visibleRefreshButton()
-    {
-        listView!!.visibility = View.GONE
-        ivRefresh!!.visibility = View.VISIBLE
     }
 
     override fun onClick(view: View?)
@@ -68,8 +61,41 @@ class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_repair_frag
         {
             ivRefresh ->
             {
+                invisibleRefreshButton()
+                visibleProgressBar()
+                invisibleListView()
                 presenter!!.getRepairList()
             }
         }
+    }
+
+    private fun visibleProgressBar()
+    {
+        progressBar?.visibility = View.VISIBLE
+    }
+
+    private fun invisibleProgressBar()
+    {
+        progressBar?.visibility = View.GONE
+    }
+
+    private fun visibleRefreshButton()
+    {
+        ivRefresh?.visibility = View.VISIBLE
+    }
+
+    private fun invisibleRefreshButton()
+    {
+        ivRefresh?.visibility = View.GONE
+    }
+
+    private fun visibleListView()
+    {
+        listView?.visibility = View.VISIBLE
+    }
+
+    private fun invisibleListView()
+    {
+        listView?.visibility = View.GONE
     }
 }

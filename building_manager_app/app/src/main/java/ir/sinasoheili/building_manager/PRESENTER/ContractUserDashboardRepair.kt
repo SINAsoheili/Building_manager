@@ -6,7 +6,7 @@ interface ContractUserDashboardRepair
 {
     interface ContractUserDashboardRepairView
     {
-        fun showRefreshButton()
+        fun showToast(text:String)
         fun showRepairList(items:List<Repair>)
     }
 

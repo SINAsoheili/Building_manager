@@ -5,6 +5,7 @@ import ir.sinasoheili.building_manager.MODEL.Receipt
 import ir.sinasoheili.building_manager.MODEL.Repair
 import ir.sinasoheili.building_manager.PRESENTER.ContractUserDashboardRepair.ContractUserDashboardRepairView
 import ir.sinasoheili.building_manager.PRESENTER.ContractUserDashboardRepair.ContractUserDashboardRepairPresenter
+import ir.sinasoheili.building_manager.R
 
 class PresenterUserDashboardRepair constructor(val context: Context, val view:ContractUserDashboardRepairView) : ContractUserDashboardRepairPresenter
 {
@@ -18,7 +19,7 @@ class PresenterUserDashboardRepair constructor(val context: Context, val view:Co
         {
             override fun onFailure()
             {
-                view.showRefreshButton()
+                view.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(repairList: List<Repair>)
