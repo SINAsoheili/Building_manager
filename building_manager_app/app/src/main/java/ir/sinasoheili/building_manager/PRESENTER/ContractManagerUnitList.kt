@@ -9,6 +9,7 @@ interface ContractManagerUnitList
         fun showRefreshButton()
         fun showEmptyListText()
         fun showUnitList(list:List<Unit>)
+        fun showToast(text:String)
     }
 
     interface ContractManagerUnitListPresenter

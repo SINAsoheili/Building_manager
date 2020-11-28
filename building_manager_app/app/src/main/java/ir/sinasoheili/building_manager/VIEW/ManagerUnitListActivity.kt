@@ -28,6 +28,7 @@ class ManagerUnitListActivity : AppCompatActivity()
     private var bottomAppBar : BottomAppBar? = null
     private var floatBtnAdd : FloatingActionButton? = null
     private var frameLayout : FrameLayout? = null
+    private var progressBar : ProgressBar? = null
 
     private var buildingId : Int = -1
     private var presenter : PresenterManagerUnitList = PresenterManagerUnitList(this@ManagerUnitListActivity , this)
@@ -58,6 +59,8 @@ class ManagerUnitListActivity : AppCompatActivity()
 
         ivReload = findViewById(R.id.iv_unitList_reload)
         ivReload!!.setOnClickListener(this)
+
+        progressBar = findViewById(R.id.pb_unitList_prograssBar)
 
         tvReload = findViewById(R.id.tv_unitList_refresh)
 
@@ -94,6 +97,8 @@ class ManagerUnitListActivity : AppCompatActivity()
     override fun showUnitList(list: List<Unit>)
     {
         showListView()
+        invisibleRefreshButton()
+        inVisibleProgressBar()
 
         val adapterManager : ManagerUnitListAdapter = ManagerUnitListAdapter(this@ManagerUnitListActivity , list)
         listView!!.adapter = adapterManager
@@ -109,12 +114,23 @@ class ManagerUnitListActivity : AppCompatActivity()
         })
     }
 
+    override fun showToast(text: String)
+    {
+        inVisibleProgressBar()
+        invisibleUnitList()
+        visibleRefreshButton()
+
+        Toast.makeText(this , text , Toast.LENGTH_SHORT).show()
+    }
+
     override fun onClick(view: View?)
     {
         when(view)
         {
             ivReload ->
             {
+                invisibleRefreshButton()
+                visibleProgressBar()
                 presenter.getUnitList(buildingId)
             }
 
@@ -230,5 +246,15 @@ class ManagerUnitListActivity : AppCompatActivity()
     private fun invisibleTextViewEmptyAlert()
     {
         tvReload!!.visibility = View.GONE
+    }
+
+    private fun visibleProgressBar()
+    {
+        progressBar?.visibility = View.VISIBLE
+    }
+
+    private fun inVisibleProgressBar()
+    {
+        progressBar?.visibility = View.GONE
     }
 }

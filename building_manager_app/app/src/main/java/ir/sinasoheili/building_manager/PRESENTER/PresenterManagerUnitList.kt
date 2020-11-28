@@ -2,6 +2,7 @@ package ir.sinasoheili.building_manager.PRESENTER
 
 import android.content.Context
 import ir.sinasoheili.building_manager.MODEL.Unit
+import ir.sinasoheili.building_manager.R
 
 class PresenterManagerUnitList constructor(context: Context, viewManager:ContractManagerUnitList.ContractManagerUnitListView) : ContractManagerUnitList.ContractManagerUnitListPresenter
 {
@@ -19,6 +20,7 @@ class PresenterManagerUnitList constructor(context: Context, viewManager:Contrac
             override fun onFailure()
             {
                 viewManager.showRefreshButton()
+                viewManager.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(unitList: List<Unit>)
