@@ -54,7 +54,6 @@ class ManagerBuildingListActivity : AppCompatActivity()
         iv_reload!!.setOnClickListener(this)
 
         progressBar = findViewById(R.id.pb_buildingList_progressBar)
-        progressBar!!.setOnClickListener(this)
 
         tv_emptyList = findViewById(R.id.tv_buildingList_emptyList)
         tv_emptyList!!.setOnClickListener(this)
