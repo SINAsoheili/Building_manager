@@ -7,6 +7,7 @@ interface ContractUserDashboardNotification
     interface ContractUserDashboardNotificationView
     {
         fun showNotificationList(items:List<Notification>)
+        fun showEmptyAlert()
         fun showToast(text:String)
     }
 

@@ -23,7 +23,14 @@ class PresenterUserDashboardNotification constructor(val context: Context, val v
 
             override fun onResponse(notifList: List<Notification>)
             {
-                view.showNotificationList(notifList)
+                if(notifList.isEmpty())
+                {
+                    view.showEmptyAlert()
+                }
+                else
+                {
+                    view.showNotificationList(notifList)
+                }
             }
 
         })
