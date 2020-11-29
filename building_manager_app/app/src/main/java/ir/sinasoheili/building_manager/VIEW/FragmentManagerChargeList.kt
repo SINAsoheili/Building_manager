@@ -22,7 +22,7 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
         initObj(view)
-
+        visibleProgressBar()
         presenter!!.getChargeList(unit.building_id , unit.unit_number)
     }
 
@@ -42,26 +42,35 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
 
     override fun showRefreshButton()
     {
-        showRefreshImage()
+        invisibleList()
+        invisibleTvEmptyList()
+        invisibleProgressBar()
+        visibleRefreshImage()
     }
 
     override fun showEmptyListAlert()
     {
-        showTvEmptyList()
+        invisibleRefreshImage()
+        invisibleList()
+        invisibleProgressBar()
+        visibleTvEmptyList()
     }
 
     override fun showToast(text: String)
     {
-        visibleRefreshImage()
         invisibleProgressBar()
+        invisibleTvEmptyList()
+        invisibleList()
+        visibleRefreshImage()
         Toast.makeText(context , text , Toast.LENGTH_SHORT).show()
     }
 
     override fun showChargeList(items: List<Charge>)
     {
-        showListView()
         invisibleProgressBar()
         invisibleRefreshImage()
+        invisibleTvEmptyList()
+        visibleList()
 
         val adapterManager : ManagerChargeLIstAdapter = ManagerChargeLIstAdapter(context!! , items)
         listView!!.adapter = adapterManager
@@ -88,28 +97,6 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
         })
     }
 
-    private fun showRefreshImage()
-    {
-        invisibleList()
-        invisibleTvEmptyList()
-        visibleRefreshImage()
-    }
-
-    private fun showListView()
-    {
-        invisibleTvEmptyList()
-        invisibleRefreshImage()
-        visibleList()
-    }
-
-    private fun showTvEmptyList()
-    {
-        invisibleRefreshImage()
-        invisibleList()
-        visibleTvEmptyList()
-        invisibleProgressBar()
-    }
-
     override fun onClick(view: View?)
     {
         when(view)
@@ -117,6 +104,8 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
             ivRefresh ->
             {
                 invisibleRefreshImage()
+                invisibleTvEmptyList()
+                invisibleList()
                 visibleProgressBar()
 
                 presenter!!.getChargeList(unit.building_id , unit.unit_number)
