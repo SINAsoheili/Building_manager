@@ -1,6 +1,7 @@
 package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
@@ -36,6 +37,8 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
         ivRefresh!!.setOnClickListener(this)
 
         progressBar = view.findViewById(R.id.pb_userDashboard_charge_progressBar)
+
+        tvEmptyList = view.findViewById(R.id.tv_userDashboard_charge_emptyList)
     }
 
     override fun showToast(text: String)
