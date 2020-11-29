@@ -8,6 +8,7 @@ interface ContractUserDashboardReceipt
     {
         fun showToast(text:String)
         fun showReceiptList(items:List<Receipt>)
+        fun showEmptyListAlert()
     }
 
     interface ContractUserDashboardReceiptPresenter

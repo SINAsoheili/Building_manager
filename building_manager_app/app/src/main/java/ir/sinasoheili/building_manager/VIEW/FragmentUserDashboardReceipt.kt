@@ -14,6 +14,7 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
     private var listView : ListView? = null
     private var ivRefresh : ImageView? = null
     private var progressBar : ProgressBar? = null
+    private var tvEmptyList : TextView? = null
 
     private var presenter : PresenterUserDashboardReceipt? = null
 
@@ -21,6 +22,7 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
     {
         initObj(view)
 
+        visibleProgressBar()
         presenter!!.getReceiptList()
     }
 
@@ -34,6 +36,8 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
         ivRefresh!!.setOnClickListener(this)
 
         progressBar = view.findViewById(R.id.pb_userDashboard_receipt_progressBar)
+
+        tvEmptyList = view.findViewById(R.id.tv_userDashboard_receipt_emptyReceipt)
     }
 
     override fun showToast(text: String)
@@ -41,6 +45,7 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
         visibleRefreshButton()
         invisibleProgressBar()
         invisibleListView()
+        invisibleEmptyalert()
         Toast.makeText(context , text , Toast.LENGTH_SHORT).show()
     }
 
@@ -49,9 +54,18 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
         visibleListView()
         invisibleProgressBar()
         invisibleRefreshButton()
+        invisibleEmptyalert()
 
         val adapter : UserReceiptListAdapter = UserReceiptListAdapter(context!! , items)
         listView!!.adapter = adapter
+    }
+
+    override fun showEmptyListAlert()
+    {
+        invisibleListView()
+        invisibleProgressBar()
+        invisibleRefreshButton()
+        visibleEmptyalert()
     }
 
     override fun onClick(view: View?)
@@ -96,5 +110,15 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
     private fun invisibleListView()
     {
         listView?.visibility = View.GONE
+    }
+
+    private fun visibleEmptyalert()
+    {
+        tvEmptyList?.visibility = View.VISIBLE
+    }
+
+    private fun invisibleEmptyalert()
+    {
+        tvEmptyList?.visibility = View.GONE
     }
 }

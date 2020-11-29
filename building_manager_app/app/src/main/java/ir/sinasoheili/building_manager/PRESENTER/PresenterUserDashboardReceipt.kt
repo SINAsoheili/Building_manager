@@ -23,7 +23,14 @@ class PresenterUserDashboardReceipt constructor(val context: Context, val view:C
 
             override fun onResponse(receiptList: List<Receipt>)
             {
-                view.showReceiptList(receiptList)
+                if(receiptList.isEmpty())
+                {
+                    view.showEmptyListAlert()
+                }
+                else
+                {
+                    view.showReceiptList(receiptList)
+                }
             }
 
         })

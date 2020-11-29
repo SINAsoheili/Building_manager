@@ -34,4 +34,13 @@
         android:visibility="gone"
         />
 
+    <TextView
+        android:id="@+id/tv_userDashboard_receipt_emptyReceipt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/empty_receipt_list"
+        android:visibility="gone"
+        />
+
 </RelativeLayout>
