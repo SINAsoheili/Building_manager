@@ -9,7 +9,7 @@
     <string name="btn_setRole_manager">مدیر ساختمان</string>
     <string name="btn_setRole_user">ساکن ساختمان</string>
 
-    <string name="setRole_user_login">لطفا شماره موبایل خود را وارد کنید.\n شماره ساختمان را از مدیر ساختمان دریافت کنید.</string>
+    <string name="setRole_user_login">لطفا شماره موبایل خود را وارد کنید.\n شماره ساختمان را از مدیر ساختمان دریافت کنید.\n همچنین قبل از ورود مطمئن شوید که مدیر ساختمان نام شما را ذخیره کرده است</string>
 
     <string name="score_to_app">امتیاز به برنامه</string>
     <string name="bug_report">گزارش مشکل</string>
