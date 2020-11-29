@@ -34,7 +34,7 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
         }
 
         initObj()
-
+        visibleProgressBar()
         presenter!!.fetchNotificationList(buildingId)
     }
 
@@ -91,6 +91,7 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
     {
         invisibleListView()
         invisibleTextViewEmptyListAlert()
+        invisibleProgressBar()
         visibleRefreshButton()
     }
 
@@ -98,23 +99,25 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
     {
         invisibleListView()
         invisibleRefreshButton()
+        invisibleProgressBar()
         visibleTextViewEmptyListAlert()
     }
 
     override fun showToast(text: String)
     {
-        invisibleProgressBar()
         visibleRefreshButton()
+        invisibleProgressBar()
         invisibleListView()
+        invisibleRefreshButton()
 
         Toast.makeText(this@ManagerNotificationActivity , text , Toast.LENGTH_SHORT).show()
     }
 
     override fun showList(items: List<Notification>)
     {
+        visibleListView()
         invisibleRefreshButton()
         invisibleTextViewEmptyListAlert()
-        visibleListView()
         invisibleProgressBar()
 
         val adapter : ManagerNotificationListAdapter = ManagerNotificationListAdapter(this@ManagerNotificationActivity , items)

@@ -35,6 +35,7 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
 
         initObj()
 
+        visibleProgressBar()
         presenter!!.getRepairList(buildingId)
     }
 

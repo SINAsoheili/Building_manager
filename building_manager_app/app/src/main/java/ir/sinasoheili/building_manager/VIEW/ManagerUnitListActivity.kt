@@ -48,6 +48,7 @@ class ManagerUnitListActivity : AppCompatActivity()
         }
         else
         {
+            visibleProgressBar()
             buildingId = bundle.getInt("building_id")
             presenter.getUnitList(buildingId)
         }
@@ -84,6 +85,7 @@ class ManagerUnitListActivity : AppCompatActivity()
     {
         invisibleRefreshButton()
         invisibleTextViewEmptyAlert()
+        inVisibleProgressBar()
         visibleUnitList()
     }
 
@@ -91,6 +93,7 @@ class ManagerUnitListActivity : AppCompatActivity()
     {
         invisibleUnitList()
         invisibleRefreshButton()
+        inVisibleProgressBar()
         visibleTextViewEmptyAlert()
     }
 
@@ -99,6 +102,7 @@ class ManagerUnitListActivity : AppCompatActivity()
         showListView()
         invisibleRefreshButton()
         inVisibleProgressBar()
+        invisibleTextViewEmptyAlert()
 
         val adapterManager : ManagerUnitListAdapter = ManagerUnitListAdapter(this@ManagerUnitListActivity , list)
         listView!!.adapter = adapterManager
@@ -118,6 +122,7 @@ class ManagerUnitListActivity : AppCompatActivity()
     {
         inVisibleProgressBar()
         invisibleUnitList()
+        inVisibleProgressBar()
         visibleRefreshButton()
 
         Toast.makeText(this , text , Toast.LENGTH_SHORT).show()

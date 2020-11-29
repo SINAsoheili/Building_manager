@@ -35,7 +35,7 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
         }
 
         initObj()
-
+        visibleProgressBar()
         presenter!!.fetchReceiptList(buildingId)
     }
 
@@ -79,6 +79,7 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
     {
         invisibleListView()
         invisibleTextViewEmptyListAlert()
+        invisibleProgressBar()
         visibleRefreshButton()
     }
 
@@ -86,6 +87,7 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
     {
         invisibleListView()
         invisibleRefreshButton()
+        invisibleProgressBar()
         visibleTextViewEmptyListAlert()
     }
 
@@ -94,6 +96,7 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
         visibleRefreshButton()
         invisibleProgressBar()
         invisibleListView()
+        invisibleTextViewEmptyListAlert()
         Toast.makeText(this , text , Toast.LENGTH_SHORT).show()
     }
 

@@ -26,7 +26,7 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
         initObj(view)
-
+        visibleProgressBar()
         presenter!!.getBuildingInfo(buildingId)
     }
 
@@ -50,8 +50,8 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
     override fun fillItem(building : Building)
     {
         invisibleRefreshButton()
-        visibleItem()
         invisibleProgressBar()
+        visibleItem()
 
         tvName!!.text = building.name
         tvAddress!!.text = building.address
@@ -62,14 +62,15 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
     override fun showRefreshButton()
     {
         invisibleItem()
+        invisibleProgressBar()
         visibleRefreshButton()
     }
 
     override fun showToast(text: String)
     {
         invisibleProgressBar()
-        visibleRefreshButton()
         invisibleItem()
+        visibleRefreshButton()
         Toast.makeText(context , text , Toast.LENGTH_SHORT).show()
     }
 
