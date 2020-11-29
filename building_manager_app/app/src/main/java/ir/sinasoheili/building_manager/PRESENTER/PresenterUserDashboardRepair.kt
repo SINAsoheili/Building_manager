@@ -24,7 +24,14 @@ class PresenterUserDashboardRepair constructor(val context: Context, val view:Co
 
             override fun onResponse(repairList: List<Repair>)
             {
-                view.showRepairList(repairList)
+                if(repairList.isEmpty())
+                {
+                    view.showEmptyListAlert()
+                }
+                else
+                {
+                    view.showRepairList(repairList)
+                }
             }
 
         })

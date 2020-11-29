@@ -8,6 +8,7 @@ interface ContractUserDashboardRepair
     {
         fun showToast(text:String)
         fun showRepairList(items:List<Repair>)
+        fun showEmptyListAlert()
     }
 
     interface ContractUserDashboardRepairPresenter
