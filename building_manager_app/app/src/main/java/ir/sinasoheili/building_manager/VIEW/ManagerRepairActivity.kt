@@ -81,20 +81,23 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
         visibleRefreshButton()
         invisibleRepairList()
         invisibleTextViewEmptyRepair()
+        invisibleProgressBar()
     }
 
     override fun showEmptyListAlert()
     {
         invisibleRepairList()
         invisibleRefreshButton()
+        invisibleProgressBar()
         visibleTextViewEmptyRepair()
     }
 
     override fun showToast(text: String)
     {
         invisibleProgressBar()
-        visibleRefreshButton()
         invisibleRepairList()
+        invisibleProgressBar()
+        visibleRefreshButton()
 
         Toast.makeText(this , text , Toast.LENGTH_SHORT).show()
     }
