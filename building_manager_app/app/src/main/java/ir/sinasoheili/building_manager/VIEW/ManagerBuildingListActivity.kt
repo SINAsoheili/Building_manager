@@ -43,6 +43,7 @@ class ManagerBuildingListActivity : AppCompatActivity()
 
         initObj()
 
+        visibleProgressBar()
         presenter!!.getBuildingList()
     }
 
@@ -82,6 +83,7 @@ class ManagerBuildingListActivity : AppCompatActivity()
     {
         invisibleList()
         invisibleReloadImage()
+        inVisibleProgressBar()
         visibleTVEmptyAlert()
     }
 
@@ -110,7 +112,10 @@ class ManagerBuildingListActivity : AppCompatActivity()
     override fun showToast(text: String)
     {
         inVisibleProgressBar()
+        invisibleTVEmptyAlert()
+        invisibleList()
         visibleReloadImage()
+
         Toast.makeText(this , text , Toast.LENGTH_SHORT).show()
     }
 
