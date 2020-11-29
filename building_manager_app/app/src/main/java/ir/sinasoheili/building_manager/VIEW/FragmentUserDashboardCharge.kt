@@ -14,6 +14,7 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
     private var listView : ListView? = null
     private var ivRefresh : ImageView? = null
     private var progressBar : ProgressBar? = null
+    private var tvEmptyList : TextView? = null
 
     private var presenter : PresenterUserDashboardCharge? = null
 
@@ -21,6 +22,7 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
     {
         initObj(view)
 
+        visibleProgressBar()
         presenter!!.getChargeList()
     }
 
@@ -41,6 +43,7 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
         invisibleListView()
         invisibleProgressBar()
         visibleRefreshButton()
+        invisibleEmptyListAlert()
         Toast.makeText(context , text , Toast.LENGTH_SHORT).show()
     }
 
@@ -49,9 +52,18 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
         visibleListView()
         invisibleRefreshButton()
         invisibleProgressBar()
+        invisibleEmptyListAlert()
 
         val adapter : UserChargeLIstAdapter = UserChargeLIstAdapter(context!! , items)
         listView!!.adapter = adapter
+    }
+
+    override fun showEmptyListAlert()
+    {
+        invisibleListView()
+        invisibleRefreshButton()
+        invisibleProgressBar()
+        visibleEmptyListAlert()
     }
 
     override fun onClick(view: View?)
@@ -96,5 +108,15 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
     private fun invisibleListView()
     {
         listView?.visibility = View.GONE
+    }
+
+    private fun visibleEmptyListAlert()
+    {
+        tvEmptyList?.visibility = View.VISIBLE
+    }
+
+    private fun invisibleEmptyListAlert()
+    {
+        tvEmptyList?.visibility = View.GONE
     }
 }

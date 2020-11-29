@@ -8,6 +8,7 @@ interface ContractUserDashboardCharge
     {
         fun showToast(text:String)
         fun showChargeList(items:List<Charge>)
+        fun showEmptyListAlert()
     }
 
     interface ContractUserDashboardChargePresenter

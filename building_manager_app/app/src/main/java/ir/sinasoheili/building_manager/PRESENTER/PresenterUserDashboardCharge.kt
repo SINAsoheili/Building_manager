@@ -24,7 +24,14 @@ class PresenterUserDashboardCharge constructor(val context: Context, val view:Co
 
             override fun onResponse(items: List<Charge>)
             {
-                view.showChargeList(items)
+                if(items.isEmpty())
+                {
+                    view.showEmptyListAlert()
+                }
+                else
+                {
+                    view.showChargeList(items)
+                }
             }
 
         })
