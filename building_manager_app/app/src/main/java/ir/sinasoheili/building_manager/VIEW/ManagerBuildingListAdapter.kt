@@ -40,7 +40,6 @@ class ManagerBuildingListAdapter constructor(context:Context, buildingList:List<
     {
         val context     : Context  = view.context
         val tvName      : TextView = view.findViewById(R.id.tv_buildingListItem_name)
-        val tvCash      : TextView = view.findViewById(R.id.tv_buildingListItem_cash)
         val tvUnitCount : TextView = view.findViewById(R.id.tv_buildingListItem_unitCount)
 
         fun fill(building:Building)

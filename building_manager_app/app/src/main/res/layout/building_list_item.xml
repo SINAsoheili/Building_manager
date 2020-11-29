@@ -26,14 +26,6 @@
                 android:id="@+id/tv_buildingListItem_unitCount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="start"
-                style="@style/listItem_tv_body"
-                />
-
-            <TextView
-                android:id="@+id/tv_buildingListItem_cash"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/medium_margin"
                 android:gravity="start"
                 style="@style/listItem_tv_body"
