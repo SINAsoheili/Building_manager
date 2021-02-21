@@ -65,6 +65,7 @@ class FragmentManagerChargeAdd constructor(val unit:Unit): Fragment(R.layout.fra
     private fun initStatusSpinner()
     {
         val adapter : ArrayAdapter<ChargeStatus> = ArrayAdapter(context!! , android.R.layout.simple_spinner_item , listOf(ChargeStatus.paid , ChargeStatus.unpaid))
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spStatus!!.adapter = adapter
     }
 

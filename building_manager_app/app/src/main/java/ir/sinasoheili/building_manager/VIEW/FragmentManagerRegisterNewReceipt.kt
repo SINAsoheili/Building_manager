@@ -77,6 +77,7 @@ class FragmentManagerRegisterNewReceipt constructor(buildingId:Int, callback:Cal
     private fun showSpinner(context: Context)
     {
         val adapter : ArrayAdapter<ReceiptType> = ArrayAdapter(context , R.layout.support_simple_spinner_dropdown_item , listReceiptType)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerReceiptType!!.adapter =  adapter
     }
 
