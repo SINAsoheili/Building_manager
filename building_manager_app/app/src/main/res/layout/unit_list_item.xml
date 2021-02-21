@@ -12,7 +12,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/medium_padding">
 
             <TextView
                 android:id="@+id/tv_unitListItem_unitNumber"
@@ -26,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/listItem_tv_body"
+                android:layout_marginTop="@dimen/big_margin"
                 />
 
             <TextView
