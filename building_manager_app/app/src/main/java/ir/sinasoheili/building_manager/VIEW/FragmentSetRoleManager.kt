@@ -6,10 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import ir.sinasoheili.building_manager.PRESENTER.ContractSetRoleManager
@@ -25,6 +22,7 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
     private var etPasswdConfirm : EditText? = null
     private var tilPasswdConfirm : TextInputLayout? = null
     private var btnSubmit : Button? = null
+    private var progressBar : ProgressBar? = null
 
     private var presenter : PresenterSetRoleManager? = null
 
@@ -55,6 +53,8 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
         btnSubmit!!.setOnClickListener(this)
 
         presenter = PresenterSetRoleManager(this)
+
+        progressBar = view.findViewById(R.id.pb_fragment_setRole_progressBar)
     }
 
     override fun onClick(view: View?)
@@ -67,6 +67,8 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
                 {
                     val phone : String = etPhone!!.text.toString()
                     val passwd : String = etPasswd!!.text.toString()
+
+                    visibleProgressBar()
 
                     presenter!!.registerManager(context!! , phone , passwd)
                 }
@@ -145,5 +147,13 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
         fragmentManager!!.beginTransaction().remove(this).commit()
         val intent : Intent = Intent(context , ManagerBuildingListActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun goneProgressBar() {
+        progressBar!!.visibility = ProgressBar.GONE
+    }
+
+    private fun visibleProgressBar() {
+        progressBar!!.visibility = ProgressBar.VISIBLE
     }
 }

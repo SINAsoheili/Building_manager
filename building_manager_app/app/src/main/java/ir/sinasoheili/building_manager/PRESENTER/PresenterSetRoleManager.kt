@@ -17,6 +17,7 @@ class PresenterSetRoleManager constructor(view:ContractSetRoleManager.ContractSe
         {
             override fun onFailure()
             {
+                view.goneProgressBar()
                 view.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
@@ -36,11 +37,13 @@ class PresenterSetRoleManager constructor(view:ContractSetRoleManager.ContractSe
                     }
                     else
                     {
+                        view.goneProgressBar()
                         view.showToast(context.getString(R.string.sever_internal_fail))
                     }
                 }
                 else
                 {
+                    view.goneProgressBar()
                     view.showToast(context.getString(R.string.sever_internal_fail))
                 }
             }

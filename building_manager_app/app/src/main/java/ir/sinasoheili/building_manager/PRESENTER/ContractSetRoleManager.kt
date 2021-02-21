@@ -8,6 +8,7 @@ interface ContractSetRoleManager
     {
         fun showToast(text:String)
         fun moveToBuildingListActivity()
+        fun goneProgressBar()
     }
 
     interface ContractSetRoleManagerPresenter
