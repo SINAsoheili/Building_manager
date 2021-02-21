@@ -41,11 +41,13 @@ class ManagerBuildingListAdapter constructor(context:Context, buildingList:List<
         val context     : Context  = view.context
         val tvName      : TextView = view.findViewById(R.id.tv_buildingListItem_name)
         val tvUnitCount : TextView = view.findViewById(R.id.tv_buildingListItem_unitCount)
+        val tvBuildingId : TextView = view.findViewById(R.id.tv_buildingListItem_buildingId)
 
         fun fill(building:Building)
         {
-            tvName!!.text       = building.name
-            tvUnitCount!!.text  = context.getString(R.string.unit_count)+" : "+building.unit_count.toString()
+            tvName.text       = building.name
+            tvUnitCount.text  = context.getString(R.string.unit_count)+" : "+building.unit_count.toString()
+            tvBuildingId.text = context.getString(R.string.building_id)+" : "+building.id.toString()
         }
     }
 }

@@ -12,7 +12,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/medium_padding">
 
             <TextView
                 android:id="@+id/tv_buildingListItem_name"
@@ -22,14 +23,33 @@
                 style="@style/listItem_tv_head"
                 />
 
-            <TextView
-                android:id="@+id/tv_buildingListItem_unitCount"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/medium_margin"
-                android:gravity="start"
-                style="@style/listItem_tv_body"
-                />
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/medium_margin">
+
+                <TextView
+                    android:id="@+id/tv_buildingListItem_buildingId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="@dimen/medium_margin"
+                    android:gravity="start"
+                    style="@style/listItem_tv_body"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_buildingListItem_unitCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="@dimen/medium_margin"
+                    android:gravity="start"
+                    style="@style/listItem_tv_body"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
 
