@@ -28,4 +28,7 @@
 
     <dimen name="bottom_height_button">56dp</dimen>
 
+    <dimen name="height_action_bar">56dp</dimen>
+    <dimen name="card_radius_action_bar">0dp</dimen>
+
 </resources>

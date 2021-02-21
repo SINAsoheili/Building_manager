@@ -7,12 +7,23 @@
     tools:context=".VIEW.ManagerNotificationActivity"
     android:background="@color/background">
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/action_bar_manager_notification"
+        style="@style/cardveiw_actionBar">
+
+        <TextView
+            style="@style/actionBar_title"
+            android:text="@string/page_title_notification"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
     <ListView
         android:id="@+id/lv_managerNotification_notifList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:divider="@null"
+        android:layout_below="@id/action_bar_manager_notification"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

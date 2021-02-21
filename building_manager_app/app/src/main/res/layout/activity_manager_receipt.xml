@@ -8,12 +8,23 @@
     tools:context=".VIEW.ManagerReceiptActivity"
     android:background="@color/background">
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/action_bar_manager_receipt"
+        style="@style/cardveiw_actionBar">
+
+        <TextView
+            style="@style/actionBar_title"
+            android:text="@string/page_title_receipt"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
     <ListView
         android:id="@+id/lv_managerReceipt_receiptList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@null"
         android:visibility="gone"
+        android:layout_below="@id/action_bar_manager_receipt"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

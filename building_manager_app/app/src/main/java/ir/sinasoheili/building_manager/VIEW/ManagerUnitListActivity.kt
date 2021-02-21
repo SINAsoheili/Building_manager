@@ -29,6 +29,7 @@ class ManagerUnitListActivity : AppCompatActivity()
     private var floatBtnAdd : FloatingActionButton? = null
     private var frameLayout : FrameLayout? = null
     private var progressBar : ProgressBar? = null
+    private var actionBarTitle : TextView? = null
 
     private var buildingId : Int = -1
     private var presenter : PresenterManagerUnitList = PresenterManagerUnitList(this@ManagerUnitListActivity , this)
@@ -50,6 +51,7 @@ class ManagerUnitListActivity : AppCompatActivity()
         {
             visibleProgressBar()
             buildingId = bundle.getInt("building_id")
+            actionBarTitle!!.text = getString(R.string.page_title_unit_list , bundle.getString("building_name"))
             presenter.getUnitList(buildingId)
         }
     }
@@ -72,6 +74,8 @@ class ManagerUnitListActivity : AppCompatActivity()
         floatBtnAdd!!.setOnClickListener(this)
 
         frameLayout = findViewById(R.id.fl_unitList)
+
+        actionBarTitle = findViewById(R.id.action_bar_unit_list)
     }
 
     override fun showRefreshButton()

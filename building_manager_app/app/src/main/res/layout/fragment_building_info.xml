@@ -3,14 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    android:padding="@dimen/medium_padding">
+    android:background="@color/background">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/action_bar_building_info"
+        style="@style/cardveiw_actionBar">
+
+        <TextView
+            style="@style/actionBar_title"
+            android:text="@string/page_title_building_info"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
         android:id="@+id/ll_building_info_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_below="@id/action_bar_building_info"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:padding="@dimen/medium_padding">
 
         <TextView
             android:layout_width="match_parent"

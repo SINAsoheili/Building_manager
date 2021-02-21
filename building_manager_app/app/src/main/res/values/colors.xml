@@ -31,4 +31,6 @@
 
     <color name="section_divider">#C56C86</color>
 
+    <color name="actionBar_text_color">#FFFFFF</color>
+
 </resources>

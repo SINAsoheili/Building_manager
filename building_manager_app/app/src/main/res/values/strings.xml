@@ -127,4 +127,19 @@
     <string name="userDashboard_bnv_menu_charge">شارژ</string>
     <string name="userDashboard_bnv_menu_notification">اطلاعیه ها</string>
 
+    <string name="page_title_building_list">لیست ساختمان ها</string>
+    <string name="page_title_unit_list">واحد های ساختمان %s</string>
+    <string name="page_title_unit_info">مشخصات</string>
+    <string name="page_title_register_new_building">ایجاد ساختمان جدید</string>
+    <string name="page_title_building_info">مشخصات ساختمان</string>
+    <string name="page_title_new_unit">واحد جدید</string>
+    <string name="page_title_receipt">قبض ها</string>
+    <string name="page_title_new_receipt">قبض جدید</string>
+    <string name="page_title_notification">اطلاعیه ها</string>
+    <string name="page_title_new_notification">اطلاعیه جدید</string>
+    <string name="page_title_repair">تعمیرات</string>
+    <string name="page_title_new_repair">تعمیر جدید</string>
+    <string name="page_title_new_charge">شارژ جدید</string>
+    <string name="page_title_charge_list">لیست شارژ ها</string>
+
 </resources>

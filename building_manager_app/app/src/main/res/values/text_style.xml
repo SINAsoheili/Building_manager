@@ -31,4 +31,14 @@
         <item name="android:layout_marginRight">@dimen/medium_margin</item>
     </style>
 
+    <style name="actionBar_title" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_very_big</item>
+        <item name="android:textColor">@color/actionBar_text_color</item>
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginRight">@dimen/medium_margin</item>
+    </style>
+
 </resources>

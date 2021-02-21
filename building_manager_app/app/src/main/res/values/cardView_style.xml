@@ -14,4 +14,12 @@
         <item name="cardCornerRadius">@dimen/user_profile_card_radius</item>
     </style>
 
+    <style name="cardveiw_actionBar" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/height_action_bar</item>
+        <item name="cardBackgroundColor">@color/colorPrimary</item>
+        <item name="cardCornerRadius">@dimen/card_radius_action_bar</item>
+    </style>
+
+
 </resources>

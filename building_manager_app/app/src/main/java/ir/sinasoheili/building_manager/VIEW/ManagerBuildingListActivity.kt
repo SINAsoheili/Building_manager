@@ -29,7 +29,7 @@ class ManagerBuildingListActivity : AppCompatActivity()
     private var tv_emptyList : TextView? = null
     private var floatBtnAdd : FloatingActionButton? = null
     private var bottomAppBar : BottomAppBar? = null
-    private var frameLayout : FrameLayout? = null
+    private var frameLayout : FrameLayout? = null //fragment container
     private var progressBar : ProgressBar? = null
 
     private var presenter : PresenterManagerBuildingList? = null
@@ -103,6 +103,7 @@ class ManagerBuildingListActivity : AppCompatActivity()
             {
                 val intent : Intent = Intent(this@ManagerBuildingListActivity , ManagerUnitListActivity::class.java)
                 intent.putExtra("building_id" , buildingList.get(p2).id)
+                intent.putExtra("building_name" , buildingList.get(p2).name)
                 startActivity(intent)
             }
 
