@@ -89,11 +89,11 @@ class FragmentManagerRegisterNewRepair constructor(val buildingId : Int, val cal
 
     override fun onFocusChange(view: View?, p1: Boolean)
     {
-        when(view)
-        {
-            etDate ->
-            {
-                datePickerDialog!!.showDateDialog(datePickerDialog!! , etDate!!)
+        if(p1) {
+            when(view) {
+                etDate -> {
+                    datePickerDialog!!.showDateDialog(datePickerDialog!! , etDate!!)
+                }
             }
         }
     }

@@ -191,16 +191,15 @@ class FragmentManagerRegisterNewReceipt constructor(buildingId:Int, callback:Cal
 
     override fun onFocusChange(view: View?, p1: Boolean)
     {
-        when(view)
-        {
-            etPayDate ->
-            {
-                datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
-            }
+        if(p1) {
+            when(view) {
+                etPayDate  -> {
+                    datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+                }
 
-            etIssueDate ->
-            {
-                datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
+                etIssueDate -> {
+                    datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
+                }
             }
         }
     }

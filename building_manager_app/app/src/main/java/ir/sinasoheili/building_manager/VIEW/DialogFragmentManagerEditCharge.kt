@@ -101,6 +101,7 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
     {
         val statusArray : Array<ChargeStatus> = arrayOf(ChargeStatus.unpaid , ChargeStatus.paid)
         val adapter : ArrayAdapter<ChargeStatus> = ArrayAdapter(context!! , android.R.layout.simple_spinner_item , statusArray)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner!!.adapter = adapter
     }
 
@@ -152,16 +153,15 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
 
     override fun onFocusChange(view: View?, p1: Boolean)
     {
-        when(view)
-        {
-            etIssueDate ->
-            {
-                datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
-            }
+        if(p1) {
+            when(view) {
+                etIssueDate -> {
+                    datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
+                }
 
-            etPayDate ->
-            {
-                datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+                etPayDate -> {
+                    datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+                }
             }
         }
     }

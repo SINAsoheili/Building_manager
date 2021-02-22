@@ -107,15 +107,14 @@ class FragmentManagerChargeAdd constructor(val unit:Unit): Fragment(R.layout.fra
 
     override fun onFocusChange(view: View?, p1: Boolean)
     {
-        when(view)
-        {
-            etIssueDate->
-            {
-                datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
-            }
-            etPayDate->
-            {
-                datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+        if(p1) {
+            when(view) {
+                etIssueDate-> {
+                    datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
+                }
+                etPayDate-> {
+                    datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+                }
             }
         }
     }
