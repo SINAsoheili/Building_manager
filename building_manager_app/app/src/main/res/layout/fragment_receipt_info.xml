@@ -14,7 +14,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/medium_padding">
 
         <TextView
             android:id="@+id/tv_fragmentReceiptInfo_type"
@@ -39,14 +40,15 @@
                 android:textColor="@color/secondaryTextColor"
                 android:textSize="@dimen/text_size_medium"
                 />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/secondaryTextColor"
+                style="@style/section_divider"
                 android:textSize="@dimen/text_size_medium"
                 android:text="@string/id_receipt"
+                android:gravity="start"
+                android:layout_marginEnd="0dp"
                 />
 
         </LinearLayout>
@@ -65,14 +67,15 @@
                 android:textColor="@color/secondaryTextColor"
                 android:textSize="@dimen/text_size_medium"
                 />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/secondaryTextColor"
+                style="@style/section_divider"
                 android:textSize="@dimen/text_size_medium"
                 android:text="@string/id_payment"
+                android:gravity="start"
+                android:layout_marginEnd="0dp"
                 />
 
         </LinearLayout>
@@ -91,14 +94,15 @@
                 android:textColor="@color/secondaryTextColor"
                 android:textSize="@dimen/text_size_medium"
                 />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/secondaryTextColor"
+                style="@style/section_divider"
                 android:textSize="@dimen/text_size_medium"
                 android:text="@string/amount"
+                android:gravity="start"
+                android:layout_marginEnd="0dp"
                 />
 
         </LinearLayout>
@@ -117,14 +121,15 @@
                 android:textColor="@color/secondaryTextColor"
                 android:textSize="@dimen/text_size_medium"
                 />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/secondaryTextColor"
+                style="@style/section_divider"
                 android:textSize="@dimen/text_size_medium"
                 android:text="@string/issueDate"
+                android:gravity="start"
+                android:layout_marginEnd="0dp"
                 />
 
         </LinearLayout>
@@ -143,14 +148,15 @@
                 android:textColor="@color/secondaryTextColor"
                 android:textSize="@dimen/text_size_medium"
                 />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/secondaryTextColor"
+                style="@style/section_divider"
                 android:textSize="@dimen/text_size_medium"
                 android:text="@string/payDate"
+                android:gravity="start"
+                android:layout_marginEnd="0dp"
                 />
 
         </LinearLayout>

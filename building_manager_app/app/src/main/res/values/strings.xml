@@ -142,4 +142,7 @@
     <string name="page_title_new_charge">شارژ جدید</string>
     <string name="page_title_charge_list">لیست شارژ ها</string>
 
+    <string name="subject">موضوع</string>
+    <string name="message">پیام</string>
+
 </resources>

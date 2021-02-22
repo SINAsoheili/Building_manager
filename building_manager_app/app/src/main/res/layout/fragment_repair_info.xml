@@ -14,8 +14,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/medium_padding">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/subject"
+            style="@style/section_divider"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:layout_marginLeft="@dimen/medium_margin"
+            />
         <TextView
             android:id="@+id/tv_fragmentRepairInfo_title"
             android:layout_width="match_parent"
@@ -23,9 +33,19 @@
             android:layout_margin="@dimen/medium_margin"
             android:gravity="right"
             android:textColor="@color/primaryTextColor"
-            android:textSize="@dimen/text_size_big"
+            android:textSize="@dimen/text_size_medium"
             />
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/message"
+            style="@style/section_divider"
+            android:layout_marginTop="@dimen/very_big_margin"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:layout_marginLeft="@dimen/medium_margin"
+            />
         <TextView
             android:id="@+id/tv_fragmentRepairInfo_comment"
             android:layout_width="match_parent"
@@ -37,11 +57,13 @@
             android:textSize="@dimen/text_size_medium"
             />
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="@dimen/medium_margin">
+            android:layout_margin="@dimen/medium_margin"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/tv_fragmentRepairInfo_date"
@@ -52,24 +74,26 @@
                 android:textColor="@color/primaryTextColor"
                 android:textSize="@dimen/text_size_medium"
                 />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="start"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="@dimen/text_size_medium"
                 android:text="@string/payDate"
+                style="@style/section_divider"
+                android:layout_marginRight="@dimen/medium_margin"
+                android:layout_marginLeft="@dimen/medium_margin"
+                android:gravity="start"
                 />
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="@dimen/medium_margin">
+            android:layout_margin="@dimen/medium_margin"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/tv_fragmentRepairInfo_amount"
@@ -80,15 +104,15 @@
                 android:textColor="@color/primaryTextColor"
                 android:textSize="@dimen/text_size_medium"
                 />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="start"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="@dimen/text_size_medium"
                 android:text="@string/amount"
+                style="@style/section_divider"
+                android:layout_marginRight="@dimen/medium_margin"
+                android:layout_marginLeft="@dimen/medium_margin"
+                android:gravity="start"
                 />
 
         </LinearLayout>
