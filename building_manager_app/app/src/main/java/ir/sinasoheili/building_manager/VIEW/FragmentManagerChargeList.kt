@@ -72,7 +72,7 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
         invisibleTvEmptyList()
         visibleList()
 
-        val adapterManager : ManagerChargeLIstAdapter = ManagerChargeLIstAdapter(context!! , items)
+        val adapterManager : ManagerChargeLIstAdapter = ManagerChargeLIstAdapter(context!! , items.reversed())
         listView!!.adapter = adapterManager
 
         listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener

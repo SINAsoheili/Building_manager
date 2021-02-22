@@ -27,6 +27,7 @@ class PresenterManagerRegisterNewRepair constructor(context:Context, viewManager
             {
                 if(result.result)
                 {
+                    viewManager.showToast(context.getString(R.string.successfully_registered))
                     viewManager.registeredRepair()
                 }
                 else

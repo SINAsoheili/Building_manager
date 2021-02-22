@@ -24,6 +24,7 @@ class PresenterManagerRegisterNewNotification(context: Context, viewManager:Cont
             {
                 if(result.result)
                 {
+                    viewManager.showToast(context.getString(R.string.successfully_registered))
                     viewManager.onNotificationRegistered()
                 }
                 else

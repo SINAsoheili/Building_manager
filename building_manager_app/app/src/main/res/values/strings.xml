@@ -144,5 +144,7 @@
 
     <string name="subject">موضوع</string>
     <string name="message">پیام</string>
+    
+    <string name="successfully_registered">با موفقیت ذخیره شد</string>
 
 </resources>

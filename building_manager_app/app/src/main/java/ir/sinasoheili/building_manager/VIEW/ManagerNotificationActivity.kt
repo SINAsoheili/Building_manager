@@ -120,7 +120,7 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
         invisibleTextViewEmptyListAlert()
         invisibleProgressBar()
 
-        val adapter : ManagerNotificationListAdapter = ManagerNotificationListAdapter(this@ManagerNotificationActivity , items)
+        val adapter : ManagerNotificationListAdapter = ManagerNotificationListAdapter(this@ManagerNotificationActivity , items.reversed())
         listView!!.adapter = adapter
 
         listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener

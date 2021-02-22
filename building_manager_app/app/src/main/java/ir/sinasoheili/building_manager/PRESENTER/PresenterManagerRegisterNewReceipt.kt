@@ -25,6 +25,7 @@ class PresenterManagerRegisterNewReceipt constructor(context: Context, viewManag
             {
                 if(result.result)
                 {
+                    viewManager.showToast(context.getString(R.string.successfully_registered))
                     viewManager.registeredReceipt()
                 }
                 else
