@@ -151,6 +151,7 @@ class FragmentManagerChargeAdd constructor(val unit:Unit): Fragment(R.layout.fra
     override fun onChageRegistered()
     {
         fragmentManager!!.beginTransaction().remove(this).commit()
+        fragmentManager?.popBackStack()
         Toast.makeText(context , context!!.getString(R.string.charge_successfully_added) , Toast.LENGTH_SHORT).show()
     }
 

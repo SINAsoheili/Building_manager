@@ -180,8 +180,9 @@ class FragmentManagerRegisterNewReceipt constructor(buildingId:Int, callback:Cal
 
     override fun registeredReceipt()
     {
-        fragmentManager?.beginTransaction()?.remove(this)?.commit()
         callback.onRegisteredReceipt()
+        fragmentManager?.beginTransaction()?.remove(this)?.commit()
+        fragmentManager?.popBackStack()
     }
 
     interface CallBack

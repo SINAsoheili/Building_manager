@@ -138,6 +138,7 @@ class FragmentManagerRegisterNewNotification(val buildingId : Int,val  callback:
     {
         callback.onNotificationRegistered()
         fragmentManager?.beginTransaction()?.remove(this)?.commit()
+        fragmentManager?.popBackStack()
     }
 
     interface CallBack

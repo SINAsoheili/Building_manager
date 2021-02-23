@@ -155,6 +155,7 @@ class FragmentManagerRegisterNewRepair constructor(val buildingId : Int, val cal
     {
         callback.onRepairRegistered()
         fragmentManager?.beginTransaction()?.remove(this)?.commit()
+        fragmentManager?.popBackStack()
     }
 
     interface CallBack
