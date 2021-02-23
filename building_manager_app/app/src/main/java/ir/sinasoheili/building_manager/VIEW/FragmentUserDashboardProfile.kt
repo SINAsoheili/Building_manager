@@ -24,6 +24,7 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
     private var ivReload : ImageView? = null
 
     private var presenterProfile : PresenterUserDashboardProfile? = null
+    private var isFragmentEnable : Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -34,6 +35,8 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
 
     private fun initObj(view:View)
     {
+        isFragmentEnable = true
+
         presenterProfile = PresenterUserDashboardProfile(view.context , this)
 
         tvOwnerName = view.findViewById(R.id.tv_userDashboard_ownerName)
@@ -59,18 +62,22 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
 
     override fun showUnitInfo(unit: Unit)
     {
-        tvOwnerName!!.text = context!!.getString(R.string.name_and_family , unit.owner_name)
-        tvPhone!!.text = context!!.getString(R.string.phone_number , unit.phone)
-        tvUnitNumber!!.text = context!!.getString(R.string.unit , unit.unit_number.toString())
-        tvTag!!.text = context!!.getString(R.string.tag , unit.tag.toString())
+        if(isFragmentEnable) {
+            tvOwnerName!!.text = context!!.getString(R.string.name_and_family , unit.owner_name)
+            tvPhone!!.text = context!!.getString(R.string.phone_number , unit.phone)
+            tvUnitNumber!!.text = context!!.getString(R.string.unit , unit.unit_number.toString())
+            tvTag!!.text = context!!.getString(R.string.tag , unit.tag.toString())
+        }
     }
 
     override fun visibleReloatButton() {
-        ivReload!!.visibility = View.VISIBLE
+        if(isFragmentEnable)
+            ivReload!!.visibility = View.VISIBLE
     }
 
     override fun invisibleReloatButton() {
-        ivReload!!.visibility = View.GONE
+        if(isFragmentEnable)
+            ivReload!!.visibility = View.GONE
     }
 
     override fun onClick(view: View?)
@@ -95,10 +102,17 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
     }
 
     override fun visibleProgressBar() {
-        progressBar!!.visibility = View.VISIBLE
+        if(isFragmentEnable)
+            progressBar!!.visibility = View.VISIBLE
     }
 
     override fun invisibleProgressBar() {
-        progressBar!!.visibility = View.GONE
+        if(isFragmentEnable)
+            progressBar!!.visibility = View.GONE
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        isFragmentEnable = false
     }
 }

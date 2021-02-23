@@ -17,6 +17,7 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
     private var tvEmptyList : TextView? = null
 
     private var presenter : PresenterUserDashboardReceipt? = null
+    private var isFragmentEnable : Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -28,6 +29,8 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
 
     private fun initObj(view:View)
     {
+        isFragmentEnable = true
+
         presenter = PresenterUserDashboardReceipt(view.context , this)
 
         listView = view.findViewById(R.id.lv_userDashboard_receipt_List)
@@ -51,21 +54,25 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
 
     override fun showReceiptList(items: List<Receipt>)
     {
-        visibleListView()
-        invisibleProgressBar()
-        invisibleRefreshButton()
-        invisibleEmptyalert()
+        if(isFragmentEnable) {
+            visibleListView()
+            invisibleProgressBar()
+            invisibleRefreshButton()
+            invisibleEmptyalert()
 
-        val adapter : UserReceiptListAdapter = UserReceiptListAdapter(context!! , items)
-        listView!!.adapter = adapter
+            val adapter : UserReceiptListAdapter = UserReceiptListAdapter(context!! , items)
+            listView!!.adapter = adapter
+        }
     }
 
     override fun showEmptyListAlert()
     {
-        invisibleListView()
-        invisibleProgressBar()
-        invisibleRefreshButton()
-        visibleEmptyalert()
+        if(isFragmentEnable) {
+            invisibleListView()
+            invisibleProgressBar()
+            invisibleRefreshButton()
+            visibleEmptyalert()
+        }
     }
 
     override fun onClick(view: View?)
@@ -84,41 +91,54 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
 
     private fun visibleProgressBar()
     {
-        progressBar?.visibility = View.VISIBLE
+        if(isFragmentEnable)
+            progressBar?.visibility = View.VISIBLE
     }
 
     private fun invisibleProgressBar()
     {
-        progressBar?.visibility = View.GONE
+        if(isFragmentEnable)
+            progressBar?.visibility = View.GONE
     }
 
     private fun visibleRefreshButton()
     {
-        ivRefresh?.visibility = View.VISIBLE
+        if(isFragmentEnable)
+            ivRefresh?.visibility = View.VISIBLE
     }
 
     private fun invisibleRefreshButton()
     {
-        ivRefresh?.visibility = View.GONE
+        if(isFragmentEnable)
+            ivRefresh?.visibility = View.GONE
     }
 
     private fun visibleListView()
     {
-        listView?.visibility = View.VISIBLE
+        if(isFragmentEnable)
+            listView?.visibility = View.VISIBLE
     }
 
     private fun invisibleListView()
     {
-        listView?.visibility = View.GONE
+        if(isFragmentEnable)
+            listView?.visibility = View.GONE
     }
 
     private fun visibleEmptyalert()
     {
-        tvEmptyList?.visibility = View.VISIBLE
+        if(isFragmentEnable)
+            tvEmptyList?.visibility = View.VISIBLE
     }
 
     private fun invisibleEmptyalert()
     {
-        tvEmptyList?.visibility = View.GONE
+        if(isFragmentEnable)
+            tvEmptyList?.visibility = View.GONE
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        isFragmentEnable = false
     }
 }
