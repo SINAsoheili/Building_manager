@@ -10,6 +10,9 @@ class PresenterUserDashboardProfile constructor (val context: Context, val view:
 {
     override fun getUnitInfo()
     {
+        view.visibleProgressBar()
+        view.invisibleReloatButton()
+
         val api : API_UnitInfoHandler = API_UnitInfoHandler()
 
         val buildingId:Int = UserAuthFilePreferenceHandler.readFromFile(context , UserAuthFilePreferenceHandler.KEY_USER_ID_BuildignId)?.toInt() ?: -1
@@ -19,11 +22,15 @@ class PresenterUserDashboardProfile constructor (val context: Context, val view:
         {
             override fun onFailure()
             {
+                view.invisibleProgressBar()
+                view.visibleReloatButton()
                 view.showToast(context.getString(R.string.fail_connect_to_server))
             }
 
             override fun onResponse(unit: Unit)
             {
+                view.invisibleProgressBar()
+                view.invisibleReloatButton()
                 view.showUnitInfo(unit)
             }
 

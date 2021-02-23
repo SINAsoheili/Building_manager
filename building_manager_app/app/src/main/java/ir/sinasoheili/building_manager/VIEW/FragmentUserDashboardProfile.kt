@@ -2,6 +2,7 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -20,14 +21,13 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
     private var tvBugReport : TextView? = null
     private var tvScoreToApp : TextView? = null
     private var progressBar : ProgressBar? = null
+    private var ivReload : ImageView? = null
 
     private var presenterProfile : PresenterUserDashboardProfile? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
         initObj(view)
-
-        progressBar!!.visibility = View.VISIBLE
 
         presenterProfile!!.getUnitInfo()
     }
@@ -48,6 +48,8 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
         tvScoreToApp!!.setOnClickListener(this)
 
         progressBar = view.findViewById(R.id.pb_userDashboard_progressBar)
+
+        ivReload = view.findViewById(R.id.iv_userDashboard_reload)
     }
 
     override fun showToast(text: String)
@@ -57,12 +59,18 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
 
     override fun showUnitInfo(unit: Unit)
     {
-        progressBar!!.visibility = View.GONE
-
         tvOwnerName!!.text = context!!.getString(R.string.name_and_family , unit.owner_name)
         tvPhone!!.text = context!!.getString(R.string.phone_number , unit.phone)
         tvUnitNumber!!.text = context!!.getString(R.string.unit , unit.unit_number.toString())
         tvTag!!.text = context!!.getString(R.string.tag , unit.tag.toString())
+    }
+
+    override fun visibleReloatButton() {
+        ivReload!!.visibility = View.VISIBLE
+    }
+
+    override fun invisibleReloatButton() {
+        ivReload!!.visibility = View.GONE
     }
 
     override fun onClick(view: View?)
@@ -79,6 +87,18 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
             {
                 Toast.makeText(context , "clicked" , Toast.LENGTH_SHORT).show()
             }
+
+            ivReload -> {
+                presenterProfile!!.getUnitInfo()
+            }
         }
+    }
+
+    override fun visibleProgressBar() {
+        progressBar!!.visibility = View.VISIBLE
+    }
+
+    override fun invisibleProgressBar() {
+        progressBar!!.visibility = View.GONE
     }
 }
