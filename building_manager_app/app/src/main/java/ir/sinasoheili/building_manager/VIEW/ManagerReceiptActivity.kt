@@ -139,6 +139,7 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
         {
             override fun onRegisteredReceipt()
             {
+                visibleProgressBar()
                 presenter!!.fetchReceiptList(buildingId)
             }
 

@@ -142,6 +142,7 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
         {
             override fun onRepairRegistered()
             {
+                visibleProgressBar()
                 presenter!!.getRepairList(buildingId)
             }
 
