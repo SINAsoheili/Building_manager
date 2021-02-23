@@ -1,115 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    android:orientation="vertical"
-    android:clickable="true"
-    android:focusable="true">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background">
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/userProfile_card_style">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true">
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            style="@style/userProfile_card_style">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/section_divider"
-                android:text="@string/ownerInfo"
-                android:layout_marginTop="@dimen/medium_margin"
-                />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_userDashboard_ownerName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/textView_UserInfo_style"
-                android:layout_marginEnd="@dimen/big_margin"
-                android:layout_marginStart="@dimen/big_margin"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/section_divider"
+                    android:text="@string/ownerInfo"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    />
 
-            <TextView
-                android:id="@+id/tv_userDashboard_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/textView_UserInfo_style"
-                android:layout_marginEnd="@dimen/big_margin"
-                android:layout_marginStart="@dimen/big_margin"
-                android:gravity="end"
-                />
+                <TextView
+                    android:id="@+id/tv_userDashboard_ownerName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/textView_UserInfo_style"
+                    android:layout_marginEnd="@dimen/big_margin"
+                    android:layout_marginStart="@dimen/big_margin"
+                    />
 
-            <TextView
-                android:id="@+id/tv_userDashboard_unitNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/textView_UserInfo_style"
-                android:layout_marginEnd="@dimen/big_margin"
-                android:layout_marginStart="@dimen/big_margin"
-                />
+                <TextView
+                    android:id="@+id/tv_userDashboard_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/textView_UserInfo_style"
+                    android:layout_marginEnd="@dimen/big_margin"
+                    android:layout_marginStart="@dimen/big_margin"
+                    android:gravity="start"
+                    />
 
-            <TextView
-                android:id="@+id/tv_userDashboard_tag"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/textView_UserInfo_style"
-                android:layout_marginBottom="@dimen/medium_margin"
-                android:layout_marginEnd="@dimen/big_margin"
-                android:layout_marginStart="@dimen/big_margin"
-                />
+                <TextView
+                    android:id="@+id/tv_userDashboard_unitNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/textView_UserInfo_style"
+                    android:layout_marginEnd="@dimen/big_margin"
+                    android:layout_marginStart="@dimen/big_margin"
+                    />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_userDashboard_tag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/textView_UserInfo_style"
+                    android:layout_marginBottom="@dimen/medium_margin"
+                    android:layout_marginEnd="@dimen/big_margin"
+                    android:layout_marginStart="@dimen/big_margin"
+                    />
 
-    </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/userProfile_card_style">
+        </com.google.android.material.card.MaterialCardView>
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="end">
+            android:layout_height="wrap_content"
+            style="@style/userProfile_card_style">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/section_divider"
-                android:text="@string/changes"
-                android:layout_marginTop="@dimen/medium_margin"
-                />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="end">
 
-            <TextView
-                android:id="@+id/tv_userDashboard_scoreToApp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/textViewButton_style"
-                android:text="@string/score_to_app"
-                android:layout_marginEnd="@dimen/big_margin"
-                android:layout_marginStart="@dimen/big_margin"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/section_divider"
+                    android:text="@string/changes"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    />
 
-            <TextView
-                android:id="@+id/tv_userDashboard_bugReport"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/textViewButton_style"
-                android:text="@string/bug_report"
-                android:layout_marginEnd="@dimen/big_margin"
-                android:layout_marginBottom="@dimen/medium_margin"
-                android:layout_marginStart="@dimen/big_margin"
-                />
+                <TextView
+                    android:id="@+id/tv_userDashboard_scoreToApp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/textViewButton_style"
+                    android:text="@string/score_to_app"
+                    android:layout_marginEnd="@dimen/big_margin"
+                    android:layout_marginStart="@dimen/big_margin"
+                    />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_userDashboard_bugReport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/textViewButton_style"
+                    android:text="@string/bug_report"
+                    android:layout_marginEnd="@dimen/big_margin"
+                    android:layout_marginBottom="@dimen/medium_margin"
+                    android:layout_marginStart="@dimen/big_margin"
+                    />
 
-    </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
 
-</LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_userDashboard_progressBar"
+        android:layout_width="@dimen/refresh_btn_dimen"
+        android:layout_height="@dimen/refresh_btn_dimen"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

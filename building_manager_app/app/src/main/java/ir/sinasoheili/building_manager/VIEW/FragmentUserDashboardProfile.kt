@@ -2,6 +2,7 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -18,12 +19,15 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
     private var tvTag : TextView? = null
     private var tvBugReport : TextView? = null
     private var tvScoreToApp : TextView? = null
+    private var progressBar : ProgressBar? = null
 
     private var presenterProfile : PresenterUserDashboardProfile? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
         initObj(view)
+
+        progressBar!!.visibility = View.VISIBLE
 
         presenterProfile!!.getUnitInfo()
     }
@@ -42,6 +46,8 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
 
         tvScoreToApp = view.findViewById(R.id.tv_userDashboard_scoreToApp)
         tvScoreToApp!!.setOnClickListener(this)
+
+        progressBar = view.findViewById(R.id.pb_userDashboard_progressBar)
     }
 
     override fun showToast(text: String)
@@ -51,8 +57,10 @@ class FragmentUserDashboardProfile : Fragment(R.layout.user_dashboard_profile_fr
 
     override fun showUnitInfo(unit: Unit)
     {
-        tvOwnerName!!.text = unit.owner_name
-        tvPhone!!.text = unit.phone
+        progressBar!!.visibility = View.GONE
+
+        tvOwnerName!!.text = context!!.getString(R.string.name_and_family , unit.owner_name)
+        tvPhone!!.text = context!!.getString(R.string.phone_number , unit.phone)
         tvUnitNumber!!.text = context!!.getString(R.string.unit , unit.unit_number.toString())
         tvTag!!.text = context!!.getString(R.string.tag , unit.tag.toString())
     }

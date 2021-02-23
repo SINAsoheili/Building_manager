@@ -147,4 +147,7 @@
     
     <string name="successfully_registered">با موفقیت ذخیره شد</string>
 
+    <string name="name_and_family">نام و نام خانوادگی : %s</string>
+    <string name="phone_number">شماره تلفن : %s</string>
+
 </resources>
