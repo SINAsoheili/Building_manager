@@ -34,4 +34,8 @@
 
     <color name="actionBar_text_color">#FFFFFF</color>
 
+    <color name="introSlider_textColor">#202221</color>
+
+    <color name="introSlider_btn_text_color">#2C2E30</color>
+
 </resources>

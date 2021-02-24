@@ -9,6 +9,9 @@ object UserAuthFilePreferenceHandler
     val KEY_MANAGER_ID : String = "MANAGER_ID"
     val KEY_USER_ID_UnitNumber : String = "USER_unitNumber"
     val KEY_USER_ID_BuildignId : String = "USER_buildingId"
+    val KEY_INTRO_VISIT_STATUS : String = "IntroSlider"
+    val KEY_INTRO_VISITED : String = "VISITED"
+    val KEY_INTRO_UNSEEN : String = "UNSEEN"
 
     fun writeToFile(context:Context , key:String , value:String)
     {

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/introSlider_slide2_repair"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/introSlider_slide2_receipt"
+        android:src="@drawable/repair_intro_slider"
+        android:padding="@dimen/medium_padding"
+        app:layout_constraintVertical_bias="0.3"
+        />
+
+    <ImageView
+        android:id="@+id/introSlider_slide2_receipt"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/introSlider_slide2_repair"
+        app:layout_constraintRight_toLeftOf="@id/introSlider_slide2_charge"
+        android:src="@drawable/receipt_intro_slider"
+        android:padding="@dimen/medium_padding"
+        app:layout_constraintVertical_bias="0.2"
+        />
+
+    <ImageView
+        android:id="@+id/introSlider_slide2_charge"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/introSlider_slide2_receipt"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/message_intro_slider"
+        android:padding="@dimen/medium_padding"
+        app:layout_constraintVertical_bias="0.3"
+        />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="@dimen/introSlider_text_margin_right_left"
+        android:layout_marginRight="@dimen/introSlider_text_margin_right_left"
+        android:textSize="@dimen/introSlider_textSize"
+        android:textColor="@color/introSlider_textColor"
+        android:gravity="center"
+        android:text="@string/description_slide2"
+        app:layout_constraintVertical_bias="0.6"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,10 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import ir.sinasoheili.building_manager.PRESENTER.UserAuthFilePreferenceHandler
-import ir.sinasoheili.building_manager.VIEW.ManagerBuildingListActivity
-import ir.sinasoheili.building_manager.VIEW.FragmentSetRoleManager
-import ir.sinasoheili.building_manager.VIEW.FragmentSetRoleUser
-import ir.sinasoheili.building_manager.VIEW.UserDashboardActivity
+import ir.sinasoheili.building_manager.VIEW.*
 
 class MainActivity : AppCompatActivity() , View.OnClickListener
 {
@@ -25,6 +22,10 @@ class MainActivity : AppCompatActivity() , View.OnClickListener
 
         when
         {
+            ! isIntroSliderVisited() -> {
+                startActivity(Intent(this , IntroSliderActivity::class.java))
+                finish()
+            }
             isManagerRegistered()->
             {
                 goToBuildingListActivity()
@@ -102,5 +103,17 @@ class MainActivity : AppCompatActivity() , View.OnClickListener
         val intent:Intent = Intent(this@MainActivity , UserDashboardActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    private fun isIntroSliderVisited() : Boolean {
+        if (! UserAuthFilePreferenceHandler.containKey(this , UserAuthFilePreferenceHandler.KEY_INTRO_VISIT_STATUS)) {
+           return false
+        } else {
+            val status:String? = UserAuthFilePreferenceHandler.readFromFile(this , UserAuthFilePreferenceHandler.KEY_INTRO_VISIT_STATUS)
+            if (status.equals(UserAuthFilePreferenceHandler.KEY_INTRO_VISITED))
+                return true
+        }
+
+        return false
     }
 }

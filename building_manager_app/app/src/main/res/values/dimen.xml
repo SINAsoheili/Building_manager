@@ -32,4 +32,7 @@
     <dimen name="height_action_bar">56dp</dimen>
     <dimen name="card_radius_action_bar">0dp</dimen>
 
+    <dimen name="introSlider_textSize">17sp</dimen>
+    <dimen name="introSlider_text_margin_right_left">50dp</dimen>
+
 </resources>
