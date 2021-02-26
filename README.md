@@ -24,27 +24,16 @@ For server side you must fork [Server Side app](https://github.com/SINAsoheili/B
   <img src="images/1.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
   <img src="images/2.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
   <img src="images/3.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
-  <img src="images/4.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
   <br/>
   
   <img src="images/5.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
-  <img src="images/6.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
-  <img src="images/7.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
-  <img src="images/8.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
-  <br/>
-  
   <img src="images/9.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
-  <img src="images/10.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
   <img src="images/11.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <br/>
+
   <img src="images/12.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
-  <br/>
-  
-  <img src="images/13.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
   <img src="images/14.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
-  <img src="images/15.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
-  <img src="images/16.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
   <br/>
   
-  <img src="images/17.jpg" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
   
 </div>
