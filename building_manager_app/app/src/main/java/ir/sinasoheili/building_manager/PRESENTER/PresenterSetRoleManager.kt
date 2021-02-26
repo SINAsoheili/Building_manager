@@ -33,6 +33,9 @@ class PresenterSetRoleManager constructor(view:ContractSetRoleManager.ContractSe
                         {
                             UserAuthFilePreferenceHandler.writeToFile(context , UserAuthFilePreferenceHandler.KEY_MANAGER_ID , id.toString())
                             view.moveToBuildingListActivity()
+                        } else {
+                            view.goneProgressBar()
+                            view.showToast(context.getString(R.string.user_exists) + context.getString(R.string.insert_correct_password))
                         }
                     }
                     else
