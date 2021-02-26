@@ -152,8 +152,8 @@
     <string name="name_and_family">نام و نام خانوادگی : %s</string>
     <string name="phone_number">شماره تلفن : %s</string>
 
-    <string name="description_slide1">به برنامه مدیر ساختمان خوش آمدید\n این برنامه به تعامل بهتر بین مدیرساختمان و اعضای ساختمان کمک میکنه</string>
-    <string name="description_slide2">امکان ثیت ، مشاهده و اشتراک گزاری قبوض ، تعمیرات و اطلاعیه های ساختمان بین مدیر و ساکنین</string>
+    <string name="description_slide1">به برنامه مدیر ساختمان خوش آمدید\n این برنامه به تعامل بهتر بین مدیرساختمان و اعضای ساختمان کمک میکند</string>
+    <string name="description_slide2">امکان ثبت ، مشاهده و اشتراک گزاری قبوض ، تعمیرات و اطلاعیه های ساختمان بین مدیر و ساکنین</string>
     <string name="description_slide3">قابلیت مشاهده اطلاعات اعضا و همچنین ثبت و گزارش گیری شارژ هر واحد ساختمان بصورت مجزا</string>
 
     <string name="next">بعدی</string>

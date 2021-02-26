@@ -11,7 +11,6 @@ interface APIs
     companion object
     {
         val BASE_URL : String = "http://10.0.2.2:5000"
-//        val BASE_URL : String = "http://0ecf71d62830.ngrok.io"
     }
 
     @GET("/manager/register")
