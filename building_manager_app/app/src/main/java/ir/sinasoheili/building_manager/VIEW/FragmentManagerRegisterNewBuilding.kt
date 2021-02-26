@@ -14,13 +14,13 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentManagerRegisterNewBuilding constructor(callBack:CallBack) : Fragment(R.layout.fragment_register_new_building) , View.OnClickListener , ContractManagerRegisterNewBuilding.ContractManagerRegisterNewBuildingView
 {
-    private var tilName : TextInputLayout? = null
-    private var tilAddress : TextInputLayout? = null
-    private var tilUnitCount : TextInputLayout? = null
-    private var etName : EditText? = null
-    private var etAddress : EditText? = null
-    private var etUnitCount : EditText? = null
-    private var btnSubmit : Button? = null
+    private lateinit var tilName : TextInputLayout
+    private lateinit var tilAddress : TextInputLayout
+    private lateinit var tilUnitCount : TextInputLayout
+    private lateinit var etName : EditText
+    private lateinit var etAddress : EditText
+    private lateinit var etUnitCount : EditText
+    private lateinit var btnSubmit : Button
 
     private val presenter : PresenterManagerRegisterNewBuilding = PresenterManagerRegisterNewBuilding(this)
     private val callBack : CallBack = callBack
@@ -41,7 +41,7 @@ class FragmentManagerRegisterNewBuilding constructor(callBack:CallBack) : Fragme
         etUnitCount = view.findViewById(R.id.et_registerNewBuilding_unitCount)
 
         btnSubmit = view.findViewById(R.id.btn_registerNewBuilding_submit)
-        btnSubmit!!.setOnClickListener(this)
+        btnSubmit.setOnClickListener(this)
     }
 
     override fun onClick(view : View?)
@@ -52,9 +52,9 @@ class FragmentManagerRegisterNewBuilding constructor(callBack:CallBack) : Fragme
             {
                 if(checkName() && checkAddress() && checkUnitCount())
                 {
-                    val name : String = etName?.text.toString()
-                    val address : String = etAddress?.text.toString()
-                    val unit_count : Int = etUnitCount?.text.toString().toInt()
+                    val name : String = etName.text.toString()
+                    val address : String = etAddress.text.toString()
+                    val unit_count : Int = etUnitCount.text.toString().toInt()
 
                     val building : Building = Building(name , address , unit_count)
                     presenter.registerBuilding(context!! , building)
@@ -65,39 +65,39 @@ class FragmentManagerRegisterNewBuilding constructor(callBack:CallBack) : Fragme
 
     private fun checkName():Boolean
     {
-        if(etName!!.text.isEmpty())
+        if(etName.text.isEmpty())
         {
-            tilName!!.error = context?.getString(R.string.fill_field)
-            etName?.requestFocus()
+            tilName.error = context?.getString(R.string.fill_field)
+            etName.requestFocus()
             return false
         }
-        tilName?.isErrorEnabled = false
+        tilName.isErrorEnabled = false
         return true
     }
 
     private fun checkAddress():Boolean
     {
-        if(etAddress!!.text.isEmpty())
+        if(etAddress.text.isEmpty())
         {
-            tilAddress!!.error = context?.getString(R.string.fill_field)
-            etAddress?.requestFocus()
+            tilAddress.error = context?.getString(R.string.fill_field)
+            etAddress.requestFocus()
             return false
         }
 
-        tilAddress?.isErrorEnabled = false
+        tilAddress.isErrorEnabled = false
         return true
     }
 
     private fun checkUnitCount():Boolean
     {
-        if(etUnitCount!!.text.isEmpty())
+        if(etUnitCount.text.isEmpty())
         {
-            tilUnitCount!!.error = context?.getString(R.string.fill_field)
-            etUnitCount?.requestFocus()
+            tilUnitCount.error = context?.getString(R.string.fill_field)
+            etUnitCount.requestFocus()
             return false
         }
 
-        tilUnitCount?.isErrorEnabled = false
+        tilUnitCount.isErrorEnabled = false
         return true
     }
 

@@ -1,7 +1,6 @@
 package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
@@ -12,12 +11,12 @@ import ir.sinasoheili.building_manager.PRESENTER.PresenterUserDashboardCharge
 
 class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_fragment) , ContractUserDashboardChargeView, View.OnClickListener
 {
-    private var listView : ListView? = null
-    private var ivRefresh : ImageView? = null
-    private var progressBar : ProgressBar? = null
-    private var tvEmptyList : TextView? = null
+    private lateinit var listView : ListView
+    private lateinit var ivRefresh : ImageView
+    private lateinit var progressBar : ProgressBar
+    private lateinit var tvEmptyList : TextView
 
-    private var presenter : PresenterUserDashboardCharge? = null
+    private lateinit var presenter : PresenterUserDashboardCharge
     private var isFragmentEnable : Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
@@ -25,7 +24,7 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
         initObj(view)
 
         visibleProgressBar()
-        presenter!!.getChargeList()
+        presenter.getChargeList()
     }
 
     private fun initObj(view:View)
@@ -37,7 +36,7 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
         listView = view.findViewById(R.id.lv_userDashboard_charge_List)
 
         ivRefresh = view.findViewById(R.id.iv_userDashboard_charge_refresh)
-        ivRefresh!!.setOnClickListener(this)
+        ivRefresh.setOnClickListener(this)
 
         progressBar = view.findViewById(R.id.pb_userDashboard_charge_progressBar)
 
@@ -62,7 +61,7 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
             invisibleEmptyListAlert()
 
             val adapter : UserChargeLIstAdapter = UserChargeLIstAdapter(context!! , items)
-            listView!!.adapter = adapter
+            listView.adapter = adapter
         }
     }
 
@@ -85,7 +84,7 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
                 invisibleListView()
                 invisibleRefreshButton()
                 visibleProgressBar()
-                presenter!!.getChargeList()
+                presenter.getChargeList()
             }
         }
     }
@@ -93,49 +92,49 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
     private fun visibleProgressBar()
     {
         if(isFragmentEnable)
-            progressBar?.visibility = View.VISIBLE
+            progressBar.visibility = View.VISIBLE
     }
 
     private fun invisibleProgressBar()
     {
         if(isFragmentEnable)
-            progressBar?.visibility = View.GONE
+            progressBar.visibility = View.GONE
     }
 
     private fun visibleRefreshButton()
     {
         if(isFragmentEnable)
-            ivRefresh?.visibility = View.VISIBLE
+            ivRefresh.visibility = View.VISIBLE
     }
 
     private fun invisibleRefreshButton()
     {
         if(isFragmentEnable)
-            ivRefresh?.visibility = View.GONE
+            ivRefresh.visibility = View.GONE
     }
 
     private fun visibleListView()
     {
         if(isFragmentEnable)
-            listView?.visibility = View.VISIBLE
+            listView.visibility = View.VISIBLE
     }
 
     private fun invisibleListView()
     {
         if(isFragmentEnable)
-            listView?.visibility = View.GONE
+            listView.visibility = View.GONE
     }
 
     private fun visibleEmptyListAlert()
     {
         if(isFragmentEnable)
-            tvEmptyList?.visibility = View.VISIBLE
+            tvEmptyList.visibility = View.VISIBLE
     }
 
     private fun invisibleEmptyListAlert()
     {
         if(isFragmentEnable)
-            tvEmptyList?.visibility = View.GONE
+            tvEmptyList.visibility = View.GONE
     }
 
     override fun onDestroy() {

@@ -19,17 +19,17 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentManagerChargeAdd constructor(val unit:Unit): Fragment(R.layout.fragment_charge_add) , ContractManagerChargeAddView, View.OnClickListener,
     View.OnFocusChangeListener {
-    private var tilAmount : TextInputLayout? = null
-    private var tilIssueDate : TextInputLayout? = null
-    private var tilPayDate : TextInputLayout? = null
-    private var etAmount : EditText? = null
-    private var etPayDate : EditText? = null
-    private var etIssueDate : EditText? = null
-    private var spStatus : Spinner? = null
-    private var btnSubmit : Button? = null
+    private lateinit var tilAmount : TextInputLayout
+    private lateinit var tilIssueDate : TextInputLayout
+    private lateinit var tilPayDate : TextInputLayout
+    private lateinit var etAmount : EditText
+    private lateinit var etPayDate : EditText
+    private lateinit var etIssueDate : EditText
+    private lateinit var spStatus : Spinner
+    private lateinit var btnSubmit : Button
 
-    private var presenter : PresenterManagerChargeAdd? = null
-    private var datePickerDialog : PersianDatePickerDialog? = null
+    private lateinit var presenter : PresenterManagerChargeAdd
+    private lateinit var datePickerDialog : PersianDatePickerDialog
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -47,26 +47,26 @@ class FragmentManagerChargeAdd constructor(val unit:Unit): Fragment(R.layout.fra
 
         tilIssueDate = view.findViewById(R.id.til_fragment_addCharge_issueDate)
         etIssueDate = view.findViewById(R.id.et_fragment_addCharge_issueDate)
-        etIssueDate!!.setOnClickListener(this)
-        etIssueDate!!.setOnFocusChangeListener(this)
+        etIssueDate.setOnClickListener(this)
+        etIssueDate.setOnFocusChangeListener(this)
 
         tilPayDate = view.findViewById(R.id.til_fragment_addCharge_payDate)
         etPayDate = view.findViewById(R.id.et_fragment_addCharge_payDate)
-        etPayDate!!.setOnClickListener(this)
-        etPayDate!!.setOnFocusChangeListener(this)
+        etPayDate.setOnClickListener(this)
+        etPayDate.setOnFocusChangeListener(this)
 
         spStatus = view.findViewById(R.id.sp_fragment_addCharge_status)
         initStatusSpinner()
 
         btnSubmit = view.findViewById(R.id.btn_fragment_addCharge_submit)
-        btnSubmit!!.setOnClickListener(this)
+        btnSubmit.setOnClickListener(this)
     }
 
     private fun initStatusSpinner()
     {
         val adapter : ArrayAdapter<ChargeStatus> = ArrayAdapter(context!! , android.R.layout.simple_spinner_item , listOf(ChargeStatus.paid , ChargeStatus.unpaid))
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spStatus!!.adapter = adapter
+        spStatus.adapter = adapter
     }
 
     override fun onClick(view: View?)
@@ -77,30 +77,30 @@ class FragmentManagerChargeAdd constructor(val unit:Unit): Fragment(R.layout.fra
             {
                 if(checkAmount() && checkIssueDate())
                 {
-                    val amount : Double = etAmount!!.text.toString().toDouble()
-                    val issueDate : String = etIssueDate!!.text.toString()
-                    val status : ChargeStatus = spStatus!!.selectedItem as ChargeStatus
+                    val amount : Double = etAmount.text.toString().toDouble()
+                    val issueDate : String = etIssueDate.text.toString()
+                    val status : ChargeStatus = spStatus.selectedItem as ChargeStatus
                     val managerId : Int = UserAuthFilePreferenceHandler.readFromFile(context!! , UserAuthFilePreferenceHandler.KEY_MANAGER_ID)!!.toInt()
 
                     var charge : Charge = Charge(amount , status , issueDate , managerId , unit.building_id , unit.unit_number)
 
-                    if(! etPayDate!!.text.isEmpty())
+                    if(! etPayDate.text.isEmpty())
                     {
-                        val payDate : String = etPayDate!!.text.toString()
+                        val payDate : String = etPayDate.text.toString()
                         charge.pay_date = payDate
                     }
 
-                    presenter!!.registerCharge(charge)
+                    presenter.registerCharge(charge)
                 }
             }
 
             etIssueDate->
             {
-                datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
+                datePickerDialog.showDateDialog(datePickerDialog , etIssueDate)
             }
             etPayDate->
             {
-                datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+                datePickerDialog.showDateDialog(datePickerDialog , etPayDate)
             }
         }
     }
@@ -110,10 +110,10 @@ class FragmentManagerChargeAdd constructor(val unit:Unit): Fragment(R.layout.fra
         if(p1) {
             when(view) {
                 etIssueDate-> {
-                    datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
+                    datePickerDialog.showDateDialog(datePickerDialog , etIssueDate)
                 }
                 etPayDate-> {
-                    datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+                    datePickerDialog.showDateDialog(datePickerDialog , etPayDate)
                 }
             }
         }
@@ -121,25 +121,25 @@ class FragmentManagerChargeAdd constructor(val unit:Unit): Fragment(R.layout.fra
 
     private fun checkAmount():Boolean
     {
-        if(etAmount!!.text.isEmpty())
+        if(etAmount.text.isEmpty())
         {
-            tilAmount!!.error = context!!.getString(R.string.fill_field)
-            etAmount?.requestFocus()
+            tilAmount.error = context!!.getString(R.string.fill_field)
+            etAmount.requestFocus()
             return false
         }
-        tilAmount!!.isErrorEnabled = false
+        tilAmount.isErrorEnabled = false
         return true
     }
 
     private fun checkIssueDate():Boolean
     {
-        if(etIssueDate!!.text.isEmpty())
+        if(etIssueDate.text.isEmpty())
         {
-            tilIssueDate!!.error = context!!.getString(R.string.fill_field)
-            etIssueDate?.requestFocus()
+            tilIssueDate.error = context!!.getString(R.string.fill_field)
+            etIssueDate.requestFocus()
             return false
         }
-        tilIssueDate!!.isErrorEnabled = false
+        tilIssueDate.isErrorEnabled = false
         return true
     }
 

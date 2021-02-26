@@ -24,15 +24,15 @@ class ManagerBuildingListActivity : AppCompatActivity()
     ,Toolbar.OnMenuItemClickListener
     ,FragmentManager.OnBackStackChangedListener
 {
-    private var listView : ListView? = null
-    private var iv_reload : ImageView? = null
-    private var tv_emptyList : TextView? = null
-    private var floatBtnAdd : FloatingActionButton? = null
-    private var bottomAppBar : BottomAppBar? = null
-    private var frameLayout : FrameLayout? = null //fragment container
-    private var progressBar : ProgressBar? = null
+    private lateinit var listView : ListView
+    private lateinit var iv_reload : ImageView
+    private lateinit var tv_emptyList : TextView
+    private lateinit var floatBtnAdd : FloatingActionButton
+    private lateinit var bottomAppBar : BottomAppBar
+    private lateinit var frameLayout : FrameLayout //fragment container
+    private lateinit var progressBar : ProgressBar
 
-    private var presenter : PresenterManagerBuildingList? = null
+    private lateinit var presenter : PresenterManagerBuildingList
     private var isSettingDialogShowing : Boolean = false;
     private var isSettingDialogInbackstack : Boolean = false; //this boolean determine is setting add or remove from back stack or another fragment add or remove from back stack
 
@@ -44,7 +44,7 @@ class ManagerBuildingListActivity : AppCompatActivity()
         initObj()
 
         visibleProgressBar()
-        presenter!!.getBuildingList()
+        presenter.getBuildingList()
     }
 
     private fun initObj()
@@ -52,20 +52,20 @@ class ManagerBuildingListActivity : AppCompatActivity()
         listView = findViewById(R.id.lv_buildingList)
 
         iv_reload = findViewById(R.id.iv_buildingList_reload)
-        iv_reload!!.setOnClickListener(this)
+        iv_reload.setOnClickListener(this)
 
         progressBar = findViewById(R.id.pb_buildingList_progressBar)
 
         tv_emptyList = findViewById(R.id.tv_buildingList_emptyList)
-        tv_emptyList!!.setOnClickListener(this)
+        tv_emptyList.setOnClickListener(this)
 
         presenter = PresenterManagerBuildingList(this@ManagerBuildingListActivity , this)
 
         bottomAppBar = findViewById(R.id.bab_buildingList)
-        bottomAppBar!!.setOnMenuItemClickListener(this)
+        bottomAppBar.setOnMenuItemClickListener(this)
 
         floatBtnAdd = findViewById(R.id.fab_buildingList)
-        floatBtnAdd!!.setOnClickListener(this)
+        floatBtnAdd.setOnClickListener(this)
 
         frameLayout = findViewById(R.id.fl_buildingList)
 
@@ -97,7 +97,7 @@ class ManagerBuildingListActivity : AppCompatActivity()
         val adapterManager : ManagerBuildingListAdapter = ManagerBuildingListAdapter(this@ManagerBuildingListActivity , buildingList)
         lv_buildingList.adapter = adapterManager
 
-        listView!!.setOnItemClickListener(object : AdapterView.OnItemClickListener
+        listView.setOnItemClickListener(object : AdapterView.OnItemClickListener
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
@@ -129,7 +129,7 @@ class ManagerBuildingListActivity : AppCompatActivity()
                 invisibleList()
                 invisibleReloadImage()
                 visibleProgressBar()
-                presenter!!.getBuildingList()
+                presenter.getBuildingList()
             }
 
             floatBtnAdd ->
@@ -138,7 +138,7 @@ class ManagerBuildingListActivity : AppCompatActivity()
                 {
                     override fun onBuildingRegistred(building: Building)
                     {
-                        presenter!!.getBuildingList()
+                        presenter.getBuildingList()
                     }
 
                 })
@@ -153,42 +153,42 @@ class ManagerBuildingListActivity : AppCompatActivity()
 
     private fun invisibleList()
     {
-        listView!!.visibility  = View.GONE
+        listView.visibility  = View.GONE
     }
 
     private fun visibleList()
     {
-        listView!!.visibility  = View.VISIBLE
+        listView.visibility  = View.VISIBLE
     }
 
     private fun visibleReloadImage()
     {
-        iv_reload!!.visibility = View.VISIBLE
+        iv_reload.visibility = View.VISIBLE
     }
 
     private fun invisibleReloadImage()
     {
-        iv_reload!!.visibility = View.GONE
+        iv_reload.visibility = View.GONE
     }
 
     private fun visibleTVEmptyAlert()
     {
-        tv_emptyList!!.visibility = View.VISIBLE
+        tv_emptyList.visibility = View.VISIBLE
     }
 
     private fun invisibleTVEmptyAlert()
     {
-        tv_emptyList!!.visibility = View.GONE
+        tv_emptyList.visibility = View.GONE
     }
 
     private fun visibleProgressBar()
     {
-        progressBar?.visibility = View.VISIBLE
+        progressBar.visibility = View.VISIBLE
     }
 
     private fun inVisibleProgressBar()
     {
-        progressBar?.visibility = View.GONE
+        progressBar.visibility = View.GONE
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean
@@ -218,22 +218,22 @@ class ManagerBuildingListActivity : AppCompatActivity()
     private fun hideFloatButton()
     {
         val animation:Animation = AnimationUtils.loadAnimation(this , R.anim.float_button_right_scale_in)
-        floatBtnAdd?.startAnimation(animation)
+        floatBtnAdd.startAnimation(animation)
 
-        floatBtnAdd?.isClickable = false
+        floatBtnAdd.isClickable = false
     }
 
     private fun showFloatButton()
     {
         val animation:Animation = AnimationUtils.loadAnimation(this , R.anim.float_button_right_scale_out)
-        floatBtnAdd?.startAnimation(animation)
+        floatBtnAdd.startAnimation(animation)
 
-        floatBtnAdd?.isClickable = true
+        floatBtnAdd.isClickable = true
     }
 
     private fun hideBottomAppBar()
     {
-        bottomAppBar!!.startAnimation(AnimationUtils.loadAnimation(this ,R.anim.fade_out))
+        bottomAppBar.startAnimation(AnimationUtils.loadAnimation(this ,R.anim.fade_out))
     }
 
     override fun onBackStackChanged()

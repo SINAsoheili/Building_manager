@@ -20,18 +20,18 @@ class ManagerUnitInfoActivity : AppCompatActivity()
     ,View.OnClickListener
     ,ContractManagerUnitInfoView
 {
-    private var tvUnitNumber : TextView? = null
-    private var tvUnitTag : TextView? = null
-    private var tvOwnerName : TextView? = null
-    private var tvPhone : TextView? = null
-    private var iv_call : ImageView? = null
-    private var iv_sms : ImageView? = null
-    private var tvDeleteUnit: TextView? = null
-    private var tvAddCharge : TextView? = null
-    private var tvChargeList : TextView? = null
+    private lateinit var tvUnitNumber : TextView
+    private lateinit var tvUnitTag : TextView
+    private lateinit var tvOwnerName : TextView
+    private lateinit var tvPhone : TextView
+    private lateinit var iv_call : ImageView
+    private lateinit var iv_sms : ImageView
+    private lateinit var tvDeleteUnit: TextView
+    private lateinit var tvAddCharge : TextView
+    private lateinit var tvChargeList : TextView
 
     private var unit : Unit? = null
-    private var presenter:PresenterManagerUnitInfo? = null
+    private lateinit var presenter:PresenterManagerUnitInfo
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -58,19 +58,19 @@ class ManagerUnitInfoActivity : AppCompatActivity()
         tvPhone     = findViewById(R.id.tv_unitInfo_phone)
 
         iv_call     = findViewById(R.id.iv_unitInfo_call)
-        iv_call!!.setOnClickListener(this)
+        iv_call.setOnClickListener(this)
 
         iv_sms      = findViewById(R.id.iv_unitInfo_sms)
-        iv_sms!!.setOnClickListener(this)
+        iv_sms.setOnClickListener(this)
 
         tvDeleteUnit = findViewById(R.id.tv_unitInfo_deleteUnit)
-        tvDeleteUnit!!.setOnClickListener(this)
+        tvDeleteUnit.setOnClickListener(this)
 
         tvAddCharge = findViewById(R.id.tv_unitInfo_addCharge)
-        tvAddCharge!!.setOnClickListener(this)
+        tvAddCharge.setOnClickListener(this)
 
         tvChargeList = findViewById(R.id.tv_unitInfo_listCharge)
-        tvChargeList!!.setOnClickListener(this)
+        tvChargeList.setOnClickListener(this)
     }
 
     private fun fillItem(unit:Unit?)
@@ -80,10 +80,10 @@ class ManagerUnitInfoActivity : AppCompatActivity()
             return
         }
 
-        tvUnitNumber!!.text = this@ManagerUnitInfoActivity.getString(R.string.unit , unit.unit_number.toString())
-        tvUnitTag!!.text = this@ManagerUnitInfoActivity.getString(R.string.tag , unit.tag.toString())
-        tvOwnerName!!.text = unit.owner_name
-        tvPhone!!.text = unit.phone
+        tvUnitNumber.text = this@ManagerUnitInfoActivity.getString(R.string.unit , unit.unit_number.toString())
+        tvUnitTag.text = this@ManagerUnitInfoActivity.getString(R.string.tag , unit.tag.toString())
+        tvOwnerName.text = unit.owner_name
+        tvPhone.text = unit.phone
     }
 
     override fun onClick(view: View?)
@@ -139,7 +139,7 @@ class ManagerUnitInfoActivity : AppCompatActivity()
 
     override fun onUnitDeleted()
     {
-        var intent : Intent = Intent()
+        val intent : Intent = Intent()
         setResult(Activity.RESULT_OK , intent)
         finish()
 
@@ -156,7 +156,7 @@ class ManagerUnitInfoActivity : AppCompatActivity()
         {
             override fun onClick(p0: DialogInterface?, p1: Int)
             {
-                presenter!!.deleteUnit(unit!!)
+                presenter.deleteUnit(unit!!)
             }
         })
         dialog.setNegativeButton(this.getString(R.string.no) , object:DialogInterface.OnClickListener

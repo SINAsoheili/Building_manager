@@ -10,7 +10,7 @@ import ir.sinasoheili.building_manager.R
 
 class UserDashboardActivity : AppCompatActivity() , BottomNavigationView.OnNavigationItemSelectedListener
 {
-    private var bnv : BottomNavigationView? = null
+    private lateinit var bnv : BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -23,8 +23,8 @@ class UserDashboardActivity : AppCompatActivity() , BottomNavigationView.OnNavig
     private fun initObj()
     {
         bnv = findViewById(R.id.bnv_userDashboard)
-        bnv!!.setOnNavigationItemSelectedListener(this)
-        bnv!!.selectedItemId = R.id.bnv_item_profile
+        bnv.setOnNavigationItemSelectedListener(this)
+        bnv.selectedItemId = R.id.bnv_item_profile
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean
@@ -33,35 +33,35 @@ class UserDashboardActivity : AppCompatActivity() , BottomNavigationView.OnNavig
         {
             R.id.bnv_item_receipt ->
             {
-                var fragment : FragmentUserDashboardReceipt = FragmentUserDashboardReceipt()
+                val fragment : FragmentUserDashboardReceipt = FragmentUserDashboardReceipt()
                 supportFragmentManager.beginTransaction().replace(R.id.framelayout_userDashboard , fragment).commit()
                 return true
             }
 
             R.id.bnv_item_repair ->
             {
-                var fragment : FragmentUserDashboardRepair = FragmentUserDashboardRepair()
+                val fragment : FragmentUserDashboardRepair = FragmentUserDashboardRepair()
                 supportFragmentManager.beginTransaction().replace(R.id.framelayout_userDashboard , fragment).commit()
                 return true
             }
 
             R.id.bnv_item_profile ->
             {
-                var fragment : FragmentUserDashboardProfile = FragmentUserDashboardProfile()
+                val fragment : FragmentUserDashboardProfile = FragmentUserDashboardProfile()
                 supportFragmentManager.beginTransaction().replace(R.id.framelayout_userDashboard , fragment).commit()
                 return true
             }
 
             R.id.bnv_item_notification ->
             {
-                var fragment : FragmentUserDashboardNotification = FragmentUserDashboardNotification()
+                val fragment : FragmentUserDashboardNotification = FragmentUserDashboardNotification()
                 supportFragmentManager.beginTransaction().replace(R.id.framelayout_userDashboard , fragment).commit()
                 return true
             }
 
             R.id.bnv_item_charge ->
             {
-                var fragment : FragmentUserDashboardCharge = FragmentUserDashboardCharge()
+                val fragment : FragmentUserDashboardCharge = FragmentUserDashboardCharge()
                 supportFragmentManager.beginTransaction().replace(R.id.framelayout_userDashboard , fragment).commit()
                 return true
             }

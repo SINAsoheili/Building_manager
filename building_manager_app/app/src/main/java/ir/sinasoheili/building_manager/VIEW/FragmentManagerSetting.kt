@@ -1,19 +1,16 @@
 package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import ir.sinasoheili.building_manager.R
 
 class FragmentManagerSetting : Fragment(R.layout.manager_setting_fragment) , View.OnClickListener
 {
-    private var tvBugReport : TextView? = null
-    private var tvScoreToApp : TextView? = null
+    private lateinit var tvBugReport : TextView
+    private lateinit var tvScoreToApp : TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -23,10 +20,10 @@ class FragmentManagerSetting : Fragment(R.layout.manager_setting_fragment) , Vie
     private fun initObj(view:View)
     {
         tvBugReport = view.findViewById(R.id.tv_manager_bugReport)
-        tvBugReport!!.setOnClickListener(this)
+        tvBugReport.setOnClickListener(this)
 
         tvScoreToApp = view.findViewById(R.id.tv_manager_scoreToApp)
-        tvScoreToApp!!.setOnClickListener(this)
+        tvScoreToApp.setOnClickListener(this)
     }
 
     override fun onClick(view: View?)

@@ -15,21 +15,20 @@ import ir.sinasoheili.building_manager.MODEL.Unit
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerUnitList
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerUnitList
 import ir.sinasoheili.building_manager.R
-import kotlinx.android.synthetic.main.fragment_setrole_manager.*
 
 class ManagerUnitListActivity : AppCompatActivity()
     ,ContractManagerUnitList.ContractManagerUnitListView
     ,View.OnClickListener
     ,Toolbar.OnMenuItemClickListener
 {
-    private var listView : ListView? = null
-    private var ivReload : ImageView? = null
-    private var tvReload : TextView? = null
-    private var bottomAppBar : BottomAppBar? = null
-    private var floatBtnAdd : FloatingActionButton? = null
-    private var frameLayout : FrameLayout? = null
-    private var progressBar : ProgressBar? = null
-    private var actionBarTitle : TextView? = null
+    private lateinit var listView : ListView
+    private lateinit var ivReload : ImageView
+    private lateinit var tvReload : TextView
+    private lateinit var bottomAppBar : BottomAppBar
+    private lateinit var floatBtnAdd : FloatingActionButton
+    private lateinit var frameLayout : FrameLayout
+    private lateinit var progressBar : ProgressBar
+    private lateinit var actionBarTitle : TextView
 
     private var buildingId : Int = -1
     private var presenter : PresenterManagerUnitList = PresenterManagerUnitList(this@ManagerUnitListActivity , this)
@@ -51,7 +50,7 @@ class ManagerUnitListActivity : AppCompatActivity()
         {
             visibleProgressBar()
             buildingId = bundle.getInt("building_id")
-            actionBarTitle!!.text = getString(R.string.page_title_unit_list , bundle.getString("building_name"))
+            actionBarTitle.text = getString(R.string.page_title_unit_list , bundle.getString("building_name"))
             presenter.getUnitList(buildingId)
         }
     }
@@ -61,17 +60,17 @@ class ManagerUnitListActivity : AppCompatActivity()
         listView = findViewById(R.id.lv_unitList)
 
         ivReload = findViewById(R.id.iv_unitList_reload)
-        ivReload!!.setOnClickListener(this)
+        ivReload.setOnClickListener(this)
 
         progressBar = findViewById(R.id.pb_unitList_prograssBar)
 
         tvReload = findViewById(R.id.tv_unitList_refresh)
 
         bottomAppBar = findViewById(R.id.bab_unitList)
-        bottomAppBar!!.setOnMenuItemClickListener(this)
+        bottomAppBar.setOnMenuItemClickListener(this)
 
         floatBtnAdd = findViewById(R.id.fab_unitList)
-        floatBtnAdd!!.setOnClickListener(this)
+        floatBtnAdd.setOnClickListener(this)
 
         frameLayout = findViewById(R.id.fl_unitList)
 
@@ -109,9 +108,9 @@ class ManagerUnitListActivity : AppCompatActivity()
         invisibleTextViewEmptyAlert()
 
         val adapterManager : ManagerUnitListAdapter = ManagerUnitListAdapter(this@ManagerUnitListActivity , list)
-        listView!!.adapter = adapterManager
+        listView.adapter = adapterManager
 
-        listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener
+        listView.setOnItemClickListener(object:AdapterView.OnItemClickListener
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
@@ -223,47 +222,47 @@ class ManagerUnitListActivity : AppCompatActivity()
 
     private fun visibleUnitList()
     {
-        ivReload!!.visibility = View.GONE
-        tvReload!!.visibility = View.GONE
-        listView!!.visibility = View.VISIBLE
+        ivReload.visibility = View.GONE
+        tvReload.visibility = View.GONE
+        listView.visibility = View.VISIBLE
     }
 
     private fun invisibleUnitList()
     {
-        listView!!.visibility = View.GONE
+        listView.visibility = View.GONE
     }
 
     private fun visibleRefreshButton()
     {
-        listView!!.visibility = View.GONE
-        ivReload!!.visibility = View.VISIBLE
-        tvReload!!.visibility = View.GONE
+        listView.visibility = View.GONE
+        ivReload.visibility = View.VISIBLE
+        tvReload.visibility = View.GONE
     }
 
     private fun invisibleRefreshButton()
     {
-        ivReload!!.visibility = View.GONE
+        ivReload.visibility = View.GONE
     }
 
     private fun visibleTextViewEmptyAlert()
     {
-        listView!!.visibility = View.GONE
-        ivReload!!.visibility = View.GONE
-        tvReload!!.visibility = View.VISIBLE
+        listView.visibility = View.GONE
+        ivReload.visibility = View.GONE
+        tvReload.visibility = View.VISIBLE
     }
 
     private fun invisibleTextViewEmptyAlert()
     {
-        tvReload!!.visibility = View.GONE
+        tvReload.visibility = View.GONE
     }
 
     private fun visibleProgressBar()
     {
-        progressBar?.visibility = View.VISIBLE
+        progressBar.visibility = View.VISIBLE
     }
 
     private fun inVisibleProgressBar()
     {
-        progressBar?.visibility = View.GONE
+        progressBar.visibility = View.GONE
     }
 }

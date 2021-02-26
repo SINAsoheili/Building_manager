@@ -11,12 +11,12 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentUserDashboardNotification : Fragment(R.layout.user_dashboard_notification_fragment) , ContractUserDashboardNotificationView , View.OnClickListener
 {
-    private var listView : ListView? = null
-    private var ivRefresh : ImageView? = null
-    private var progressBar : ProgressBar? = null
-    private var tvEmptyList : TextView? = null
+    private lateinit var listView : ListView
+    private lateinit var ivRefresh : ImageView
+    private lateinit var progressBar : ProgressBar
+    private lateinit var tvEmptyList : TextView
 
-    private var presenter : PresenterUserDashboardNotification? = null
+    private lateinit var presenter : PresenterUserDashboardNotification
     private var isFragmentEnable : Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
@@ -24,7 +24,7 @@ class FragmentUserDashboardNotification : Fragment(R.layout.user_dashboard_notif
         initObj(view)
 
         visibleProgressBar()
-        presenter!!.getNotificationList()
+        presenter.getNotificationList()
     }
 
     private fun initObj(view:View)
@@ -36,7 +36,7 @@ class FragmentUserDashboardNotification : Fragment(R.layout.user_dashboard_notif
         listView = view.findViewById(R.id.lv_userDashboard_notification_List)
 
         ivRefresh = view.findViewById(R.id.iv_userDashboard_notification_refresh)
-        ivRefresh!!.setOnClickListener(this)
+        ivRefresh.setOnClickListener(this)
 
         progressBar = view.findViewById(R.id.pb_userDashboard_notification_progressBar)
 
@@ -52,7 +52,7 @@ class FragmentUserDashboardNotification : Fragment(R.layout.user_dashboard_notif
             invisibleEmptyAlert()
 
             val adapter : UserNotificationListAdapter = UserNotificationListAdapter(context!! , items)
-            listView!!.adapter = adapter
+            listView.adapter = adapter
         }
     }
 
@@ -80,13 +80,13 @@ class FragmentUserDashboardNotification : Fragment(R.layout.user_dashboard_notif
     private fun visibleListView()
     {
         if(isFragmentEnable)
-            listView!!.visibility = View.VISIBLE
+            listView.visibility = View.VISIBLE
     }
 
     private fun invisibleListView()
     {
         if(isFragmentEnable)
-            listView!!.visibility = View.GONE
+            listView.visibility = View.GONE
     }
 
     override fun onClick(view: View?)
@@ -98,7 +98,7 @@ class FragmentUserDashboardNotification : Fragment(R.layout.user_dashboard_notif
                 invisibleRefreshButton()
                 visibleProgressBar()
                 invisibleListView()
-                presenter!!.getNotificationList()
+                presenter.getNotificationList()
             }
         }
     }
@@ -106,37 +106,37 @@ class FragmentUserDashboardNotification : Fragment(R.layout.user_dashboard_notif
     private fun visibleProgressBar()
     {
         if(isFragmentEnable)
-            progressBar?.visibility = View.VISIBLE
+            progressBar.visibility = View.VISIBLE
     }
 
     private fun invisibleProgressBar()
     {
         if(isFragmentEnable)
-            progressBar?.visibility = View.GONE
+            progressBar.visibility = View.GONE
     }
 
     private fun visibleRefreshButton()
     {
         if(isFragmentEnable)
-            ivRefresh!!.visibility = View.VISIBLE
+            ivRefresh.visibility = View.VISIBLE
     }
 
     private fun invisibleRefreshButton()
     {
         if(isFragmentEnable)
-            ivRefresh!!.visibility = View.GONE
+            ivRefresh.visibility = View.GONE
     }
 
     private fun visibleEmptyAlert()
     {
         if(isFragmentEnable)
-            tvEmptyList?.visibility = View.VISIBLE
+            tvEmptyList.visibility = View.VISIBLE
     }
 
     private fun invisibleEmptyAlert()
     {
         if(isFragmentEnable)
-            tvEmptyList?.visibility = View.GONE
+            tvEmptyList.visibility = View.GONE
     }
 
     override fun onDestroy() {

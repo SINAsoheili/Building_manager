@@ -13,14 +13,14 @@ import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerRepair
 
 class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , View.OnClickListener
 {
-    private var fabAddRepair : FloatingActionButton? = null
-    private var listView : ListView? = null
-    private var ivRefresh : ImageView? =  null
-    private var tvEmptyRepairList : TextView? = null
-    private var progressBar : ProgressBar? = null
+    private lateinit var fabAddRepair : FloatingActionButton
+    private lateinit var listView : ListView
+    private lateinit var ivRefresh : ImageView
+    private lateinit var tvEmptyRepairList : TextView
+    private lateinit var progressBar : ProgressBar
 
     private var buildingId : Int = -1
-    private var presenter : PresenterManagerRepair? = null
+    private lateinit var presenter : PresenterManagerRepair
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -36,7 +36,7 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
         initObj()
 
         visibleProgressBar()
-        presenter!!.getRepairList(buildingId)
+        presenter.getRepairList(buildingId)
     }
 
     private fun initObj()
@@ -44,18 +44,17 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
         presenter = PresenterManagerRepair(this , this)
 
         fabAddRepair = findViewById(R.id.fab_managerRepair_addRepair)
-        fabAddRepair!!.setOnClickListener(this)
+        fabAddRepair.setOnClickListener(this)
 
         listView = findViewById(R.id.lv_managerRepair_repairList)
 
         ivRefresh = findViewById(R.id.iv_managerRepair_refresh)
-        ivRefresh!!.setOnClickListener(this)
+        ivRefresh.setOnClickListener(this)
 
         progressBar = findViewById(R.id.pb_managerRepair_progressBar)
 
         tvEmptyRepairList = findViewById(R.id.tv_managerRepair_repairListEmpty)
-        tvEmptyRepairList!!.setOnClickListener(this)
-
+        tvEmptyRepairList.setOnClickListener(this)
     }
 
     override fun onClick(view: View?)
@@ -72,7 +71,7 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
                 invisibleRefreshButton()
                 visibleProgressBar()
 
-                presenter!!.getRepairList(buildingId)
+                presenter.getRepairList(buildingId)
             }
         }
     }
@@ -112,9 +111,9 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
 
         val reversedItem:List<Repair> = items.reversed()
         val adapterManager : ManagerRepairListAdapter = ManagerRepairListAdapter(this , reversedItem)
-        listView!!.adapter = adapterManager
+        listView.adapter = adapterManager
 
-        listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener
+        listView.setOnItemClickListener(object:AdapterView.OnItemClickListener
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
@@ -129,7 +128,7 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
         {
             override fun onRepirDeleted()
             {
-                presenter?.getRepairList(buildingId)
+                presenter.getRepairList(buildingId)
             }
 
         })
@@ -143,7 +142,7 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
             override fun onRepairRegistered()
             {
                 visibleProgressBar()
-                presenter!!.getRepairList(buildingId)
+                presenter.getRepairList(buildingId)
             }
 
         })
@@ -157,41 +156,41 @@ class ManagerRepairActivity : AppCompatActivity() , ContractManagerRepairView , 
 
     private fun visibleRepairList()
     {
-        listView!!.visibility = View.VISIBLE
+        listView.visibility = View.VISIBLE
     }
 
     private fun invisibleRepairList()
     {
-        listView!!.visibility = View.GONE
+        listView.visibility = View.GONE
     }
 
     private fun visibleRefreshButton()
     {
-        ivRefresh!!.visibility = View.VISIBLE
+        ivRefresh.visibility = View.VISIBLE
     }
 
     private fun invisibleRefreshButton()
     {
-        ivRefresh!!.visibility = View.GONE
+        ivRefresh.visibility = View.GONE
     }
 
     private fun visibleTextViewEmptyRepair()
     {
-        tvEmptyRepairList!!.visibility = View.VISIBLE
+        tvEmptyRepairList.visibility = View.VISIBLE
     }
 
     private fun invisibleTextViewEmptyRepair()
     {
-        tvEmptyRepairList!!.visibility = View.GONE
+        tvEmptyRepairList.visibility = View.GONE
     }
 
     private fun visibleProgressBar()
     {
-        progressBar?.visibility = View.VISIBLE
+        progressBar.visibility = View.VISIBLE
     }
 
     private fun invisibleProgressBar()
     {
-        progressBar?.visibility = View.GONE
+        progressBar.visibility = View.GONE
     }
 }

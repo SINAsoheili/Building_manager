@@ -2,7 +2,6 @@ package ir.sinasoheili.building_manager.VIEW
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import ir.sinasoheili.building_manager.VIEW.FragmentManagerRegisterNewNotification.CallBack

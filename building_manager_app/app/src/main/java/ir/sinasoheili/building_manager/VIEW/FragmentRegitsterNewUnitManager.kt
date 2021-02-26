@@ -14,15 +14,15 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentRegitsterNewUnitManager constructor(buildintId:Int, callback:CallBack): Fragment(R.layout.fragment_register_new_unit),View.OnClickListener , ContractManagerRegisterNewUnit.ContractManagerRegisterNewUnitView
 {
-    private var tilOwnerName : TextInputLayout? = null
-    private var tilPhone : TextInputLayout? = null
-    private var tilUnitNumber : TextInputLayout? = null
-    private var tilTag : TextInputLayout? = null
-    private var etOwnerName : EditText? = null
-    private var etPhone : EditText? = null
-    private var etUnitNumber : EditText? = null
-    private var etTag : EditText? = null
-    private var btnSubmit : Button? = null
+    private lateinit var tilOwnerName : TextInputLayout
+    private lateinit var tilPhone : TextInputLayout
+    private lateinit var tilUnitNumber : TextInputLayout
+    private lateinit var tilTag : TextInputLayout
+    private lateinit var etOwnerName : EditText
+    private lateinit var etPhone : EditText
+    private lateinit var etUnitNumber : EditText
+    private lateinit var etTag : EditText
+    private lateinit var btnSubmit : Button
 
     private val presenter:PresenterManagerRegisterNewUnit = PresenterManagerRegisterNewUnit(this)
     private val buildingId : Int = buildintId
@@ -46,7 +46,7 @@ class FragmentRegitsterNewUnitManager constructor(buildintId:Int, callback:CallB
         etTag = view!!.findViewById(R.id.et_fragment_registerNewUnit_tag)
 
         btnSubmit = view!!.findViewById(R.id.btn_frament_registerNewUnit_submit)
-        btnSubmit!!.setOnClickListener(this)
+        btnSubmit.setOnClickListener(this)
     }
 
     override fun onClick(view: View?)
@@ -55,10 +55,10 @@ class FragmentRegitsterNewUnitManager constructor(buildintId:Int, callback:CallB
         {
             if(checkOwnerName() && checkPhone() && checkUnitNumber() && checkTag())
             {
-                val ownerName : String = etOwnerName!!.text.toString()
-                val phone : String = etPhone!!.text.toString()
-                val unitNumber : Int = etUnitNumber!!.text.toString().toInt()
-                val tag : Int = etTag!!.text.toString().toInt()
+                val ownerName : String = etOwnerName.text.toString()
+                val phone : String = etPhone.text.toString()
+                val unitNumber : Int = etUnitNumber.text.toString().toInt()
+                val tag : Int = etTag.text.toString().toInt()
 
                 val unit : Unit = Unit(ownerName , phone , unitNumber , tag , buildingId)
                 presenter.registerUnit(context!! , unit)
@@ -68,52 +68,52 @@ class FragmentRegitsterNewUnitManager constructor(buildintId:Int, callback:CallB
 
     private fun checkOwnerName():Boolean
     {
-        if(etOwnerName!!.text.isEmpty())
+        if(etOwnerName.text.isEmpty())
         {
-            tilOwnerName!!.error = context?.getString(R.string.fill_field)
-            etOwnerName!!.requestFocus()
+            tilOwnerName.error = context?.getString(R.string.fill_field)
+            etOwnerName.requestFocus()
             return false
         }
 
-        tilOwnerName!!.isErrorEnabled = false
+        tilOwnerName.isErrorEnabled = false
         return true
     }
 
     private fun checkPhone():Boolean
     {
-        if(etPhone!!.text.isEmpty())
+        if(etPhone.text.isEmpty())
         {
-            tilPhone!!.error = context?.getString(R.string.fill_field)
-            etPhone!!.requestFocus()
+            tilPhone.error = context?.getString(R.string.fill_field)
+            etPhone.requestFocus()
             return false
         }
-        tilPhone!!.isErrorEnabled = false
+        tilPhone.isErrorEnabled = false
         return true
     }
 
     private fun checkUnitNumber():Boolean
     {
-        if(etUnitNumber!!.text.isEmpty())
+        if(etUnitNumber.text.isEmpty())
         {
-            tilUnitNumber!!.error = context?.getString(R.string.fill_field)
-            etUnitNumber!!.requestFocus()
+            tilUnitNumber.error = context?.getString(R.string.fill_field)
+            etUnitNumber.requestFocus()
             return false
         }
 
-        tilUnitNumber!!.isErrorEnabled = false
+        tilUnitNumber.isErrorEnabled = false
         return true
     }
 
     private fun checkTag():Boolean
     {
-        if(etTag!!.text.isEmpty())
+        if(etTag.text.isEmpty())
         {
-            tilTag!!.error = context?.getString(R.string.fill_field)
-            etTag!!.requestFocus()
+            tilTag.error = context?.getString(R.string.fill_field)
+            etTag.requestFocus()
             return false
         }
 
-        tilTag!!.isErrorEnabled = false
+        tilTag.isErrorEnabled = false
         return true
     }
 

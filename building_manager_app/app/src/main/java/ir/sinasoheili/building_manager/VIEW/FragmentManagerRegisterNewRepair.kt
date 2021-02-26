@@ -1,7 +1,6 @@
 package ir.sinasoheili.building_manager.VIEW
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.text.InputType
 import android.view.View
 import android.widget.Button
@@ -20,18 +19,18 @@ import ir.sinasoheili.building_manager.R
 class FragmentManagerRegisterNewRepair constructor(val buildingId : Int, val callback:CallBack) : Fragment(R.layout.fragment_register_new_repair) , ContractManagerRegisterNewRepairView, View.OnClickListener,
     View.OnFocusChangeListener
 {
-    private var etTitle : EditText? = null
-    private var etComment : EditText? = null
-    private var etAmount : EditText? = null
-    private var etDate : EditText? = null
-    private var btnSubmit : Button? = null
-    private var tilTitle : TextInputLayout? = null
-    private var tilComment : TextInputLayout? = null
-    private var tilDate : TextInputLayout? = null
-    private var tilAmount : TextInputLayout? = null
+    private lateinit var etTitle : EditText
+    private lateinit var etComment : EditText
+    private lateinit var etAmount : EditText
+    private lateinit var etDate : EditText
+    private lateinit var btnSubmit : Button
+    private lateinit var tilTitle : TextInputLayout
+    private lateinit var tilComment : TextInputLayout
+    private lateinit var tilDate : TextInputLayout
+    private lateinit var tilAmount : TextInputLayout
 
-    private var presenter : PresenterManagerRegisterNewRepair? = null
-    private var datePickerDialog : PersianDatePickerDialog? = null
+    private lateinit var presenter : PresenterManagerRegisterNewRepair
+    private lateinit var datePickerDialog : PersianDatePickerDialog
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -52,14 +51,14 @@ class FragmentManagerRegisterNewRepair constructor(val buildingId : Int, val cal
 
         tilDate = view.findViewById(R.id.til_fragment_registerNewRepair_date)
         etDate = view.findViewById(R.id.et_fragment_registerNewRepair_date)
-        etDate!!.setOnClickListener(this)
-        etDate!!.setOnFocusChangeListener(this)
+        etDate.setOnClickListener(this)
+        etDate.setOnFocusChangeListener(this)
 
         tilAmount = view.findViewById(R.id.til_fragment_registerNewRepair_amount)
         etAmount = view.findViewById(R.id.et_fragment_registerNewRepair_amount)
 
         btnSubmit = view.findViewById(R.id.btn_fragment_registerNewRepair_submit)
-        btnSubmit!!.setOnClickListener(this)
+        btnSubmit.setOnClickListener(this)
     }
 
     override fun onClick(view: View?)
@@ -70,19 +69,19 @@ class FragmentManagerRegisterNewRepair constructor(val buildingId : Int, val cal
             {
                 if(checkTitle() && checkComment() && checkDate() && checkAmount())
                 {
-                    val title : String = etTitle!!.text.toString()
-                    val comment : String =  etComment!!.text.toString()
-                    val date : String = etDate!!.text.toString()
-                    val amount : Double = etAmount!!.text.toString().toDouble()
+                    val title : String = etTitle.text.toString()
+                    val comment : String =  etComment.text.toString()
+                    val date : String = etDate.text.toString()
+                    val amount : Double = etAmount.text.toString().toDouble()
 
                     val repair : Repair = Repair(date , comment , title , amount , buildingId)
-                    presenter!!.registerRepair(repair)
+                    presenter.registerRepair(repair)
                 }
             }
 
             etDate ->
             {
-                datePickerDialog!!.showDateDialog(datePickerDialog!! , etDate!!)
+                datePickerDialog.showDateDialog(datePickerDialog , etDate)
             }
         }
     }
@@ -92,7 +91,7 @@ class FragmentManagerRegisterNewRepair constructor(val buildingId : Int, val cal
         if(p1) {
             when(view) {
                 etDate -> {
-                    datePickerDialog!!.showDateDialog(datePickerDialog!! , etDate!!)
+                    datePickerDialog.showDateDialog(datePickerDialog , etDate)
                 }
             }
         }
@@ -100,49 +99,49 @@ class FragmentManagerRegisterNewRepair constructor(val buildingId : Int, val cal
 
     private fun checkTitle():Boolean
     {
-        if(etTitle!!.text.isEmpty())
+        if(etTitle.text.isEmpty())
         {
-            tilTitle?.error = context!!.getString(R.string.fill_field)
-            etTitle?.requestFocus()
+            tilTitle.error = context!!.getString(R.string.fill_field)
+            etTitle.requestFocus()
             return false
         }
-        tilTitle?.isErrorEnabled = false
+        tilTitle.isErrorEnabled = false
         return true
     }
 
     private fun checkComment():Boolean
     {
-        if(etComment!!.text.isEmpty())
+        if(etComment.text.isEmpty())
         {
-            tilComment?.error = context!!.getString(R.string.fill_field)
-            etComment?.requestFocus()
+            tilComment.error = context!!.getString(R.string.fill_field)
+            etComment.requestFocus()
             return false
         }
-        tilComment?.isErrorEnabled = false
+        tilComment.isErrorEnabled = false
         return true
     }
 
     private fun checkDate():Boolean
     {
-        if(etDate!!.text.isEmpty())
+        if(etDate.text.isEmpty())
         {
-            tilDate?.error = context!!.getString(R.string.fill_field)
-            etDate?.requestFocus()
+            tilDate.error = context!!.getString(R.string.fill_field)
+            etDate.requestFocus()
             return false
         }
-        tilDate?.isErrorEnabled = false
+        tilDate.isErrorEnabled = false
         return true
     }
 
     private fun checkAmount():Boolean
     {
-        if(etAmount!!.text.isEmpty())
+        if(etAmount.text.isEmpty())
         {
-            tilAmount?.error = context!!.getString(R.string.fill_field)
-            etAmount?.requestFocus()
+            tilAmount.error = context!!.getString(R.string.fill_field)
+            etAmount.requestFocus()
             return false
         }
-        tilAmount?.isErrorEnabled = false
+        tilAmount.isErrorEnabled = false
         return true
     }
 

@@ -15,13 +15,13 @@ import ir.sinasoheili.building_manager.PRESENTER.UserAuthFilePreferenceHandler
 
 class FragmentSetRoleUser : Fragment(R.layout.fragment_setrole_user) , ContractSetRoleUserView, View.OnClickListener
 {
-    private var tilPhone : TextInputLayout? = null
-    private var tilBuildingId : TextInputLayout? = null
-    private var etPhone : EditText? = null
-    private var etBuildingId : EditText? = null
-    private var btnSubmit : Button? = null
+    private lateinit var tilPhone : TextInputLayout
+    private lateinit var tilBuildingId : TextInputLayout
+    private lateinit var etPhone : EditText
+    private lateinit var etBuildingId : EditText
+    private lateinit var btnSubmit : Button
 
-    private var presenter : PresenterSetRoleUser? = null
+    private lateinit var presenter : PresenterSetRoleUser
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -40,7 +40,7 @@ class FragmentSetRoleUser : Fragment(R.layout.fragment_setrole_user) , ContractS
         etBuildingId = view.findViewById(R.id.et_fragment_setRole_user_buildingId)
 
         btnSubmit = view.findViewById(R.id.btn_fragment_setRole_user_submit)
-        btnSubmit!!.setOnClickListener(this)
+        btnSubmit.setOnClickListener(this)
     }
 
     override fun onClick(view: View?)
@@ -51,10 +51,10 @@ class FragmentSetRoleUser : Fragment(R.layout.fragment_setrole_user) , ContractS
             {
                 if(checkPhone() && checkBuildingId())
                 {
-                    val phone = etPhone!!.text.toString()
-                    val buildingId : Int = etBuildingId!!.text.toString().toInt()
+                    val phone = etPhone.text.toString()
+                    val buildingId : Int = etBuildingId.text.toString().toInt()
 
-                    presenter!!.authenticateUser(phone , buildingId)
+                    presenter.authenticateUser(phone , buildingId)
                 }
             }
         }
@@ -62,26 +62,26 @@ class FragmentSetRoleUser : Fragment(R.layout.fragment_setrole_user) , ContractS
 
     private fun checkPhone():Boolean
     {
-        if(etPhone!!.text.isEmpty())
+        if(etPhone.text.isEmpty())
         {
-            tilPhone!!.error = context!!.getString(R.string.fill_field)
-            etPhone?.requestFocus()
+            tilPhone.error = context!!.getString(R.string.fill_field)
+            etPhone.requestFocus()
             return false
         }
 
-        tilPhone!!.isErrorEnabled = false
+        tilPhone.isErrorEnabled = false
         return true
     }
 
     private fun checkBuildingId():Boolean
     {
-        if(etBuildingId!!.text.isEmpty())
+        if(etBuildingId.text.isEmpty())
         {
-            tilBuildingId!!.error = context!!.getString(R.string.fill_field)
-            etBuildingId?.requestFocus()
+            tilBuildingId.error = context!!.getString(R.string.fill_field)
+            etBuildingId.requestFocus()
             return false
         }
-        tilBuildingId!!.isErrorEnabled = false
+        tilBuildingId.isErrorEnabled = false
         return true
     }
 

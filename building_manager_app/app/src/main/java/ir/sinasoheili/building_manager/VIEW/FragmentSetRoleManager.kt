@@ -2,7 +2,6 @@ package ir.sinasoheili.building_manager.VIEW
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,16 +14,16 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRoleManagerView , View.OnClickListener
 {
-    private var etPhone : EditText? = null
-    private var tilPhone : TextInputLayout? = null
-    private var etPasswd : EditText? = null
-    private var tilPasswd : TextInputLayout? = null
-    private var etPasswdConfirm : EditText? = null
-    private var tilPasswdConfirm : TextInputLayout? = null
-    private var btnSubmit : Button? = null
-    private var progressBar : ProgressBar? = null
+    private lateinit var etPhone : EditText
+    private lateinit var tilPhone : TextInputLayout
+    private lateinit var etPasswd : EditText
+    private lateinit var tilPasswd : TextInputLayout
+    private lateinit var etPasswdConfirm : EditText
+    private lateinit var tilPasswdConfirm : TextInputLayout
+    private lateinit var btnSubmit : Button
+    private lateinit var progressBar : ProgressBar
 
-    private var presenter : PresenterSetRoleManager? = null
+    private lateinit var presenter : PresenterSetRoleManager
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
@@ -50,7 +49,7 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
         tilPasswdConfirm = view.findViewById(R.id.til_fragment_setRole_manager_passwd_confirm)
 
         btnSubmit = view.findViewById(R.id.btn_fragment_setRole_submit)
-        btnSubmit!!.setOnClickListener(this)
+        btnSubmit.setOnClickListener(this)
 
         presenter = PresenterSetRoleManager(this)
 
@@ -65,12 +64,12 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
             {
                 if(checkPhone() && checkPasswordEqual())
                 {
-                    val phone : String = etPhone!!.text.toString()
-                    val passwd : String = etPasswd!!.text.toString()
+                    val phone : String = etPhone.text.toString()
+                    val passwd : String = etPasswd.text.toString()
 
                     visibleProgressBar()
 
-                    presenter!!.registerManager(context!! , phone , passwd)
+                    presenter.registerManager(context!! , phone , passwd)
                 }
             }
         }
@@ -78,40 +77,40 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
 
     private fun checkPhone() : Boolean
     {
-        val phone:String = etPhone!!.text.toString()
+        val phone:String = etPhone.text.toString()
         if((phone.length != 11) || phone.isEmpty())
         {
-            tilPhone?.error = getString(R.string.fill_field)
-            etPhone?.requestFocus()
+            tilPhone.error = getString(R.string.fill_field)
+            etPhone.requestFocus()
             return false
         }
-        tilPhone?.isErrorEnabled = false
+        tilPhone.isErrorEnabled = false
         return true
     }
 
     private fun checkPasswd() : Boolean
     {
-        val passwd : String = etPasswd!!.text.toString()
+        val passwd : String = etPasswd.text.toString()
         if(passwd.isEmpty())
         {
-            tilPasswd?.error = getString(R.string.fill_field)
-            etPasswd?.requestFocus()
+            tilPasswd.error = getString(R.string.fill_field)
+            etPasswd.requestFocus()
             return false
         }
-        tilPasswd?.isErrorEnabled = false
+        tilPasswd.isErrorEnabled = false
         return true
     }
 
     private fun checkPasswdConfirm() : Boolean
     {
-        val passwd : String = etPasswdConfirm!!.text.toString()
+        val passwd : String = etPasswdConfirm.text.toString()
         if(passwd.isEmpty())
         {
-            tilPasswdConfirm?.error = getString(R.string.fill_field)
-            etPasswdConfirm?.requestFocus()
+            tilPasswdConfirm.error = getString(R.string.fill_field)
+            etPasswdConfirm.requestFocus()
             return false
         }
-        tilPasswdConfirm?.isErrorEnabled = false
+        tilPasswdConfirm.isErrorEnabled = false
         return true
     }
 
@@ -119,18 +118,18 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
     {
         if(checkPasswd() && checkPasswdConfirm())
         {
-            val passwd : String = etPasswd!!.text.toString()
-            val passwdConfirm : String = etPasswdConfirm!!.text.toString()
+            val passwd : String = etPasswd.text.toString()
+            val passwdConfirm : String = etPasswdConfirm.text.toString()
 
             if(passwd.equals(passwdConfirm))
             {
-                tilPasswdConfirm?.isErrorEnabled = false
+                tilPasswdConfirm.isErrorEnabled = false
                 return true
             }
             else
             {
-                tilPasswdConfirm?.error = getString(R.string.invalid)
-                etPasswdConfirm?.requestFocus()
+                tilPasswdConfirm.error = getString(R.string.invalid)
+                etPasswdConfirm.requestFocus()
             }
         }
 
@@ -150,10 +149,10 @@ class FragmentSetRoleManager : Fragment() , ContractSetRoleManager.ContractSetRo
     }
 
     override fun goneProgressBar() {
-        progressBar!!.visibility = ProgressBar.GONE
+        progressBar.visibility = ProgressBar.GONE
     }
 
     private fun visibleProgressBar() {
-        progressBar!!.visibility = ProgressBar.VISIBLE
+        progressBar.visibility = ProgressBar.VISIBLE
     }
 }

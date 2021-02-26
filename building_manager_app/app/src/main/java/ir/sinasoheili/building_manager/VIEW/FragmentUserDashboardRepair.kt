@@ -12,12 +12,12 @@ import ir.sinasoheili.building_manager.PRESENTER.PresenterUserDashboardRepair
 
 class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_repair_fragment) , ContractUserDashboardRepairView, View.OnClickListener
 {
-    private var listView : ListView? = null
-    private var ivRefresh : ImageView? = null
-    private var progressBar:ProgressBar? = null
-    private var tvEmptyList : TextView? = null
+    private lateinit var listView : ListView
+    private lateinit var ivRefresh : ImageView
+    private lateinit var progressBar:ProgressBar
+    private lateinit var tvEmptyList : TextView
 
-    private var presenter : PresenterUserDashboardRepair? = null
+    private lateinit var presenter : PresenterUserDashboardRepair
     private var isFragmentEnable : Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
@@ -25,7 +25,7 @@ class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_repair_frag
         initObj(view)
 
         visibleProgressBar()
-        presenter!!.getRepairList()
+        presenter.getRepairList()
     }
 
     private fun initObj(view:View)
@@ -37,7 +37,7 @@ class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_repair_frag
         listView = view.findViewById(R.id.lv_userDashboard_repair_List)
 
         ivRefresh = view.findViewById(R.id.iv_userDashboard_repair_refresh)
-        ivRefresh!!.setOnClickListener(this)
+        ivRefresh.setOnClickListener(this)
 
         progressBar = view.findViewById(R.id.pb_userDashboard_repair_progressBar)
 
@@ -62,7 +62,7 @@ class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_repair_frag
             invisibleEmptyListAlert()
 
             val adapter : UserRepairListAdapter = UserRepairListAdapter(context!! , items)
-            listView!!.adapter = adapter
+            listView.adapter = adapter
         }
     }
 
@@ -85,7 +85,7 @@ class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_repair_frag
                 invisibleRefreshButton()
                 visibleProgressBar()
                 invisibleListView()
-                presenter!!.getRepairList()
+                presenter.getRepairList()
             }
         }
     }
@@ -93,49 +93,49 @@ class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_repair_frag
     private fun visibleProgressBar()
     {
         if(isFragmentEnable)
-            progressBar?.visibility = View.VISIBLE
+            progressBar.visibility = View.VISIBLE
     }
 
     private fun invisibleProgressBar()
     {
         if(isFragmentEnable)
-            progressBar?.visibility = View.GONE
+            progressBar.visibility = View.GONE
     }
 
     private fun visibleRefreshButton()
     {
         if(isFragmentEnable)
-            ivRefresh?.visibility = View.VISIBLE
+            ivRefresh.visibility = View.VISIBLE
     }
 
     private fun invisibleRefreshButton()
     {
         if(isFragmentEnable)
-            ivRefresh?.visibility = View.GONE
+            ivRefresh.visibility = View.GONE
     }
 
     private fun visibleListView()
     {
         if(isFragmentEnable)
-            listView?.visibility = View.VISIBLE
+            listView.visibility = View.VISIBLE
     }
 
     private fun invisibleListView()
     {
         if(isFragmentEnable)
-            listView?.visibility = View.GONE
+            listView.visibility = View.GONE
     }
 
     private fun visibleEmptyListAlert()
     {
         if(isFragmentEnable)
-            tvEmptyList?.visibility = View.VISIBLE
+            tvEmptyList.visibility = View.VISIBLE
     }
 
     private fun invisibleEmptyListAlert()
     {
         if(isFragmentEnable)
-            tvEmptyList?.visibility = View.GONE
+            tvEmptyList.visibility = View.GONE
     }
 
     override fun onDestroy() {

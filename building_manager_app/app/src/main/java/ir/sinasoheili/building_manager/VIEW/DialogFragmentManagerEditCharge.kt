@@ -1,8 +1,6 @@
 package ir.sinasoheili.building_manager.VIEW
 
-import android.app.ActionBar
 import android.os.Bundle
-import android.text.Editable
 import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
@@ -21,18 +19,18 @@ import ir.sinasoheili.building_manager.R
 
 class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callback:CallBack): DialogFragment(), ContractDialogFragmentManagerEditCharge.ContractDialogFragmentManagerEditChargeView , View.OnClickListener,
     View.OnFocusChangeListener {
-    private var etAmount : EditText? = null
-    private var etIssueDate : EditText? = null
-    private var etPayDate : EditText? = null
-    private var spinner : Spinner? = null
-    private var btnSubmit : Button? = null
-    private var btnDelete : Button? = null
-    private var tilAmount : TextInputLayout? = null
-    private var tilPaydate: TextInputLayout? = null
-    private var tilIssueDate : TextInputLayout? = null
+    private lateinit var etAmount : EditText
+    private lateinit var etIssueDate : EditText
+    private lateinit var etPayDate : EditText
+    private lateinit var spinner : Spinner
+    private lateinit var btnSubmit : Button
+    private lateinit var btnDelete : Button
+    private lateinit var tilAmount : TextInputLayout
+    private lateinit var tilPaydate: TextInputLayout
+    private lateinit var tilIssueDate : TextInputLayout
 
-    private var presenter : PresenterManagerDialogEditCharge? = null
-    private var datePickerDialog : PersianDatePickerDialog? = null
+    private lateinit var presenter : PresenterManagerDialogEditCharge
+    private lateinit var datePickerDialog : PersianDatePickerDialog
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
@@ -64,36 +62,36 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
 
         tilIssueDate = view.findViewById(R.id.til_dialogFragmentEditCharge_issueDate)
         etIssueDate = view.findViewById(R.id.et_dialogFragmentEditCharge_issueDate)
-        etIssueDate!!.setOnClickListener(this)
-        etIssueDate!!.setOnFocusChangeListener(this)
+        etIssueDate.setOnClickListener(this)
+        etIssueDate.setOnFocusChangeListener(this)
 
         tilPaydate = view.findViewById(R.id.til_dialogFragmentEditCharge_payDate)
         etPayDate = view.findViewById(R.id.et_dialogFragmentEditCharge_payDate)
-        etPayDate!!.setOnClickListener(this)
-        etPayDate!!.setOnFocusChangeListener(this)
+        etPayDate.setOnClickListener(this)
+        etPayDate.setOnFocusChangeListener(this)
 
         spinner = view.findViewById(R.id.sp_dialogFragmentEditCharge_status)
         initSpinner()
 
         btnDelete = view.findViewById(R.id.btn_dialogFragmentEditCharge_delete)
-        btnDelete!!.setOnClickListener(this)
+        btnDelete.setOnClickListener(this)
 
         btnSubmit = view.findViewById(R.id.btn_dialogFragmentEditCharge_submit)
-        btnSubmit!!.setOnClickListener(this)
+        btnSubmit.setOnClickListener(this)
     }
 
     private fun fillItem()
     {
-        etAmount!!.setText(charge.amount.toString())
-        etIssueDate!!.setText(Charge.convertDate(charge.issue_date))
-        spinner!!.setSelection(charge.status)
+        etAmount.setText(charge.amount.toString())
+        etIssueDate.setText(Charge.convertDate(charge.issue_date))
+        spinner.setSelection(charge.status)
         if(charge.pay_date == null)
         {
-            etPayDate!!.setText("")
+            etPayDate.setText("")
         }
         else
         {
-            etPayDate!!.setText(Charge.convertDate(charge.pay_date!!))
+            etPayDate.setText(Charge.convertDate(charge.pay_date!!))
         }
     }
 
@@ -102,7 +100,7 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
         val statusArray : Array<ChargeStatus> = arrayOf(ChargeStatus.unpaid , ChargeStatus.paid)
         val adapter : ArrayAdapter<ChargeStatus> = ArrayAdapter(context!! , android.R.layout.simple_spinner_item , statusArray)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner!!.adapter = adapter
+        spinner.adapter = adapter
     }
 
     override fun onClick(view: View?)
@@ -113,40 +111,40 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
             {
                 if(checkAmount() && checkIssueDate())
                 {
-                    val amount : Double = etAmount!!.text.toString().toDouble()
-                    val status : ChargeStatus = spinner!!.selectedItem as ChargeStatus
-                    val issueDate : String = etIssueDate!!.text.toString()
+                    val amount : Double = etAmount.text.toString().toDouble()
+                    val status : ChargeStatus = spinner.selectedItem as ChargeStatus
+                    val issueDate : String = etIssueDate.text.toString()
 
-                    var newCharge : Charge? = null
+                    val newCharge : Charge
 
-                    if(etPayDate!!.text!!.isEmpty())
+                    if(etPayDate.text!!.isEmpty())
                     {
                         newCharge = Charge(charge.id , amount , status , issueDate , charge.manager_id , charge.building_id , charge.unit_number)
                     }
                     else
                     {
-                        val payDate : String = etPayDate!!.text.toString()
+                        val payDate : String = etPayDate.text.toString()
 
                         newCharge = Charge(charge.id , amount , status , issueDate , payDate , charge.manager_id , charge.building_id , charge.unit_number)
                     }
 
-                    presenter!!.updateCharge(newCharge)
+                    presenter.updateCharge(newCharge)
                 }
             }
 
             btnDelete ->
             {
-                presenter!!.deleteCharge(charge)
+                presenter.deleteCharge(charge)
             }
 
             etIssueDate ->
             {
-                datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
+                datePickerDialog.showDateDialog(datePickerDialog , etIssueDate)
             }
 
             etPayDate ->
             {
-                datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+                datePickerDialog.showDateDialog(datePickerDialog , etPayDate)
             }
         }
     }
@@ -156,11 +154,11 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
         if(p1) {
             when(view) {
                 etIssueDate -> {
-                    datePickerDialog!!.showDateDialog(datePickerDialog!! , etIssueDate!!)
+                    datePickerDialog.showDateDialog(datePickerDialog , etIssueDate)
                 }
 
                 etPayDate -> {
-                    datePickerDialog!!.showDateDialog(datePickerDialog!! , etPayDate!!)
+                    datePickerDialog.showDateDialog(datePickerDialog , etPayDate)
                 }
             }
         }
@@ -168,27 +166,27 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
 
     private fun checkAmount():Boolean
     {
-        if(etAmount!!.text.isEmpty())
+        if(etAmount.text.isEmpty())
         {
-            tilAmount!!.error = context?.getString(R.string.fill_field)
-            etAmount?.requestFocus()
+            tilAmount.error = context?.getString(R.string.fill_field)
+            etAmount.requestFocus()
             return false
         }
 
-        tilAmount?.isErrorEnabled = false
+        tilAmount.isErrorEnabled = false
         return true
     }
 
     private fun checkIssueDate():Boolean
     {
-        if(etIssueDate!!.text.isEmpty())
+        if(etIssueDate.text.isEmpty())
         {
-            tilIssueDate!!.error = context?.getString(R.string.fill_field)
-            tilIssueDate?.requestFocus()
+            tilIssueDate.error = context?.getString(R.string.fill_field)
+            tilIssueDate.requestFocus()
             return false
         }
 
-        tilIssueDate?.isErrorEnabled = false
+        tilIssueDate.isErrorEnabled = false
         return true
     }
 
@@ -215,7 +213,7 @@ class DialogFragmentManagerEditCharge constructor(val charge:Charge , val callba
         fun onChargeUpdated()
     }
 
-    fun PersianDatePickerDialog.showDateDialog(dateDialog : PersianDatePickerDialog, etDate:EditText)
+    private fun PersianDatePickerDialog.showDateDialog(dateDialog : PersianDatePickerDialog, etDate:EditText)
     {
         //set input type to null because when open dialog and keyboard screen flashed
         etDate.inputType = InputType.TYPE_NULL

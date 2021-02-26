@@ -17,15 +17,15 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentManagerReceiptInfo constructor(val receipt:Receipt , val callback:CallBack) : Fragment(R.layout.fragment_receipt_info) ,  ContractManagerReceiptInfo.ContractManagerReceiptInfoView, View.OnClickListener
 {
-    private var btnDelete : Button? = null
-    private var tvType : TextView? = null
-    private var tvPayDate : TextView? = null
-    private var tvIssueDate : TextView? = null
-    private var tvAmount : TextView? = null
-    private var tvIdReceipt : TextView? = null
-    private var tvIdPayment : TextView? = null
+    private lateinit var btnDelete : Button
+    private lateinit var tvType : TextView
+    private lateinit var tvPayDate : TextView
+    private lateinit var tvIssueDate : TextView
+    private lateinit var tvAmount : TextView
+    private lateinit var tvIdReceipt : TextView
+    private lateinit var tvIdPayment : TextView
 
-    private var presenter : PresenterManagerReceiptInfo? = null
+    private lateinit var presenter : PresenterManagerReceiptInfo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -38,7 +38,7 @@ class FragmentManagerReceiptInfo constructor(val receipt:Receipt , val callback:
         presenter = PresenterManagerReceiptInfo(view.context , this)
 
         btnDelete = view.findViewById(R.id.btn_fragmentReceiptInfo_delete)
-        btnDelete!!.setOnClickListener(this)
+        btnDelete.setOnClickListener(this)
 
         tvType = view.findViewById(R.id.tv_fragmentReceiptInfo_type)
         tvPayDate = view.findViewById(R.id.tv_fragmentReceiptInfo_payDate)
@@ -50,12 +50,12 @@ class FragmentManagerReceiptInfo constructor(val receipt:Receipt , val callback:
 
     private fun fillField()
     {
-        tvType!!.text = ReceiptType.getReceipt(receipt.type).toString()
-        tvPayDate!!.text = Receipt.convertDate(receipt.pay_date)
-        tvIssueDate!!.text = Receipt.convertDate(receipt.issue_date)
-        tvAmount!!.text = receipt.amount.toString()
-        tvIdReceipt!!.text = receipt.id_receipt
-        tvIdPayment!!.text = receipt.id_payment
+        tvType.text = ReceiptType.getReceipt(receipt.type).toString()
+        tvPayDate.text = Receipt.convertDate(receipt.pay_date)
+        tvIssueDate.text = Receipt.convertDate(receipt.issue_date)
+        tvAmount.text = receipt.amount.toString()
+        tvIdReceipt.text = receipt.id_receipt
+        tvIdPayment.text = receipt.id_payment
     }
 
     override fun onClick(view: View?)
@@ -78,7 +78,7 @@ class FragmentManagerReceiptInfo constructor(val receipt:Receipt , val callback:
         {
             override fun onClick(p0: DialogInterface?, p1: Int)
             {
-                presenter!!.deleteReceipt(receipt)
+                presenter.deleteReceipt(receipt)
             }
 
         })

@@ -3,11 +3,8 @@ package ir.sinasoheili.building_manager.VIEW
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -18,12 +15,12 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentManagerNotificationInfo constructor(val notification:Notification , val callback:CallBack): Fragment(R.layout.fragment_manager_notification_info) , ContractManagerNotificationInfo.ContractManagerNotificationInfoView, View.OnClickListener
 {
-    private var btnDelete : Button? = null
-    private var tvTitle : TextView? = null
-    private var tvText : TextView? = null
-    private var tvDate : TextView? = null
+    private lateinit var btnDelete : Button
+    private lateinit var tvTitle : TextView
+    private lateinit var tvText : TextView
+    private lateinit var tvDate : TextView
 
-    private var presenter : PresenterManagerNotificationInfo? = null
+    private lateinit var presenter : PresenterManagerNotificationInfo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -37,7 +34,7 @@ class FragmentManagerNotificationInfo constructor(val notification:Notification 
         presenter = PresenterManagerNotificationInfo(view.context , this)
 
         btnDelete = view.findViewById(R.id.btn_fragmentNotificationInfo_delete)
-        btnDelete!!.setOnClickListener(this)
+        btnDelete.setOnClickListener(this)
 
         tvTitle = view.findViewById(R.id.tv_fragmentNotificationInfo_title)
         tvText  = view.findViewById(R.id.tv_fragmentNotificationInfo_text)
@@ -46,9 +43,9 @@ class FragmentManagerNotificationInfo constructor(val notification:Notification 
 
     private fun fillField()
     {
-        tvTitle!!.text = notification.title
-        tvText!!.text = notification.text
-        tvDate!!.text = Notification.convertDate(notification.date)
+        tvTitle.text = notification.title
+        tvText.text = notification.text
+        tvDate.text = Notification.convertDate(notification.date)
     }
 
     override fun onClick(view: View?)
@@ -71,7 +68,7 @@ class FragmentManagerNotificationInfo constructor(val notification:Notification 
         {
             override fun onClick(p0: DialogInterface?, p1: Int)
             {
-                presenter!!.deleteNotification(notification)
+                presenter.deleteNotification(notification)
             }
 
         })

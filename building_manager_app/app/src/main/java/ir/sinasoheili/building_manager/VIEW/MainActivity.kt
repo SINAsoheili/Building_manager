@@ -3,17 +3,15 @@ package ir.sinasoheili.building_manager
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import ir.sinasoheili.building_manager.PRESENTER.UserAuthFilePreferenceHandler
 import ir.sinasoheili.building_manager.VIEW.*
 
 class MainActivity : AppCompatActivity() , View.OnClickListener
 {
-    private var btn_manager:Button? = null
-    private var btn_user:Button? = null
+    private lateinit var btn_manager:Button
+    private lateinit var btn_user:Button
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -50,10 +48,10 @@ class MainActivity : AppCompatActivity() , View.OnClickListener
     private fun initObj()
     {
         btn_manager = findViewById(R.id.btn_setRole_manager)
-        btn_manager?.setOnClickListener(this)
+        btn_manager.setOnClickListener(this)
 
         btn_user = findViewById(R.id.btn_setRole_user)
-        btn_user?.setOnClickListener(this)
+        btn_user.setOnClickListener(this)
     }
 
     override fun onClick(view: View?)

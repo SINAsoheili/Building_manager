@@ -5,7 +5,6 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -16,13 +15,13 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentManagerRepairInfo constructor(val repair:Repair , val callback:CallBack): Fragment(R.layout.fragment_repair_info) , ContractManagerRepairInfo.ContractManagerRepairInfoView , View.OnClickListener
 {
-    private var btnDelete : Button? = null
-    private var tvTitle : TextView? = null
-    private var tvComment : TextView? = null
-    private var tvAmount : TextView? = null
-    private var tvDate : TextView? = null
+    private lateinit var btnDelete : Button
+    private lateinit var tvTitle : TextView
+    private lateinit var tvComment : TextView
+    private lateinit var tvAmount : TextView
+    private lateinit var tvDate : TextView
 
-    private var presenter:PresenterManagerRepairInfo? = null
+    private lateinit var presenter:PresenterManagerRepairInfo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -36,7 +35,7 @@ class FragmentManagerRepairInfo constructor(val repair:Repair , val callback:Cal
         presenter = PresenterManagerRepairInfo(view.context , this)
 
         btnDelete = view.findViewById(R.id.btn_fragmentRepairInfo_delete)
-        btnDelete!!.setOnClickListener(this)
+        btnDelete.setOnClickListener(this)
 
         tvTitle = view.findViewById(R.id.tv_fragmentRepairInfo_title)
         tvComment = view.findViewById(R.id.tv_fragmentRepairInfo_comment)
@@ -46,10 +45,10 @@ class FragmentManagerRepairInfo constructor(val repair:Repair , val callback:Cal
 
     private fun fillField()
     {
-        tvTitle!!.text = repair.title
-        tvComment!!.text = repair.comment
-        tvDate!!.text = Repair.convertDate(repair.date)
-        tvAmount!!.text = repair.amount.toString()
+        tvTitle.text = repair.title
+        tvComment.text = repair.comment
+        tvDate.text = Repair.convertDate(repair.date)
+        tvAmount.text = repair.amount.toString()
     }
 
     override fun onClick(view: View?)
@@ -73,7 +72,7 @@ class FragmentManagerRepairInfo constructor(val repair:Repair , val callback:Cal
         {
             override fun onClick(p0: DialogInterface?, p1: Int)
             {
-                presenter!!.deleteRepair(repair)
+                presenter.deleteRepair(repair)
             }
 
         })

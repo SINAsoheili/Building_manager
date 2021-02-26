@@ -1,8 +1,6 @@
 package ir.sinasoheili.building_manager.VIEW
 
 import android.content.Context
-import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,11 +9,6 @@ import android.widget.TextView
 import ir.sinasoheili.building_manager.MODEL.Receipt
 import ir.sinasoheili.building_manager.MODEL.ReceiptType
 import ir.sinasoheili.building_manager.R
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.util.*
 
 class ManagerReceiptListAdapter constructor(context:Context ,val items:List<Receipt>) : ArrayAdapter<Receipt>(context , R.layout.manager_receipt_list_item , items)
 {

@@ -1,9 +1,7 @@
 package ir.sinasoheili.building_manager.VIEW
 
-import android.app.DatePickerDialog
 import android.os.Bundle
 import android.text.InputType
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -20,15 +18,15 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentManagerRegisterNewNotification(val buildingId : Int,val  callback:CallBack) : Fragment(R.layout.fragment_register_new_notification), View.OnClickListener , ContractManagerRegisterNewNotification.ContractManagerRegisterNewNotificationView,
     View.OnFocusChangeListener {
-    private var tilTitle : TextInputLayout? = null
-    private var tilMessage : TextInputLayout? = null
-    private var etTitle : EditText? = null
-    private var etText : EditText? = null
-    private var btnSubmit : Button? = null
-    private var etDate : EditText? = null
-    private var tilDate : TextInputLayout? = null
+    private lateinit var tilTitle : TextInputLayout
+    private lateinit var tilMessage : TextInputLayout
+    private lateinit var etTitle : EditText
+    private lateinit var etText : EditText
+    private lateinit var btnSubmit : Button
+    private lateinit var etDate : EditText
+    private lateinit var tilDate : TextInputLayout
 
-    private var presenter : PresenterManagerRegisterNewNotification? = null
+    private lateinit var presenter : PresenterManagerRegisterNewNotification
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -45,11 +43,11 @@ class FragmentManagerRegisterNewNotification(val buildingId : Int,val  callback:
 
         tilDate = view.findViewById(R.id.til_fragment_registerNewNotification_date)
         etDate = view.findViewById(R.id.et_fragment_registerNewNotification_date)
-        etDate?.setOnClickListener(this)
-        etDate?.setOnFocusChangeListener(this)
+        etDate.setOnClickListener(this)
+        etDate.setOnFocusChangeListener(this)
 
         btnSubmit = view.findViewById(R.id.btn_fragment_registerNewNotification_submit)
-        btnSubmit!!.setOnClickListener(this)
+        btnSubmit.setOnClickListener(this)
 
         presenter = PresenterManagerRegisterNewNotification(view.context , this)
     }
@@ -62,20 +60,20 @@ class FragmentManagerRegisterNewNotification(val buildingId : Int,val  callback:
             {
                 if(checkTitle() && checkText() && checkDate())
                 {
-                    val title : String = etTitle!!.text.toString()
-                    val text : String = etText!!.text.toString()
-                    val date : String = etDate!!.text.toString()
+                    val title : String = etTitle.text.toString()
+                    val text : String = etText.text.toString()
+                    val date : String = etDate.text.toString()
 
                     val notification : Notification = Notification(title , text , date , buildingId)
 
-                    presenter!!.registerNewNotification(notification)
+                    presenter.registerNewNotification(notification)
                 }
             }
 
             etDate ->
             {
                 val dialog : PersianDatePickerDialog = PersianDatePickerDialog(context)
-                dialog.showDateDialog(dialog , etDate!!)
+                dialog.showDateDialog(dialog , etDate)
             }
         }
     }
@@ -87,45 +85,45 @@ class FragmentManagerRegisterNewNotification(val buildingId : Int,val  callback:
             p0!!.equals(etDate) && p1 ->
             {
                 val dialog : PersianDatePickerDialog = PersianDatePickerDialog(context)
-                dialog.showDateDialog(dialog , etDate!!)
+                dialog.showDateDialog(dialog , etDate)
             }
         }
     }
 
     private fun checkDate():Boolean
     {
-        if(etDate!!.text.isEmpty())
+        if(etDate.text.isEmpty())
         {
-            tilDate!!.error = context!!.getString(R.string.fill_field)
-            etDate!!.requestFocus()
+            tilDate.error = context!!.getString(R.string.fill_field)
+            etDate.requestFocus()
             return false
         }
 
-        tilDate!!.isErrorEnabled = false
+        tilDate.isErrorEnabled = false
         return true
     }
 
     private fun checkTitle():Boolean
     {
-        if(etTitle!!.text.isEmpty())
+        if(etTitle.text.isEmpty())
         {
-            tilTitle!!.error = context!!.getString(R.string.fill_field)
-            etTitle?.requestFocus()
+            tilTitle.error = context!!.getString(R.string.fill_field)
+            etTitle.requestFocus()
             return false
         }
-        tilTitle!!.isErrorEnabled = false
+        tilTitle.isErrorEnabled = false
         return true
     }
 
     private fun checkText():Boolean
     {
-        if(etText!!.text.isEmpty())
+        if(etText.text.isEmpty())
         {
-            tilMessage!!.error = context!!.getString(R.string.fill_field)
-            etText?.requestFocus()
+            tilMessage.error = context!!.getString(R.string.fill_field)
+            etText.requestFocus()
             return false
         }
-        tilMessage!!.isErrorEnabled = false
+        tilMessage.isErrorEnabled = false
         return true
     }
 

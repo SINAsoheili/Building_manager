@@ -10,18 +10,17 @@ import ir.sinasoheili.building_manager.R
 import ir.sinasoheili.building_manager.VIEW.FragmentManagerRegisterNewReceipt.CallBack
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerReceipt.ContractManagerReceiptView
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerReceipt
-import kotlinx.android.synthetic.main.fragment_setrole_manager.*
 
 class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView , View.OnClickListener
 {
-    private var fabRegisterReceipt : FloatingActionButton? = null
-    private var listView : ListView? = null
-    private var ivRefresh : ImageView? = null
-    private var tvEmptyList : TextView? = null
-    private var progressBar : ProgressBar? = null
+    private lateinit var fabRegisterReceipt : FloatingActionButton
+    private lateinit var listView : ListView
+    private lateinit var ivRefresh : ImageView
+    private lateinit var tvEmptyList : TextView
+    private lateinit var progressBar : ProgressBar
 
     private var buildingId : Int = -1
-    private var presenter : PresenterManagerReceipt? = null
+    private lateinit var presenter : PresenterManagerReceipt
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -36,7 +35,7 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
 
         initObj()
         visibleProgressBar()
-        presenter!!.fetchReceiptList(buildingId)
+        presenter.fetchReceiptList(buildingId)
     }
 
     private fun initObj()
@@ -44,12 +43,12 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
         presenter = PresenterManagerReceipt(this , this)
 
         fabRegisterReceipt = findViewById(R.id.fab_managerReceipt_AddReceipt)
-        fabRegisterReceipt!!.setOnClickListener(this)
+        fabRegisterReceipt.setOnClickListener(this)
 
         listView = findViewById(R.id.lv_managerReceipt_receiptList)
 
         ivRefresh = findViewById(R.id.iv_managerReceipt_refresh)
-        ivRefresh!!.setOnClickListener(this)
+        ivRefresh.setOnClickListener(this)
 
         progressBar = findViewById(R.id.pb_managerReceipt_progressBar)
 
@@ -70,7 +69,7 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
                 invisibleRefreshButton()
                 visibleProgressBar()
 
-                presenter!!.fetchReceiptList(buildingId)
+                presenter.fetchReceiptList(buildingId)
             }
         }
     }
@@ -109,8 +108,8 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
 
         val reversedItems : List<Receipt> = items.reversed()
         val adapter : ManagerReceiptListAdapter = ManagerReceiptListAdapter(this , reversedItems)
-        listView!!.adapter = adapter
-        listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener
+        listView.adapter = adapter
+        listView.setOnItemClickListener(object:AdapterView.OnItemClickListener
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
@@ -126,7 +125,7 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
         {
             override fun onReceiptDeleted()
             {
-                presenter!!.fetchReceiptList(buildingId)
+                presenter.fetchReceiptList(buildingId)
             }
 
         })
@@ -140,7 +139,7 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
             override fun onRegisteredReceipt()
             {
                 visibleProgressBar()
-                presenter!!.fetchReceiptList(buildingId)
+                presenter.fetchReceiptList(buildingId)
             }
 
         })
@@ -154,41 +153,41 @@ class ManagerReceiptActivity : AppCompatActivity() , ContractManagerReceiptView 
 
     private fun visibleListView()
     {
-        listView!!.visibility = View.VISIBLE
+        listView.visibility = View.VISIBLE
     }
 
     private fun invisibleListView()
     {
-        listView!!.visibility = View.GONE
+        listView.visibility = View.GONE
     }
 
     private fun visibleRefreshButton()
     {
-        ivRefresh!!.visibility = View.VISIBLE
+        ivRefresh.visibility = View.VISIBLE
     }
 
     private fun invisibleRefreshButton()
     {
-        ivRefresh!!.visibility = View.GONE
+        ivRefresh.visibility = View.GONE
     }
 
     private fun visibleTextViewEmptyListAlert()
     {
-        tvEmptyList!!.visibility = View.VISIBLE
+        tvEmptyList.visibility = View.VISIBLE
     }
 
     private fun invisibleTextViewEmptyListAlert()
     {
-        tvEmptyList!!.visibility = View.GONE
+        tvEmptyList.visibility = View.GONE
     }
 
     private fun visibleProgressBar()
     {
-        progressBar!!.visibility = View.VISIBLE
+        progressBar.visibility = View.VISIBLE
     }
 
     private fun invisibleProgressBar()
     {
-        progressBar!!.visibility = View.GONE
+        progressBar.visibility = View.GONE
     }
 }

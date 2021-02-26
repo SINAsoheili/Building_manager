@@ -7,27 +7,26 @@ import androidx.fragment.app.Fragment
 import ir.sinasoheili.building_manager.MODEL.Building
 import ir.sinasoheili.building_manager.PRESENTER.ContractManagerBuildingInfo.ContractManagerBuildingInfoView
 import ir.sinasoheili.building_manager.PRESENTER.PresenterManagerBuildingInfo
-import ir.sinasoheili.building_manager.PRESENTER.UserAuthFilePreferenceHandler
 import ir.sinasoheili.building_manager.R
 import kotlinx.android.synthetic.main.fragment_building_info.*
 
 class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fragment_building_info) , ContractManagerBuildingInfoView , View.OnClickListener
 {
-    private var tvName : TextView? = null
-    private var tvAddress : TextView? = null
-    private var tvUnitCount : TextView? = null
-    private var tvBuildingId : TextView? = null
-    private var ivRefresh : ImageView? = null
-    private var container : LinearLayout? = null
-    private var progressBar : ProgressBar? = null
+    private lateinit var tvName : TextView
+    private lateinit var tvAddress : TextView
+    private lateinit var tvUnitCount : TextView
+    private lateinit var tvBuildingId : TextView
+    private lateinit var ivRefresh : ImageView
+    private lateinit var container : LinearLayout
+    private lateinit var progressBar : ProgressBar
 
-    private var presenter : PresenterManagerBuildingInfo? = null
+    private lateinit var presenter : PresenterManagerBuildingInfo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
         initObj(view)
         visibleProgressBar()
-        presenter!!.getBuildingInfo(buildingId)
+        presenter.getBuildingInfo(buildingId)
     }
 
     private fun initObj(view:View)
@@ -42,7 +41,7 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
         tvBuildingId = view.findViewById(R.id.tv_building_info_buildingId)
 
         ivRefresh = view.findViewById(R.id.iv_building_info_refresh)
-        ivRefresh!!.setOnClickListener(this)
+        ivRefresh.setOnClickListener(this)
 
         progressBar = view.findViewById(R.id.pb_building_info_progressBar)
     }
@@ -53,10 +52,10 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
         invisibleProgressBar()
         visibleItem()
 
-        tvName!!.text = building.name
-        tvAddress!!.text = building.address
-        tvUnitCount!!.text = building.unit_count.toString()
-        tvBuildingId!!.text = building.id.toString()
+        tvName.text = building.name
+        tvAddress.text = building.address
+        tvUnitCount.text = building.unit_count.toString()
+        tvBuildingId.text = building.id.toString()
     }
 
     override fun showRefreshButton()
@@ -86,12 +85,12 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
 
     private fun invisibleRefreshButton()
     {
-        ivRefresh!!.visibility = View.GONE
+        ivRefresh.visibility = View.GONE
     }
 
     private fun visibleRefreshButton()
     {
-        ivRefresh!!.visibility = View.VISIBLE
+        ivRefresh.visibility = View.VISIBLE
     }
 
     override fun onClick(p0: View?)
@@ -103,18 +102,18 @@ class FragmentBuildingInfo constructor(val buildingId:Int): Fragment(R.layout.fr
                 invisibleRefreshButton()
                 visibleProgressBar()
                 invisibleItem()
-                presenter!!.getBuildingInfo(buildingId)
+                presenter.getBuildingInfo(buildingId)
             }
         }
     }
 
     private fun visibleProgressBar()
     {
-        progressBar?.visibility = View.VISIBLE
+        progressBar.visibility = View.VISIBLE
     }
 
     private fun invisibleProgressBar()
     {
-        progressBar?.visibility = View.GONE
+        progressBar.visibility = View.GONE
     }
 }

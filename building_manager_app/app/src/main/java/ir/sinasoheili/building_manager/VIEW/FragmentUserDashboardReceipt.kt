@@ -11,12 +11,12 @@ import ir.sinasoheili.building_manager.PRESENTER.PresenterUserDashboardReceipt
 
 class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fragment) , ContractUserDashboardReceiptView, View.OnClickListener
 {
-    private var listView : ListView? = null
-    private var ivRefresh : ImageView? = null
-    private var progressBar : ProgressBar? = null
-    private var tvEmptyList : TextView? = null
+    private lateinit var listView : ListView
+    private lateinit var ivRefresh : ImageView
+    private lateinit var progressBar : ProgressBar
+    private lateinit var tvEmptyList : TextView
 
-    private var presenter : PresenterUserDashboardReceipt? = null
+    private lateinit var presenter : PresenterUserDashboardReceipt
     private var isFragmentEnable : Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
@@ -24,7 +24,7 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
         initObj(view)
 
         visibleProgressBar()
-        presenter!!.getReceiptList()
+        presenter.getReceiptList()
     }
 
     private fun initObj(view:View)
@@ -36,7 +36,7 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
         listView = view.findViewById(R.id.lv_userDashboard_receipt_List)
 
         ivRefresh = view.findViewById(R.id.iv_userDashboard_receipt_refresh)
-        ivRefresh!!.setOnClickListener(this)
+        ivRefresh.setOnClickListener(this)
 
         progressBar = view.findViewById(R.id.pb_userDashboard_receipt_progressBar)
 
@@ -61,7 +61,7 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
             invisibleEmptyalert()
 
             val adapter : UserReceiptListAdapter = UserReceiptListAdapter(context!! , items)
-            listView!!.adapter = adapter
+            listView.adapter = adapter
         }
     }
 
@@ -84,7 +84,7 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
                 invisibleRefreshButton()
                 visibleProgressBar()
                 invisibleListView()
-                presenter!!.getReceiptList()
+                presenter.getReceiptList()
             }
         }
     }
@@ -92,49 +92,49 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
     private fun visibleProgressBar()
     {
         if(isFragmentEnable)
-            progressBar?.visibility = View.VISIBLE
+            progressBar.visibility = View.VISIBLE
     }
 
     private fun invisibleProgressBar()
     {
         if(isFragmentEnable)
-            progressBar?.visibility = View.GONE
+            progressBar.visibility = View.GONE
     }
 
     private fun visibleRefreshButton()
     {
         if(isFragmentEnable)
-            ivRefresh?.visibility = View.VISIBLE
+            ivRefresh.visibility = View.VISIBLE
     }
 
     private fun invisibleRefreshButton()
     {
         if(isFragmentEnable)
-            ivRefresh?.visibility = View.GONE
+            ivRefresh.visibility = View.GONE
     }
 
     private fun visibleListView()
     {
         if(isFragmentEnable)
-            listView?.visibility = View.VISIBLE
+            listView.visibility = View.VISIBLE
     }
 
     private fun invisibleListView()
     {
         if(isFragmentEnable)
-            listView?.visibility = View.GONE
+            listView.visibility = View.GONE
     }
 
     private fun visibleEmptyalert()
     {
         if(isFragmentEnable)
-            tvEmptyList?.visibility = View.VISIBLE
+            tvEmptyList.visibility = View.VISIBLE
     }
 
     private fun invisibleEmptyalert()
     {
         if(isFragmentEnable)
-            tvEmptyList?.visibility = View.GONE
+            tvEmptyList.visibility = View.GONE
     }
 
     override fun onDestroy() {

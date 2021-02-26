@@ -12,18 +12,18 @@ import ir.sinasoheili.building_manager.R
 
 class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fragment_charge_list) , ContractManagerChargeList.ContractManagerChargeListView, View.OnClickListener
 {
-    private var listView : ListView? = null
-    private var ivRefresh : ImageView? = null
-    private var tvEmptyList : TextView? = null
-    private var progressBar : ProgressBar? = null
+    private lateinit var listView : ListView
+    private lateinit var ivRefresh : ImageView
+    private lateinit var tvEmptyList : TextView
+    private lateinit var progressBar : ProgressBar
 
-    private var presenter : ContractManagerChargeList.ContractManagerChargeListPresenter? = null
+    private lateinit var presenter : ContractManagerChargeList.ContractManagerChargeListPresenter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
         initObj(view)
         visibleProgressBar()
-        presenter!!.getChargeList(unit.building_id , unit.unit_number)
+        presenter.getChargeList(unit.building_id , unit.unit_number)
     }
 
     private fun initObj(view:View)
@@ -33,7 +33,7 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
         listView = view.findViewById(R.id.lv_fragmentChargeList)
 
         ivRefresh = view.findViewById(R.id.iv_fragmentChargeList_refresh)
-        ivRefresh!!.setOnClickListener(this)
+        ivRefresh.setOnClickListener(this)
 
         progressBar = view.findViewById(R.id.pb_fragmentChargeList_progress)
 
@@ -73,9 +73,9 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
         visibleList()
 
         val adapterManager : ManagerChargeLIstAdapter = ManagerChargeLIstAdapter(context!! , items.reversed())
-        listView!!.adapter = adapterManager
+        listView.adapter = adapterManager
 
-        listView!!.setOnItemClickListener(object:AdapterView.OnItemClickListener
+        listView.setOnItemClickListener(object:AdapterView.OnItemClickListener
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
@@ -83,12 +83,12 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
                 {
                     override fun onChargeDeleted()
                     {
-                        presenter!!.getChargeList(unit.building_id , unit.unit_number)
+                        presenter.getChargeList(unit.building_id , unit.unit_number)
                     }
 
                     override fun onChargeUpdated()
                     {
-                        presenter!!.getChargeList(unit.building_id , unit.unit_number)
+                        presenter.getChargeList(unit.building_id , unit.unit_number)
                     }
 
                 })
@@ -108,48 +108,48 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
                 invisibleList()
                 visibleProgressBar()
 
-                presenter!!.getChargeList(unit.building_id , unit.unit_number)
+                presenter.getChargeList(unit.building_id , unit.unit_number)
             }
         }
     }
 
     private fun visibleRefreshImage()
     {
-        ivRefresh!!.visibility = View.VISIBLE
+        ivRefresh.visibility = View.VISIBLE
     }
 
     private fun invisibleRefreshImage()
     {
-        ivRefresh!!.visibility = View.GONE
+        ivRefresh.visibility = View.GONE
     }
 
     private fun visibleList()
     {
-        listView!!.visibility = View.VISIBLE
+        listView.visibility = View.VISIBLE
     }
 
     private fun invisibleList()
     {
-        listView!!.visibility = View.GONE
+        listView.visibility = View.GONE
     }
 
     private fun visibleTvEmptyList()
     {
-        tvEmptyList!!.visibility = View.VISIBLE
+        tvEmptyList.visibility = View.VISIBLE
     }
 
     private fun invisibleTvEmptyList()
     {
-        tvEmptyList!!.visibility = View.GONE
+        tvEmptyList.visibility = View.GONE
     }
 
     private fun visibleProgressBar()
     {
-        progressBar!!.visibility = View.VISIBLE
+        progressBar.visibility = View.VISIBLE
     }
 
     private fun invisibleProgressBar()
     {
-        progressBar!!.visibility = View.GONE
+        progressBar.visibility = View.GONE
     }
 }
