@@ -51,7 +51,7 @@ class FragmentUserDashboardNotification : Fragment(R.layout.user_dashboard_notif
             invisibleRefreshButton()
             invisibleEmptyAlert()
 
-            val adapter : UserNotificationListAdapter = UserNotificationListAdapter(context!! , items)
+            val adapter : UserNotificationListAdapter = UserNotificationListAdapter(context!! , items.reversed())
             listView.adapter = adapter
         }
     }

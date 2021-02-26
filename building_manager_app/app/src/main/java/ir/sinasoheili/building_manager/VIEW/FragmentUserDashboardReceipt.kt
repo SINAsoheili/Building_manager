@@ -60,7 +60,7 @@ class FragmentUserDashboardReceipt : Fragment(R.layout.user_dashboard_receipt_fr
             invisibleRefreshButton()
             invisibleEmptyalert()
 
-            val adapter : UserReceiptListAdapter = UserReceiptListAdapter(context!! , items)
+            val adapter : UserReceiptListAdapter = UserReceiptListAdapter(context!! , items.reversed())
             listView.adapter = adapter
         }
     }

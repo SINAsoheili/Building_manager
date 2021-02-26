@@ -60,7 +60,7 @@ class FragmentUserDashboardCharge : Fragment(R.layout.user_dashboard_charge_frag
             invisibleProgressBar()
             invisibleEmptyListAlert()
 
-            val adapter : UserChargeLIstAdapter = UserChargeLIstAdapter(context!! , items)
+            val adapter : UserChargeLIstAdapter = UserChargeLIstAdapter(context!! , items.reversed())
             listView.adapter = adapter
         }
     }

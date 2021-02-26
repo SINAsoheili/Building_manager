@@ -61,7 +61,7 @@ class FragmentUserDashboardRepair : Fragment(R.layout.user_dashboard_repair_frag
             invisibleProgressBar()
             invisibleEmptyListAlert()
 
-            val adapter : UserRepairListAdapter = UserRepairListAdapter(context!! , items)
+            val adapter : UserRepairListAdapter = UserRepairListAdapter(context!! , items.reversed())
             listView.adapter = adapter
         }
     }
