@@ -79,7 +79,7 @@ class FragmentManagerChargeList constructor(val unit:Unit): Fragment(R.layout.fr
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
-                val dialogFragment : DialogFragmentManagerEditCharge = DialogFragmentManagerEditCharge(items.get(p2) , object:DialogFragmentManagerEditCharge.CallBack
+                val dialogFragment : DialogFragmentManagerEditCharge = DialogFragmentManagerEditCharge(items.reversed().get(p2) , object:DialogFragmentManagerEditCharge.CallBack
                 {
                     override fun onChargeDeleted()
                     {

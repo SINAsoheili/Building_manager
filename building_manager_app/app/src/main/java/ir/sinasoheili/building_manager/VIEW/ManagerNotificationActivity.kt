@@ -128,7 +128,7 @@ class ManagerNotificationActivity : AppCompatActivity() , ContractManagerNotific
         {
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
             {
-                showNotificationFragment(items.get(p2))
+                showNotificationFragment(items.reversed().get(p2))
             }
         })
     }
