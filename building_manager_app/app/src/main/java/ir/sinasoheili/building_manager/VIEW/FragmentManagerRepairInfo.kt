@@ -95,6 +95,7 @@ class FragmentManagerRepairInfo constructor(val repair:Repair , val callback:Cal
 
     override fun onRepairDeleted()
     {
+        fragmentManager?.popBackStack()
         fragmentManager?.beginTransaction()?.remove(this)?.commit()
         callback.onRepirDeleted()
     }

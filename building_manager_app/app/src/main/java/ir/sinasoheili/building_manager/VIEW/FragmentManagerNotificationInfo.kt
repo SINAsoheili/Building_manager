@@ -93,6 +93,7 @@ class FragmentManagerNotificationInfo constructor(val notification:Notification 
     override fun notificationDeleted()
     {
         callback.onNotificationDeleted()
+        fragmentManager?.popBackStack()
         fragmentManager?.beginTransaction()?.remove(this)?.commit()
     }
 

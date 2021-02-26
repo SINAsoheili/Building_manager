@@ -102,6 +102,7 @@ class FragmentManagerReceiptInfo constructor(val receipt:Receipt , val callback:
     override fun ReceiptDelete()
     {
         callback.onReceiptDeleted()
+        fragmentManager?.popBackStack()
         fragmentManager?.beginTransaction()?.remove(this)?.commit()
     }
 
