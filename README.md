@@ -1,30 +1,50 @@
 # Building_manager
 
+### Description:
+**Building Manaager** is an android app that makes for better interaction between building manager and building inhabitants.<br>
+In this project building manager can manage some building and all people they inhabit in those buildings. also manager can register notificaion, receipt , repais and so on.<br>
+This app is useful and useable for building managers and building inhabitants
+
+### Installation:
+For install this app you first need to fork project in you'r repository and clone that in you'r pc.<br>
+open project in android studio and build project.<br>
+Also you need Mysql  or Mariadb to create server side databse.To import data base on you mysql or mariadb you can use followin steps :
+1. create a user for databse `CREATE USER user_name;`
+1. create a database `CREATE DATABASE BUILDING_MANAGER`
+1. import existing databse table into you'r database `mysql -u user_name -p BUILDING_MANAGER < BUILDING_MANAGER.sql`
+
+
+you can find BUILDING_MANAGER.sql file in [Server Side app](https://github.com/SINAsoheili/Building_Manager_server_side) repository.<br>
+For server side you must fork [Server Side app](https://github.com/SINAsoheili/Building_Manager_server_side) and use python 3 to run app.
+
+### Images:
+
 <div>
-  
-  <p>
-    An android app to manage units of building.<br/>
-    You can manage more than one building with this app . Also you can manage repairs , receipts and charge of each unit.<br/>
-    <br/>
-  </p>
-  
-  <big>Some feature of this app:</big><br/>
-  <ul>
-    <li>manage more than one building with one app</li>
-    <li>handle charge , receipt and repairs of building</li>
-    <li>send notification for people who lives in building</li>
-    <li>show information of specific unit of each building</li>
-  </ul>
-  
-  <img  src="images/1.png" width="200px" height="350px"/>&nbsp;
-  <img  src="images/2.png" width="200px" height="350px"/>
+ 
+  <img src="images/1.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <img src="images/2.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <img src="images/3.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <img src="images/4.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
   <br/>
-  <img  src="images/3.png" width="200px" height="350px"/>&nbsp;
-  <img  src="images/4.png" width="200px" height="350px"/>
+  
+  <img src="images/5.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <img src="images/6.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <img src="images/7.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <img src="images/8.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
   <br/>
-  <img  src="images/5.png" width="200px" height="350px"/>&nbsp;
-  <img  src="images/6.png" width="200px" height="350px"/>
+  
+  <img src="images/9.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <img src="images/10.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <img src="images/11.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <img src="images/12.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
   <br/>
-  <img  src="images/7.png" width="200px" height="350px"/>
+  
+  <img src="images/13.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <img src="images/14.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <img src="images/15.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <img src="images/16.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
+  <br/>
+  
+  <img src="images/17.png" style="float: left; margin-right: 10px;" width="200px" height="350px"/>&nbsp;
   
 </div>
